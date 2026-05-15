@@ -20,21 +20,25 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5}
 
-  /* Login screen */
+  /* Login */
   .login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
-  .login-box{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:32px;width:360px;max-width:100%}
+  .login-box{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:32px;width:400px;max-width:100%}
   .login-title{font-family:'Crimson Pro',serif;font-size:24px;font-weight:600;color:var(--text);margin-bottom:4px}
   .login-title span{color:var(--accent)}
-  .login-sub{font-size:12px;color:var(--text3);margin-bottom:24px;line-height:1.6}
-  .login-label{font-size:11px;color:var(--text3);margin-bottom:4px}
-  .login-input-row{display:flex;gap:8px;margin-bottom:8px}
-  .login-input-row input{flex:1}
-  .login-hint{font-size:11px;color:var(--text3);margin-bottom:20px;line-height:1.6}
+  .login-sub{font-size:12px;color:var(--text3);margin-bottom:24px;line-height:1.7}
+  .login-tabs{display:flex;gap:4px;margin-bottom:20px}
+  .login-tab{flex:1;padding:7px;font-size:13px;font-family:'Outfit',sans-serif;font-weight:500;border:1px solid var(--border);border-radius:var(--radius-sm);background:transparent;color:var(--text3);cursor:pointer;transition:all .15s;text-align:center}
+  .login-tab.active{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+  .login-panel{display:none}.login-panel.active{display:block}
+  .flabel{font-size:11px;color:var(--text3);margin-bottom:4px}
+  .fone{margin-bottom:12px}
+  .fone input{width:100%}
+  .login-hint{font-size:11px;color:var(--text3);line-height:1.7;margin-bottom:16px;padding:10px 12px;background:var(--bg3);border-radius:var(--radius-sm)}
   .login-hint strong{color:var(--text2)}
   .btn-login{width:100%;padding:10px;font-size:14px;font-weight:500;font-family:'Outfit',sans-serif;border:1px solid var(--accent);border-radius:var(--radius-sm);background:var(--accent-bg);color:var(--accent);cursor:pointer;transition:all .15s}
   .btn-login:hover{background:var(--accent);color:#fff}
   .btn-login:disabled{opacity:0.5;cursor:not-allowed}
-  .login-error{font-size:12px;color:var(--red);margin-top:10px;display:none}
+  .login-error{font-size:12px;color:var(--red);margin-top:10px;display:none;padding:8px 12px;background:var(--red-bg);border-radius:var(--radius-sm)}
 
   /* Header */
   .header{border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--bg);position:sticky;top:0;z-index:10;flex-wrap:wrap}
@@ -51,6 +55,7 @@
   .hdr-btns{display:flex;gap:6px}
   .hdr-btn{display:flex;align-items:center;gap:5px;padding:6px 12px;font-size:12px;font-family:'Outfit',sans-serif;font-weight:500;border:1px solid var(--border2);border-radius:var(--radius-sm);background:transparent;color:var(--text2);cursor:pointer;white-space:nowrap;transition:all .15s}
   .hdr-btn:hover{color:var(--text);border-color:var(--accent);background:var(--accent-bg)}
+  .hdr-btn.green:hover{border-color:var(--green);color:var(--green);background:var(--green-bg)}
   .hdr-btn.danger:hover{border-color:var(--red);color:var(--red);background:var(--red-bg)}
   .save-indicator{font-size:11px;color:var(--text3);display:flex;align-items:center;gap:5px;white-space:nowrap}
   .save-dot{width:6px;height:6px;border-radius:50%;background:var(--text3)}
@@ -98,13 +103,11 @@
   .move-pill{font-size:10px;background:var(--bg3);border-radius:4px;padding:2px 6px;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .edit-hint{font-size:10px;color:var(--text3);margin-top:2px}
 
-  /* Buttons */
   .add-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;font-size:13px;font-family:'Outfit',sans-serif;border:1px dashed var(--border2);border-radius:var(--radius-sm);background:transparent;color:var(--text3);cursor:pointer;transition:all .15s}
   .add-btn:hover{color:var(--text);border-color:var(--accent);background:var(--accent-bg)}
   .copy-btn{display:block;width:100%;margin-top:20px;padding:10px;font-size:13px;font-family:'Outfit',sans-serif;border:1px solid var(--border2);border-radius:var(--radius-sm);background:transparent;color:var(--text3);cursor:pointer;text-align:center;transition:all .15s}
   .copy-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
 
-  /* Route log */
   .route-list{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
   .route-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px}
   .route-name{font-weight:500;min-width:100px;color:var(--text)}
@@ -117,7 +120,6 @@
   .del-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:14px;padding:2px 5px;border-radius:4px;transition:all .15s}
   .del-btn:hover{background:var(--red-bg);color:var(--red)}
 
-  /* Graveyard */
   .grave-list{display:flex;flex-direction:column;gap:8px}
   .rip-card{background:var(--bg2);border:1px solid rgba(248,113,113,.15);border-radius:var(--radius);padding:12px 14px;display:flex;align-items:center;gap:12px}
   .rip-skull{font-size:18px;opacity:.6}
@@ -127,24 +129,20 @@
   .rip-detail{font-size:11px;color:var(--text3);margin-top:2px}
   .empty{text-align:center;padding:40px 20px;color:var(--text3);font-size:13px;line-height:1.8}
 
-  /* Toast */
   .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:10px 18px;font-size:13px;color:var(--text);z-index:200;transition:transform .25s ease,opacity .25s ease;opacity:0;pointer-events:none;white-space:nowrap}
   .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
   .toast.success{border-color:rgba(74,222,128,.3);color:var(--green)}
   .toast.error{border-color:rgba(248,113,113,.3);color:var(--red)}
 
-  /* Modal */
   .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:100;align-items:flex-start;justify-content:center;padding:60px 16px 16px;overflow-y:auto}
   .overlay.open{display:flex}
-  .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:20px;width:380px;max-width:100%}
+  .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:20px;width:420px;max-width:100%}
   .modal h3{font-family:'Crimson Pro',serif;font-size:17px;font-weight:600;margin-bottom:16px;color:var(--text)}
 
-  /* Form */
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
   .frow3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
-  .fone{margin-bottom:8px}
-  .fone input,.fone select{width:100%}
-  .flabel{font-size:11px;color:var(--text3);margin-bottom:3px}
+  .modal .fone{margin-bottom:8px}
+  .modal .fone input,.modal .fone select{width:100%}
   input[type=text],input[type=number],input[type=password],select{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:7px 10px;font-family:'Outfit',sans-serif;font-size:13px;color:var(--text);outline:none;width:100%;transition:border-color .15s}
   input:focus,select:focus{border-color:var(--accent)}
   input::placeholder{color:var(--text3)}
@@ -158,7 +156,8 @@
   .btn-danger:hover{background:var(--red-bg)}
   .ml-auto{margin-left:auto}
 
-  /* Type colours */
+  .bin-id-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-size:12px;color:var(--text2);word-break:break-all;margin:8px 0;font-family:monospace;line-height:1.6}
+
   .t-Normal{background:rgba(168,168,120,.15);color:#c8c878}.t-Fire{background:rgba(240,128,48,.15);color:#f08030}.t-Water{background:rgba(104,144,240,.15);color:#6890f0}.t-Electric{background:rgba(248,208,48,.15);color:#f8d030}.t-Grass{background:rgba(120,200,80,.15);color:#78c850}.t-Ice{background:rgba(152,216,216,.15);color:#98d8d8}.t-Fighting{background:rgba(192,48,40,.15);color:#e05040}.t-Poison{background:rgba(160,64,160,.15);color:#c060c0}.t-Ground{background:rgba(224,192,104,.15);color:#e0c068}.t-Flying{background:rgba(168,144,240,.15);color:#a890f0}.t-Psychic{background:rgba(248,88,136,.15);color:#f85888}.t-Bug{background:rgba(168,184,32,.15);color:#a8b820}.t-Rock{background:rgba(184,160,56,.15);color:#b8a038}.t-Ghost{background:rgba(112,88,152,.15);color:#9070c0}.t-Dragon{background:rgba(112,56,248,.15);color:#9060e8}.t-Dark{background:rgba(112,88,72,.15);color:#987060}.t-Steel{background:rgba(184,184,208,.15);color:#b8b8d0}
 
   ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
@@ -167,30 +166,42 @@
 </head>
 <body>
 
-<!-- LOGIN SCREEN -->
+<!-- LOGIN -->
 <div id="login-screen" class="login-screen">
   <div class="login-box">
     <div class="login-title">Nuzlocke Tracker — <span>Shining Pearl</span></div>
-    <div class="login-sub">Enter your save key to load your run. If you're new, make up any key and your save will be created automatically.</div>
-    <div class="login-label">Your save key</div>
-    <div class="login-input-row">
-      <input type="password" id="key-input" placeholder="e.g. ash-ketchum-42" onkeydown="if(event.key==='Enter')doLogin()">
-      <button class="btn-save" onclick="doLogin()" id="login-btn">Load →</button>
+    <div class="login-sub">Your save is stored in the cloud and works on any device.</div>
+    <div class="login-tabs">
+      <button class="login-tab active" onclick="switchLoginTab('new')">New save</button>
+      <button class="login-tab" onclick="switchLoginTab('existing')">Load existing save</button>
     </div>
-    <div class="login-hint"><strong>New here?</strong> Just type any key you'll remember and your save will be created. <strong>Returning?</strong> Enter the same key you used before to load your data.</div>
+
+    <div id="panel-new" class="login-panel active">
+      <div class="login-hint">Choose a name for your save — something you'll remember. This becomes your save's identifier. Write it down somewhere safe.</div>
+      <div class="fone"><div class="flabel">Save name (make one up)</div><input type="text" id="new-key" placeholder="e.g. ash-nuzlocke-2026" onkeydown="if(event.key==='Enter')doNew()"></div>
+      <button class="btn-login" onclick="doNew()" id="btn-new">Create save →</button>
+    </div>
+
+    <div id="panel-existing" class="login-panel">
+      <div class="login-hint"><strong>Same device as before?</strong> Just click Load — your save ID is remembered.<br><strong>New device?</strong> Paste the Save ID shown in your tracker's settings.</div>
+      <div class="fone" id="binid-input-row" style="display:none"><div class="flabel">Save ID (from another device)</div><input type="text" id="existing-binid" placeholder="Paste your Save ID here"></div>
+      <button class="btn-login" onclick="doLoad()" id="btn-load">Load save →</button>
+      <div style="margin-top:10px;text-align:center"><button style="background:none;border:none;color:var(--text3);font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif" onclick="toggleBinInput()">Loading on a new device? Enter Save ID manually</button></div>
+    </div>
+
     <div class="login-error" id="login-error"></div>
   </div>
 </div>
 
-<!-- MAIN APP (hidden until login) -->
+<!-- APP -->
 <div id="app" style="display:none">
   <div class="header">
     <div class="header-left">
       <div class="header-title">Nuzlocke Tracker — <span>Shining Pearl</span></div>
-      <div class="header-sub">Signed in as: <span id="key-display" style="color:var(--text2)"></span></div>
+      <div class="header-sub">Save: <span id="key-display" style="color:var(--text2)"></span></div>
     </div>
     <div class="header-right">
-      <div class="save-indicator" id="save-indicator">
+      <div class="save-indicator">
         <div class="save-dot saved" id="save-dot"></div>
         <span id="save-label">Saved</span>
       </div>
@@ -200,8 +211,9 @@
         <span class="cap-lv" id="cap-lv">—</span>
       </div>
       <div class="hdr-btns">
-        <button class="hdr-btn" onclick="exportSave()">↓ Export</button>
-        <button class="hdr-btn danger" onclick="doLogout()">Switch key</button>
+        <button class="hdr-btn green" onclick="cloudSave(true)" title="Save now">💾 Save now</button>
+        <button class="hdr-btn" onclick="showSaveId()" title="Get your Save ID to use on another device">🔑 Save ID</button>
+        <button class="hdr-btn danger" onclick="doLogout()">Switch save</button>
       </div>
     </div>
   </div>
@@ -245,183 +257,169 @@
 
 <script>
 const API_KEY = '$2a$10$LG6xo4hZIbuj9U6U4tACuur26gciJNTzOT2qfSpQnT3ulgIweSAre';
-const JSONBIN = 'https://api.jsonbin.io/v3';
+const BASE = 'https://api.jsonbin.io/v3/b';
 const TYPES=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel'];
 const CAPS={'— no cap —':null,'Roark (Gym 1)':14,'Gardenia (Gym 2)':22,'Maylene (Gym 3)':28,'Crasher Wake (Gym 4)':33,'Fantina (Gym 5)':36,'Byron (Gym 6)':40,'Candice (Gym 7)':46,'Volkner (Gym 8)':52,'Aaron (E4)':53,'Bertha (E4)':58,'Flint (E4)':61,'Lucian (E4)':65,'Cynthia':66};
 
 let state = {team:[],routes:[],cap:null};
 let binId = null;
-let saveKey = null;
+let saveName = null;
 let editIdx = null;
 let toastTimer = null;
 let saveTimer = null;
-let isSaving = false;
 
-/* ── Key hashing (simple, keeps keys private in bin names) ── */
-async function hashKey(key) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('nuzlocke_sp_' + key));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('').slice(0,32);
-}
-
-/* ── JSONBin API ── */
-async function findBin(hash) {
-  try {
-    const r = await fetch(`${JSONBIN}/bins`, {
-      headers: {'X-Master-Key': API_KEY, 'X-Bin-Name': hash}
-    });
-    if (!r.ok) return null;
-    const data = await r.json();
-    if (!data || !data.length) return null;
-    const match = data.find(b => b.snippetMeta?.name === hash);
-    return match ? match.snippetMeta.id : null;
-  } catch(e) { return null; }
-}
-
-async function createBin(hash, data) {
-  const r = await fetch(`${JSONBIN}/b`, {
-    method: 'POST',
-    headers: {'Content-Type':'application/json','X-Master-Key':API_KEY,'X-Bin-Name':hash,'X-Bin-Private':'true'},
+/* ── JSONBin helpers ── */
+async function createBin(name, data) {
+  const r = await fetch(BASE, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','X-Master-Key':API_KEY,'X-Bin-Name':name,'X-Bin-Private':'true'},
     body: JSON.stringify(data)
   });
-  if (!r.ok) throw new Error('Failed to create save');
-  const json = await r.json();
-  return json.metadata.id;
+  if (!r.ok) { const t = await r.text(); throw new Error('Create failed: ' + t); }
+  const j = await r.json();
+  return j.metadata.id;
 }
 
 async function readBin(id) {
-  const r = await fetch(`${JSONBIN}/b/${id}/latest`, {
-    headers: {'X-Master-Key': API_KEY}
+  const r = await fetch(`${BASE}/${id}/latest`, {
+    headers:{'X-Master-Key':API_KEY,'X-Bin-Meta':'false'}
   });
-  if (!r.ok) throw new Error('Failed to read save');
-  const json = await r.json();
-  return json.record;
+  if (!r.ok) { const t = await r.text(); throw new Error('Read failed: ' + t); }
+  return await r.json();
 }
 
 async function updateBin(id, data) {
-  const r = await fetch(`${JSONBIN}/b/${id}`, {
-    method: 'PUT',
-    headers: {'Content-Type':'application/json','X-Master-Key':API_KEY},
+  const r = await fetch(`${BASE}/${id}`, {
+    method:'PUT',
+    headers:{'Content-Type':'application/json','X-Master-Key':API_KEY},
     body: JSON.stringify(data)
   });
-  if (!r.ok) throw new Error('Failed to save');
+  if (!r.ok) { const t = await r.text(); throw new Error('Update failed: ' + t); }
 }
 
-/* ── Login ── */
-async function doLogin() {
-  const key = document.getElementById('key-input').value.trim();
-  if (!key) { showLoginError('Please enter a save key.'); return; }
-  const btn = document.getElementById('login-btn');
-  btn.disabled = true; btn.textContent = 'Loading…';
-  document.getElementById('login-error').style.display = 'none';
-  try {
-    const hash = await hashKey(key);
-    saveKey = key;
-    setSaveStatus('saving', 'Loading…');
-
-    // Try to find existing bin by listing bins with this name
-    // JSONBin free tier: search by name via /b endpoint with meta
-    let id = null;
-    // Try fetching bins list
-    try {
-      const r = await fetch(`${JSONBIN}/b`, {
-        headers:{'X-Master-Key':API_KEY,'X-Bin-Meta':'true'}
-      });
-      if (r.ok) {
-        const list = await r.json();
-        if (Array.isArray(list)) {
-          const match = list.find(b => b.snippetMeta?.name === hash);
-          if (match) id = match.snippetMeta.id;
-        }
-      }
-    } catch(e) {}
-
-    if (id) {
-      // Load existing save
-      const data = await readBin(id);
-      state.team = data.team || [];
-      state.routes = data.routes || [];
-      state.cap = data.cap || null;
-      binId = id;
-      // Cache bin id locally
-      localStorage.setItem('nuzlocke_binid_' + hash, id);
-    } else {
-      // Check localStorage cache for bin id
-      const hash2 = await hashKey(key);
-      const cached = localStorage.getItem('nuzlocke_binid_' + hash2);
-      if (cached) {
-        try {
-          const data = await readBin(cached);
-          state.team = data.team || [];
-          state.routes = data.routes || [];
-          state.cap = data.cap || null;
-          binId = cached;
-        } catch(e) {
-          // Cached id invalid, create new
-          binId = await createBin(hash, {team:[],routes:[],cap:null});
-          localStorage.setItem('nuzlocke_binid_' + hash, binId);
-          state = {team:[],routes:[],cap:null};
-        }
-      } else {
-        // Brand new save
-        binId = await createBin(hash, {team:[],routes:[],cap:null});
-        localStorage.setItem('nuzlocke_binid_' + hash, binId);
-        state = {team:[],routes:[],cap:null};
-        showToast('New save created!', 'success');
-      }
-    }
-
-    // Cache key for auto-login
-    localStorage.setItem('nuzlocke_key', key);
-    localStorage.setItem('nuzlocke_binid', binId);
-
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    document.getElementById('key-display').textContent = key;
-    setSaveStatus('saved', 'Saved');
-    render();
-  } catch(e) {
-    showLoginError('Could not connect. Check your internet connection and try again.');
-    btn.disabled = false; btn.textContent = 'Load →';
-  }
+/* ── Login helpers ── */
+function setLoginLoading(btnId, loading) {
+  const b = document.getElementById(btnId);
+  b.disabled = loading;
+  b.textContent = loading ? 'Please wait…' : (btnId === 'btn-new' ? 'Create save →' : 'Load save →');
 }
-
 function showLoginError(msg) {
   const el = document.getElementById('login-error');
   el.textContent = msg; el.style.display = 'block';
-  document.getElementById('login-btn').disabled = false;
-  document.getElementById('login-btn').textContent = 'Load →';
+  setLoginLoading('btn-new', false);
+  setLoginLoading('btn-load', false);
+}
+function switchLoginTab(t) {
+  document.querySelectorAll('.login-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.login-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`[onclick="switchLoginTab('${t}')"]`).classList.add('active');
+  document.getElementById(`panel-${t}`).classList.add('active');
+  document.getElementById('login-error').style.display = 'none';
+}
+function toggleBinInput() {
+  const row = document.getElementById('binid-input-row');
+  row.style.display = row.style.display === 'none' ? 'block' : 'none';
+}
+
+/* ── New save ── */
+async function doNew() {
+  const name = document.getElementById('new-key').value.trim();
+  if (!name) { showLoginError('Please enter a name for your save.'); return; }
+  setLoginLoading('btn-new', true);
+  document.getElementById('login-error').style.display = 'none';
+  try {
+    const id = await createBin(name, {team:[],routes:[],cap:null});
+    binId = id; saveName = name;
+    localStorage.setItem('nuzlocke_binid', id);
+    localStorage.setItem('nuzlocke_name', name);
+    state = {team:[],routes:[],cap:null};
+    enterApp();
+    showToast('New save created!', 'success');
+  } catch(e) {
+    showLoginError('Could not create save. Check your internet and try again. (' + e.message + ')');
+  }
+}
+
+/* ── Load existing save ── */
+async function doLoad() {
+  // Priority: manually entered bin ID > localStorage cached ID
+  const manualId = document.getElementById('existing-binid').value.trim();
+  const cachedId = localStorage.getItem('nuzlocke_binid');
+  const id = manualId || cachedId;
+
+  if (!id) {
+    showLoginError('No save found on this device. Switch to "New save" to create one, or enter your Save ID manually.');
+    return;
+  }
+  setLoginLoading('btn-load', true);
+  document.getElementById('login-error').style.display = 'none';
+  try {
+    const data = await readBin(id);
+    state.team = data.team || [];
+    state.routes = data.routes || [];
+    state.cap = data.cap || null;
+    binId = id;
+    saveName = manualId ? 'Loaded from ID' : (localStorage.getItem('nuzlocke_name') || 'Your save');
+    localStorage.setItem('nuzlocke_binid', id);
+    if (!manualId) localStorage.setItem('nuzlocke_name', saveName);
+    enterApp();
+  } catch(e) {
+    showLoginError('Could not load save. The Save ID may be wrong, or check your internet connection. (' + e.message + ')');
+  }
+}
+
+function enterApp() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  document.getElementById('key-display').textContent = saveName;
+  setSaveStatus('saved', 'Saved');
+  render();
+  // Start 5-minute autosave interval
+  setInterval(()=>cloudSave(false), 300000);
 }
 
 function doLogout() {
-  if (!confirm('Switch save key? Your current save is stored in the cloud and will be there when you come back.')) return;
-  localStorage.removeItem('nuzlocke_key');
-  saveKey = null; binId = null;
-  state = {team:[],routes:[],cap:null};
+  if (!confirm('Switch save? Your data is safe in the cloud.')) return;
+  clearTimeout(saveTimer);
+  binId = null; saveName = null; state = {team:[],routes:[],cap:null};
   document.getElementById('app').style.display = 'none';
   document.getElementById('login-screen').style.display = 'flex';
-  document.getElementById('key-input').value = '';
-  document.getElementById('login-btn').disabled = false;
-  document.getElementById('login-btn').textContent = 'Load →';
+  document.getElementById('new-key').value = '';
+  document.getElementById('existing-binid').value = '';
+  document.getElementById('login-error').style.display = 'none';
+  setLoginLoading('btn-new', false);
+  setLoginLoading('btn-load', false);
 }
 
-/* ── Cloud save (debounced) ── */
+function showSaveId() {
+  document.getElementById('modal-title').textContent = 'Your Save ID';
+  document.getElementById('modal-body').innerHTML = `
+    <p style="font-size:13px;color:var(--text2);margin-bottom:8px;line-height:1.6">Use this ID to load your save on a new device. Keep it somewhere safe — it's the only way to access your save from a device that doesn't already have it cached.</p>
+    <div class="bin-id-box" id="binid-display">${binId}</div>
+    <div class="faction">
+      <button class="btn-save" onclick="navigator.clipboard.writeText('${binId}').then(()=>showToast('Save ID copied!','success'))">Copy ID</button>
+      <button class="btn-cancel" onclick="closeModal()">Close</button>
+    </div>`;
+  openModal();
+}
+
+/* ── Cloud save ── */
 function scheduleSave() {
-  setSaveStatus('saving', 'Saving…');
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(cloudSave, 1500);
+  setSaveStatus('saving', 'Unsaved changes');
 }
 
-async function cloudSave() {
+async function cloudSave(manual) {
   if (!binId) return;
-  isSaving = true;
+  setSaveStatus('saving', 'Saving…');
   try {
     await updateBin(binId, state);
-    setSaveStatus('saved', 'Saved');
+    const time = new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    setSaveStatus('saved', `Saved · ${time}`);
+    if (manual) showToast('Saved to cloud ✓', 'success');
   } catch(e) {
     setSaveStatus('error', 'Save failed');
     showToast('Cloud save failed — check connection', 'error');
   }
-  isSaving = false;
 }
 
 function setSaveStatus(type, label) {
@@ -432,23 +430,10 @@ function setSaveStatus(type, label) {
   lbl.textContent = label;
 }
 
+// Local state change — mark unsaved, autosave will handle it
 function save() {
-  // Also save to localStorage as backup
-  try { localStorage.setItem('nuzlocke_sp_app', JSON.stringify(state)); } catch(e){}
+  try { localStorage.setItem('nuzlocke_sp_backup', JSON.stringify(state)); } catch(e){}
   scheduleSave();
-}
-
-/* ── Export ── */
-function exportSave() {
-  const data = JSON.stringify(state, null, 2);
-  const blob = new Blob([data], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `nuzlocke-shining-pearl-${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-  showToast('Save exported ↓', 'success');
 }
 
 /* ── Toast ── */
@@ -460,13 +445,12 @@ function showToast(msg, type) {
   toastTimer = setTimeout(()=>{ t.className='toast'; }, 2800);
 }
 
-/* ── Type badge ── */
+/* ── Render ── */
 function typeBadge(t) {
   if (!t) return '';
   return `<span class="type-badge t-${t}">${t}</span>`;
 }
 
-/* ── Card HTML ── */
 function cardHTML(p, idx, showCheck) {
   const moves = (p.moves||'').split(',').map(m=>m.trim()).filter(Boolean);
   return `
@@ -487,7 +471,6 @@ function cardHTML(p, idx, showCheck) {
     </div>`;
 }
 
-/* ── Render ── */
 function renderRoster() {
   const g = document.getElementById('roster-grid');
   const alive = state.team.filter(p=>p.alive);
@@ -556,25 +539,23 @@ function renderCap() {
   if (lv) {
     const over = state.team.filter(p=>p.alive&&p.inParty&&p.level>lv);
     if (over.length) { wb.style.display='block'; wb.textContent=`⚠ Over cap: ${over.map(p=>p.nickname).join(', ')} — cannot be used in the upcoming boss fight.`; }
-    else wb.style.display = 'none';
-  } else wb.style.display = 'none';
+    else wb.style.display='none';
+  } else wb.style.display='none';
 }
 
 function render() { renderRoster(); renderActive(); renderRoutes(); renderGrave(); renderCap(); }
 
-/* ── Nav ── */
 function switchTab(n) {
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelector(`[onclick="switchTab('${n}')"]`).classList.add('active');
   document.getElementById(`tab-${n}`).classList.add('active');
 }
-function setCap(v) { state.cap=v; save(); renderCap(); }
+function setCap(v) { state.cap=v; save(); }
 function closeModal() { document.getElementById('overlay').classList.remove('open'); }
 function openModal() { document.getElementById('overlay').classList.add('open'); }
 function overlayBg(e) { if(e.target===document.getElementById('overlay')) closeModal(); }
 
-/* ── Forms ── */
 function typeOpts(sel) {
   return `<option value="">—</option>`+TYPES.map(t=>`<option${t===sel?' selected':''}>${t}</option>`).join('');
 }
@@ -614,9 +595,9 @@ function pokeForm(p, isEdit) {
       <div><div class="flabel">Route / location</div><input type="text" id="f-route" value="${p.route||''}"></div>
       <div><div class="flabel">Ability</div><input type="text" id="f-ability" value="${p.ability||''}"></div>
     </div>
-    <div class="fone"><div class="flabel">Held item</div><input type="text" id="f-held" value="${p.held||''}"></div>
-    <div class="fone"><div class="flabel">Moves (comma-separated)</div><input type="text" id="f-moves" value="${p.moves||''}"></div>
-    <div class="fone"><div class="flabel">Notes</div><input type="text" id="f-notes" value="${p.notes||''}"></div>
+    <div class="modal fone"><div class="flabel">Held item</div><input type="text" id="f-held" value="${p.held||''}"></div>
+    <div class="modal fone"><div class="flabel">Moves (comma-separated)</div><input type="text" id="f-moves" value="${p.moves||''}"></div>
+    <div class="modal fone"><div class="flabel">Notes</div><input type="text" id="f-notes" value="${p.notes||''}"></div>
     <div class="faction">
       <button class="btn-save" onclick="submitPoke()">${isEdit?'Save changes':'Add'}</button>
       <button class="btn-cancel" onclick="closeModal()">Cancel</button>
@@ -635,8 +616,8 @@ function routeForm(r) {
       <div><div class="flabel">Result</div>
         <select id="r-result">
           <option value="caught">Caught</option>
-          <option value="failed"${r.result==='failed'?' selected':''}>Failed</option>
-          <option value="skipped"${r.result==='skipped'?' selected':''}>Skipped (dupes)</option>
+          <option value="failed">Failed</option>
+          <option value="skipped">Skipped (dupes)</option>
         </select>
       </div>
       <div><div class="flabel">Note</div><input type="text" id="r-note" value="${r.note||''}"></div>
@@ -655,16 +636,16 @@ function submitPoke() {
   const prev = editIdx!==null ? state.team[editIdx] : {};
   const obj = {
     nickname:nick, species, type1,
-    type2: document.getElementById('f-type2').value||null,
-    level: parseInt(document.getElementById('f-level').value)||1,
-    route: document.getElementById('f-route').value.trim(),
-    ability: document.getElementById('f-ability').value.trim(),
-    held: document.getElementById('f-held').value.trim(),
-    moves: document.getElementById('f-moves').value.trim(),
-    notes: document.getElementById('f-notes').value.trim(),
-    alive: prev.alive!==undefined ? prev.alive : true,
-    inParty: prev.inParty||false,
-    causeOfDeath: prev.causeOfDeath
+    type2:document.getElementById('f-type2').value||null,
+    level:parseInt(document.getElementById('f-level').value)||1,
+    route:document.getElementById('f-route').value.trim(),
+    ability:document.getElementById('f-ability').value.trim(),
+    held:document.getElementById('f-held').value.trim(),
+    moves:document.getElementById('f-moves').value.trim(),
+    notes:document.getElementById('f-notes').value.trim(),
+    alive:prev.alive!==undefined?prev.alive:true,
+    inParty:prev.inParty||false,
+    causeOfDeath:prev.causeOfDeath
   };
   if (editIdx!==null) state.team[editIdx]=obj;
   else state.team.push(obj);
@@ -675,14 +656,14 @@ function submitPoke() {
 function submitRoute() {
   const route = document.getElementById('r-route').value.trim();
   if (!route) { showToast('Route name is required','error'); return; }
-  state.routes.push({route, encounter:document.getElementById('r-enc').value.trim(), result:document.getElementById('r-result').value, note:document.getElementById('r-note').value.trim()});
+  state.routes.push({route,encounter:document.getElementById('r-enc').value.trim(),result:document.getElementById('r-result').value,note:document.getElementById('r-note').value.trim()});
   save(); render(); closeModal();
   showToast('Encounter logged','success');
 }
 
 function toggleParty(idx, checked) {
   const party = state.team.filter(p=>p.alive&&p.inParty);
-  if (checked && party.length>=6) { showToast('Active team is full (6/6)','error'); setTimeout(()=>render(),0); return; }
+  if (checked&&party.length>=6) { showToast('Active team is full (6/6)','error'); setTimeout(()=>render(),0); return; }
   state.team[idx].inParty = checked;
   save(); render();
 }
@@ -697,7 +678,7 @@ function markDead(idx) {
 }
 
 function deletePoke(idx) {
-  if (!confirm('Remove this Pokémon from the log entirely?')) return;
+  if (!confirm('Remove this Pokémon entirely?')) return;
   state.team.splice(idx,1);
   save(); render(); closeModal();
 }
@@ -707,19 +688,19 @@ function deleteRoute(idx) { state.routes.splice(idx,1); save(); renderRoutes(); 
 function copyTeamSummary() {
   const party = state.team.filter(p=>p.alive&&p.inParty);
   if (!party.length) { showToast('No Pokémon in active team yet','error'); return; }
-  const cap = state.cap&&CAPS[state.cap] ? ` Level cap: ${CAPS[state.cap]} for ${state.cap}.` : '';
+  const cap = state.cap&&CAPS[state.cap]?` Level cap: ${CAPS[state.cap]} for ${state.cap}.`:'';
   const summary = party.map(p=>`${p.nickname} (${p.species}, Lv ${p.level}, ${[p.type1,p.type2].filter(Boolean).join('/')}${p.ability?', '+p.ability:''}${p.held?', holding '+p.held:''}${p.moves?', moves: '+p.moves:''})`).join('; ');
   navigator.clipboard.writeText(`My current active team: ${summary}.${cap}`)
     .then(()=>showToast('Copied to clipboard ✓','success'))
-    .catch(()=>showToast('Copy failed — try a different browser','error'));
+    .catch(()=>showToast('Copy failed','error'));
 }
 
-/* ── Auto-login if key is cached ── */
+/* ── Auto-login if cached ── */
 window.addEventListener('load', () => {
-  const cached = localStorage.getItem('nuzlocke_key');
+  const cached = localStorage.getItem('nuzlocke_binid');
   if (cached) {
-    document.getElementById('key-input').value = cached;
-    doLogin();
+    switchLoginTab('existing');
+    doLoad();
   }
 });
 </script>
