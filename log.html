@@ -141,11 +141,16 @@
   .matchup-header{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:16px 18px;margin-bottom:16px}
   .matchup-title{font-family:'Crimson Pro',serif;font-size:18px;font-weight:600;margin-bottom:4px}
   .matchup-sub{font-size:12px;color:var(--text3)}
-  .matchup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin-bottom:16px}
-  .boss-poke{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px}
+  .matchup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin-bottom:16px}
+  .boss-poke{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;display:flex;flex-direction:column;gap:6px}
   .boss-name{font-size:13px;font-weight:600;color:var(--text)}
   .boss-lv{font-size:11px;color:var(--accent);font-weight:600;margin-left:4px}
-  .boss-types{margin-top:4px;display:flex;gap:3px;flex-wrap:wrap}
+  .boss-types{margin-top:2px;display:flex;gap:3px;flex-wrap:wrap}
+  .boss-threat{font-size:10px;color:var(--amber);margin-top:2px;line-height:1.5;font-weight:500;padding:4px 6px;background:rgba(251,191,36,.08);border-radius:4px}
+  .boss-weak{font-size:10px;color:var(--text3);margin-top:2px;display:flex;flex-wrap:wrap;gap:3px;align-items:center}
+  .boss-weak-lbl{margin-right:2px;color:var(--text3)}
+  .boss-weak .type-badge{font-size:9px;padding:1px 6px}
+  .boss-no-answer{font-size:10px;color:var(--red);margin-top:2px;padding:3px 6px;background:rgba(248,113,113,.08);border-radius:4px;font-weight:500}
   .team-analysis{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px}
   .analysis-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
   .analysis-row:last-child{border-bottom:none}
@@ -383,6 +388,23 @@ function getAbilityEffect(name) {
   // Case-insensitive lookup
   const key = Object.keys(ABILITY_EFFECTS).find(k => k.toLowerCase() === name.toLowerCase());
   return key ? ABILITY_EFFECTS[key] : {};
+}
+
+// Status moves — these have a type but don't deal damage, so they shouldn't count as offensive coverage.
+// Z-Moves and Max/G-Max moves are also excluded (not encountered in Nuzlockes).
+const STATUS_MOVES = new Set(["Acid Armor","Acupressure","After You","Agility","Ally Switch","Amnesia","Aqua Ring","Aromatherapy","Aromatic Mist","Assist","Attract","Aurora Veil","Autotomize","Baby-Doll Eyes","Baneful Bunker","Barrier","Baton Pass","Belly Drum","Bestow","Block","Bulk Up","Burning Bulwark","Calm Mind","Camouflage","Captivate","Celebrate","Charge","Charm","Chilly Reception","Clangorous Soul","Coaching","Coil","Confide","Confuse Ray","Conversion","Conversion 2","Copycat","Corrosive Gas","Cosmic Power","Cotton Guard","Cotton Spore","Court Change","Crafty Shield","Curse","Dark Void","Decorate","Defend Order","Defense Curl","Defog","Destiny Bond","Detect","Disable","Doodle","Double Team","Dragon Cheer","Dragon Dance","Eerie Impulse","Electric Terrain","Electrify","Embargo","Encore","Endure","Entrainment","Extreme Evoboost","Fairy Lock","Fake Tears","Feather Dance","Fillet Away","Flash","Flatter","Floral Healing","Flower Shield","Focus Energy","Follow Me","Foresight","Forest's Curse","Gastro Acid","Gear Up","Geomancy","Glare","Grass Whistle","Grassy Terrain","Gravity","Growl","Growth","Grudge","Guard Split","Guard Swap","Hail","Happy Hour","Harden","Haze","Heal Bell","Heal Block","Heal Order","Heal Pulse","Healing Wish","Heart Swap","Helping Hand","Hold Hands","Hone Claws","Howl","Hypnosis","Imprison","Ingrain","Instruct","Ion Deluge","Iron Defense","Jungle Healing","Kinesis","King's Shield","Laser Focus","Leech Seed","Leer","Life Dew","Light Screen","Lock-On","Lovely Kiss","Lucky Chant","Lunar Blessing","Lunar Dance","Magic Coat","Magic Powder","Magic Room","Magnet Rise","Magnetic Flux","Mat Block","Me First","Mean Look","Meditate","Memento","Metal Sound","Metronome","Milk Drink","Mimic","Mind Reader","Minimize","Miracle Eye","Mirror Move","Mist","Misty Terrain","Moonlight","Morning Sun","Mud Sport","Nasty Plot","Nature Power","Nightmare","No Retreat","Noble Roar","Obstruct","Octolock","Odor Sleuth","Pain Split","Parting Shot","Perish Song","Play Nice","Poison Gas","Poison Powder","Power Shift","Power Split","Power Swap","Power Trick","Powder","Protect","Psych Up","Psychic Terrain","Psycho Shift","Psyshield Bash","Purify","Quash","Quick Guard","Quiver Dance","Rage Powder","Rain Dance","Recover","Recycle","Reflect","Reflect Type","Refresh","Rest","Revival Blessing","Roar","Rock Polish","Role Play","Rototiller","Safeguard","Sand Attack","Sandstorm","Scary Face","Screech","Shed Tail","Shelter","Shift Gear","Shore Up","Silk Trap","Simple Beam","Sing","Sketch","Skill Swap","Slack Off","Sleep Powder","Sleep Talk","Smokescreen","Snatch","Snowscape","Soak","Soft-Boiled","Speed Swap","Spicy Extract","Spider Web","Spikes","Spiky Shield","Spite","Splash","Spore","Spotlight","Stealth Rock","Sticky Web","Stockpile","Strength Sap","String Shot","Stuff Cheeks","Stun Spore","Substitute","Sunny Day","Supersonic","Swagger","Swallow","Sweet Kiss","Sweet Scent","Switcheroo","Swords Dance","Synthesis","Tail Glow","Tail Whip","Tailwind","Take Heart","Tar Shot","Taunt","Tearful Look","Teatime","Teeter Dance","Telekinesis","Teleport","Thunder Wave","Tickle","Tidy Up","Topsy-Turvy","Torment","Toxic","Toxic Spikes","Toxic Thread","Transform","Trick","Trick Room","Trick-or-Treat","Venom Drench","Victory Dance","Wide Guard","Will-O-Wisp","Wish","Withdraw","Wonder Room","Work Up","Worry Seed","Yawn"]);
+
+// Returns true if this move is a status move (doesn't deal damage)
+function isStatusMove(name) {
+  const canonical = resolveMove(name);
+  return canonical ? STATUS_MOVES.has(canonical) : false;
+}
+
+// Returns true if this move deals damage (Physical or Special). Unknown moves default to damaging.
+function isDamagingMove(name) {
+  const canonical = resolveMove(name);
+  if (!canonical) return true; // unknown move — assume it's damaging to be safe
+  return !STATUS_MOVES.has(canonical);
 }
 
 
@@ -1190,15 +1212,45 @@ let recoMatchCount = false; // toggle: false = full 6, true = match opponent cou
 // Immunities are weighted heavily because they completely wall a Pokémon —
 // more reliable than super-effective hits (which can miss/crit/be tanked).
 // Helper: get the offensive types a Pokémon can use against opponents
-// Uses move data if available; falls back to STAB types
-function getOffensiveTypes(p) {
-  if (!p.moves) return [p.type1, p.type2].filter(Boolean);
+// Uses move data if available; only counts DAMAGING moves (Physical/Special), not status.
+// Returns object with {offTypes, hasDamaging, statusOnly} for richer use downstream.
+function getOffensiveInfo(p) {
   const moveList = (typeof p.moves === 'string')
-    ? p.moves.split(',').map(s=>s.trim()).filter(Boolean)
-    : p.moves;
-  const moveTypes = moveList.map(getMoveType).filter(Boolean);
-  // If we got move types, use those; otherwise fall back to typing
-  return moveTypes.length ? Array.from(new Set(moveTypes)) : [p.type1, p.type2].filter(Boolean);
+    ? (p.moves || '').split(',').map(s=>s.trim()).filter(Boolean)
+    : (Array.isArray(p.moves) ? p.moves : []);
+  if (!moveList.length) {
+    // No moves entered — fall back to STAB
+    return { offTypes: [p.type1, p.type2].filter(Boolean), hasDamaging: true, statusOnly: false, fallback: true };
+  }
+  // Split into damaging and status
+  const damagingTypes = [];
+  let recognizedCount = 0;
+  let statusCount = 0;
+  for (const m of moveList) {
+    const canonical = resolveMove(m);
+    if (!canonical) continue; // unknown — skip
+    recognizedCount++;
+    if (STATUS_MOVES.has(canonical)) {
+      statusCount++;
+    } else {
+      const t = MOVES[canonical];
+      if (t) damagingTypes.push(t);
+    }
+  }
+  // If no recognized moves at all, fall back to STAB
+  if (recognizedCount === 0) {
+    return { offTypes: [p.type1, p.type2].filter(Boolean), hasDamaging: true, statusOnly: false, fallback: true };
+  }
+  // All recognized moves are status — flag this!
+  if (statusCount === recognizedCount) {
+    return { offTypes: [], hasDamaging: false, statusOnly: true, fallback: false };
+  }
+  return { offTypes: Array.from(new Set(damagingTypes)), hasDamaging: damagingTypes.length > 0, statusOnly: false, fallback: false };
+}
+
+// Legacy wrapper that just returns the types
+function getOffensiveTypes(p) {
+  return getOffensiveInfo(p).offTypes;
 }
 
 // Effectiveness considering a defender's ability immunities
@@ -1211,18 +1263,45 @@ function effectivenessWithAbility(attackType, def1, def2, abilityEffect) {
   return mult;
 }
 
+// Returns the list of attack types that hit this defender SE (>= 2x)
+// types is e.g. ['Fighting','Steel']
+function getWeaknesses(types) {
+  if (!types || !types.length) return [];
+  const def1 = types[0], def2 = types[1] || null;
+  const weak = [];
+  for (const atk of TYPES) {
+    const eff = effectiveness(atk, def1, def2);
+    if (eff >= 2) weak.push(atk);
+  }
+  return weak;
+}
+
+// Returns true if any Pokémon in roster has a damaging move of one of these types (or, fallback, that STAB)
+function rosterCanHit(roster, types) {
+  for (const p of roster) {
+    if (!p.alive) continue;
+    const offTypes = getOffensiveTypes(p);
+    if (offTypes.some(t => types.includes(t))) return true;
+  }
+  return false;
+}
+
 function scoreMatchup(p, boss, capLv) {
   if (!p) return -999;
   const pAbilityEffect = getAbilityEffect(p.ability);
-  const pOffTypes = getOffensiveTypes(p); // either moves' types or STAB fallback
+  const offInfo = getOffensiveInfo(p);
+  const pOffTypes = offInfo.offTypes;
   const bossTheme = boss.theme;
   let score = 0;
+
+  // CRITICAL: status-only movesets can't kill anything. Major penalty so they don't get recommended.
+  if (offInfo.statusOnly) score -= 8;
 
   for (const b of (boss.team||[])) {
     const bTypes = (b.types||[]).flatMap(t => t.split('/'));
     const def1 = bTypes[0], def2 = bTypes[1];
 
-    // OFFENSIVE — best multiplier we can hit them with using our actual moves
+    // OFFENSIVE — best multiplier we can hit them with using our actual damaging moves
     let bestOff = 0;
     for (const t of pOffTypes) {
       const eff = effectiveness(t, def1, def2);
@@ -1268,10 +1347,12 @@ function scoreMatchup(p, boss, capLv) {
     else if (themeEff >= 2) score -= 1;
   }
 
-  // Level penalty
+  // Level penalty — being heavily underleveled is a big problem
   if (capLv && p.level) {
     const diff = capLv - p.level;
-    if (diff > 5) score -= 1.5;
+    if (diff > 15) score -= 5; // hopelessly underleveled
+    else if (diff > 10) score -= 3;
+    else if (diff > 5) score -= 1.5;
     else if (diff > 2) score -= 0.5;
   }
   return score;
@@ -1347,15 +1428,21 @@ function renderMatchup() {
       <div class="matchup-sub">${boss.location||''} · ${boss.theme} type${boss.cap?` · Level cap ${boss.cap}`:''} · ${bossCount} Pokémon</div>
       ${boss.note?`<div style="font-size:11px;color:var(--amber);margin-top:8px;line-height:1.6">⚠ ${boss.note}</div>`:''}
     </div>
-    <p class="slabel">Their team</p>
+    <p class="slabel">Their team — weaknesses & threats</p>
     <div class="matchup-grid">
-      ${(boss.team||[]).map(b=>`
+      ${(boss.team||[]).map(b=>{
+        const bTypes = (b.types||[]).flatMap(t=>t.split('/'));
+        const weak = getWeaknesses(bTypes);
+        const teamCanHit = rosterCanHit(curTeam(), weak);
+        return `
         <div class="boss-poke">
           <div><span class="boss-name">${b.species}</span><span class="boss-lv"> Lv ${b.lv}</span></div>
           <div class="boss-types">${(b.types||[]).map(t=>typeBadge(t.split('/')[0])).join('')}</div>
-          ${b.note?`<div style="font-size:10px;color:var(--text3);margin-top:5px;font-style:italic">${b.note}</div>`:''}
+          ${b.note?`<div class="boss-threat">⚠ ${b.note}</div>`:''}
+          ${weak.length?`<div class="boss-weak"><span class="boss-weak-lbl">Hit with:</span> ${weak.map(t=>typeBadge(t)).join('')}</div>`:''}
+          ${!teamCanHit && weak.length?`<div class="boss-no-answer">No SE answer in your roster</div>`:''}
         </div>
-      `).join('')}
+      `;}).join('')}
     </div>
 
     <div style="display:flex;align-items:center;gap:14px;margin:8px 0 12px;flex-wrap:wrap">
@@ -1443,12 +1530,13 @@ function analyzeMatchup(p, boss) {
   let offGood = 0, offBad = 0, offImmune = 0; // SE, NVE, immune
   let defGood = 0, defBad = 0, defImmune = 0; // resist, weak, immune
   const pAbilityEffect = getAbilityEffect(p.ability);
-  const pOffTypes = getOffensiveTypes(p);
+  const offInfo = getOffensiveInfo(p);
+  const pOffTypes = offInfo.offTypes;
   // Track move recognition for footer detail
   const moveList = (typeof p.moves === 'string')
     ? p.moves.split(',').map(s=>s.trim()).filter(Boolean)
     : (Array.isArray(p.moves) ? p.moves : []);
-  const recognizedMoves = moveList.filter(m => getMoveType(m)).length;
+  const recognizedMoves = moveList.filter(m => resolveMove(m)).length;
   const totalMoves = moveList.length;
 
   for (const b of (boss.team||[])) {
@@ -1475,7 +1563,11 @@ function analyzeMatchup(p, boss) {
   }
   const total = (boss.team||[]).length || 1;
   let verdict, label, detail;
-  if (defImmune >= total/2 && offGood >= 1) { verdict='good'; label='Hard wall'; }
+
+  // Status-only or no-damage check FIRST — overrides everything else
+  if (offInfo.statusOnly) { verdict='bad'; label='Status only — can\'t damage'; }
+  else if (offImmune >= total) { verdict='bad'; label='Can\'t damage anyone'; }
+  else if (defImmune >= total/2 && offGood >= 1) { verdict='good'; label='Hard wall'; }
   else if (defImmune >= 1 && defBad === 0 && offGood >= 1) { verdict='good'; label='Strong matchup'; }
   else if (offGood >= total/2 && defBad === 0) { verdict='good'; label='Strong matchup'; }
   else if (offGood >= 1 && defBad <= 1) { verdict='good'; label='Favorable'; }
@@ -1483,14 +1575,15 @@ function analyzeMatchup(p, boss) {
   else if (defBad >= total/2) { verdict='bad'; label='Risky'; }
   else if (offGood === 0 && offBad > 0) { verdict='bad'; label='Weak offense'; }
   else { verdict='neutral'; label='Neutral'; }
+
   const parts = [];
+  if (offInfo.statusOnly) parts.push(`only status moves`);
   if (offGood) parts.push(`hits ${offGood} SE`);
   if (offImmune) parts.push(`${offImmune} immune to you`);
   if (offBad) parts.push(`resisted by ${offBad}`);
   if (defImmune) parts.push(`walls ${defImmune}`);
   if (defBad) parts.push(`weak to ${defBad}`);
   if (defGood) parts.push(`resists ${defGood}`);
-  // Add note if some moves weren't recognized
   if (totalMoves > 0 && recognizedMoves < totalMoves) {
     parts.push(`${recognizedMoves}/${totalMoves} moves matched`);
   }
