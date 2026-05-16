@@ -170,6 +170,7 @@
   .reco-score-badge.v-good{background:var(--green);color:#0f0f10}
   .reco-score-badge.v-neutral{background:var(--bg4);color:var(--text2)}
   .reco-score-badge.v-bad{background:var(--red);color:#0f0f10}
+  .reco-reason{font-size:10px;color:var(--text2);padding:8px 12px 10px;line-height:1.5;border-top:1px solid var(--border);background:rgba(255,255,255,.015);margin:0 -1px -1px;border-radius:0 0 var(--radius-sm) var(--radius-sm)}
 
   /* Stats */
   .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px}
@@ -1293,6 +1294,7 @@ function scoreMatchup(p, boss, capLv) {
   const pOffTypes = offInfo.offTypes;
   const bossTheme = boss.theme;
   let score = 0;
+  let seCount = 0; // count of boss mons we hit SE with damaging moves
 
   // CRITICAL: status-only movesets can't kill anything. Major penalty so they don't get recommended.
   if (offInfo.statusOnly) score -= 8;
@@ -1310,8 +1312,8 @@ function scoreMatchup(p, boss, capLv) {
     // Huge Power / Pure Power effectively doubles offensive output
     if (pAbilityEffect.doubleAtk) bestOff = bestOff > 0 ? bestOff * 1.5 : 0;
 
-    if (bestOff >= 4) score += 3;
-    else if (bestOff >= 2) score += 2;
+    if (bestOff >= 4) { score += 3; seCount++; }
+    else if (bestOff >= 2) { score += 2; seCount++; }
     else if (bestOff === 0) score -= 3;
     else if (bestOff < 1) score -= 1;
 
@@ -1325,7 +1327,7 @@ function scoreMatchup(p, boss, capLv) {
     }
     if (worstDef >= 4) score -= 4;
     else if (worstDef >= 2) score -= 2;
-    else if (immuneToAll && bTypes.length) score += 3;
+    else if (immuneToAll && bTypes.length) score += 4; // bumped from 3 — walls are valuable
     else if (worstDef === 0) score += 2.5;
     else if (worstDef < 1) score += 0.8;
 
@@ -1336,23 +1338,28 @@ function scoreMatchup(p, boss, capLv) {
     if (pAbilityEffect.sturdy && worstDef >= 4) score += 1;
   }
 
+  // CRITICAL: zero SE coverage across the entire boss team is a major flag.
+  // A mon hitting only neutrally rarely wins battles in a Nuzlocke — penalize unless it's a wall.
+  if (seCount === 0 && !offInfo.statusOnly) score -= 2;
+
   // Intimidate gives small defensive bonus across the board
   if (pAbilityEffect.intimidate) score += 1;
 
-  // Theme STAB immunity bonus
+  // Theme STAB immunity / resistance bonus
   if (bossTheme && bossTheme !== 'Mixed') {
     const themeType = bossTheme.split('/')[0];
     const themeEff = effectivenessWithAbility(themeType, p.type1, p.type2, pAbilityEffect);
     if (themeEff === 0) score += 2;
     else if (themeEff >= 2) score -= 1;
+    else if (themeEff < 1) score += 0.5; // partial resist
   }
 
-  // Level penalty — being heavily underleveled is a big problem
+  // Level penalty — softer than before. Being a bit underleveled is fine if you have other strengths.
   if (capLv && p.level) {
     const diff = capLv - p.level;
-    if (diff > 15) score -= 5; // hopelessly underleveled
-    else if (diff > 10) score -= 3;
-    else if (diff > 5) score -= 1.5;
+    if (diff > 15) score -= 3;
+    else if (diff > 10) score -= 1.5;
+    else if (diff > 5) score -= 1;
     else if (diff > 2) score -= 0.5;
   }
   return score;
@@ -1463,10 +1470,12 @@ function renderMatchup() {
       const idx = curTeam().indexOf(p);
       const score = scoreMatchup(p, boss, boss.cap);
       const analysis = analyzeMatchup(p, boss);
+      const reason = getMatchupReason(p, boss);
       // Reuse card layout but with reco-card class for score badge
       return `<div class="poke-card reco-card"${p.inParty?' style="border-color:rgba(108,143,255,.4);box-shadow:0 0 0 1px rgba(108,143,255,.1)"':''}>
         <div class="reco-score-badge v-${analysis.verdict}" title="Score: ${score.toFixed(1)}">${analysis.label}</div>
         <div class="card-top">${cardInner(p, idx, false)}</div>
+        <div class="reco-reason">${reason}</div>
       </div>`;
     }).join('');
     html += `</div>`;
@@ -1589,6 +1598,79 @@ function analyzeMatchup(p, boss) {
   }
   detail = parts.join(' · ') || 'No standout matchups';
   return { verdict, label, detail };
+}
+
+// Human-readable "why was this Pokémon picked" — surfaces the concrete contributions.
+// Returns a short string like "Hits all 3 SE (Flying)" or "Walls Machoke; has Hypnosis (sleep)".
+function getMatchupReason(p, boss) {
+  const offInfo = getOffensiveInfo(p);
+  const pAbilityEffect = getAbilityEffect(p.ability);
+  const team = boss.team || [];
+  const parts = [];
+
+  if (offInfo.statusOnly) return 'Only status moves — can\'t deal damage';
+
+  // SE coverage: which boss mons get hit SE, with which attack types
+  const seHits = []; // [{species, type}]
+  for (const b of team) {
+    const bTypes = (b.types||[]).flatMap(t=>t.split('/'));
+    let bestType = null, bestEff = 0;
+    for (const t of offInfo.offTypes) {
+      const eff = effectiveness(t, bTypes[0], bTypes[1]);
+      if (eff >= 2 && eff > bestEff) { bestType = t; bestEff = eff; }
+    }
+    if (bestType) seHits.push({species: b.species, type: bestType});
+  }
+  if (seHits.length === team.length && team.length > 1) {
+    // All covered by same type? group it
+    const uniqTypes = Array.from(new Set(seHits.map(h=>h.type)));
+    if (uniqTypes.length === 1) parts.push(`Hits all ${team.length} SE (${uniqTypes[0]})`);
+    else parts.push(`Hits all ${team.length} SE`);
+  } else if (seHits.length) {
+    parts.push(`SE on ${seHits.map(h=>h.species).join(', ')}`);
+  }
+
+  // Walls — boss mons whose STAB types we're fully immune to
+  const walls = [];
+  for (const b of team) {
+    const bTypes = (b.types||[]).flatMap(t=>t.split('/'));
+    let allImmune = bTypes.length > 0;
+    for (const t of bTypes) {
+      const eff = effectivenessWithAbility(t, p.type1, p.type2, pAbilityEffect);
+      if (eff !== 0) { allImmune = false; break; }
+    }
+    if (allImmune) walls.push(b.species);
+  }
+  if (walls.length) parts.push(`walls ${walls.join(', ')}`);
+
+  // Valuable status moves (sleep / paralyze / burn) — game-changing utility
+  const moveList = (typeof p.moves === 'string')
+    ? p.moves.split(',').map(s=>s.trim()).filter(Boolean)
+    : (Array.isArray(p.moves) ? p.moves : []);
+  const SLEEP_MOVES = new Set(['Hypnosis','Sing','Sleep Powder','Spore','Grass Whistle','Lovely Kiss','Yawn','Dark Void']);
+  const PARA_MOVES = new Set(['Thunder Wave','Stun Spore','Glare','Nuzzle']);
+  const BURN_MOVES = new Set(['Will-O-Wisp']);
+  const valuableStatus = [];
+  for (const m of moveList) {
+    const c = resolveMove(m);
+    if (!c) continue;
+    if (SLEEP_MOVES.has(c)) valuableStatus.push(c + ' (sleep)');
+    else if (PARA_MOVES.has(c)) valuableStatus.push(c + ' (para)');
+    else if (BURN_MOVES.has(c)) valuableStatus.push(c + ' (burn)');
+  }
+  if (valuableStatus.length) parts.push(valuableStatus.join('/'));
+
+  // Notable abilities
+  if (pAbilityEffect.intimidate) parts.push('Intimidate');
+  if (pAbilityEffect.wonderGuard) parts.push('Wonder Guard');
+  if (pAbilityEffect.doubleAtk) parts.push('Huge/Pure Power');
+
+  // Underlevel flag
+  if (boss.cap && p.level && (boss.cap - p.level) > 10) {
+    parts.push(`L${p.level} (${boss.cap-p.level} under cap)`);
+  }
+
+  return parts.length ? parts.join(' · ') : 'Filler — no SE or wall';
 }
 
 /* ── Stats ── */
