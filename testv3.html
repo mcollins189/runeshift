@@ -1836,15 +1836,14 @@ const POKEAPI_AREA_MAP = {
 // Backwards-compat alias: code that still references the old name resolves through here.
 const POKEAPI_LOCATION_MAP = POKEAPI_AREA_MAP;
 
-// PokeAPI game version names. For BDSP, the game has TWO versions (BD/SP) and the
-// renderer filters by the user's current selection — but the FETCHER pulls both
-// so we can correctly tag exclusives. Each entry is the priority list of API
-// version slugs to try (PokeAPI may not have BDSP-specific data for every route,
-// in which case the older DP/Platinum tables apply since BDSP is a faithful remake).
+// PokeAPI game version names. For BDSP, the game has TWO versions (BD/SP) and
+// the renderer filters by the user's current selection — but the FETCHER pulls
+// both so we can correctly tag exclusives. Strictly use BDSP-specific versions
+// (no fall back to the original DP/Platinum encounter tables).
 const POKEAPI_GAME_VERSIONS = {
   'shining_pearl': {
-    BD: ['brilliant-diamond', 'diamond', 'platinum'],
-    SP: ['shining-pearl', 'pearl', 'platinum']
+    BD: ['brilliant-diamond'],
+    SP: ['shining-pearl']
   },
   'black_white': {
     B: ['black'], W: ['white']
@@ -1853,13 +1852,11 @@ const POKEAPI_GAME_VERSIONS = {
     B: ['black-2'], W: ['white-2']
   },
   'ultra_sun_moon': {
-    S: ['ultra-sun', 'sun'], M: ['ultra-moon', 'moon']
+    S: ['ultra-sun'], M: ['ultra-moon']
   }
 };
 
-// Helper kept for backwards compatibility with old call sites (returns the priority
-// list for the user's currently-selected version). Newer code uses the full game
-// map directly.
+// Returns the priority list for the user's currently-selected version.
 function pokeApiVersionFor(gameKey, versionLetter) {
   const game = POKEAPI_GAME_VERSIONS[gameKey];
   if (!game) return [];
@@ -1867,18 +1864,19 @@ function pokeApiVersionFor(gameKey, versionLetter) {
 }
 
 function encCacheKey(version, locName) { return `pae:${version}:${locName}`; }
-function loadEncCached(version, locName) {
-  try {
-    const raw = localStorage.getItem(encCacheKey(version, locName));
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (parsed && parsed.t && (Date.now() - parsed.t) < 1000*60*60*24*30) return parsed.data;
-  } catch(e) {}
-  return null;
-}
-function saveEncCached(version, locName, data) {
-  try { localStorage.setItem(encCacheKey(version, locName), JSON.stringify({t:Date.now(), data})); } catch(e){}
-}
+// Caching disabled — every session/tab does fresh fetches from PokeAPI.
+// In-memory `encounterCache` still de-dups within a single session, but nothing
+// persists across reloads.
+function loadEncCached(version, locName) { return null; }
+function saveEncCached(version, locName, data) { /* no-op */ }
+// Best-effort: clear any old persisted entries from previous versions of the app.
+try {
+  if (typeof localStorage !== 'undefined') {
+    for (const k of Object.keys(localStorage)) {
+      if (k.startsWith('pae:')) localStorage.removeItem(k);
+    }
+  }
+} catch(e) {}
 
 // Pretty-format a PokeAPI species slug → display name (e.g., 'mr-mime' → 'Mr. Mime')
 const POKEAPI_SPECIES_OVERRIDES = {
@@ -3475,26 +3473,26 @@ function buildEncounterMain(loc, ver) {
   let dataNote;
   if (richData) {
     const used = richData.versionsUsed || {};
+    const usedList = Object.values(used).join(' + ');
+    // Check if any encounter slot returned no data (i.e. that version didn't have entries)
     const requested = richData.versionsRequested || {};
-    // Find any fallbacks (used != requested)
-    const fallbacks = [];
+    const missing = [];
     for (const letter in requested) {
-      if (used[letter] && used[letter] !== requested[letter]) {
-        fallbacks.push(`${requested[letter]}→${used[letter]}`);
-      }
+      if (!used[letter]) missing.push(requested[letter]);
     }
-    if (fallbacks.length === 0) {
-      const usedList = Object.values(used).join(' + ');
-      dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--green)">✓ PokeAPI data (${usedList}) · rates · levels · time-of-day · exclusives · cached offline</div>`;
+    if (missing.length === 0 && usedList) {
+      dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--green)">✓ PokeAPI (${usedList}) — fresh fetch · rates · levels · time-of-day · exclusives</div>`;
+    } else if (usedList) {
+      dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--accent)">⚠ PokeAPI (${usedList}) — ${missing.join(', ')} returned no encounters for this location</div>`;
     } else {
-      dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--accent)">✓ PokeAPI data (fell back: ${fallbacks.join(', ')}) — encounter tables for original DP carry over to BDSP since the remake is faithful</div>`;
+      dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--red)">✗ PokeAPI returned no encounters for ${Object.values(requested).join(' / ')} at this location</div>`;
     }
   } else if (isRichLoading) {
-    dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--accent)">⌛ Fetching detailed data from PokeAPI…</div>`;
+    dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--accent)">⌛ Fetching from PokeAPI…</div>`;
   } else if (POKEAPI_LOCATION_MAP[loc]) {
-    dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--text3)">Detailed PokeAPI data will load on first view (requires internet)</div>`;
+    dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--text3)">PokeAPI data will load on first view</div>`;
   } else {
-    dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--text3)">⚠ Using fallback species list — no rates/levels/times available. Tell Claude if you find a mismatch.</div>`;
+    dataNote = `<div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--text3)">⚠ Using fallback species list — no rates/levels/times available</div>`;
   }
   let html = `<div class="enc-header">
     <div>
@@ -3600,12 +3598,35 @@ function buildEncounterMain(loc, ver) {
       grass:'Walking (tall grass)', surf:'Surfing', oldRod:'Old Rod', goodRod:'Good Rod', superRod:'Super Rod', honey:'Honey tree', special:'Special'
     }[method];
     if (method === 'grass') {
-      // Grass may have morning/day/night or just 'all'
+      // Grass may have any combo of: 'all' (time-independent), 'morning', 'day', 'night'.
+      // If any time-specific bucket exists, show tabs — and each time tab also includes
+      // the 'all' (anytime) encounters so e.g. Bidoof shows under every time of day.
       const grass = methods.grass;
-      const times = grass.all ? ['all'] : ['morning','day','night'].filter(t=>grass[t]);
-      const activeTime = grass.all ? 'all' : (times.includes(selectedEncTime) ? selectedEncTime : times[0]);
-      const list = (grass[activeTime] || []).filter(matchesVer);
-      const tabsHtml = grass.all ? '' : `<div class="enc-time-tabs">${times.map(t=>`<button class="${t===activeTime?'active':''}" onclick="setEncTime('${t}')">${t.charAt(0).toUpperCase()+t.slice(1)}</button>`).join('')}</div>`;
+      const hasMorning = !!(grass.morning && grass.morning.length);
+      const hasDay = !!(grass.day && grass.day.length);
+      const hasNight = !!(grass.night && grass.night.length);
+      const hasAll = !!(grass.all && grass.all.length);
+      const hasTimeSplit = hasMorning || hasDay || hasNight;
+      let list, tabsHtml = '';
+      if (hasTimeSplit) {
+        const tabs = [];
+        if (hasMorning) tabs.push('morning');
+        if (hasDay) tabs.push('day');
+        if (hasNight) tabs.push('night');
+        const activeTime = tabs.includes(selectedEncTime) ? selectedEncTime : tabs[0];
+        // Merge always-available + time-specific for this tab; dedup by species
+        const combined = [...(grass.all || []), ...(grass[activeTime] || [])];
+        const seen = new Set();
+        list = combined.filter(e => {
+          const k = (e.p || '').toLowerCase();
+          if (seen.has(k)) return false;
+          seen.add(k);
+          return true;
+        }).filter(matchesVer);
+        tabsHtml = `<div class="enc-time-tabs">${tabs.map(t=>`<button class="${t===activeTime?'active':''}" onclick="setEncTime('${t}')">${t.charAt(0).toUpperCase()+t.slice(1)}</button>`).join('')}</div>`;
+      } else {
+        list = (grass.all || []).filter(matchesVer);
+      }
       html += `<div class="enc-section">
         <div class="enc-section-hdr">
           <span class="enc-method-label">${methodLabel}</span>
