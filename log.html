@@ -355,6 +355,19 @@
   .enc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
   .enc-poke{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 10px;display:flex;align-items:center;gap:10px;transition:all .15s;position:relative}
   .enc-poke:hover{border-color:var(--border2)}
+  .enc-poke.clickable{cursor:pointer}
+  .enc-poke.clickable:hover{border-color:var(--accent);background:var(--bg2);transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+  .enc-action-menu{position:fixed;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:10px;z-index:200;box-shadow:0 8px 30px rgba(0,0,0,.5);min-width:240px;font-family:'Outfit',sans-serif;display:flex;flex-direction:column;gap:4px}
+  .enc-action-menu .eam-title{font-size:12px;color:var(--text);font-weight:600;padding:2px 4px 8px;border-bottom:1px solid var(--border);margin-bottom:4px}
+  .enc-action-menu .eam-loc{font-weight:400;color:var(--text3);font-size:11px}
+  .enc-action-menu .eam-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:var(--radius-sm);cursor:pointer;font-family:'Outfit',sans-serif;font-size:12px;text-align:left;transition:all .15s}
+  .enc-action-menu .eam-btn:hover{border-color:var(--border2)}
+  .enc-action-menu .eam-btn.caught{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.3);color:#86efac}
+  .enc-action-menu .eam-btn.caught:hover{background:rgba(34,197,94,.22);border-color:rgba(34,197,94,.5)}
+  .enc-action-menu .eam-btn.skipped{background:rgba(168,168,168,.08);color:var(--text2)}
+  .enc-action-menu .eam-btn.failed{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.3);color:#fca5a5}
+  .enc-action-menu .eam-btn.failed:hover{background:rgba(239,68,68,.22);border-color:rgba(239,68,68,.5)}
+  .enc-action-menu .eam-btn.cancel{background:transparent;color:var(--text3);border-color:transparent;font-size:11px;margin-top:4px}
   .enc-poke.dupe{opacity:0.5}
   .enc-poke.dead{opacity:0.4;border-color:rgba(248,113,113,.2)}
   .enc-poke.caught{border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.04)}
@@ -1524,450 +1537,141 @@ const POKEMON_DB = {
   'Avalugg':{id:713,t:['Ice'],s:[95,117,184,44,46,28],a:['Own Tempo','Ice Body','Sturdy']},
   'Spritzee':{id:682,t:['Fairy'],s:[78,52,60,63,65,23],a:['Healer','Aroma Veil'],e:['Aromatisse','trade w/ Sachet']},
   'Delibird':{id:225,t:['Ice','Flying'],s:[45,55,45,65,45,75],a:['Vital Spirit','Hustle','Insomnia']},
-  'Swirlix':{id:684,t:['Fairy'],s:[62,48,66,59,57,49],a:['Sweet Veil','Unburden'],e:['Slurpuff','trade w/ Whipped Dream']}
+  'Swirlix':{id:684,t:['Fairy'],s:[62,48,66,59,57,49],a:['Sweet Veil','Unburden'],e:['Slurpuff','trade w/ Whipped Dream']},
+  // Additional BDSP route coverage
+  'Doduo':{id:84,t:['Normal','Flying'],s:[35,85,45,35,35,75],a:['Run Away','Early Bird','Tangled Feet'],e:['Dodrio',31]},
+  'Nidoran♀':{id:29,t:['Poison'],s:[55,47,52,40,40,41],a:['Poison Point','Rivalry','Hustle'],e:['Nidorina',16]},
+  'Nidoran♂':{id:32,t:['Poison'],s:[46,57,40,40,40,50],a:['Poison Point','Rivalry','Hustle'],e:['Nidorino',16]},
+  'Nidorina':{id:30,t:['Poison'],s:[70,62,67,55,55,56],a:['Poison Point','Rivalry','Hustle'],e:['Nidoqueen','Moon Stone']},
+  'Nidorino':{id:33,t:['Poison'],s:[61,72,57,55,55,65],a:['Poison Point','Rivalry','Hustle'],e:['Nidoking','Moon Stone']},
+  'Tauros':{id:128,t:['Normal'],s:[75,100,95,40,70,110],a:['Intimidate','Anger Point','Sheer Force']},
+  'Miltank':{id:241,t:['Normal'],s:[95,80,105,40,70,100],a:['Thick Fat','Scrappy','Sap Sipper']},
+  'Mr. Mime':{id:122,t:['Psychic','Fairy'],s:[40,45,65,100,120,90],a:['Soundproof','Filter','Technician']},
+  'Mime Jr.':{id:439,t:['Psychic','Fairy'],s:[20,25,45,70,90,60],a:['Soundproof','Filter','Technician'],e:['Mr. Mime','level w/ Mimic']},
+  'Lapras':{id:131,t:['Water','Ice'],s:[130,85,80,85,95,60],a:['Water Absorb','Shell Armor','Hydration']},
+  'Wobbuffet':{id:202,t:['Psychic'],s:[190,33,58,33,58,33],a:['Shadow Tag','Telepathy']},
+  'Ditto':{id:132,t:['Normal'],s:[48,48,48,48,48,48],a:['Limber','Imposter']},
+  'Drowzee':{id:96,t:['Psychic'],s:[60,48,45,43,90,42],a:['Insomnia','Forewarn','Inner Focus'],e:['Hypno',26]},
+  'Skitty':{id:300,t:['Normal'],s:[50,45,45,35,35,50],a:['Cute Charm','Normalize','Wonder Skin'],e:['Delcatty','Moon Stone']},
+  'Zigzagoon':{id:263,t:['Normal'],s:[38,30,41,30,41,60],a:['Pickup','Gluttony','Quick Feet'],e:['Linoone',20]},
+  'Dragonair':{id:148,t:['Dragon'],s:[61,84,65,70,70,70],a:['Shed Skin','Marvel Scale'],e:['Dragonite',55]},
+  'Dratini':{id:147,t:['Dragon'],s:[41,64,45,50,50,50],a:['Shed Skin','Marvel Scale'],e:['Dragonair',30]},
+  'Smeargle':{id:235,t:['Normal'],s:[55,20,35,20,45,75],a:['Own Tempo','Technician','Moody']},
+  'Dunsparce':{id:206,t:['Normal'],s:[100,70,70,65,65,45],a:['Serene Grace','Run Away','Rattled']},
+  'Girafarig':{id:203,t:['Normal','Psychic'],s:[70,80,65,90,65,85],a:['Inner Focus','Early Bird','Sap Sipper']},
+  'Mareep':{id:179,t:['Electric'],s:[55,40,40,65,45,35],a:['Static','Plus'],e:['Flaaffy',15]},
+  'Flaaffy':{id:180,t:['Electric'],s:[70,55,55,80,60,45],a:['Static','Plus'],e:['Ampharos',30]},
+  'Electrike':{id:309,t:['Electric'],s:[40,45,40,65,40,65],a:['Static','Lightning Rod','Minus'],e:['Manectric',26]},
+  'Shellder':{id:90,t:['Water'],s:[30,65,100,45,25,40],a:['Shell Armor','Skill Link','Overcoat'],e:['Cloyster','Water Stone']},
+  'Staryu':{id:120,t:['Water'],s:[30,45,55,70,55,85],a:['Illuminate','Natural Cure','Analytic'],e:['Starmie','Water Stone']},
+  'Wailmer':{id:320,t:['Water'],s:[130,70,35,70,35,60],a:['Water Veil','Oblivious','Pressure'],e:['Wailord',40]},
+  'Wailord':{id:321,t:['Water'],s:[170,90,45,90,45,60],a:['Water Veil','Oblivious','Pressure']},
+  'Mantyke':{id:458,t:['Water','Flying'],s:[45,20,50,60,120,50],a:['Swift Swim','Water Absorb','Water Veil'],e:['Mantine','level w/ Remoraid in party']},
+  'Carvanha':{id:318,t:['Water','Dark'],s:[45,90,20,65,20,65],a:['Rough Skin','Speed Boost'],e:['Sharpedo',30]},
+  'Sharpedo':{id:319,t:['Water','Dark'],s:[70,120,40,95,40,95],a:['Rough Skin','Speed Boost']},
+  'Corphish':{id:341,t:['Water'],s:[43,80,65,50,35,35],a:['Hyper Cutter','Shell Armor','Adaptability'],e:['Crawdaunt',30]},
+  'Crawdaunt':{id:342,t:['Water','Dark'],s:[63,120,85,90,55,55],a:['Hyper Cutter','Shell Armor','Adaptability']},
+  'Qwilfish':{id:211,t:['Water','Poison'],s:[65,95,85,55,55,85],a:['Poison Point','Swift Swim','Intimidate']},
+  'Clamperl':{id:366,t:['Water'],s:[35,64,85,74,55,32],a:['Shell Armor','Rattled'],e:['Huntail/Gorebyss','trade w/ DeepSeaTooth/Scale']},
+  'Chinchou':{id:170,t:['Water','Electric'],s:[75,38,38,56,56,67],a:['Volt Absorb','Illuminate','Water Absorb'],e:['Lanturn',27]},
+  'Luvdisc':{id:370,t:['Water'],s:[43,30,55,40,65,97],a:['Swift Swim','Hydration']},
+  'Slakoth':{id:287,t:['Normal'],s:[60,60,60,35,35,30],a:['Truant'],e:['Vigoroth',18]},
+  'Loudred':{id:294,t:['Normal'],s:[84,71,43,71,43,48],a:['Soundproof','Scrappy'],e:['Exploud',40]},
+  'Swellow':{id:277,t:['Normal','Flying'],s:[60,85,60,75,50,125],a:['Guts','Scrappy']},
+  'Hoppip':{id:187,t:['Grass','Flying'],s:[35,35,40,35,55,50],a:['Chlorophyll','Leaf Guard','Infiltrator'],e:['Skiploom',18]},
+  'Skiploom':{id:188,t:['Grass','Flying'],s:[55,45,50,45,65,80],a:['Chlorophyll','Leaf Guard','Infiltrator'],e:['Jumpluff',27]},
+  'Nincada':{id:290,t:['Bug','Ground'],s:[31,45,90,30,30,40],a:['Compound Eyes','Run Away'],e:['Ninjask',20]},
+  'Chatot':{id:441,t:['Normal','Flying'],s:[76,65,45,92,42,91],a:['Keen Eye','Tangled Feet','Big Pecks']},
+  'Tyrogue':{id:236,t:['Fighting'],s:[35,35,35,35,35,35],a:['Guts','Steadfast','Vital Spirit'],e:['Hitmonlee/Hitmonchan/Hitmontop',20]},
+  'Houndoom':{id:229,t:['Dark','Fire'],s:[75,90,50,110,80,95],a:['Early Bird','Flash Fire','Unnerve']},
+  'Mightyena':{id:262,t:['Dark'],s:[70,90,70,60,60,70],a:['Intimidate','Quick Feet','Moxie']},
+  'Baltoy':{id:343,t:['Ground','Psychic'],s:[40,40,55,40,70,55],a:['Levitate'],e:['Claydol',36]},
+  'Grimer':{id:88,t:['Poison'],s:[80,80,50,40,50,25],a:['Stench','Sticky Hold','Poison Touch'],e:['Muk',38]},
+  'Kecleon':{id:352,t:['Normal'],s:[60,90,70,60,120,40],a:['Color Change','Protean']}
 };
 
-/* BDSP_ENCOUNTERS — encounter data for Brilliant Diamond / Shining Pearl
-   Per location: type, methods object. Method keys: grass (with morning/day/night), surf, oldRod, goodRod, superRod, honey
-   Each encounter: { p: 'Name', lv: [min,max], r: rate%, v: 'both'|'BD'|'SP' }
-   Compiled from Serebii. */
+/* BDSP_ENCOUNTERS — auto-generated from nuzlocke.data (domtronn/nuzlocke.data on GitHub).
+   Per location: type, methods object. Wild list is comprehensive but lacks rates/times.
+   Each encounter: { p: name, lv: [min,max] (1-100 placeholder), v: BD/SP/both } */
+// Auto-generated from nuzlocke.data — BDSP routes/locations
 const BDSP_ENCOUNTERS = {
-  'Route 201': { type:'route', region:'Sinnoh',
-    methods: {
-      grass: {
-        all: [{p:'Bidoof',lv:[2,3],r:50,v:'both'},{p:'Starly',lv:[2,3],r:50,v:'both'}]
-      }
-    }
-  },
-  'Route 202': { type:'route', region:'Sinnoh',
-    methods: {
-      grass: {
-        all: [{p:'Bidoof',lv:[2,5],r:35,v:'both'},{p:'Starly',lv:[2,5],r:35,v:'both'},{p:'Shinx',lv:[3,5],r:30,v:'both'}]
-      }
-    }
-  },
-  'Route 203': { type:'route', region:'Sinnoh',
-    methods: {
-      grass: {
-        morning: [{p:'Bidoof',lv:[3,6],r:30,v:'both'},{p:'Starly',lv:[3,6],r:30,v:'both'},{p:'Shinx',lv:[3,6],r:30,v:'both'},{p:'Abra',lv:[3,6],r:5,v:'both'},{p:'Zubat',lv:[3,6],r:5,v:'both'}],
-        day: [{p:'Bidoof',lv:[3,6],r:30,v:'both'},{p:'Starly',lv:[3,6],r:30,v:'both'},{p:'Shinx',lv:[3,6],r:30,v:'both'},{p:'Abra',lv:[3,6],r:5,v:'both'},{p:'Zubat',lv:[3,6],r:5,v:'both'}],
-        night: [{p:'Bidoof',lv:[3,6],r:30,v:'both'},{p:'Shinx',lv:[3,6],r:30,v:'both'},{p:'Kricketot',lv:[3,6],r:30,v:'both'},{p:'Abra',lv:[3,6],r:5,v:'both'},{p:'Zubat',lv:[3,6],r:5,v:'both'}]
-      },
-      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
-      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'},{p:'Psyduck',lv:[2,15],r:5,v:'both'}],
-      superRod: [{p:'Magikarp',lv:[15,30],r:60,v:'both'},{p:'Goldeen',lv:[15,30],r:35,v:'both'},{p:'Psyduck',lv:[15,30],r:5,v:'both'}]
-    }
-  },
-  'Oreburgh Gate': { type:'dungeon', region:'Sinnoh', note:'Cave between Routes 203 & 207. Surf area accessible later.',
-    methods: {
-      grass: {
-        all: [{p:'Zubat',lv:[4,7],r:60,v:'both'},{p:'Geodude',lv:[4,7],r:40,v:'both'}]
-      },
-      surf: [{p:'Psyduck',lv:[2,40],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
-      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
-      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'},{p:'Barboach',lv:[2,15],r:5,v:'both'}],
-      superRod: [{p:'Barboach',lv:[15,30],r:60,v:'both'},{p:'Whiscash',lv:[15,30],r:40,v:'both'}]
-    }
-  },
-  'Oreburgh Mine': { type:'dungeon', region:'Sinnoh', note:'Where Roark works. Pre-Gym 1.',
-    methods: {
-      grass: { all: [{p:'Zubat',lv:[5,8],r:55,v:'both'},{p:'Geodude',lv:[5,8],r:45,v:'both'}] }
-    }
-  },
-  'Route 204 (South)': { type:'route', region:'Sinnoh', note:'Below Floaroma Town.',
-    methods: {
-      grass: {
-        morning: [{p:'Bidoof',lv:[3,6],r:35,v:'both'},{p:'Starly',lv:[3,6],r:35,v:'both'},{p:'Wurmple',lv:[3,6],r:20,v:'both'},{p:'Shinx',lv:[3,6],r:10,v:'both'}],
-        day: [{p:'Bidoof',lv:[3,6],r:35,v:'both'},{p:'Starly',lv:[3,6],r:35,v:'both'},{p:'Wurmple',lv:[3,6],r:20,v:'both'},{p:'Shinx',lv:[3,6],r:10,v:'both'}],
-        night: [{p:'Bidoof',lv:[3,6],r:35,v:'both'},{p:'Kricketot',lv:[3,6],r:35,v:'both'},{p:'Wurmple',lv:[3,6],r:20,v:'both'},{p:'Shinx',lv:[3,6],r:10,v:'both'}]
-      }
-    }
-  },
-  'Route 204 (North)': { type:'route', region:'Sinnoh', note:'Above Floaroma Town. Requires HM Cut later. Honey trees available.',
-    methods: {
-      grass: {
-        morning: [{p:'Bidoof',lv:[6,9],r:30,v:'both'},{p:'Starly',lv:[6,9],r:30,v:'both'},{p:'Budew',lv:[6,9],r:20,v:'both'},{p:'Wurmple',lv:[6,9],r:10,v:'both'},{p:'Silcoon',lv:[6,9],r:5,v:'both'},{p:'Cascoon',lv:[6,9],r:5,v:'both'}],
-        day: [{p:'Bidoof',lv:[6,9],r:30,v:'both'},{p:'Starly',lv:[6,9],r:30,v:'both'},{p:'Budew',lv:[6,9],r:20,v:'both'},{p:'Wurmple',lv:[6,9],r:10,v:'both'},{p:'Silcoon',lv:[6,9],r:5,v:'both'},{p:'Cascoon',lv:[6,9],r:5,v:'both'}],
-        night: [{p:'Bidoof',lv:[6,9],r:30,v:'both'},{p:'Kricketot',lv:[6,9],r:30,v:'both'},{p:'Budew',lv:[6,9],r:20,v:'both'},{p:'Wurmple',lv:[6,9],r:10,v:'both'},{p:'Silcoon',lv:[6,9],r:5,v:'both'},{p:'Cascoon',lv:[6,9],r:5,v:'both'}]
-      }
-    }
-  },
-  'Ravaged Path': { type:'dungeon', region:'Sinnoh', note:'Short cave on Route 204. Requires HM Rock Smash.',
-    methods: {
-      grass: { all: [{p:'Zubat',lv:[4,7],r:60,v:'both'},{p:'Psyduck',lv:[4,7],r:40,v:'both'}] },
-      surf: [{p:'Psyduck',lv:[2,40],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
-      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
-      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'},{p:'Barboach',lv:[2,15],r:5,v:'both'}],
-      superRod: [{p:'Barboach',lv:[15,30],r:60,v:'both'},{p:'Whiscash',lv:[15,30],r:40,v:'both'}]
-    }
-  },
-  'Floaroma Meadow': { type:'route', region:'Sinnoh', note:'Honey trees grow nearby. Combee very common — needed for Vespiquen.',
-    methods: {
-      grass: { all: [{p:'Combee',lv:[5,10],r:100,v:'both'}] }
-    }
-  },
-  'Route 205 (South)': { type:'route', region:'Sinnoh', note:'South of Eterna Forest entrance.',
-    methods: {
-      grass: {
-        morning: [{p:'Bidoof',lv:[6,9],r:35,v:'both'},{p:'Buizel',lv:[6,9],r:35,v:'both'},{p:'Shellos',lv:[6,9],r:30,v:'both'}],
-        day: [{p:'Bidoof',lv:[6,9],r:35,v:'both'},{p:'Buizel',lv:[6,9],r:35,v:'both'},{p:'Shellos',lv:[6,9],r:30,v:'both'}],
-        night: [{p:'Bidoof',lv:[6,9],r:35,v:'both'},{p:'Buizel',lv:[6,9],r:35,v:'both'},{p:'Shellos',lv:[6,9],r:30,v:'both'}]
-      },
-      surf: [{p:'Psyduck',lv:[2,40],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
-      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
-      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'},{p:'Psyduck',lv:[2,15],r:5,v:'both'}],
-      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
-    }
-  },
-  'Valley Windworks': { type:'dungeon', region:'Sinnoh', note:'Special Drifloon encounter every Friday outside the building.',
-    methods: {
-      grass: { all: [{p:'Shinx',lv:[5,10],r:50,v:'both'},{p:'Buizel',lv:[5,10],r:30,v:'both'},{p:'Pachirisu',lv:[5,10],r:20,v:'both'}] },
-      special: [{p:'Drifloon',lv:[15,15],r:100,v:'both',note:'Every Friday after Team Galactic event'}]
-    }
-  },
-  'Eterna Forest': { type:'dungeon', region:'Sinnoh', note:'Walk with Cheryl as partner. Honey trees inside.',
-    methods: {
-      grass: {
-        morning: [{p:'Wurmple',lv:[5,10],r:25,v:'both'},{p:'Silcoon',lv:[5,10],r:5,v:'both'},{p:'Cascoon',lv:[5,10],r:5,v:'both'},{p:'Budew',lv:[5,10],r:20,v:'both'},{p:'Buneary',lv:[5,10],r:20,v:'both'},{p:'Bidoof',lv:[5,10],r:10,v:'both'},{p:'Combee',lv:[5,10],r:10,v:'both'},{p:'Cherubi',lv:[5,10],r:5,v:'both'}],
-        day: [{p:'Wurmple',lv:[5,10],r:25,v:'both'},{p:'Silcoon',lv:[5,10],r:5,v:'both'},{p:'Cascoon',lv:[5,10],r:5,v:'both'},{p:'Budew',lv:[5,10],r:20,v:'both'},{p:'Buneary',lv:[5,10],r:20,v:'both'},{p:'Bidoof',lv:[5,10],r:10,v:'both'},{p:'Combee',lv:[5,10],r:10,v:'both'},{p:'Cherubi',lv:[5,10],r:5,v:'both'}],
-        night: [{p:'Wurmple',lv:[5,10],r:25,v:'both'},{p:'Silcoon',lv:[5,10],r:5,v:'both'},{p:'Cascoon',lv:[5,10],r:5,v:'both'},{p:'Hoothoot',lv:[5,10],r:20,v:'both'},{p:'Murkrow',lv:[5,10],r:20,v:'BD'},{p:'Misdreavus',lv:[5,10],r:20,v:'SP'},{p:'Kricketot',lv:[5,10],r:10,v:'both'},{p:'Bidoof',lv:[5,10],r:15,v:'both'}]
-      }
-    }
-  },
-  'Old Chateau': { type:'dungeon', region:'Sinnoh', note:'In Eterna Forest. Ghost-type encounters at night.',
-    methods: {
-      grass: { all: [{p:'Gastly',lv:[10,14],r:100,v:'both'}] }
-    }
-  },
-  'Route 205 (North)': { type:'route', region:'Sinnoh', note:'Past Eterna Forest toward Eterna City.',
-    methods: {
-      grass: {
-        morning: [{p:'Bidoof',lv:[8,11],r:30,v:'both'},{p:'Buizel',lv:[8,11],r:30,v:'both'},{p:'Shellos',lv:[8,11],r:30,v:'both'},{p:'Roselia',lv:[8,11],r:10,v:'both'}],
-        day: [{p:'Bidoof',lv:[8,11],r:30,v:'both'},{p:'Buizel',lv:[8,11],r:30,v:'both'},{p:'Shellos',lv:[8,11],r:30,v:'both'},{p:'Roselia',lv:[8,11],r:10,v:'both'}],
-        night: [{p:'Bidoof',lv:[8,11],r:30,v:'both'},{p:'Buizel',lv:[8,11],r:30,v:'both'},{p:'Shellos',lv:[8,11],r:30,v:'both'},{p:'Roselia',lv:[8,11],r:10,v:'both'}]
-      },
-      surf: [{p:'Psyduck',lv:[2,40],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
-      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
-      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'}],
-      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
-    }
-  },
-  'Route 206': { type:'route', region:'Sinnoh', note:'Cycling Road. Honey trees here too.',
-    methods: {
-      grass: {
-        morning: [{p:'Ponyta',lv:[14,16],r:35,v:'BD'},{p:'Ponyta',lv:[14,16],r:35,v:'SP'},{p:'Stunky',lv:[14,16],r:25,v:'BD'},{p:'Geodude',lv:[14,14],r:10,v:'BD'},{p:'Geodude',lv:[14,14],r:35,v:'SP'},{p:'Kricketune',lv:[14,14],r:10,v:'both'},{p:'Bronzor',lv:[15,15],r:10,v:'both'},{p:'Kricketot',lv:[14,14],r:10,v:'both'}],
-        day: [{p:'Ponyta',lv:[14,16],r:45,v:'both'},{p:'Stunky',lv:[14,16],r:25,v:'BD'},{p:'Geodude',lv:[14,14],r:10,v:'BD'},{p:'Geodude',lv:[14,14],r:35,v:'SP'},{p:'Kricketune',lv:[14,14],r:10,v:'both'},{p:'Bronzor',lv:[15,15],r:10,v:'both'}],
-        night: [{p:'Ponyta',lv:[14,14],r:35,v:'BD'},{p:'Ponyta',lv:[14,16],r:35,v:'SP'},{p:'Stunky',lv:[14,16],r:25,v:'BD'},{p:'Geodude',lv:[14,14],r:10,v:'BD'},{p:'Geodude',lv:[14,14],r:35,v:'SP'},{p:'Kricketune',lv:[14,15],r:10,v:'both'},{p:'Bronzor',lv:[15,15],r:10,v:'both'},{p:'Zubat',lv:[15,15],r:10,v:'both'}]
-      }
-    }
-  },
-  'Wayward Cave': { type:'dungeon', region:'Sinnoh', note:'Under Cycling Road bridge. GIBLE here (hidden entrance, 1% rate in deep cave).',
-    methods: {
-      grass: { all: [{p:'Bronzor',lv:[12,18],r:30,v:'both'},{p:'Geodude',lv:[12,18],r:30,v:'both'},{p:'Zubat',lv:[12,18],r:30,v:'both'},{p:'Gible',lv:[15,20],r:10,v:'both',note:'Hidden lower section only'}] }
-    }
-  },
-  'Route 207': { type:'route', region:'Sinnoh',
-    methods: {
-      grass: {
-        all: [{p:'Geodude',lv:[3,6],r:50,v:'both'},{p:'Machop',lv:[3,6],r:30,v:'both'},{p:'Zubat',lv:[3,6],r:10,v:'both'},{p:'Ponyta',lv:[3,6],r:10,v:'both'}]
-      }
-    }
-  },
-  'Mt. Coronet (B1F / 1F)': { type:'dungeon', region:'Sinnoh', note:'Central mountain. Many levels and entrances.',
-    methods: {
-      grass: { all: [{p:'Zubat',lv:[10,15],r:30,v:'both'},{p:'Cleffa',lv:[10,15],r:5,v:'both'},{p:'Clefairy',lv:[10,15],r:5,v:'both'},{p:'Geodude',lv:[10,15],r:30,v:'both'},{p:'Machop',lv:[10,15],r:20,v:'both'},{p:'Meditite',lv:[10,15],r:10,v:'both'}] }
-    }
-  },
-  'Mt. Coronet (Higher Floors)': { type:'dungeon', region:'Sinnoh', note:'Peak / Spear Pillar area. Strong wild Pokémon.',
-    methods: {
-      grass: { all: [{p:'Golbat',lv:[35,42],r:30,v:'both'},{p:'Graveler',lv:[35,42],r:25,v:'both'},{p:'Machoke',lv:[35,42],r:20,v:'both'},{p:'Nosepass',lv:[35,42],r:10,v:'both'},{p:'Chimecho',lv:[35,42],r:5,v:'both'},{p:'Absol',lv:[35,42],r:5,v:'both'},{p:'Snover',lv:[35,42],r:5,v:'both'}] }
-    }
-  },
-  'Route 208': { type:'route', region:'Sinnoh', note:'East of Mt. Coronet. Berry trees.',
-    methods: {
-      grass: {
-        morning: [{p:'Bidoof',lv:[12,15],r:30,v:'both'},{p:'Bibarel',lv:[12,15],r:10,v:'both'},{p:'Starly',lv:[12,15],r:20,v:'both'},{p:'Staravia',lv:[12,15],r:10,v:'both'},{p:'Roselia',lv:[12,15],r:10,v:'both'},{p:'Ralts',lv:[12,15],r:10,v:'both'},{p:'Kirlia',lv:[12,15],r:10,v:'both'}],
-        day: [{p:'Bidoof',lv:[12,15],r:30,v:'both'},{p:'Bibarel',lv:[12,15],r:10,v:'both'},{p:'Starly',lv:[12,15],r:20,v:'both'},{p:'Staravia',lv:[12,15],r:10,v:'both'},{p:'Roselia',lv:[12,15],r:10,v:'both'},{p:'Ralts',lv:[12,15],r:10,v:'both'},{p:'Kirlia',lv:[12,15],r:10,v:'both'}],
-        night: [{p:'Bidoof',lv:[12,15],r:30,v:'both'},{p:'Bibarel',lv:[12,15],r:10,v:'both'},{p:'Kricketune',lv:[12,15],r:20,v:'both'},{p:'Murkrow',lv:[12,15],r:10,v:'BD'},{p:'Misdreavus',lv:[12,15],r:10,v:'SP'},{p:'Roselia',lv:[12,15],r:10,v:'both'},{p:'Ralts',lv:[12,15],r:10,v:'both'},{p:'Kirlia',lv:[12,15],r:10,v:'both'}]
-      }
-    }
-  },
-  'Route 209': { type:'route', region:'Sinnoh', note:'Lost Tower entrance route.',
-    methods: {
-      grass: {
-        morning: [{p:'Bibarel',lv:[14,17],r:20,v:'both'},{p:'Staravia',lv:[14,17],r:30,v:'both'},{p:'Roselia',lv:[14,17],r:20,v:'both'},{p:'Chansey',lv:[14,17],r:1,v:'both'},{p:'Bonsly',lv:[14,17],r:5,v:'both'},{p:'Pidgey',lv:[14,17],r:24,v:'both'}],
-        day: [{p:'Bibarel',lv:[14,17],r:20,v:'both'},{p:'Staravia',lv:[14,17],r:30,v:'both'},{p:'Roselia',lv:[14,17],r:20,v:'both'},{p:'Chansey',lv:[14,17],r:1,v:'both'},{p:'Bonsly',lv:[14,17],r:5,v:'both'},{p:'Pidgey',lv:[14,17],r:24,v:'both'}],
-        night: [{p:'Bibarel',lv:[14,17],r:20,v:'both'},{p:'Kricketune',lv:[14,17],r:30,v:'both'},{p:'Roselia',lv:[14,17],r:20,v:'both'},{p:'Chansey',lv:[14,17],r:1,v:'both'},{p:'Murkrow',lv:[14,17],r:5,v:'BD'},{p:'Misdreavus',lv:[14,17],r:5,v:'SP'},{p:'Hoothoot',lv:[14,17],r:24,v:'both'}]
-      }
-    }
-  },
-  'Lost Tower': { type:'dungeon', region:'Sinnoh', note:'Ghost-themed tower south of Solaceon. NPC gifts HM Defog at top.',
-    methods: {
-      grass: { all: [{p:'Gastly',lv:[14,16],r:55,v:'both'},{p:'Haunter',lv:[16,18],r:35,v:'both'},{p:'Misdreavus',lv:[15,17],r:10,v:'both'}] }
-    }
-  },
-  'Solaceon Ruins': { type:'dungeon', region:'Sinnoh', note:'Ancient ruins under Solaceon. Unown encounters (different forms per chamber).',
-    methods: {
-      grass: { all: [{p:'Unown',lv:[14,30],r:100,v:'both',note:'Different forms in different rooms'}] }
-    }
-  },
-  'Route 210 (South)': { type:'route', region:'Sinnoh', note:'Below Celestic Town.',
-    methods: {
-      grass: {
-        morning: [{p:'Bibarel',lv:[15,18],r:15,v:'both'},{p:'Staravia',lv:[15,18],r:15,v:'both'},{p:'Ponyta',lv:[15,18],r:20,v:'both'},{p:'Roselia',lv:[15,18],r:30,v:'both'},{p:'Hoothoot',lv:[15,18],r:5,v:'both'},{p:'Noctowl',lv:[15,18],r:5,v:'both'},{p:'Chansey',lv:[15,18],r:1,v:'both'},{p:'Meditite',lv:[15,18],r:9,v:'both'}],
-        day: [{p:'Bibarel',lv:[15,18],r:15,v:'both'},{p:'Staravia',lv:[15,18],r:15,v:'both'},{p:'Ponyta',lv:[15,18],r:20,v:'both'},{p:'Roselia',lv:[15,18],r:30,v:'both'},{p:'Chansey',lv:[15,18],r:1,v:'both'},{p:'Meditite',lv:[15,18],r:19,v:'both'}],
-        night: [{p:'Bibarel',lv:[15,18],r:15,v:'both'},{p:'Kricketune',lv:[15,18],r:15,v:'both'},{p:'Ponyta',lv:[15,18],r:20,v:'both'},{p:'Roselia',lv:[15,18],r:30,v:'both'},{p:'Hoothoot',lv:[15,18],r:10,v:'both'},{p:'Noctowl',lv:[15,18],r:5,v:'both'},{p:'Chansey',lv:[15,18],r:1,v:'both'},{p:'Meditite',lv:[15,18],r:4,v:'both'}]
-      }
-    }
-  },
-  'Route 210 (North)': { type:'route', region:'Sinnoh', note:'Foggy area north of Celestic. Need HM Defog.',
-    methods: {
-      grass: {
-        morning: [{p:'Bibarel',lv:[20,23],r:20,v:'both'},{p:'Hoothoot',lv:[20,23],r:5,v:'both'},{p:'Noctowl',lv:[20,23],r:5,v:'both'},{p:'Ponyta',lv:[20,23],r:20,v:'both'},{p:'Machoke',lv:[20,23],r:5,v:'both'},{p:'Meditite',lv:[20,23],r:10,v:'both'},{p:'Chansey',lv:[20,23],r:1,v:'both'},{p:'Staravia',lv:[20,23],r:34,v:'both'}],
-        day: [{p:'Bibarel',lv:[20,23],r:20,v:'both'},{p:'Ponyta',lv:[20,23],r:20,v:'both'},{p:'Machoke',lv:[20,23],r:5,v:'both'},{p:'Meditite',lv:[20,23],r:10,v:'both'},{p:'Chansey',lv:[20,23],r:1,v:'both'},{p:'Staravia',lv:[20,23],r:44,v:'both'}],
-        night: [{p:'Bibarel',lv:[20,23],r:20,v:'both'},{p:'Hoothoot',lv:[20,23],r:10,v:'both'},{p:'Noctowl',lv:[20,23],r:10,v:'both'},{p:'Ponyta',lv:[20,23],r:20,v:'both'},{p:'Machoke',lv:[20,23],r:5,v:'both'},{p:'Meditite',lv:[20,23],r:5,v:'both'},{p:'Chansey',lv:[20,23],r:1,v:'both'},{p:'Kricketune',lv:[20,23],r:29,v:'both'}]
-      },
-      surf: [{p:'Psyduck',lv:[15,30],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
-      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
-      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'}],
-      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
-    }
-  },
-  'Route 211 (East)': { type:'route', region:'Sinnoh', note:'East of Mt. Coronet near Celestic.',
-    methods: {
-      grass: {
-        all: [{p:'Geodude',lv:[14,17],r:20,v:'both'},{p:'Bidoof',lv:[14,17],r:10,v:'both'},{p:'Bibarel',lv:[14,17],r:5,v:'both'},{p:'Ponyta',lv:[14,17],r:25,v:'both'},{p:'Hoothoot',lv:[14,17],r:30,v:'both'},{p:'Chingling',lv:[14,17],r:10,v:'both'}]
-      }
-    }
-  },
-  'Route 211 (West)': { type:'route', region:'Sinnoh',
-    methods: {
-      grass: {
-        all: [{p:'Geodude',lv:[12,15],r:30,v:'both'},{p:'Zubat',lv:[12,15],r:30,v:'both'},{p:'Ponyta',lv:[12,15],r:20,v:'both'},{p:'Bibarel',lv:[12,15],r:10,v:'both'},{p:'Chingling',lv:[12,15],r:10,v:'both'}]
-      }
-    }
-  },
-  'Route 212 (North)': { type:'route', region:'Sinnoh', note:'Pokémon Mansion / Trophy Garden side.',
-    methods: {
-      grass: {
-        all: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Roselia',lv:[20,23],r:30,v:'both'},{p:'Ralts',lv:[20,23],r:10,v:'both'},{p:'Kirlia',lv:[20,23],r:5,v:'both'},{p:'Pidgey',lv:[20,23],r:15,v:'both'},{p:'Pidgeotto',lv:[20,23],r:10,v:'both'}]
-      }
-    }
-  },
-  'Route 212 (South)': { type:'route', region:'Sinnoh', note:'Swampy area approaching Pastoria. Rains often.',
-    methods: {
-      grass: {
-        morning: [{p:'Bibarel',lv:[22,25],r:30,v:'both'},{p:'Wooper',lv:[22,25],r:30,v:'both'},{p:'Psyduck',lv:[22,25],r:10,v:'both'},{p:'Marill',lv:[22,25],r:5,v:'both'},{p:'Roselia',lv:[22,25],r:10,v:'both'},{p:'Croagunk',lv:[22,25],r:10,v:'both'},{p:'Toxicroak',lv:[22,25],r:5,v:'both'}],
-        day: [{p:'Bibarel',lv:[22,25],r:30,v:'both'},{p:'Wooper',lv:[22,25],r:30,v:'both'},{p:'Psyduck',lv:[22,25],r:10,v:'both'},{p:'Marill',lv:[22,25],r:5,v:'both'},{p:'Roselia',lv:[22,25],r:10,v:'both'},{p:'Croagunk',lv:[22,25],r:10,v:'both'},{p:'Toxicroak',lv:[22,25],r:5,v:'both'}],
-        night: [{p:'Bibarel',lv:[22,25],r:30,v:'both'},{p:'Wooper',lv:[22,25],r:30,v:'both'},{p:'Psyduck',lv:[22,25],r:10,v:'both'},{p:'Marill',lv:[22,25],r:5,v:'both'},{p:'Roselia',lv:[22,25],r:10,v:'both'},{p:'Croagunk',lv:[22,25],r:10,v:'both'},{p:'Toxicroak',lv:[22,25],r:5,v:'both'}]
-      }
-    }
-  },
-  'Pastoria Great Marsh': { type:'dungeon', region:'Sinnoh', note:'Safari zone equivalent. Rotates daily. Special encounters only here.',
-    methods: { grass: { all: [{p:'Skorupi',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Yanma',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Carnivine',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Quagsire',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Croagunk',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Tropius',lv:[22,28],r:0,v:'both',note:'Rotating pool'}] } }
-  },
-  'Route 213': { type:'route', region:'Sinnoh', note:'Beach east of Pastoria.',
-    methods: {
-      grass: {
-        all: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Wingull',lv:[20,23],r:25,v:'both'},{p:'Pelipper',lv:[20,23],r:5,v:'both'},{p:'Shellos',lv:[20,23],r:30,v:'both'},{p:'Gastrodon',lv:[20,23],r:10,v:'both'}]
-      },
-      surf: [{p:'Tentacool',lv:[15,30],r:60,v:'both'},{p:'Tentacruel',lv:[15,30],r:30,v:'both'},{p:'Wingull',lv:[15,30],r:10,v:'both'}],
-      oldRod: [{p:'Magikarp',lv:[2,10],r:100,v:'both'}],
-      goodRod: [{p:'Magikarp',lv:[10,30],r:60,v:'both'},{p:'Finneon',lv:[10,30],r:40,v:'both'}],
-      superRod: [{p:'Finneon',lv:[20,40],r:40,v:'both'},{p:'Lumineon',lv:[20,40],r:40,v:'both'},{p:'Gyarados',lv:[20,40],r:20,v:'both'}]
-    }
-  },
-  'Route 214': { type:'route', region:'Sinnoh', note:'South of Veilstone toward Valor Lakefront.',
-    methods: {
-      grass: {
-        morning: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Stunky',lv:[20,23],r:20,v:'BD'},{p:'Glameow',lv:[20,23],r:20,v:'SP'},{p:'Geodude',lv:[20,23],r:20,v:'both'},{p:'Graveler',lv:[20,23],r:5,v:'both'},{p:'Ralts',lv:[20,23],r:5,v:'both'},{p:'Kirlia',lv:[20,23],r:5,v:'both'},{p:'Kricketune',lv:[20,23],r:15,v:'both'}],
-        day: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Stunky',lv:[20,23],r:20,v:'BD'},{p:'Glameow',lv:[20,23],r:20,v:'SP'},{p:'Geodude',lv:[20,23],r:20,v:'both'},{p:'Graveler',lv:[20,23],r:5,v:'both'},{p:'Ralts',lv:[20,23],r:5,v:'both'},{p:'Kirlia',lv:[20,23],r:5,v:'both'},{p:'Kricketune',lv:[20,23],r:15,v:'both'}],
-        night: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Stunky',lv:[20,23],r:20,v:'BD'},{p:'Glameow',lv:[20,23],r:20,v:'SP'},{p:'Geodude',lv:[20,23],r:20,v:'both'},{p:'Graveler',lv:[20,23],r:5,v:'both'},{p:'Ralts',lv:[20,23],r:5,v:'both'},{p:'Kirlia',lv:[20,23],r:5,v:'both'},{p:'Kricketune',lv:[20,23],r:15,v:'both'}]
-      }
-    }
-  },
-  'Valor Lakefront': { type:'route', region:'Sinnoh', note:'Outside Lake Valor.',
-    methods: {
-      grass: { all: [{p:'Bibarel',lv:[22,25],r:30,v:'both'},{p:'Stunky',lv:[22,25],r:30,v:'BD'},{p:'Glameow',lv:[22,25],r:30,v:'SP'},{p:'Staravia',lv:[22,25],r:30,v:'both'},{p:'Roselia',lv:[22,25],r:10,v:'both'}] }
-    }
-  },
-  'Route 215': { type:'route', region:'Sinnoh', note:'West of Veilstone. Rainy.',
-    methods: {
-      grass: {
-        all: [{p:'Bibarel',lv:[20,23],r:20,v:'both'},{p:'Kadabra',lv:[20,23],r:5,v:'both'},{p:'Meditite',lv:[20,23],r:15,v:'both'},{p:'Machoke',lv:[20,23],r:15,v:'both'},{p:'Kricketune',lv:[20,23],r:15,v:'both'},{p:'Ponyta',lv:[20,23],r:15,v:'both'},{p:'Stunky',lv:[20,23],r:15,v:'BD'},{p:'Glameow',lv:[20,23],r:15,v:'SP'}]
-      }
-    }
-  },
-  'Route 216': { type:'route', region:'Sinnoh', note:'Snow route to Snowpoint. HM Rock Climb area later.',
-    methods: {
-      grass: {
-        all: [{p:'Snover',lv:[27,30],r:30,v:'both'},{p:'Sneasel',lv:[27,30],r:10,v:'both'},{p:'Meditite',lv:[27,30],r:5,v:'both'},{p:'Machoke',lv:[27,30],r:5,v:'both'},{p:'Noctowl',lv:[27,30],r:5,v:'both'},{p:'Zubat',lv:[27,30],r:10,v:'both'},{p:'Bibarel',lv:[27,30],r:20,v:'both'},{p:'Graveler',lv:[27,30],r:15,v:'both'}]
-      }
-    }
-  },
-  'Route 217': { type:'route', region:'Sinnoh', note:'Heavy blizzard. Reduced visibility.',
-    methods: {
-      grass: { all: [{p:'Snover',lv:[28,31],r:30,v:'both'},{p:'Sneasel',lv:[28,31],r:10,v:'both'},{p:'Snorunt',lv:[28,31],r:10,v:'both'},{p:'Swinub',lv:[28,31],r:30,v:'both'},{p:'Noctowl',lv:[28,31],r:5,v:'both'},{p:'Hoothoot',lv:[28,31],r:5,v:'both'},{p:'Bibarel',lv:[28,31],r:10,v:'both'}] }
-    }
-  },
-  'Acuity Lakefront': { type:'route', region:'Sinnoh',
-    methods: { grass: { all: [{p:'Bibarel',lv:[30,33],r:30,v:'both'},{p:'Snover',lv:[30,33],r:30,v:'both'},{p:'Sneasel',lv:[30,33],r:15,v:'both'},{p:'Snorunt',lv:[30,33],r:15,v:'both'},{p:'Noctowl',lv:[30,33],r:10,v:'both'}] } }
-  },
-  'Route 218': { type:'route', region:'Sinnoh', note:'Coastal route west of Jubilife.',
-    methods: {
-      grass: { all: [{p:'Bibarel',lv:[24,27],r:30,v:'both'},{p:'Wingull',lv:[24,27],r:50,v:'both'},{p:'Pelipper',lv:[24,27],r:10,v:'both'},{p:'Floatzel',lv:[24,27],r:10,v:'both'}] },
-      surf: [{p:'Tentacool',lv:[20,40],r:60,v:'both'},{p:'Tentacruel',lv:[20,40],r:30,v:'both'},{p:'Wingull',lv:[20,40],r:10,v:'both'}],
-      superRod: [{p:'Finneon',lv:[20,40],r:60,v:'both'},{p:'Lumineon',lv:[20,40],r:40,v:'both'}]
-    }
-  },
-  'Route 219': { type:'route', region:'Sinnoh', note:'South of Sandgem. Surfing only.',
-    methods: {
-      surf: [{p:'Tentacool',lv:[20,40],r:60,v:'both'},{p:'Tentacruel',lv:[20,40],r:30,v:'both'},{p:'Wingull',lv:[20,40],r:10,v:'both'}],
-      superRod: [{p:'Finneon',lv:[20,40],r:60,v:'both'},{p:'Lumineon',lv:[20,40],r:40,v:'both'}]
-    }
-  },
-  'Route 221': { type:'route', region:'Sinnoh', note:'Pal Park area (post-game).',
-    methods: {
-      grass: {
-        morning: [{p:'Bibarel',lv:[27,30],r:20,v:'both'},{p:'Floatzel',lv:[27,30],r:10,v:'both'},{p:'Roselia',lv:[27,30],r:20,v:'both'},{p:'Gible',lv:[27,30],r:0,v:'both',note:'rare'},{p:'Pidgey',lv:[27,30],r:30,v:'both'},{p:'Wingull',lv:[27,30],r:20,v:'both'}],
-        day: [{p:'Bibarel',lv:[27,30],r:20,v:'both'},{p:'Floatzel',lv:[27,30],r:10,v:'both'},{p:'Roselia',lv:[27,30],r:20,v:'both'},{p:'Gible',lv:[27,30],r:0,v:'both',note:'rare'},{p:'Pidgey',lv:[27,30],r:30,v:'both'},{p:'Wingull',lv:[27,30],r:20,v:'both'}],
-        night: [{p:'Bibarel',lv:[27,30],r:20,v:'both'},{p:'Floatzel',lv:[27,30],r:10,v:'both'},{p:'Roselia',lv:[27,30],r:20,v:'both'},{p:'Gible',lv:[27,30],r:0,v:'both',note:'rare'},{p:'Pidgey',lv:[27,30],r:30,v:'both'},{p:'Wingull',lv:[27,30],r:20,v:'both'}]
-      }
-    }
-  },
-  'Route 222': { type:'route', region:'Sinnoh', note:'Approach to Sunyshore.',
-    methods: {
-      grass: { all: [{p:'Pikachu',lv:[34,37],r:20,v:'both'},{p:'Electabuzz',lv:[34,37],r:10,v:'both'},{p:'Wingull',lv:[34,37],r:20,v:'both'},{p:'Floatzel',lv:[34,37],r:20,v:'both'},{p:'Pelipper',lv:[34,37],r:10,v:'both'},{p:'Gastrodon',lv:[34,37],r:20,v:'both'}] }
-    }
-  },
-  'Route 224': { type:'route', region:'Sinnoh', note:'Postgame route on path to Spear Pillar/Stark Mountain.',
-    methods: {
-      grass: { all: [{p:'Bibarel',lv:[51,55],r:30,v:'both'},{p:'Staraptor',lv:[51,55],r:30,v:'both'},{p:'Roselia',lv:[51,55],r:20,v:'both'},{p:'Tangela',lv:[51,55],r:20,v:'both'}] }
-    }
-  },
-  'Route 225': { type:'route', region:'Sinnoh', note:'Postgame snowy route to Survival Area.',
-    methods: {
-      grass: { all: [{p:'Machoke',lv:[51,55],r:30,v:'both'},{p:'Graveler',lv:[51,55],r:30,v:'both'},{p:'Magmar',lv:[51,55],r:20,v:'both'},{p:'Electabuzz',lv:[51,55],r:20,v:'both'}] }
-    }
-  },
-  'Route 226': { type:'route', region:'Sinnoh', note:'Postgame coastal.',
-    methods: { grass: { all: [{p:'Wingull',lv:[51,55],r:30,v:'both'},{p:'Pelipper',lv:[51,55],r:20,v:'both'},{p:'Staraptor',lv:[51,55],r:30,v:'both'},{p:'Floatzel',lv:[51,55],r:20,v:'both'}] } }
-  },
-  'Route 227': { type:'route', region:'Sinnoh', note:'Volcanic ash route to Stark Mountain.',
-    methods: { grass: { all: [{p:'Magmar',lv:[55,58],r:30,v:'both'},{p:'Rhyhorn',lv:[55,58],r:30,v:'both'},{p:'Slugma',lv:[55,58],r:20,v:'both'},{p:'Numel',lv:[55,58],r:20,v:'both'}] } }
-  },
-  'Route 228': { type:'route', region:'Sinnoh', note:'Postgame sandstorm route.',
-    methods: { grass: { all: [{p:'Houndour',lv:[51,55],r:30,v:'both'},{p:'Rhyhorn',lv:[51,55],r:30,v:'both'},{p:'Gligar',lv:[51,55],r:20,v:'both'},{p:'Cacnea',lv:[51,55],r:20,v:'both'}] } }
-  },
-  'Route 229': { type:'route', region:'Sinnoh',
-    methods: { grass: { all: [{p:'Bibarel',lv:[44,48],r:30,v:'both'},{p:'Staraptor',lv:[44,48],r:30,v:'both'},{p:'Roselia',lv:[44,48],r:40,v:'both'}] } }
-  },
-  'Route 230': { type:'route', region:'Sinnoh', note:'Surf-only.',
-    methods: {
-      surf: [{p:'Tentacool',lv:[35,55],r:60,v:'both'},{p:'Tentacruel',lv:[35,55],r:40,v:'both'}],
-      superRod: [{p:'Finneon',lv:[35,55],r:30,v:'both'},{p:'Lumineon',lv:[35,55],r:60,v:'both'},{p:'Gyarados',lv:[35,55],r:10,v:'both'}]
-    }
-  },
-  'Lake Verity': { type:'dungeon', region:'Sinnoh', note:'Mesprit awakens here post-game.',
-    methods: {
-      surf: [{p:'Psyduck',lv:[15,30],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
-      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
-    }
-  },
-  'Lake Valor': { type:'dungeon', region:'Sinnoh', note:'Azelf encountered here post-Galactic.',
-    methods: {
-      surf: [{p:'Psyduck',lv:[15,30],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
-      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
-    }
-  },
-  'Lake Acuity': { type:'dungeon', region:'Sinnoh', note:'Uxie encountered here post-Galactic.',
-    methods: {
-      surf: [{p:'Psyduck',lv:[15,30],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
-      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
-    }
-  },
-  'Iron Island': { type:'dungeon', region:'Sinnoh', note:'Riley gives Riolu egg. Steel-type cave.',
-    methods: { grass: { all: [{p:'Zubat',lv:[22,26],r:25,v:'both'},{p:'Golbat',lv:[22,26],r:5,v:'both'},{p:'Geodude',lv:[22,26],r:20,v:'both'},{p:'Graveler',lv:[22,26],r:5,v:'both'},{p:'Onix',lv:[22,26],r:15,v:'both'},{p:'Steelix',lv:[22,26],r:5,v:'both'},{p:'Machop',lv:[22,26],r:10,v:'both'},{p:'Machoke',lv:[22,26],r:5,v:'both'}] } }
-  },
-  'Victory Road': { type:'dungeon', region:'Sinnoh', note:'Final test before Elite Four. Multi-floor cave.',
-    methods: { grass: { all: [{p:'Golbat',lv:[40,46],r:25,v:'both'},{p:'Graveler',lv:[40,46],r:25,v:'both'},{p:'Onix',lv:[40,46],r:5,v:'both'},{p:'Steelix',lv:[40,46],r:5,v:'both'},{p:'Rhyhorn',lv:[40,46],r:15,v:'both'},{p:'Rhydon',lv:[40,46],r:5,v:'both'},{p:'Magneton',lv:[40,46],r:10,v:'both'},{p:'Floatzel',lv:[40,46],r:10,v:'both'}] } }
-  },
-  'Sendoff Spring / Turnback Cave': { type:'dungeon', region:'Sinnoh', note:'Postgame. Giratina encounter at end.',
-    methods: { grass: { all: [{p:'Golbat',lv:[45,55],r:30,v:'both'},{p:'Graveler',lv:[45,55],r:20,v:'both'},{p:'Bronzor',lv:[45,55],r:20,v:'both'},{p:'Bronzong',lv:[45,55],r:10,v:'both'},{p:'Dusclops',lv:[45,55],r:20,v:'both'}] } }
-  },
-  'Stark Mountain': { type:'dungeon', region:'Sinnoh', note:'Postgame. Heatran at the end.',
-    methods: { grass: { all: [{p:'Slugma',lv:[55,60],r:25,v:'both'},{p:'Magcargo',lv:[55,60],r:15,v:'both'},{p:'Magmar',lv:[55,60],r:20,v:'both'},{p:'Magmortar',lv:[55,60],r:5,v:'both'},{p:'Rhyhorn',lv:[55,60],r:20,v:'both'},{p:'Rhydon',lv:[55,60],r:15,v:'both'}] } }
-  },
-  // Grand Underground Hideaways — distinct biome rooms
-  'Spacious Cave (UG)': { type:'hideaway', region:'Underground', note:'Standard Underground biome — common Pokémon.',
-    methods: { grass: { all: [{p:'Diglett',lv:[6,10],r:20,v:'both'},{p:'Geodude',lv:[6,10],r:20,v:'both'},{p:'Onix',lv:[6,10],r:10,v:'both'},{p:'Cubone',lv:[6,10],r:15,v:'both'},{p:'Wooper',lv:[6,10],r:15,v:'both'},{p:'Phanpy',lv:[6,10],r:10,v:'both'},{p:'Krabby',lv:[6,10],r:10,v:'both'}] } }
-  },
-  'Grassland Cave (UG)': { type:'hideaway', region:'Underground',
-    methods: { grass: { all: [{p:'Bellsprout',lv:[6,10],r:20,v:'both'},{p:'Oddish',lv:[6,10],r:20,v:'both'},{p:'Sentret',lv:[6,10],r:20,v:'both'},{p:'Sunkern',lv:[6,10],r:15,v:'both'},{p:'Hoppip',lv:[6,10],r:15,v:'both'},{p:'Aipom',lv:[6,10],r:10,v:'both'}] } }
-  },
-  'Fountainspring Cave (UG)': { type:'hideaway', region:'Underground',
-    methods: { grass: { all: [{p:'Psyduck',lv:[6,10],r:20,v:'both'},{p:'Marill',lv:[6,10],r:20,v:'both'},{p:'Slowpoke',lv:[6,10],r:20,v:'both'},{p:'Wooper',lv:[6,10],r:15,v:'both'},{p:'Lotad',lv:[6,10],r:15,v:'both'},{p:'Surskit',lv:[6,10],r:10,v:'both'}] } }
-  },
-  'Rocky Cave (UG)': { type:'hideaway', region:'Underground',
-    methods: { grass: { all: [{p:'Geodude',lv:[6,10],r:30,v:'both'},{p:'Onix',lv:[6,10],r:20,v:'both'},{p:'Larvitar',lv:[6,10],r:10,v:'both'},{p:'Nosepass',lv:[6,10],r:15,v:'both'},{p:'Aron',lv:[6,10],r:15,v:'both'},{p:'Bonsly',lv:[6,10],r:10,v:'both'}] } }
-  },
-  'Volcanic Cave (UG)': { type:'hideaway', region:'Underground', note:'Fire-types. Charmander available!',
-    methods: { grass: { all: [{p:'Vulpix',lv:[6,10],r:20,v:'both'},{p:'Growlithe',lv:[6,10],r:20,v:'both'},{p:'Slugma',lv:[6,10],r:15,v:'both'},{p:'Numel',lv:[6,10],r:15,v:'both'},{p:'Magby',lv:[6,10],r:10,v:'both'},{p:'Houndour',lv:[6,10],r:10,v:'both'},{p:'Charmander',lv:[6,10],r:10,v:'both',note:'Post-Nat Dex'}] } }
-  },
-  'Swampy Cave (UG)': { type:'hideaway', region:'Underground',
-    methods: { grass: { all: [{p:'Wooper',lv:[6,10],r:20,v:'both'},{p:'Croagunk',lv:[6,10],r:20,v:'both'},{p:'Gulpin',lv:[6,10],r:15,v:'both'},{p:'Wooper',lv:[6,10],r:15,v:'both'},{p:'Skorupi',lv:[6,10],r:15,v:'both'},{p:'Trubbish',lv:[6,10],r:15,v:'both'}] } }
-  },
-  'Dazzling Cave (UG)': { type:'hideaway', region:'Underground', note:'Fairy/Bug bias.',
-    methods: { grass: { all: [{p:'Clefairy',lv:[6,10],r:15,v:'both'},{p:'Jigglypuff',lv:[6,10],r:15,v:'both'},{p:'Snubbull',lv:[6,10],r:15,v:'both'},{p:'Mawile',lv:[6,10],r:15,v:'both'},{p:'Hippopotas',lv:[6,10],r:20,v:'both'},{p:'Sandshrew',lv:[6,10],r:20,v:'both'}] } }
-  },
-  'Whiteout Cave (UG)': { type:'hideaway', region:'Underground', note:'Ice biome. Mid-game unlock.',
-    methods: { grass: { all: [{p:'Snorunt',lv:[20,30],r:25,v:'both'},{p:'Swinub',lv:[20,30],r:25,v:'both'},{p:'Snover',lv:[20,30],r:20,v:'both'},{p:'Spheal',lv:[20,30],r:15,v:'both'},{p:'Vanillite',lv:[20,30],r:15,v:'both'}] } }
-  },
-  'Icy Cave (UG)': { type:'hideaway', region:'Underground',
-    methods: { grass: { all: [{p:'Sneasel',lv:[20,30],r:20,v:'both'},{p:'Vanillish',lv:[20,30],r:15,v:'both'},{p:'Cubchoo',lv:[20,30],r:20,v:'both'},{p:'Smoochum',lv:[20,30],r:15,v:'both'},{p:'Delibird',lv:[20,30],r:15,v:'both'},{p:'Bergmite',lv:[20,30],r:15,v:'both'}] } }
-  },
-  'Riverbank Cave (UG)': { type:'hideaway', region:'Underground',
-    methods: { grass: { all: [{p:'Bibarel',lv:[20,30],r:30,v:'both'},{p:'Bidoof',lv:[20,30],r:20,v:'both'},{p:'Floatzel',lv:[20,30],r:15,v:'both'},{p:'Buizel',lv:[20,30],r:15,v:'both'},{p:'Wingull',lv:[20,30],r:10,v:'both'},{p:'Pelipper',lv:[20,30],r:10,v:'both'}] } }
-  },
-  'Sandsear Cave (UG)': { type:'hideaway', region:'Underground', note:'Desert biome.',
-    methods: { grass: { all: [{p:'Sandshrew',lv:[20,30],r:20,v:'both'},{p:'Sandslash',lv:[20,30],r:15,v:'both'},{p:'Trapinch',lv:[20,30],r:20,v:'both'},{p:'Hippopotas',lv:[20,30],r:15,v:'both'},{p:'Cacnea',lv:[20,30],r:15,v:'both'},{p:'Sandile',lv:[20,30],r:15,v:'both'}] } }
-  },
-  'Still-Water Cavern (UG)': { type:'hideaway', region:'Underground',
-    methods: { grass: { all: [{p:'Lotad',lv:[20,30],r:20,v:'both'},{p:'Lombre',lv:[20,30],r:15,v:'both'},{p:'Marill',lv:[20,30],r:20,v:'both'},{p:'Wooper',lv:[20,30],r:15,v:'both'},{p:'Tympole',lv:[20,30],r:15,v:'both'},{p:'Wingull',lv:[20,30],r:15,v:'both'}] } }
-  },
-  'Sunlit Cavern (UG)': { type:'hideaway', region:'Underground', note:'Grass biome.',
-    methods: { grass: { all: [{p:'Oddish',lv:[20,30],r:20,v:'both'},{p:'Gloom',lv:[20,30],r:15,v:'both'},{p:'Bellsprout',lv:[20,30],r:20,v:'both'},{p:'Hoppip',lv:[20,30],r:15,v:'both'},{p:'Petilil',lv:[20,30],r:15,v:'both'},{p:'Cottonee',lv:[20,30],r:15,v:'both'}] } }
-  },
-  'Big Bluff Cavern (UG)': { type:'hideaway', region:'Underground',
-    methods: { grass: { all: [{p:'Aron',lv:[30,40],r:20,v:'both'},{p:'Lairon',lv:[30,40],r:15,v:'both'},{p:'Beldum',lv:[30,40],r:15,v:'both'},{p:'Metang',lv:[30,40],r:10,v:'both'},{p:'Mawile',lv:[30,40],r:20,v:'both'},{p:'Pawniard',lv:[30,40],r:20,v:'both'}] } }
-  },
-  'Stargleam Cavern (UG)': { type:'hideaway', region:'Underground', note:'Psychic/Fairy biome. Late unlock.',
-    methods: { grass: { all: [{p:'Clefairy',lv:[30,40],r:20,v:'both'},{p:'Clefable',lv:[30,40],r:10,v:'both'},{p:'Togetic',lv:[30,40],r:15,v:'both'},{p:'Ralts',lv:[30,40],r:15,v:'both'},{p:'Kirlia',lv:[30,40],r:15,v:'both'},{p:'Spritzee',lv:[30,40],r:15,v:'both'},{p:'Swirlix',lv:[30,40],r:10,v:'both'}] } }
-  },
-  'Glacial Cavern (UG)': { type:'hideaway', region:'Underground', note:'Ice biome (late).',
-    methods: { grass: { all: [{p:'Cryogonal',lv:[30,40],r:15,v:'both'},{p:'Vanillish',lv:[30,40],r:20,v:'both'},{p:'Vanilluxe',lv:[30,40],r:10,v:'both'},{p:'Sealeo',lv:[30,40],r:15,v:'both'},{p:'Beartic',lv:[30,40],r:10,v:'both'},{p:'Avalugg',lv:[30,40],r:10,v:'both'},{p:'Glalie',lv:[30,40],r:20,v:'both'}] } }
-  },
-  'Bogsunk Cavern (UG)': { type:'hideaway', region:'Underground',
-    methods: { grass: { all: [{p:'Drilbur',lv:[30,40],r:20,v:'both'},{p:'Excadrill',lv:[30,40],r:10,v:'both'},{p:'Trapinch',lv:[30,40],r:15,v:'both'},{p:'Vibrava',lv:[30,40],r:10,v:'both'},{p:'Gible',lv:[30,40],r:15,v:'both'},{p:'Gabite',lv:[30,40],r:10,v:'both'},{p:'Larvitar',lv:[30,40],r:20,v:'both'}] } }
-  },
-  'Typo Cavern (UG)': { type:'hideaway', region:'Underground', note:'Steel/Rock biome.',
-    methods: { grass: { all: [{p:'Beldum',lv:[30,40],r:20,v:'both'},{p:'Metang',lv:[30,40],r:15,v:'both'},{p:'Bronzor',lv:[30,40],r:15,v:'both'},{p:'Bronzong',lv:[30,40],r:10,v:'both'},{p:'Klink',lv:[30,40],r:20,v:'both'},{p:'Pawniard',lv:[30,40],r:20,v:'both'}] } }
-  }
+  "Twinleaf Town": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"}]}},
+  "Route 201": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Starly",lv:[1,100],v:"both"},{p:"Bidoof",lv:[1,100],v:"both"},{p:"Doduo",lv:[1,100],v:"both"},{p:"Nidoran♀",lv:[1,100],v:"both"},{p:"Nidoran♂",lv:[1,100],v:"both"}]}},
+  "Lake Verity": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Starly",lv:[1,100],v:"both"},{p:"Bidoof",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Surskit",lv:[1,100],v:"both"},{p:"Wobbuffet",lv:[1,100],v:"both"}]}},
+  "Route 202": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Starly",lv:[1,100],v:"both"},{p:"Bidoof",lv:[1,100],v:"both"},{p:"Kricketot",lv:[1,100],v:"both"},{p:"Shinx",lv:[1,100],v:"both"},{p:"Zigzagoon",lv:[1,100],v:"both"},{p:"Sentret",lv:[1,100],v:"both"}]}},
+  "Route 203": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Abra",lv:[1,100],v:"both"},{p:"Starly",lv:[1,100],v:"both"},{p:"Bidoof",lv:[1,100],v:"both"},{p:"Kricketot",lv:[1,100],v:"both"},{p:"Shinx",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Cubone",lv:[1,100],v:"both"},{p:"Ralts",lv:[1,100],v:"both"},{p:"Kirlia",lv:[1,100],v:"both"}]}},
+  "Oreburgh Gate": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Golbat",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Barboach",lv:[1,100],v:"both"},{p:"Whiscash",lv:[1,100],v:"both"}]}},
+  "Oreburgh City": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Abra",lv:[1,100],v:"both"}]}},
+  "Oreburgh Mine": {type:"dungeon",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Onix",lv:[1,100],v:"both"}]}},
+  "Route 207": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Machop",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Kricketot",lv:[1,100],v:"both"},{p:"Phanpy",lv:[1,100],v:"both"},{p:"Stantler",lv:[1,100],v:"both"},{p:"Larvitar",lv:[1,100],v:"BD"}]}},
+  "Route 204": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Starly",lv:[1,100],v:"both"},{p:"Bidoof",lv:[1,100],v:"both"},{p:"Kricketot",lv:[1,100],v:"both"},{p:"Shinx",lv:[1,100],v:"both"},{p:"Budew",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Goldeen",lv:[1,100],v:"both"},{p:"Ralts",lv:[1,100],v:"both"}]}},
+  "Ravaged Path": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Golbat",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Barboach",lv:[1,100],v:"both"},{p:"Whiscash",lv:[1,100],v:"both"}]}},
+  "Floaroma Meadow": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Aipom",lv:[1,100],v:"both"},{p:"Heracross",lv:[1,100],v:"both"},{p:"Wurmple",lv:[1,100],v:"both"},{p:"Silcoon",lv:[1,100],v:"both"},{p:"Cascoon",lv:[1,100],v:"both"},{p:"Burmy",lv:[1,100],v:"both"},{p:"Combee",lv:[1,100],v:"both"},{p:"Cherubi",lv:[1,100],v:"both"},{p:"Munchlax",lv:[1,100],v:"both"}]}},
+  "Route 205": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Bidoof",lv:[1,100],v:"both"},{p:"Pachirisu",lv:[1,100],v:"both"},{p:"Buizel",lv:[1,100],v:"both"},{p:"Shellos",lv:[1,100],v:"both"},{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Finneon",lv:[1,100],v:"both"},{p:"Lumineon",lv:[1,100],v:"both"},{p:"Shellder",lv:[1,100],v:"both"},{p:"Hoppip",lv:[1,100],v:"both"}]}},
+  "Valley Windworks": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Drifloon",lv:[1,100],v:"both"},{p:"Bidoof",lv:[1,100],v:"both"},{p:"Pachirisu",lv:[1,100],v:"both"},{p:"Buizel",lv:[1,100],v:"both"},{p:"Shellos",lv:[1,100],v:"both"},{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Finneon",lv:[1,100],v:"both"},{p:"Lumineon",lv:[1,100],v:"both"},{p:"Shellder",lv:[1,100],v:"both"},{p:"Electrike",lv:[1,100],v:"both"},{p:"Mareep",lv:[1,100],v:"both"}]}},
+  "Eterna Forest": {type:"dungeon",region:"Sinnoh",note:"",methods:{all:[{p:"Murkrow",lv:[1,100],v:"BD"},{p:"Misdreavus",lv:[1,100],v:"SP"},{p:"Wurmple",lv:[1,100],v:"both"},{p:"Silcoon",lv:[1,100],v:"both"},{p:"Beautifly",lv:[1,100],v:"both"},{p:"Cascoon",lv:[1,100],v:"both"},{p:"Dustox",lv:[1,100],v:"both"},{p:"Budew",lv:[1,100],v:"both"},{p:"Buneary",lv:[1,100],v:"both"},{p:"Slakoth",lv:[1,100],v:"both"},{p:"Nincada",lv:[1,100],v:"both"}]}},
+  "The Old Chateau": {type:"dungeon",region:"Sinnoh",note:"",methods:{all:[{p:"Gastly",lv:[1,100],v:"both"},{p:"Rotom",lv:[1,100],v:"both"}]}},
+  "Eterna City": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Barboach",lv:[1,100],v:"both"},{p:"Whiscash",lv:[1,100],v:"both"}]}},
+  "Underground: Spacious Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Grassland Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Fountainspring Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Rocky Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Swampy Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Dazzling Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Whiteout Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Icy Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Riverbank Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Sandsear Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Still-Water Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Sunlit Cavern": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Big Bluff Cavern": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Stargleam Cavern": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Volcanic Cave": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Glacial Cavern": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Underground: Bogsunk Cavern": {type:"hideaway",region:"Underground",note:"",methods:{}},
+  "Route 206": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Ponyta",lv:[1,100],v:"both"},{p:"Kricketot",lv:[1,100],v:"both"},{p:"Kricketune",lv:[1,100],v:"both"},{p:"Stunky",lv:[1,100],v:"BD"},{p:"Bronzor",lv:[1,100],v:"both"},{p:"Nosepass",lv:[1,100],v:"both"},{p:"Baltoy",lv:[1,100],v:"both"}]}},
+  "Wayward Cave": {type:"dungeon",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Bronzor",lv:[1,100],v:"both"},{p:"Gible",lv:[1,100],v:"both"}]}},
+  "Mt. Coronet": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Golbat",lv:[1,100],v:"both"},{p:"Machop",lv:[1,100],v:"both"},{p:"Machoke",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Graveler",lv:[1,100],v:"both"},{p:"Meditite",lv:[1,100],v:"both"},{p:"Medicham",lv:[1,100],v:"both"},{p:"Cleffa",lv:[1,100],v:"both"},{p:"Clefairy",lv:[1,100],v:"both"},{p:"Bronzor",lv:[1,100],v:"both"},{p:"Bronzong",lv:[1,100],v:"both"},{p:"Chimecho",lv:[1,100],v:"both"},{p:"Chingling",lv:[1,100],v:"both"},{p:"Noctowl",lv:[1,100],v:"both"},{p:"Snover",lv:[1,100],v:"both"},{p:"Abomasnow",lv:[1,100],v:"both"},{p:"Loudred",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Barboach",lv:[1,100],v:"both"},{p:"Whiscash",lv:[1,100],v:"both"},{p:"Dratini",lv:[1,100],v:"both"},{p:"Dragonair",lv:[1,100],v:"both"}]}},
+  "Route 208": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Machop",lv:[1,100],v:"both"},{p:"Meditite",lv:[1,100],v:"both"},{p:"Bidoof",lv:[1,100],v:"both"},{p:"Bibarel",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Barboach",lv:[1,100],v:"both"},{p:"Whiscash",lv:[1,100],v:"both"},{p:"Dunsparce",lv:[1,100],v:"both"},{p:"Tyrogue",lv:[1,100],v:"both"}]}},
+  "Hearthome City": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Eevee",lv:[1,100],v:"both"},{p:"Happiny",lv:[1,100],v:"both"}]}},
+  "Route 209": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Gastly",lv:[1,100],v:"both"},{p:"Chansey",lv:[1,100],v:"both"},{p:"Starly",lv:[1,100],v:"both"},{p:"Staravia",lv:[1,100],v:"both"},{p:"Bibarel",lv:[1,100],v:"both"},{p:"Bonsly",lv:[1,100],v:"both"},{p:"Mime Jr.",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Goldeen",lv:[1,100],v:"both"},{p:"Seaking",lv:[1,100],v:"both"},{p:"Snubbull",lv:[1,100],v:"both"},{p:"Tauros",lv:[1,100],v:"both"},{p:"Miltank",lv:[1,100],v:"both"}]}},
+  "The Lost Tower": {type:"dungeon",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Golbat",lv:[1,100],v:"both"},{p:"Gastly",lv:[1,100],v:"both"},{p:"Murkrow",lv:[1,100],v:"BD"},{p:"Misdreavus",lv:[1,100],v:"SP"}]}},
+  "Solaceon Ruins": {type:"dungeon",region:"Sinnoh",note:"",methods:{all:[{p:"Unown",lv:[1,100],v:"both"}]}},
+  "Route 210": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Geodude",lv:[1,100],v:"both"},{p:"Machop",lv:[1,100],v:"both"},{p:"Machoke",lv:[1,100],v:"both"},{p:"Hoothoot",lv:[1,100],v:"both"},{p:"Noctowl",lv:[1,100],v:"both"},{p:"Meditite",lv:[1,100],v:"both"},{p:"Bibarel",lv:[1,100],v:"both"},{p:"Ponyta",lv:[1,100],v:"both"},{p:"Chansey",lv:[1,100],v:"both"},{p:"Kricketune",lv:[1,100],v:"both"},{p:"Bonsly",lv:[1,100],v:"both"},{p:"Mime Jr.",lv:[1,100],v:"both"},{p:"Tauros",lv:[1,100],v:"both"},{p:"Miltank",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Barboach",lv:[1,100],v:"both"},{p:"Whiscash",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Kecleon",lv:[1,100],v:"both"},{p:"Bagon",lv:[1,100],v:"SP"}]}},
+  "Route 215": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Abra",lv:[1,100],v:"both"},{p:"Kadabra",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Ponyta",lv:[1,100],v:"both"},{p:"Kricketune",lv:[1,100],v:"both"},{p:"Drowzee",lv:[1,100],v:"both"},{p:"Houndoom",lv:[1,100],v:"BD"},{p:"Mightyena",lv:[1,100],v:"BD"}]}},
+  "Trophy Garden": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Pikachu",lv:[1,100],v:"both"},{p:"Pichu",lv:[1,100],v:"both"},{p:"Roselia",lv:[1,100],v:"both"},{p:"Staravia",lv:[1,100],v:"both"},{p:"Kricketune",lv:[1,100],v:"both"}]}},
+  "Pastoria City": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Remoraid",lv:[1,100],v:"both"},{p:"Octillery",lv:[1,100],v:"both"}]}},
+  "Great Marsh": {type:"dungeon",region:"Sinnoh",note:"",methods:{all:[{p:"Psyduck",lv:[1,100],v:"both"},{p:"Hoothoot",lv:[1,100],v:"both"},{p:"Noctowl",lv:[1,100],v:"both"},{p:"Azurill",lv:[1,100],v:"both"},{p:"Marill",lv:[1,100],v:"both"},{p:"Wooper",lv:[1,100],v:"both"},{p:"Quagsire",lv:[1,100],v:"both"},{p:"Starly",lv:[1,100],v:"both"},{p:"Bidoof",lv:[1,100],v:"both"},{p:"Bibarel",lv:[1,100],v:"both"},{p:"Budew",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Barboach",lv:[1,100],v:"both"},{p:"Whiscash",lv:[1,100],v:"both"},{p:"Carvanha",lv:[1,100],v:"both"}]}},
+  "Route 212": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Wooper",lv:[1,100],v:"both"},{p:"Quagsire",lv:[1,100],v:"both"},{p:"Roselia",lv:[1,100],v:"both"},{p:"Bibarel",lv:[1,100],v:"both"},{p:"Starly",lv:[1,100],v:"both"},{p:"Staravia",lv:[1,100],v:"both"},{p:"Kricketune",lv:[1,100],v:"both"},{p:"Budew",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Smeargle",lv:[1,100],v:"both"},{p:"Grimer",lv:[1,100],v:"both"}]}},
+  "Route 213": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Wingull",lv:[1,100],v:"both"},{p:"Buizel",lv:[1,100],v:"both"},{p:"Floatzel",lv:[1,100],v:"both"},{p:"Shellos",lv:[1,100],v:"both"},{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Remoraid",lv:[1,100],v:"both"},{p:"Octillery",lv:[1,100],v:"both"},{p:"Sharpedo",lv:[1,100],v:"both"},{p:"Absol",lv:[1,100],v:"both"},{p:"Swellow",lv:[1,100],v:"both"}]}},
+  "Valor Lakefront": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Geodude",lv:[1,100],v:"both"},{p:"Graveler",lv:[1,100],v:"both"},{p:"Girafarig",lv:[1,100],v:"both"},{p:"Staravia",lv:[1,100],v:"both"},{p:"Bibarel",lv:[1,100],v:"both"},{p:"Kricketune",lv:[1,100],v:"both"},{p:"Nidorina",lv:[1,100],v:"both"},{p:"Nidorino",lv:[1,100],v:"both"}]}},
+  "Lake Valor": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Azelf",lv:[1,100],v:"both"},{p:"Psyduck",lv:[1,100],v:"both"},{p:"Golduck",lv:[1,100],v:"both"},{p:"Noctowl",lv:[1,100],v:"both"},{p:"Staravia",lv:[1,100],v:"both"},{p:"Bibarel",lv:[1,100],v:"both"},{p:"Chingling",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Goldeen",lv:[1,100],v:"both"},{p:"Seaking",lv:[1,100],v:"both"},{p:"Lickitung",lv:[1,100],v:"both"},{p:"Wobbuffet",lv:[1,100],v:"both"}]}},
+  "Route 214": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Geodude",lv:[1,100],v:"both"},{p:"Graveler",lv:[1,100],v:"both"},{p:"Ponyta",lv:[1,100],v:"both"},{p:"Sudowoodo",lv:[1,100],v:"both"},{p:"Girafarig",lv:[1,100],v:"both"},{p:"Kricketune",lv:[1,100],v:"both"},{p:"Stunky",lv:[1,100],v:"BD"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Goldeen",lv:[1,100],v:"both"}]}},
+  "Ruin Maniac's Cave": {type:"dungeon",region:"Sinnoh",note:"",methods:{all:[{p:"Geodude",lv:[1,100],v:"both"},{p:"Hippopotas",lv:[1,100],v:"both"}]}},
+  "Celestic Town": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Psyduck",lv:[1,100],v:"both"},{p:"Goldeen",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Barboach",lv:[1,100],v:"both"},{p:"Whiscash",lv:[1,100],v:"both"},{p:"Corphish",lv:[1,100],v:"both"},{p:"Crawdaunt",lv:[1,100],v:"both"}]}},
+  "Fuego Ironworks": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Shinx",lv:[1,100],v:"both"},{p:"Luxio",lv:[1,100],v:"both"},{p:"Pachirisu",lv:[1,100],v:"both"},{p:"Floatzel",lv:[1,100],v:"both"},{p:"Shellos",lv:[1,100],v:"both"},{p:"Gastrodon",lv:[1,100],v:"both"},{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Finneon",lv:[1,100],v:"both"},{p:"Lumineon",lv:[1,100],v:"both"},{p:"Shellder",lv:[1,100],v:"both"},{p:"Magnemite",lv:[1,100],v:"both"},{p:"Hoppip",lv:[1,100],v:"both"},{p:"Skiploom",lv:[1,100],v:"both"},{p:"Aron",lv:[1,100],v:"both"}]}},
+  "Route 219": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Finneon",lv:[1,100],v:"both"},{p:"Clamperl",lv:[1,100],v:"both"},{p:"Lumineon",lv:[1,100],v:"both"}]}},
+  "Route 220": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Finneon",lv:[1,100],v:"both"},{p:"Lumineon",lv:[1,100],v:"both"},{p:"Chinchou",lv:[1,100],v:"both"}]}},
+  "Route 221": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Sudowoodo",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Roselia",lv:[1,100],v:"both"},{p:"Floatzel",lv:[1,100],v:"both"},{p:"Shellos",lv:[1,100],v:"both"},{p:"Gastrodon",lv:[1,100],v:"both"},{p:"Stunky",lv:[1,100],v:"BD"},{p:"Skuntank",lv:[1,100],v:"BD"}]}},
+  "Route 218": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Mr. Mime",lv:[1,100],v:"both"},{p:"Floatzel",lv:[1,100],v:"both"},{p:"Shellos",lv:[1,100],v:"both"},{p:"Gastrodon",lv:[1,100],v:"both"},{p:"Glameow",lv:[1,100],v:"SP"},{p:"Tentacool",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Finneon",lv:[1,100],v:"both"},{p:"Lumineon",lv:[1,100],v:"both"},{p:"Voltorb",lv:[1,100],v:"both"},{p:"Ditto",lv:[1,100],v:"both"}]}},
+  "Canalave City": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Finneon",lv:[1,100],v:"both"},{p:"Lumineon",lv:[1,100],v:"both"},{p:"Staryu",lv:[1,100],v:"both"}]}},
+  "Iron Island": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Riolu",lv:[1,100],v:"both"},{p:"Zubat",lv:[1,100],v:"both"},{p:"Golbat",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Graveler",lv:[1,100],v:"both"},{p:"Onix",lv:[1,100],v:"both"},{p:"Steelix",lv:[1,100],v:"both"},{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Finneon",lv:[1,100],v:"both"},{p:"Lumineon",lv:[1,100],v:"both"},{p:"Qwilfish",lv:[1,100],v:"both"}]}},
+  "Route 211": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Machoke",lv:[1,100],v:"both"},{p:"Geodude",lv:[1,100],v:"both"},{p:"Graveler",lv:[1,100],v:"both"},{p:"Ponyta",lv:[1,100],v:"both"},{p:"Hoothoot",lv:[1,100],v:"both"},{p:"Noctowl",lv:[1,100],v:"both"},{p:"Meditite",lv:[1,100],v:"both"},{p:"Bidoof",lv:[1,100],v:"both"},{p:"Chingling",lv:[1,100],v:"both"},{p:"Tyrogue",lv:[1,100],v:"both"},{p:"Swablu",lv:[1,100],v:"both"}]}},
+  "Route 216": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Machoke",lv:[1,100],v:"both"},{p:"Graveler",lv:[1,100],v:"both"},{p:"Noctowl",lv:[1,100],v:"both"},{p:"Sneasel",lv:[1,100],v:"both"},{p:"Meditite",lv:[1,100],v:"both"},{p:"Snover",lv:[1,100],v:"both"},{p:"Delibird",lv:[1,100],v:"both"},{p:"Snorunt",lv:[1,100],v:"both"}]}},
+  "Route 217": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Machoke",lv:[1,100],v:"both"},{p:"Noctowl",lv:[1,100],v:"both"},{p:"Sneasel",lv:[1,100],v:"both"},{p:"Meditite",lv:[1,100],v:"both"},{p:"Medicham",lv:[1,100],v:"both"},{p:"Snover",lv:[1,100],v:"both"},{p:"Swinub",lv:[1,100],v:"both"},{p:"Snorunt",lv:[1,100],v:"both"}]}},
+  "Acuity Lakefront": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Zubat",lv:[1,100],v:"both"},{p:"Machoke",lv:[1,100],v:"both"},{p:"Noctowl",lv:[1,100],v:"both"},{p:"Sneasel",lv:[1,100],v:"both"},{p:"Meditite",lv:[1,100],v:"both"},{p:"Medicham",lv:[1,100],v:"both"},{p:"Snover",lv:[1,100],v:"both"},{p:"Snorunt",lv:[1,100],v:"both"}]}},
+  "Lake Acuity": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Uxie",lv:[1,100],v:"both"}]}},
+  "Snowpoint Temple": {type:"dungeon",region:"Sinnoh",note:"",methods:{all:[{p:"Golbat",lv:[1,100],v:"both"},{p:"Graveler",lv:[1,100],v:"both"},{p:"Onix",lv:[1,100],v:"both"},{p:"Steelix",lv:[1,100],v:"both"},{p:"Sneasel",lv:[1,100],v:"both"}]}},
+  "Route 222": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Mr. Mime",lv:[1,100],v:"both"},{p:"Floatzel",lv:[1,100],v:"both"},{p:"Gastrodon",lv:[1,100],v:"both"},{p:"Glameow",lv:[1,100],v:"SP"},{p:"Purugly",lv:[1,100],v:"SP"},{p:"Chatot",lv:[1,100],v:"both"},{p:"Tentacool",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Wingull",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Remoraid",lv:[1,100],v:"both"},{p:"Octillery",lv:[1,100],v:"both"},{p:"Sharpedo",lv:[1,100],v:"both"},{p:"Skitty",lv:[1,100],v:"both"},{p:"Flaaffy",lv:[1,100],v:"both"}]}},
+  "Sunyshore City": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Mantyke",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Remoraid",lv:[1,100],v:"both"},{p:"Octillery",lv:[1,100],v:"both"},{p:"Sharpedo",lv:[1,100],v:"both"},{p:"Staryu",lv:[1,100],v:"both"}]}},
+  "Route 223": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Mantyke",lv:[1,100],v:"both"},{p:"Wailmer",lv:[1,100],v:"both"},{p:"Wailord",lv:[1,100],v:"both"},{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Remoraid",lv:[1,100],v:"both"},{p:"Octillery",lv:[1,100],v:"both"},{p:"Sharpedo",lv:[1,100],v:"both"}]}},
+  "Victory Road": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Lapras",lv:[1,100],v:"both"},{p:"Golbat",lv:[1,100],v:"both"},{p:"Machoke",lv:[1,100],v:"both"},{p:"Graveler",lv:[1,100],v:"both"},{p:"Onix",lv:[1,100],v:"both"},{p:"Steelix",lv:[1,100],v:"both"},{p:"Medicham",lv:[1,100],v:"both"},{p:"Kadabra",lv:[1,100],v:"both"},{p:"Floatzel",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"}]}},
+  "Pokémon League": {type:"route",region:"Sinnoh",note:"",methods:{all:[{p:"Tentacruel",lv:[1,100],v:"both"},{p:"Pelipper",lv:[1,100],v:"both"},{p:"Magikarp",lv:[1,100],v:"both"},{p:"Gyarados",lv:[1,100],v:"both"},{p:"Remoraid",lv:[1,100],v:"both"},{p:"Octillery",lv:[1,100],v:"both"},{p:"Luvdisc",lv:[1,100],v:"both"}]}},
 };
 
-const BDSP_LOCATION_GROUPS = [
-  { name:'Early Routes (Pre-Gym 1)', items:['Route 201','Route 202','Route 203','Oreburgh Gate','Oreburgh Mine'] },
-  { name:'Floaroma / Eterna Area', items:['Route 204 (South)','Route 204 (North)','Ravaged Path','Floaroma Meadow','Route 205 (South)','Valley Windworks','Eterna Forest','Old Chateau','Route 205 (North)'] },
-  { name:'Cycling Road & Mt. Coronet Approach', items:['Route 206','Wayward Cave','Route 207','Mt. Coronet (B1F / 1F)','Route 208'] },
-  { name:'Hearthome / Solaceon Area', items:['Route 209','Lost Tower','Solaceon Ruins','Route 210 (South)','Route 215'] },
-  { name:'Veilstone / Pastoria Area', items:['Route 211 (West)','Route 211 (East)','Route 212 (North)','Route 212 (South)','Pastoria Great Marsh','Route 213','Route 214'] },
-  { name:'Snowpoint / Lake Area', items:['Route 210 (North)','Route 216','Route 217','Acuity Lakefront','Iron Island'] },
-  { name:'Sunyshore / Late Game', items:['Valor Lakefront','Route 218','Route 219','Route 222','Victory Road'] },
-  { name:'Mt. Coronet Peaks', items:['Mt. Coronet (Higher Floors)'] },
-  { name:'Lakes (Post-Galactic)', items:['Lake Verity','Lake Valor','Lake Acuity'] },
-  { name:'Post-Game Routes', items:['Route 221','Route 224','Route 225','Route 226','Route 227','Route 228','Route 229','Route 230','Stark Mountain','Sendoff Spring / Turnback Cave'] },
-  { name:'Grand Underground Hideaways', items:['Spacious Cave (UG)','Grassland Cave (UG)','Fountainspring Cave (UG)','Rocky Cave (UG)','Volcanic Cave (UG)','Swampy Cave (UG)','Dazzling Cave (UG)','Whiteout Cave (UG)','Icy Cave (UG)','Riverbank Cave (UG)','Sandsear Cave (UG)','Still-Water Cavern (UG)','Sunlit Cavern (UG)','Big Bluff Cavern (UG)','Stargleam Cavern (UG)','Glacial Cavern (UG)','Bogsunk Cavern (UG)','Typo Cavern (UG)'] }
-];
+const BDSP_LOCATION_GROUPS = [{name:"Starting Area",items:["Twinleaf Town","Route 201","Lake Verity","Route 202"]},{name:"Jubilife / Oreburgh",items:["Route 203","Oreburgh Gate","Oreburgh City","Oreburgh Mine"]},{name:"Floaroma / Eterna Area",items:["Route 204","Ravaged Path","Floaroma Meadow","Valley Windworks","Route 205","Eterna Forest","The Old Chateau","Eterna City"]},{name:"Cycling Road & Coronet Approach",items:["Route 206","Wayward Cave","Route 207","Mt. Coronet","Route 208"]},{name:"Hearthome / Solaceon",items:["Hearthome City","Route 209","The Lost Tower","Solaceon Ruins","Route 210"]},{name:"Veilstone / Pastoria",items:["Route 215","Trophy Garden","Pastoria City","Great Marsh","Route 212","Route 213","Route 214","Valor Lakefront","Lake Valor","Ruin Maniac's Cave","Celestic Town"]},{name:"Canalave / Iron Island",items:["Fuego Ironworks","Route 218","Canalave City","Iron Island","Route 219","Route 220"]},{name:"Snowpoint / Lakes",items:["Route 211","Route 216","Route 217","Acuity Lakefront","Lake Acuity","Snowpoint Temple"]},{name:"Sunyshore / Late Game",items:["Route 222","Sunyshore City","Route 223","Victory Road","Pokémon League","Route 221"]},{name:"Grand Underground Hideaways",items:["Underground: Spacious Cave","Underground: Grassland Cave","Underground: Fountainspring Cave","Underground: Rocky Cave","Underground: Swampy Cave","Underground: Dazzling Cave","Underground: Whiteout Cave","Underground: Icy Cave","Underground: Riverbank Cave","Underground: Sandsear Cave","Underground: Still-Water Cave","Underground: Sunlit Cavern","Underground: Big Bluff Cavern","Underground: Stargleam Cavern","Underground: Volcanic Cave","Underground: Glacial Cavern","Underground: Bogsunk Cavern"]}];
+
+
 
 // State management
 let saveKey = null;
@@ -3438,6 +3142,19 @@ function buildEncounterMain(loc, ver) {
 
   // Render sections per method
   const methods = data.methods || {};
+
+  // New flat format: methods.all = [{p,lv,v}, ...] for the whole location.
+  // Legacy format: methods.grass.all/morning/day/night, methods.surf, methods.oldRod, etc.
+  if (Array.isArray(methods.all)) {
+    const list = methods.all.filter(matchesVer);
+    if (list.length) {
+      html += `<div class="enc-section">
+        <div class="enc-section-hdr"><span class="enc-method-label">Wild encounters</span><span style="font-size:10px;color:var(--text3);margin-left:8px">(no method/rate breakdown in this source)</span></div>
+        ${renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver, loc)}
+      </div>`;
+    }
+  }
+  // Legacy detailed format
   for (const method of ['grass','surf','oldRod','goodRod','superRod','honey','special']) {
     if (!methods[method]) continue;
     const methodLabel = {
@@ -3455,21 +3172,21 @@ function buildEncounterMain(loc, ver) {
           <span class="enc-method-label">${methodLabel}</span>
           ${tabsHtml}
         </div>
-        ${renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver)}
+        ${renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver, loc)}
       </div>`;
     } else {
       const list = (methods[method] || []).filter(matchesVer);
       if (!list.length) continue;
       html += `<div class="enc-section">
         <div class="enc-section-hdr"><span class="enc-method-label">${methodLabel}</span></div>
-        ${renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver)}
+        ${renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver, loc)}
       </div>`;
     }
   }
   return html;
 }
 
-function renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver) {
+function renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver, loc) {
   if (!list.length) return `<div class="enc-empty" style="padding:12px;font-size:12px">No encounters of this method in your version.</div>`;
   return `<div class="enc-grid">` + list.map(e => {
     const speciesLc = e.p.toLowerCase();
@@ -3485,19 +3202,94 @@ function renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver) {
     else if (isDead) flag = '<span class="enc-flag dead">fallen</span>';
     else if (isDupe) flag = '<span class="enc-flag dupe">dupe</span>';
     const verTag = e.v !== 'both' ? `<span class="ver-tag ${e.v}">${e.v}</span>` : '';
-    const lvStr = e.lv[0]===e.lv[1] ? `L${e.lv[0]}` : `L${e.lv[0]}-${e.lv[1]}`;
-    return `<div class="enc-poke${stateClass}" title="${e.note||''}">
+    // Only show a level string if it's a meaningful range (not the 1-100 placeholder)
+    const hasRealLv = e.lv && !(e.lv[0] === 1 && e.lv[1] === 100);
+    const lvStr = hasRealLv ? (e.lv[0]===e.lv[1] ? `L${e.lv[0]}` : `L${e.lv[0]}-${e.lv[1]}`) : '';
+    const rateStr = e.r ? `${e.r}%` : '';
+    const metaTrail = [lvStr, rateStr].filter(Boolean).join(' · ');
+    const safeLoc = (loc||'').replace(/'/g,"\\'");
+    const safeSp = e.p.replace(/'/g,"\\'");
+    return `<div class="enc-poke clickable${stateClass}" title="Click to log encounter" onclick="encActionMenu('${safeLoc}', '${safeSp}', event)">
       ${spriteImg(e.p, {sm:true, faded:isDead||isDupe})}
       <div class="enc-poke-info">
         <div class="enc-poke-name">${e.p}${verTag}${flag}</div>
         <div class="enc-poke-meta">
           ${(pokeTypes(e.p)||[]).map(t=>`<span class="type-badge t-${t}">${t}</span>`).join('')}
-          <span class="enc-poke-rate">${lvStr}${e.r?` · ${e.r}%`:''}</span>
+          ${metaTrail?`<span class="enc-poke-rate">${metaTrail}</span>`:''}
         </div>
       </div>
     </div>`;
   }).join('') + `</div>`;
 }
+
+// Open a small popover with three actions when clicking an encounter card.
+// Uses a global container that overlays the screen near the click.
+function encActionMenu(loc, species, ev) {
+  ev.stopPropagation();
+  closeEncActionMenu();
+  const menu = document.createElement('div');
+  menu.className = 'enc-action-menu';
+  menu.id = 'enc-action-menu';
+  menu.innerHTML = `
+    <div class="eam-title">${species} <span class="eam-loc">at ${loc}</span></div>
+    <button class="eam-btn caught" onclick="encActionCaught('${loc.replace(/'/g,"\\\\'")}', '${species.replace(/'/g,"\\\\'")}')">✓ Caught — fill out details</button>
+    <button class="eam-btn skipped" onclick="encActionLog('${loc.replace(/'/g,"\\\\'")}', '${species.replace(/'/g,"\\\\'")}', 'skipped')">⊘ Skipped (dupe)</button>
+    <button class="eam-btn failed" onclick="encActionLog('${loc.replace(/'/g,"\\\\'")}', '${species.replace(/'/g,"\\\\'")}', 'failed')">✗ Missed / fled / KO'd</button>
+    <button class="eam-btn cancel" onclick="closeEncActionMenu()">Cancel</button>
+  `;
+  // Position near the click
+  const x = ev.clientX, y = ev.clientY;
+  menu.style.left = Math.min(window.innerWidth - 260, x) + 'px';
+  menu.style.top = Math.min(window.innerHeight - 220, y) + 'px';
+  document.body.appendChild(menu);
+  // Close on outside-click
+  setTimeout(() => document.addEventListener('mousedown', _encMenuOutsideClick), 0);
+}
+function _encMenuOutsideClick(e) {
+  const m = document.getElementById('enc-action-menu');
+  if (m && !m.contains(e.target)) closeEncActionMenu();
+}
+function closeEncActionMenu() {
+  const m = document.getElementById('enc-action-menu');
+  if (m) m.remove();
+  document.removeEventListener('mousedown', _encMenuOutsideClick);
+}
+// "Caught" branch: open the add-Pokemon editor pre-filled with species and route
+function encActionCaught(loc, species) {
+  closeEncActionMenu();
+  editIdx = null; editRouteIdx = null;
+  document.getElementById('modal-title').textContent = `Caught ${species}`;
+  // Synthesize a starting object so pokeForm can prefill
+  const info = pokeInfo(species);
+  const starter = {
+    nickname: '',
+    species,
+    type1: info ? info.t[0] : '',
+    type2: info && info.t[1] ? info.t[1] : null,
+    route: loc,
+    level: '',
+    ability: info && info.a && info.a.length === 1 ? info.a[0] : ''
+  };
+  document.getElementById('modal-body').innerHTML = pokeForm(starter, false);
+  openModal();
+  // Move focus to the nickname field for fast entry
+  setTimeout(() => { const nf = document.getElementById('f-nick'); if (nf) nf.focus(); }, 50);
+}
+// "Failed" or "Skipped" branch: write a routes log entry directly, no modal
+function encActionLog(loc, species, result) {
+  closeEncActionMenu();
+  const r = curRun().routes;
+  // If there's already an entry for this loc+species, update it; else push
+  const existing = r.find(rt => routesMatch(rt.route, loc) && (rt.encounter||'').toLowerCase() === species.toLowerCase());
+  if (existing) {
+    existing.result = result;
+  } else {
+    r.push({ route: loc, encounter: species, result, note: '', autoLogged: true });
+  }
+  save(); render();
+  showToast(`${species} at ${loc} → ${result}`, result === 'failed' ? 'error' : 'success');
+}
+
 
 function prefillEncounterLog(loc) {
   // Switch to the route log tab and open the add-encounter modal pre-filled
