@@ -77,7 +77,7 @@
   .slabel-count{font-size:11px;color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0}
   .drag-hint{font-size:11px;color:var(--text3);margin-left:auto;font-weight:400;text-transform:none;letter-spacing:0}
 
-  .poke-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:16px}
+  .poke-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin-bottom:16px}
   .poke-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;gap:8px;position:relative;transition:border-color .15s,box-shadow .15s}
   .poke-card:hover{border-color:var(--border2)}
   .poke-card.in-party{border-color:rgba(108,143,255,.4);box-shadow:0 0 0 1px rgba(108,143,255,.1)}
@@ -102,8 +102,28 @@
   .detail-row{display:flex;align-items:baseline;gap:6px;font-size:11px;line-height:1.5}
   .detail-label{color:var(--text3);min-width:48px;flex-shrink:0}
   .detail-val{color:var(--text2);flex:1;word-break:break-word}
-  .moves-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;flex:1}
-  .move-pill{font-size:10px;background:var(--bg3);border-radius:4px;padding:2px 6px;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .moves-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;flex:1}
+  .move-pill{font-size:11px;background:var(--bg3);border-radius:4px;padding:4px 8px;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:5px;border-left:3px solid var(--border2)}
+  .move-pill.mp-Normal{border-left-color:#a8a878;background:rgba(168,168,120,.10)}
+  .move-pill.mp-Fire{border-left-color:#f08030;background:rgba(240,128,48,.10)}
+  .move-pill.mp-Water{border-left-color:#6890f0;background:rgba(104,144,240,.10)}
+  .move-pill.mp-Electric{border-left-color:#f8d030;background:rgba(248,208,48,.10)}
+  .move-pill.mp-Grass{border-left-color:#78c850;background:rgba(120,200,80,.10)}
+  .move-pill.mp-Ice{border-left-color:#98d8d8;background:rgba(152,216,216,.10)}
+  .move-pill.mp-Fighting{border-left-color:#c03028;background:rgba(192,48,40,.10)}
+  .move-pill.mp-Poison{border-left-color:#a040a0;background:rgba(160,64,160,.10)}
+  .move-pill.mp-Ground{border-left-color:#e0c068;background:rgba(224,192,104,.10)}
+  .move-pill.mp-Flying{border-left-color:#a890f0;background:rgba(168,144,240,.10)}
+  .move-pill.mp-Psychic{border-left-color:#f85888;background:rgba(248,88,136,.10)}
+  .move-pill.mp-Bug{border-left-color:#a8b820;background:rgba(168,184,32,.10)}
+  .move-pill.mp-Rock{border-left-color:#b8a038;background:rgba(184,160,56,.10)}
+  .move-pill.mp-Ghost{border-left-color:#705898;background:rgba(112,88,152,.10)}
+  .move-pill.mp-Dragon{border-left-color:#7038f8;background:rgba(112,56,248,.10)}
+  .move-pill.mp-Dark{border-left-color:#705848;background:rgba(112,88,72,.10)}
+  .move-pill.mp-Steel{border-left-color:#b8b8d0;background:rgba(184,184,208,.10)}
+  .move-pill.mp-Fairy{border-left-color:#ee99ac;background:rgba(238,153,172,.10)}
+  .move-pill.stab{font-weight:600}
+  .move-pill.stab::after{content:'★';font-size:8px;color:var(--accent);margin-left:auto;opacity:.7}
   .edit-hint{font-size:10px;color:var(--text3);margin-top:2px}
 
   .add-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;font-size:13px;font-family:'Outfit',sans-serif;border:1px dashed var(--border2);border-radius:var(--radius-sm);background:transparent;color:var(--text3);cursor:pointer;transition:all .15s}
@@ -188,7 +208,7 @@
 
   .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:100;align-items:flex-start;justify-content:center;padding:60px 16px 16px;overflow-y:auto}
   .overlay.open{display:flex}
-  .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:20px;width:440px;max-width:100%}
+  .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:20px;width:680px;max-width:100%}
   .modal h3{font-family:'Crimson Pro',serif;font-size:17px;font-weight:600;margin-bottom:16px;color:var(--text)}
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
   .frow3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
@@ -225,8 +245,183 @@
   .sd-clear:hover{color:var(--text)}
 
   .t-Normal{background:rgba(168,168,120,.15);color:#c8c878}.t-Fire{background:rgba(240,128,48,.15);color:#f08030}.t-Water{background:rgba(104,144,240,.15);color:#6890f0}.t-Electric{background:rgba(248,208,48,.15);color:#f8d030}.t-Grass{background:rgba(120,200,80,.15);color:#78c850}.t-Ice{background:rgba(152,216,216,.15);color:#98d8d8}.t-Fighting{background:rgba(192,48,40,.15);color:#e05040}.t-Poison{background:rgba(160,64,160,.15);color:#c060c0}.t-Ground{background:rgba(224,192,104,.15);color:#e0c068}.t-Flying{background:rgba(168,144,240,.15);color:#a890f0}.t-Psychic{background:rgba(248,88,136,.15);color:#f85888}.t-Bug{background:rgba(168,184,32,.15);color:#a8b820}.t-Rock{background:rgba(184,160,56,.15);color:#b8a038}.t-Ghost{background:rgba(112,88,152,.15);color:#9070c0}.t-Dragon{background:rgba(112,56,248,.15);color:#9060e8}.t-Dark{background:rgba(112,88,72,.15);color:#987060}.t-Steel{background:rgba(184,184,208,.15);color:#b8b8d0}.t-Fairy{background:rgba(238,153,172,.15);color:#ee99ac}
+
+  /* Sprites */
+  .sprite-wrap{flex-shrink:0;width:54px;height:54px;background:var(--bg3);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .sprite-img{width:54px;height:54px;image-rendering:pixelated;object-fit:contain}
+  .sprite-img.faded{filter:grayscale(1) opacity(0.4)}
+  .sprite-sm{width:32px;height:32px}
+  .sprite-sm .sprite-img{width:32px;height:32px}
+  .sprite-lg{width:72px;height:72px}
+  .sprite-lg .sprite-img{width:72px;height:72px}
+  .card-top.with-sprite{align-items:center}
+  .card-top.with-sprite .card-main{flex:1;min-width:0}
+
+  /* Evolve button */
+  .btn-evolve{padding:7px 14px;font-size:12px;font-family:'Outfit',sans-serif;border:1px solid rgba(74,222,128,.4);border-radius:var(--radius-sm);background:rgba(74,222,128,.08);color:var(--green);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+  .btn-evolve:hover{background:var(--green);color:#0f0f10;border-color:var(--green)}
+  .btn-evolve.disabled{opacity:0.5;cursor:not-allowed}
+  .btn-evolve.disabled:hover{background:rgba(74,222,128,.08);color:var(--green);border-color:rgba(74,222,128,.4)}
+
+  /* Version pill (BD vs SP for BDSP) */
+  .ver-pill{display:flex;gap:0;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:2px;font-size:11px}
+  .ver-pill button{background:transparent;border:none;color:var(--text3);padding:4px 10px;border-radius:5px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;transition:all .15s}
+  .ver-pill button.active{background:var(--accent-bg);color:var(--accent)}
+  .ver-pill button:hover:not(.active){color:var(--text2)}
+
+  /* Detail view (poke-view) */
+  .pv-header{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+  .pv-sprite{width:96px;height:96px;background:var(--bg3);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+  .pv-sprite img{width:96px;height:96px;image-rendering:pixelated;object-fit:contain}
+  .pv-headline{flex:1;min-width:0}
+  .pv-nick{font-family:'Crimson Pro',serif;font-size:22px;font-weight:600;color:var(--text);line-height:1.1}
+  .pv-species{font-size:13px;color:var(--text3);margin-top:2px}
+  .pv-types{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap}
+  .pv-lv-badge{font-size:12px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:4px 10px;color:var(--text2);margin-top:8px;display:inline-block}
+  .pv-actions{display:flex;gap:6px;flex-wrap:wrap;align-self:flex-start}
+  .pv-actions button{font-family:'Outfit',sans-serif;font-size:12px;padding:6px 12px;border-radius:6px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);cursor:pointer;transition:all .15s;font-weight:500}
+  .pv-actions button:hover{color:var(--text);border-color:var(--accent)}
+  .pv-actions .btn-edit{background:var(--accent-bg);color:var(--accent);border-color:transparent}
+  .pv-actions .btn-edit:hover{background:var(--accent);color:#fff}
+  .pv-section{margin-top:14px}
+  .pv-section-title{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:8px;font-weight:600}
+  .pv-row{display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:4px;line-height:1.5}
+  .pv-row .pv-label{color:var(--text3);min-width:80px;flex-shrink:0;font-size:11px}
+  .pv-row .pv-val{color:var(--text);flex:1}
+  .stat-bars{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center}
+  .stat-bars .sb-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px}
+  .stat-bars .sb-wrap{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden}
+  .stat-bars .sb-fill{height:100%;background:var(--accent);border-radius:3px;transition:width .2s}
+  .stat-bars .sb-fill.high{background:var(--green)}
+  .stat-bars .sb-fill.low{background:var(--red)}
+  .stat-bars .sb-val{font-size:11px;color:var(--text2);font-variant-numeric:tabular-nums;min-width:28px;text-align:right}
+  .weakness-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:4px}
+  .weak-pill{font-size:10px;padding:3px 6px;border-radius:4px;background:var(--bg3);border:1px solid var(--border);color:var(--text2);text-align:center;display:flex;align-items:center;justify-content:space-between;gap:4px}
+  .weak-pill .wp-mult{font-weight:600;font-variant-numeric:tabular-nums}
+  .weak-pill.x4{background:rgba(239,68,68,.18);border-color:rgba(239,68,68,.5);color:#fca5a5}
+  .weak-pill.x2{background:rgba(239,68,68,.10);border-color:rgba(239,68,68,.3);color:#fda4a4}
+  .weak-pill.x05{background:rgba(34,197,94,.10);border-color:rgba(34,197,94,.3);color:#86efac}
+  .weak-pill.x025{background:rgba(34,197,94,.18);border-color:rgba(34,197,94,.5);color:#4ade80}
+  .weak-pill.x0{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.4);color:#93c5fd}
+  .pv-moves{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .pv-move{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:7px 10px;display:flex;align-items:center;gap:8px;font-size:12px}
+  .pv-move .pv-move-name{flex:1;color:var(--text)}
+  .pv-move .pv-move-empty{color:var(--text3);font-style:italic}
+  .pv-learnset{max-height:240px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;background:var(--bg)}
+  .pv-ls-row{display:flex;align-items:center;gap:8px;padding:5px 10px;font-size:11px;border-bottom:1px solid var(--border)}
+  .pv-ls-row:last-child{border-bottom:none}
+  .pv-ls-row.already{opacity:.5}
+  .pv-ls-row.owned{background:rgba(34,197,94,.08)}
+  .pv-ls-row.next{background:var(--accent-bg)}
+  .pv-ls-lv{font-size:10px;color:var(--text3);min-width:32px;font-variant-numeric:tabular-nums}
+  .pv-ls-name{flex:1;color:var(--text2)}
+  .pv-ls-flag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:600;text-transform:uppercase}
+  .pv-ls-flag.stab{background:rgba(108,143,255,.2);color:#a5b7ff}
+  .pv-ls-flag.owned{background:rgba(34,197,94,.2);color:#86efac}
+  .pv-ls-flag.next{background:rgba(245,158,11,.2);color:#fbbf24}
+  .pv-suggest{background:var(--accent-bg);border:1px solid rgba(108,143,255,.3);border-radius:6px;padding:10px 12px;margin-top:10px;font-size:12px;color:var(--text2);line-height:1.5}
+  .pv-suggest strong{color:var(--text)}
+  .pv-suggest .pv-suggest-title{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);margin-bottom:4px;font-weight:600}
+
+  /* Encounters page */
+  .enc-layout{display:grid;grid-template-columns:260px 1fr;gap:16px;align-items:flex-start}
+  .enc-rail{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:sticky;top:148px;max-height:calc(100vh - 168px);overflow-y:auto}
+  .enc-search{padding:10px 12px;border-bottom:1px solid var(--border);background:var(--bg2);position:sticky;top:0;z-index:2}
+  .enc-search input{width:100%;font-size:12px;padding:6px 10px}
+  .enc-group{border-bottom:1px solid var(--border)}
+  .enc-group:last-child{border-bottom:none}
+  .enc-group-hdr{padding:8px 12px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);background:rgba(255,255,255,.02);cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+  .enc-group-hdr:hover{color:var(--text2)}
+  .enc-group-hdr .caret{font-size:9px;opacity:0.6;transition:transform .15s}
+  .enc-group.collapsed .caret{transform:rotate(-90deg)}
+  .enc-group.collapsed .enc-group-body{display:none}
+  .enc-loc-item{padding:7px 14px;font-size:12px;color:var(--text2);cursor:pointer;border-left:2px solid transparent;display:flex;align-items:center;gap:6px;transition:all .15s}
+  .enc-loc-item:hover{background:rgba(255,255,255,.03);color:var(--text)}
+  .enc-loc-item.active{background:var(--accent-bg);color:var(--accent);border-left-color:var(--accent)}
+  .enc-loc-item .logged-dot{width:6px;height:6px;border-radius:50%;background:var(--green);margin-left:auto;flex-shrink:0}
+  .enc-loc-item .logged-dot.skipped{background:var(--text3)}
+  .enc-loc-item .logged-dot.failed{background:var(--red)}
+
+  .enc-main{min-width:0}
+  .enc-header{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:16px 18px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .enc-loc-title{font-family:'Crimson Pro',serif;font-size:22px;font-weight:600}
+  .enc-loc-sub{font-size:12px;color:var(--text3);margin-top:2px}
+  .enc-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px}
+  .enc-section-hdr{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .enc-method-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text2)}
+  .enc-time-tabs{display:flex;gap:0;background:var(--bg3);border-radius:6px;padding:2px;font-size:11px}
+  .enc-time-tabs button{background:transparent;border:none;color:var(--text3);padding:3px 9px;border-radius:4px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:11px;transition:all .15s}
+  .enc-time-tabs button.active{background:var(--bg4);color:var(--text)}
+  .enc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+  .enc-poke{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 10px;display:flex;align-items:center;gap:10px;transition:all .15s;position:relative}
+  .enc-poke:hover{border-color:var(--border2)}
+  .enc-poke.dupe{opacity:0.5}
+  .enc-poke.dead{opacity:0.4;border-color:rgba(248,113,113,.2)}
+  .enc-poke.caught{border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.04)}
+  .enc-poke-info{flex:1;min-width:0}
+  .enc-poke-name{font-size:13px;font-weight:500;display:flex;align-items:center;gap:5px}
+  .enc-poke-name .ver-tag{font-size:9px;font-weight:600;padding:1px 5px;border-radius:3px;letter-spacing:.05em}
+  .enc-poke-name .ver-tag.BD{background:rgba(108,143,255,.15);color:#9eb8ff}
+  .enc-poke-name .ver-tag.SP{background:rgba(238,153,172,.15);color:#ee99ac}
+  .enc-poke-meta{font-size:10px;color:var(--text3);margin-top:1px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+  .enc-poke-rate{font-size:10px;color:var(--text2);font-weight:600;background:var(--bg4);padding:1px 5px;border-radius:3px}
+  .enc-flag{font-size:9px;font-weight:600;padding:1px 5px;border-radius:3px;letter-spacing:.04em;text-transform:uppercase}
+  .enc-flag.dupe{background:rgba(255,255,255,.06);color:var(--text3)}
+  .enc-flag.dead{background:rgba(248,113,113,.12);color:var(--red)}
+  .enc-flag.caught{background:rgba(74,222,128,.12);color:var(--green)}
+  .enc-empty{text-align:center;padding:32px 16px;color:var(--text3);font-size:13px;line-height:1.8}
+  .enc-log-btn{margin-top:6px;width:100%}
+
+  /* Move planner / learnset card */
+  .learnset-toggle{font-size:11px;color:var(--text3);cursor:pointer;display:flex;align-items:center;gap:5px;padding:6px 0 0;border-top:1px solid var(--border);margin-top:6px;user-select:none}
+  .learnset-toggle:hover{color:var(--text2)}
+  .learnset-toggle .caret{font-size:8px;opacity:0.7;transition:transform .15s}
+  .learnset-toggle.open .caret{transform:rotate(90deg)}
+  .learnset-body{margin-top:6px;display:none;font-size:11px}
+  .learnset-toggle.open + .learnset-body{display:block}
+  .learnset-list{display:flex;flex-direction:column;gap:3px;max-height:200px;overflow-y:auto}
+  .learnset-row{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:4px;background:rgba(255,255,255,.02)}
+  .learnset-row.next{background:var(--accent-bg);color:var(--accent)}
+  .learnset-row.already{opacity:0.45}
+  .learnset-lv{font-size:10px;font-weight:600;min-width:24px;color:var(--text3)}
+  .learnset-row.next .learnset-lv{color:var(--accent)}
+  .learnset-mvname{flex:1;font-size:11px}
+  .learnset-loading{padding:8px;font-size:11px;color:var(--text3);font-style:italic;text-align:center}
+  .learnset-suggest{margin-top:6px;padding:6px 8px;background:var(--accent-bg);border-radius:4px;font-size:10px;color:var(--accent);line-height:1.5}
+
+  /* Speed tier */
+  .speed-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-top:16px}
+  .speed-bar-row{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:12px}
+  .speed-bar-row.me{font-weight:500}
+  .speed-bar-name{min-width:130px;color:var(--text2);font-size:12px;display:flex;align-items:center;gap:6px}
+  .speed-bar-row.me .speed-bar-name{color:var(--text)}
+  .speed-bar-row.boss .speed-bar-name{color:#f0b070}
+  .speed-bar-wrap{flex:1;height:14px;background:var(--bg3);border-radius:4px;position:relative;overflow:hidden}
+  .speed-bar-fill{height:100%;border-radius:4px;transition:width .3s}
+  .speed-bar-row.me .speed-bar-fill{background:rgba(108,143,255,.35)}
+  .speed-bar-row.boss .speed-bar-fill{background:rgba(240,176,112,.35)}
+  .speed-bar-val{min-width:42px;font-size:11px;color:var(--text3);text-align:right;font-variant-numeric:tabular-nums}
+  .speed-bar-row.me .speed-bar-val{color:var(--text)}
+  .speed-warn{font-size:11px;color:var(--amber);background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.18);border-radius:4px;padding:8px 10px;margin-top:8px;line-height:1.6}
+
+  /* Run timeline */
+  .timeline{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-top:18px}
+  .timeline-list{display:flex;flex-direction:column;gap:0;margin-top:8px;position:relative;padding-left:22px}
+  .timeline-list::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:var(--border2)}
+  .timeline-row{position:relative;padding:6px 0;font-size:12px;display:flex;align-items:center;gap:8px}
+  .timeline-row::before{content:'';position:absolute;left:-19px;top:13px;width:9px;height:9px;border-radius:50%;background:var(--bg3);border:2px solid var(--border2)}
+  .timeline-row.caught::before{background:var(--green);border-color:var(--green)}
+  .timeline-row.died::before{background:var(--red);border-color:var(--red)}
+  .timeline-row.evo::before{background:var(--accent);border-color:var(--accent)}
+  .timeline-row.boss::before{background:var(--amber);border-color:var(--amber)}
+  .timeline-icon{font-size:13px;opacity:0.8}
+  .timeline-text{color:var(--text2);flex:1}
+  .timeline-text strong{color:var(--text);font-weight:500}
+  .timeline-text .dim{color:var(--text3)}
+
   ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
-  @media(max-width:600px){.header{padding:12px 16px}.tabs{padding:10px 16px 0;top:130px}.main{padding:16px}.poke-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:900px){.enc-layout{grid-template-columns:1fr}.enc-rail{position:static;max-height:none}}
+  @media(max-width:600px){.header{padding:12px 16px}.tabs{padding:10px 16px 0;top:130px}.main{padding:16px}.poke-grid{grid-template-columns:1fr 1fr}.sprite-wrap{width:42px;height:42px}.sprite-img{width:42px;height:42px}}
 </style>
 </head>
 <body>
@@ -280,6 +475,7 @@
     <button class="tab active" onclick="switchTab('roster')"><span class="tab-dot"></span>Roster<span class="tab-count" id="tc-roster">0</span></button>
     <button class="tab" onclick="switchTab('active')"><span class="tab-dot"></span>Active team<span class="tab-count" id="tc-active">0/6</span></button>
     <button class="tab" onclick="switchTab('matchup')"><span class="tab-dot"></span>Boss matchup</button>
+    <button class="tab" onclick="switchTab('encounters')"><span class="tab-dot"></span>Encounters</button>
     <button class="tab" onclick="switchTab('routes')"><span class="tab-dot"></span>Route log<span class="tab-count" id="tc-routes">0</span></button>
     <button class="tab" onclick="switchTab('graveyard')"><span class="tab-dot"></span>Graveyard<span class="tab-count" id="tc-grave">0</span></button>
     <button class="tab" onclick="switchTab('stats')"><span class="tab-dot"></span>Stats</button>
@@ -300,6 +496,9 @@
     </div>
     <div id="tab-matchup" class="section">
       <div id="matchup-content"></div>
+    </div>
+    <div id="tab-encounters" class="section">
+      <div id="encounters-content"></div>
     </div>
     <div id="tab-routes" class="section">
       <p class="slabel">Route log <span class="drag-hint">⠿ drag to reorder</span></p>
@@ -331,6 +530,190 @@ const NATURES = ['','Adamant','Bashful','Bold','Brave','Calm','Careful','Docile'
 const MOVES = {
 "10,000,000 Volt Thunderbolt":"Electric","Absorb":"Grass","Accelerock":"Rock","Acid":"Poison","Acid Armor":"Poison","Acid Downpour":"Poison","Acid Spray":"Poison","Acrobatics":"Flying","Acupressure":"Normal","Aerial Ace":"Flying","Aeroblast":"Flying","After You":"Normal","Agility":"Psychic","Air Cutter":"Flying","Air Slash":"Flying","All-Out Pummeling":"Fighting","Alluring Voice":"Fairy","Ally Switch":"Psychic","Amnesia":"Psychic","Anchor Shot":"Steel","Ancient Power":"Rock","Apple Acid":"Grass","Aqua Cutter":"Water","Aqua Jet":"Water","Aqua Ring":"Water","Aqua Step":"Water","Aqua Tail":"Water","Arm Thrust":"Fighting","Armor Cannon":"Fire","Aromatherapy":"Grass","Aromatic Mist":"Fairy","Assist":"Normal","Assurance":"Dark","Astonish":"Ghost","Astral Barrage":"Ghost","Attack Order":"Bug","Attract":"Normal","Aura Sphere":"Fighting","Aura Wheel":"Electric","Aurora Beam":"Ice","Aurora Veil":"Ice","Autotomize":"Steel","Avalanche":"Ice","Axe Kick":"Fighting","Baby-Doll Eyes":"Fairy","Baddy Bad":"Dark","Baneful Bunker":"Poison","Barb Barrage":"Poison","Barrage":"Normal","Barrier":"Psychic","Baton Pass":"Normal","Beak Blast":"Flying","Beat Up":"Dark","Behemoth Bash":"Steel","Behemoth Blade":"Steel","Belch":"Poison","Belly Drum":"Normal","Bestow":"Normal","Bide":"Normal","Bind":"Normal","Bite":"Dark","Bitter Blade":"Fire","Bitter Malice":"Ghost","Black Hole Eclipse":"Dark","Blast Burn":"Fire","Blaze Kick":"Fire","Blazing Torque":"Fire","Bleakwind Storm":"Flying","Blizzard":"Ice","Block":"Normal","Blood Moon":"Normal","Bloom Doom":"Grass","Blue Flare":"Fire","Body Press":"Fighting","Body Slam":"Normal","Bolt Beak":"Electric","Bolt Strike":"Electric","Bone Club":"Ground","Bone Rush":"Ground","Bonemerang":"Ground","Boomburst":"Normal","Bounce":"Flying","Bouncy Bubble":"Water","Branch Poke":"Grass","Brave Bird":"Flying","Breaking Swipe":"Dragon","Breakneck Blitz":"Normal","Brick Break":"Fighting","Brine":"Water","Brutal Swing":"Dark","Bubble":"Water","Bubble Beam":"Water","Bug Bite":"Bug","Bug Buzz":"Bug","Bulk Up":"Fighting","Bulldoze":"Ground","Bullet Punch":"Steel","Bullet Seed":"Grass","Burn Up":"Fire","Burning Bulwark":"Fire","Burning Jealousy":"Fire","Buzzy Buzz":"Electric","Calm Mind":"Psychic","Camouflage":"Normal","Captivate":"Normal","Catastropika":"Electric","Ceaseless Edge":"Dark","Celebrate":"Normal","Charge":"Electric","Charge Beam":"Electric","Charm":"Fairy","Chatter":"Flying","Chilling Water":"Water","Chilly Reception":"Ice","Chip Away":"Normal","Chloroblast":"Grass","Circle Throw":"Fighting","Clamp":"Water","Clanging Scales":"Dragon","Clangorous Soul":"Dragon","Clangorous Soulblaze":"Dragon","Clear Smog":"Poison","Close Combat":"Fighting","Coaching":"Fighting","Coil":"Poison","Collision Course":"Fighting","Combat Torque":"Fighting","Comet Punch":"Normal","Comeuppance":"Dark","Confide":"Normal","Confuse Ray":"Ghost","Confusion":"Psychic","Constrict":"Normal","Continental Crush":"Rock","Conversion":"Normal","Conversion 2":"Normal","Copycat":"Normal","Core Enforcer":"Dragon","Corkscrew Crash":"Steel","Corrosive Gas":"Poison","Cosmic Power":"Psychic","Cotton Guard":"Grass","Cotton Spore":"Grass","Counter":"Fighting","Court Change":"Normal","Covet":"Normal","Crabhammer":"Water","Crafty Shield":"Fairy","Cross Chop":"Fighting","Cross Poison":"Poison","Crunch":"Dark","Crush Claw":"Normal","Crush Grip":"Normal","Curse":"Ghost","Cut":"Normal","Dark Pulse":"Dark","Dark Void":"Dark","Darkest Lariat":"Dark","Dazzling Gleam":"Fairy","Decorate":"Fairy","Defend Order":"Bug","Defense Curl":"Normal","Defog":"Flying","Destiny Bond":"Ghost","Detect":"Fighting","Devastating Drake":"Dragon","Diamond Storm":"Rock","Dig":"Ground","Dire Claw":"Poison","Disable":"Normal","Disarming Voice":"Fairy","Discharge":"Electric","Dive":"Water","Dizzy Punch":"Normal","Doodle":"Normal","Doom Desire":"Steel","Double Hit":"Normal","Double Iron Bash":"Steel","Double Kick":"Fighting","Double Shock":"Electric","Double Slap":"Normal","Double Team":"Normal","Double-Edge":"Normal","Draco Meteor":"Dragon","Dragon Ascent":"Flying","Dragon Breath":"Dragon","Dragon Cheer":"Dragon","Dragon Claw":"Dragon","Dragon Dance":"Dragon","Dragon Darts":"Dragon","Dragon Energy":"Dragon","Dragon Hammer":"Dragon","Dragon Pulse":"Dragon","Dragon Rage":"Dragon","Dragon Rush":"Dragon","Dragon Tail":"Dragon","Drain Punch":"Fighting","Draining Kiss":"Fairy","Dream Eater":"Psychic","Drill Peck":"Flying","Drill Run":"Ground","Drum Beating":"Grass","Dual Chop":"Dragon","Dual Wingbeat":"Flying","Dynamax Cannon":"Dragon","Dynamic Punch":"Fighting","Earth Power":"Ground","Earthquake":"Ground","Echoed Voice":"Normal","Eerie Impulse":"Electric","Eerie Spell":"Psychic","Egg Bomb":"Normal","Electric Terrain":"Electric","Electrify":"Electric","Electro Ball":"Electric","Electro Drift":"Electric","Electro Shot":"Electric","Electroweb":"Electric","Embargo":"Dark","Ember":"Fire","Encore":"Normal","Endeavor":"Normal","Endure":"Normal","Energy Ball":"Grass","Entrainment":"Normal","Eruption":"Fire","Esper Wing":"Psychic","Eternabeam":"Dragon","Expanding Force":"Psychic","Explosion":"Normal","Extrasensory":"Psychic","Extreme Evoboost":"Normal","Extreme Speed":"Normal","Facade":"Normal","Fairy Lock":"Fairy","Fairy Wind":"Fairy","Fake Out":"Normal","Fake Tears":"Dark","False Surrender":"Dark","False Swipe":"Normal","Feather Dance":"Flying","Feint":"Normal","Feint Attack":"Dark","Fell Stinger":"Bug","Fickle Beam":"Dragon","Fiery Dance":"Fire","Fiery Wrath":"Dark","Fillet Away":"Normal","Final Gambit":"Fighting","Fire Blast":"Fire","Fire Fang":"Fire","Fire Lash":"Fire","Fire Pledge":"Fire","Fire Punch":"Fire","Fire Spin":"Fire","First Impression":"Bug","Fishious Rend":"Water","Fissure":"Ground","Flail":"Normal","Flame Burst":"Fire","Flame Charge":"Fire","Flame Wheel":"Fire","Flamethrower":"Fire","Flare Blitz":"Fire","Flash":"Normal","Flash Cannon":"Steel","Flatter":"Dark","Fleur Cannon":"Fairy","Fling":"Dark","Flip Turn":"Water","Floaty Fall":"Flying","Floral Healing":"Fairy","Flower Shield":"Fairy","Flower Trick":"Grass","Fly":"Flying","Flying Press":"Fighting","Focus Blast":"Fighting","Focus Energy":"Normal","Focus Punch":"Fighting","Follow Me":"Normal","Force Palm":"Fighting","Foresight":"Normal","Forest's Curse":"Grass","Foul Play":"Dark","Freeze Shock":"Ice","Freeze-Dry":"Ice","Freezing Glare":"Psychic","Freezy Frost":"Ice","Frenzy Plant":"Grass","Frost Breath":"Ice","Frustration":"Normal","Fury Attack":"Normal","Fury Cutter":"Bug","Fury Swipes":"Normal","Fusion Bolt":"Electric","Fusion Flare":"Fire","Future Sight":"Psychic","G-Max Befuddle":"Bug","G-Max Cannonade":"Water","G-Max Centiferno":"Fire","G-Max Chi Strike":"Fighting","G-Max Cuddle":"Normal","G-Max Depletion":"Dragon","G-Max Drum Solo":"Grass","G-Max Finale":"Fairy","G-Max Fireball":"Fire","G-Max Foam Burst":"Water","G-Max Gold Rush":"Normal","G-Max Gravitas":"Psychic","G-Max Hydrosnipe":"Water","G-Max Malodor":"Poison","G-Max Meltdown":"Steel","G-Max One Blow":"Dark","G-Max Rapid Flow":"Water","G-Max Replenish":"Normal","G-Max Resonance":"Ice","G-Max Sandblast":"Ground","G-Max Smite":"Fairy","G-Max Snooze":"Dark","G-Max Steelsurge":"Steel","G-Max Stonesurge":"Water","G-Max Stun Shock":"Electric","G-Max Sweetness":"Grass","G-Max Tartness":"Grass","G-Max Terror":"Ghost","G-Max Vine Lash":"Grass","G-Max Volcalith":"Rock","G-Max Volt Crash":"Electric","G-Max Wildfire":"Fire","G-Max Wind Rage":"Flying","Gastro Acid":"Poison","Gear Grind":"Steel","Gear Up":"Steel","Genesis Supernova":"Psychic","Geomancy":"Fairy","Giga Drain":"Grass","Giga Impact":"Normal","Gigaton Hammer":"Steel","Gigavolt Havoc":"Electric","Glacial Lance":"Ice","Glaciate":"Ice","Glaive Rush":"Dragon","Glare":"Normal","Glitzy Glow":"Psychic","Grass Knot":"Grass","Grass Pledge":"Grass","Grass Whistle":"Grass","Grassy Glide":"Grass","Grassy Terrain":"Grass","Grav Apple":"Grass","Gravity":"Psychic","Growl":"Normal","Growth":"Normal","Grudge":"Ghost","Guard Split":"Psychic","Guard Swap":"Psychic","Guardian of Alola":"Fairy","Guillotine":"Normal","Gunk Shot":"Poison","Gust":"Flying","Gyro Ball":"Steel","Hail":"Ice","Hammer Arm":"Fighting","Happy Hour":"Normal","Hard Press":"Steel","Harden":"Normal","Haze":"Ice","Head Charge":"Normal","Head Smash":"Rock","Headbutt":"Normal","Headlong Rush":"Ground","Heal Bell":"Normal","Heal Block":"Psychic","Heal Order":"Bug","Heal Pulse":"Psychic","Healing Wish":"Psychic","Heart Stamp":"Psychic","Heart Swap":"Psychic","Heat Crash":"Fire","Heat Wave":"Fire","Heavy Slam":"Steel","Helping Hand":"Normal","Hex":"Ghost","Hidden Power":"Normal","High Horsepower":"Ground","High Jump Kick":"Fighting","Hold Back":"Normal","Hold Hands":"Normal","Hone Claws":"Dark","Horn Attack":"Normal","Horn Drill":"Normal","Horn Leech":"Grass","Howl":"Normal","Hurricane":"Flying","Hydro Cannon":"Water","Hydro Pump":"Water","Hydro Steam":"Water","Hydro Vortex":"Water","Hyper Beam":"Normal","Hyper Drill":"Normal","Hyper Fang":"Normal","Hyper Voice":"Normal","Hyperspace Fury":"Dark","Hyperspace Hole":"Psychic","Hypnosis":"Psychic","Ice Ball":"Ice","Ice Beam":"Ice","Ice Burn":"Ice","Ice Fang":"Ice","Ice Hammer":"Ice","Ice Punch":"Ice","Ice Shard":"Ice","Ice Spinner":"Ice","Icicle Crash":"Ice","Icicle Spear":"Ice","Icy Wind":"Ice","Imprison":"Psychic","Incinerate":"Fire","Infernal Parade":"Ghost","Inferno":"Fire","Inferno Overdrive":"Fire","Infestation":"Bug","Ingrain":"Grass","Instruct":"Psychic","Ion Deluge":"Electric","Iron Defense":"Steel","Iron Head":"Steel","Iron Tail":"Steel","Ivy Cudgel":"Grass","Jaw Lock":"Dark","Jet Punch":"Water","Judgment":"Normal","Jump Kick":"Fighting","Jungle Healing":"Grass","Karate Chop":"Fighting","Kinesis":"Psychic","King's Shield":"Steel","Knock Off":"Dark","Kowtow Cleave":"Dark","Land's Wrath":"Ground","Laser Focus":"Normal","Lash Out":"Dark","Last Resort":"Normal","Last Respects":"Ghost","Lava Plume":"Fire","Leaf Blade":"Grass","Leaf Storm":"Grass","Leaf Tornado":"Grass","Leafage":"Grass","Leech Life":"Bug","Leech Seed":"Grass","Leer":"Normal","Let's Snuggle Forever":"Fairy","Lick":"Ghost","Life Dew":"Water","Light of Ruin":"Fairy","Light Screen":"Psychic","Light That Burns the Sky":"Psychic","Liquidation":"Water","Lock-On":"Normal","Lovely Kiss":"Normal","Low Kick":"Fighting","Low Sweep":"Fighting","Lucky Chant":"Normal","Lumina Crash":"Psychic","Lunar Blessing":"Psychic","Lunar Dance":"Psychic","Lunge":"Bug","Luster Purge":"Psychic","Mach Punch":"Fighting","Magic Coat":"Psychic","Magic Powder":"Psychic","Magic Room":"Psychic","Magical Leaf":"Grass","Magical Torque":"Fairy","Magma Storm":"Fire","Magnet Bomb":"Steel","Magnet Rise":"Electric","Magnetic Flux":"Electric","Magnitude":"Ground","Make It Rain":"Steel","Malicious Moonsault":"Dark","Malignant Chain":"Poison","Mat Block":"Fighting","Matcha Gotcha":"Grass","Max Airstream":"Flying","Max Darkness":"Dark","Max Flare":"Fire","Max Flutterby":"Bug","Max Geyser":"Water","Max Guard":"Normal","Max Hailstorm":"Ice","Max Knuckle":"Fighting","Max Lightning":"Electric","Max Mindstorm":"Psychic","Max Ooze":"Poison","Max Overgrowth":"Grass","Max Phantasm":"Ghost","Max Quake":"Ground","Max Rockfall":"Rock","Max Starfall":"Fairy","Max Steelspike":"Steel","Max Strike":"Normal","Max Wyrmwind":"Dragon","Me First":"Normal","Mean Look":"Normal","Meditate":"Psychic","Mega Drain":"Grass","Mega Kick":"Normal","Mega Punch":"Normal","Megahorn":"Bug","Memento":"Dark","Menacing Moonraze Maelstrom":"Ghost","Metal Burst":"Steel","Metal Claw":"Steel","Metal Sound":"Steel","Meteor Assault":"Fighting","Meteor Beam":"Rock","Meteor Mash":"Steel","Metronome":"Normal","Mighty Cleave":"Rock","Milk Drink":"Normal","Mimic":"Normal","Mind Blown":"Fire","Mind Reader":"Normal","Minimize":"Normal","Miracle Eye":"Psychic","Mirror Coat":"Psychic","Mirror Move":"Flying","Mirror Shot":"Steel","Mist":"Ice","Mist Ball":"Psychic","Misty Explosion":"Fairy","Misty Terrain":"Fairy","Moonblast":"Fairy","Moongeist Beam":"Ghost","Moonlight":"Fairy","Morning Sun":"Normal","Mortal Spin":"Poison","Mountain Gale":"Ice","Mud Bomb":"Ground","Mud Shot":"Ground","Mud Sport":"Ground","Mud-Slap":"Ground","Muddy Water":"Water","Multi-Attack":"Normal","Mystical Fire":"Fire","Mystical Power":"Psychic","Nasty Plot":"Dark","Natural Gift":"Normal","Nature Power":"Normal","Nature's Madness":"Fairy","Needle Arm":"Grass","Never-Ending Nightmare":"Ghost","Night Daze":"Dark","Night Shade":"Ghost","Night Slash":"Dark","Nightmare":"Ghost","No Retreat":"Fighting","Noble Roar":"Normal","Noxious Torque":"Poison","Nuzzle":"Electric","Oblivion Wing":"Flying","Obstruct":"Dark","Oceanic Operetta":"Water","Octazooka":"Water","Octolock":"Fighting","Odor Sleuth":"Normal","Ominous Wind":"Ghost","Order Up":"Dragon","Origin Pulse":"Water","Outrage":"Dragon","Overdrive":"Electric","Overheat":"Fire","Pain Split":"Normal","Parabolic Charge":"Electric","Parting Shot":"Dark","Pay Day":"Normal","Payback":"Dark","Peck":"Flying","Perish Song":"Normal","Petal Blizzard":"Grass","Petal Dance":"Grass","Phantom Force":"Ghost","Photon Geyser":"Psychic","Pika Papow":"Electric","Pin Missile":"Bug","Plasma Fists":"Electric","Play Nice":"Normal","Play Rough":"Fairy","Pluck":"Flying","Poison Fang":"Poison","Poison Gas":"Poison","Poison Jab":"Poison","Poison Powder":"Poison","Poison Sting":"Poison","Poison Tail":"Poison","Pollen Puff":"Bug","Poltergeist":"Ghost","Population Bomb":"Normal","Pounce":"Bug","Pound":"Normal","Powder":"Bug","Powder Snow":"Ice","Power Gem":"Rock","Power Shift":"Normal","Power Split":"Psychic","Power Swap":"Psychic","Power Trick":"Psychic","Power Trip":"Dark","Power Whip":"Grass","Power-Up Punch":"Fighting","Precipice Blades":"Ground","Present":"Normal","Prismatic Laser":"Psychic","Protect":"Normal","Psybeam":"Psychic","Psyblade":"Psychic","Psych Up":"Normal","Psychic":"Psychic","Psychic Fangs":"Psychic","Psychic Noise":"Psychic","Psychic Terrain":"Psychic","Psycho Boost":"Psychic","Psycho Cut":"Psychic","Psycho Shift":"Psychic","Psyshield Bash":"Psychic","Psyshock":"Psychic","Psystrike":"Psychic","Psywave":"Psychic","Pulverizing Pancake":"Normal","Punishment":"Dark","Purify":"Poison","Pursuit":"Dark","Pyro Ball":"Fire","Quash":"Dark","Quick Attack":"Normal","Quick Guard":"Fighting","Quiver Dance":"Bug","Rage":"Normal","Rage Fist":"Ghost","Rage Powder":"Bug","Raging Bull":"Normal","Raging Fury":"Fire","Rain Dance":"Water","Rapid Spin":"Normal","Razor Leaf":"Grass","Razor Shell":"Water","Razor Wind":"Normal","Recover":"Normal","Recycle":"Normal","Reflect":"Psychic","Reflect Type":"Normal","Refresh":"Normal","Relic Song":"Normal","Rest":"Psychic","Retaliate":"Normal","Return":"Normal","Revelation Dance":"Normal","Revenge":"Fighting","Reversal":"Fighting","Revival Blessing":"Normal","Rising Voltage":"Electric","Roar":"Normal","Roar of Time":"Dragon","Rock Blast":"Rock","Rock Climb":"Normal","Rock Polish":"Rock","Rock Slide":"Rock","Rock Smash":"Fighting","Rock Throw":"Rock","Rock Tomb":"Rock","Rock Wrecker":"Rock","Role Play":"Psychic","Rolling Kick":"Fighting","Rollout":"Rock","Roost":"Flying","Rototiller":"Ground","Round":"Normal","Ruination":"Dark","Sacred Fire":"Fire","Sacred Sword":"Fighting","Safeguard":"Normal","Salt Cure":"Rock","Sand Attack":"Ground","Sand Tomb":"Ground","Sandsear Storm":"Ground","Sandstorm":"Rock","Sappy Seed":"Grass","Savage Spin-Out":"Bug","Scald":"Water","Scale Shot":"Dragon","Scary Face":"Normal","Scorching Sands":"Ground","Scratch":"Normal","Screech":"Normal","Searing Shot":"Fire","Searing Sunraze Smash":"Steel","Secret Power":"Normal","Secret Sword":"Fighting","Seed Bomb":"Grass","Seed Flare":"Grass","Seismic Toss":"Fighting","Self-Destruct":"Normal","Shadow Ball":"Ghost","Shadow Bone":"Ghost","Shadow Claw":"Ghost","Shadow Force":"Ghost","Shadow Punch":"Ghost","Shadow Sneak":"Ghost","Sharpen":"Normal","Shattered Psyche":"Psychic","Shed Tail":"Normal","Sheer Cold":"Ice","Shell Side Arm":"Poison","Shell Smash":"Normal","Shell Trap":"Fire","Shelter":"Steel","Shift Gear":"Steel","Shock Wave":"Electric","Shore Up":"Ground","Signal Beam":"Bug","Silk Trap":"Bug","Silver Wind":"Bug","Simple Beam":"Normal","Sing":"Normal","Sinister Arrow Raid":"Ghost","Sizzly Slide":"Fire","Sketch":"Normal","Skill Swap":"Psychic","Skitter Smack":"Bug","Skull Bash":"Normal","Sky Attack":"Flying","Sky Drop":"Flying","Sky Uppercut":"Fighting","Slack Off":"Normal","Slam":"Normal","Slash":"Normal","Sleep Powder":"Grass","Sleep Talk":"Normal","Sludge":"Poison","Sludge Bomb":"Poison","Sludge Wave":"Poison","Smack Down":"Rock","Smart Strike":"Steel","Smelling Salts":"Normal","Smog":"Poison","Smokescreen":"Normal","Snap Trap":"Grass","Snarl":"Dark","Snatch":"Dark","Snipe Shot":"Water","Snore":"Normal","Snowscape":"Ice","Soak":"Water","Soft-Boiled":"Normal","Solar Beam":"Grass","Solar Blade":"Grass","Sonic Boom":"Normal","Soul-Stealing 7-Star Strike":"Ghost","Spacial Rend":"Dragon","Spark":"Electric","Sparkling Aria":"Water","Sparkly Swirl":"Fairy","Spectral Thief":"Ghost","Speed Swap":"Psychic","Spicy Extract":"Grass","Spider Web":"Bug","Spike Cannon":"Normal","Spikes":"Ground","Spiky Shield":"Grass","Spin Out":"Steel","Spirit Break":"Fairy","Spirit Shackle":"Ghost","Spit Up":"Normal","Spite":"Ghost","Splash":"Normal","Splintered Stormshards":"Rock","Splishy Splash":"Water","Spore":"Grass","Spotlight":"Normal","Springtide Storm":"Fairy","Stealth Rock":"Rock","Steam Eruption":"Water","Steamroller":"Bug","Steel Beam":"Steel","Steel Roller":"Steel","Steel Wing":"Steel","Sticky Web":"Bug","Stockpile":"Normal","Stoked Sparksurfer":"Electric","Stomp":"Normal","Stomping Tantrum":"Ground","Stone Axe":"Rock","Stone Edge":"Rock","Stored Power":"Psychic","Storm Throw":"Fighting","Strange Steam":"Fairy","Strength":"Normal","Strength Sap":"Grass","String Shot":"Bug","Struggle":"Normal","Struggle Bug":"Bug","Stuff Cheeks":"Normal","Stun Spore":"Grass","Submission":"Fighting","Substitute":"Normal","Subzero Slammer":"Ice","Sucker Punch":"Dark","Sunny Day":"Fire","Sunsteel Strike":"Steel","Super Fang":"Normal","Supercell Slam":"Electric","Superpower":"Fighting","Supersonic":"Normal","Supersonic Skystrike":"Flying","Surf":"Water","Surging Strikes":"Water","Swagger":"Normal","Swallow":"Normal","Sweet Kiss":"Fairy","Sweet Scent":"Normal","Swift":"Normal","Switcheroo":"Dark","Swords Dance":"Normal","Synchronoise":"Psychic","Synthesis":"Grass","Syrup Bomb":"Grass","Tachyon Cutter":"Steel","Tackle":"Normal","Tail Glow":"Bug","Tail Slap":"Normal","Tail Whip":"Normal","Tailwind":"Flying","Take Down":"Normal","Take Heart":"Psychic","Tar Shot":"Rock","Taunt":"Dark","Tearful Look":"Normal","Teatime":"Normal","Techno Blast":"Normal","Tectonic Rage":"Ground","Teeter Dance":"Normal","Telekinesis":"Psychic","Teleport":"Psychic","Temper Flare":"Fire","Tera Blast":"Normal","Tera Starstorm":"Normal","Terrain Pulse":"Normal","Thief":"Dark","Thousand Arrows":"Ground","Thousand Waves":"Ground","Thrash":"Normal","Throat Chop":"Dark","Thunder":"Electric","Thunder Cage":"Electric","Thunder Fang":"Electric","Thunder Punch":"Electric","Thunder Shock":"Electric","Thunder Wave":"Electric","Thunderbolt":"Electric","Thunderclap":"Electric","Thunderous Kick":"Fighting","Tickle":"Normal","Tidy Up":"Normal","Topsy-Turvy":"Dark","Torch Song":"Fire","Torment":"Dark","Toxic":"Poison","Toxic Spikes":"Poison","Toxic Thread":"Poison","Trailblaze":"Grass","Transform":"Normal","Tri Attack":"Normal","Trick":"Psychic","Trick Room":"Psychic","Trick-or-Treat":"Ghost","Triple Arrows":"Fighting","Triple Axel":"Ice","Triple Dive":"Water","Triple Kick":"Fighting","Trop Kick":"Grass","Trump Card":"Normal","Twin Beam":"Psychic","Twineedle":"Bug","Twinkle Tackle":"Fairy","Twister":"Dragon","U-turn":"Bug","Upper Hand":"Fighting","Uproar":"Normal","V-create":"Fire","Vacuum Wave":"Fighting","Veevee Volley":"Normal","Venom Drench":"Poison","Venoshock":"Poison","Victory Dance":"Fighting","Vine Whip":"Grass","Vise Grip":"Normal","Vital Throw":"Fighting","Volt Switch":"Electric","Volt Tackle":"Electric","Wake-Up Slap":"Fighting","Water Gun":"Water","Water Pledge":"Water","Water Pulse":"Water","Water Shuriken":"Water","Water Sport":"Water","Water Spout":"Water","Waterfall":"Water","Wave Crash":"Water","Weather Ball":"Normal","Whirlpool":"Water","Whirlwind":"Normal","Wicked Blow":"Dark","Wicked Torque":"Dark","Wide Guard":"Rock","Wild Charge":"Electric","Wildbolt Storm":"Electric","Will-O-Wisp":"Fire","Wing Attack":"Flying","Wish":"Normal","Withdraw":"Water","Wonder Room":"Psychic","Wood Hammer":"Grass","Work Up":"Normal","Worry Seed":"Grass","Wrap":"Normal","Wring Out":"Normal","X-Scissor":"Bug","Yawn":"Normal","Zap Cannon":"Electric","Zen Headbutt":"Psychic","Zing Zap":"Electric","Zippy Zap":"Electric"
 };
+// MOVE_DATA: power, category (P=physical, S=special, U=status), and notable effects
+// Used by the move suggestion engine. Not exhaustive — only common BDSP-era moves.
+// Format: [power, category, effect_tag] where effect_tag describes utility (heal, recoil, drain, flinch, statup, etc.)
+const MOVE_DATA = {
+  // Normal physical
+  'Tackle':[40,'P'],'Scratch':[40,'P'],'Pound':[40,'P'],'Quick Attack':[40,'P','priority'],
+  'Body Slam':[85,'P','paralysis'],'Slam':[80,'P'],'Stomp':[65,'P','flinch'],
+  'Headbutt':[70,'P','flinch'],'Take Down':[90,'P','recoil'],'Double-Edge':[120,'P','recoil'],
+  'Strength':[80,'P'],'Return':[102,'P'],'Frustration':[102,'P'],'Façade':[70,'P'],'Facade':[70,'P'],
+  'Hyper Fang':[80,'P','flinch'],'Mega Punch':[80,'P'],'Mega Kick':[120,'P'],
+  'Crush Claw':[75,'P'],'Slash':[70,'P','high-crit'],'Cut':[50,'P'],'Bite':[60,'P','flinch'],
+  'Rock Climb':[90,'P','confuse'],'Hyper Beam':[150,'P','recharge'],'Giga Impact':[150,'P','recharge'],
+  'Fury Swipes':[18,'P','multi'],'Comet Punch':[18,'P','multi'],
+  'Extreme Speed':[80,'P','priority+2'],'Vise Grip':[55,'P'],'Bind':[15,'P','trap'],
+  'Wrap':[15,'P','trap'],'Tail Slap':[25,'P','multi'],'Fake Out':[40,'P','priority+3,flinch'],
+  // Normal special
+  'Swift':[60,'S','no-miss'],'Tri Attack':[80,'S','status-chance'],
+  'Hyper Voice':[90,'S'],'Boomburst':[140,'S'],
+  // Normal status
+  'Growl':[0,'U','atkdown'],'Tail Whip':[0,'U','defdown'],'Leer':[0,'U','defdown'],
+  'String Shot':[0,'U','spddown'],'Sand Attack':[0,'U','accdown'],'Smokescreen':[0,'U','accdown'],
+  'Defense Curl':[0,'U','statup'],'Harden':[0,'U','statup'],'Withdraw':[0,'U','statup'],
+  'Swords Dance':[0,'U','atkup+2'],'Agility':[0,'U','spdup+2'],'Calm Mind':[0,'U','spaup+spdup'],
+  'Bulk Up':[0,'U','atkup+defup'],'Nasty Plot':[0,'U','spaup+2'],
+  'Howl':[0,'U','atkup'],'Meditate':[0,'U','atkup'],
+  'Recover':[0,'U','heal50'],'Rest':[0,'U','heal100,sleep'],'Soft-Boiled':[0,'U','heal50'],
+  'Synthesis':[0,'U','heal-weather'],'Morning Sun':[0,'U','heal-weather'],'Moonlight':[0,'U','heal-weather'],
+  'Roost':[0,'U','heal50'],'Slack Off':[0,'U','heal50'],'Milk Drink':[0,'U','heal50'],
+  'Supersonic':[0,'U','confuse'],'Sweet Kiss':[0,'U','confuse'],'Confuse Ray':[0,'U','confuse'],
+  'Mean Look':[0,'U','trap'],'Block':[0,'U','trap'],
+  'Thunder Wave':[0,'U','paralysis'],'Glare':[0,'U','paralysis'],'Stun Spore':[0,'U','paralysis'],
+  'Sleep Powder':[0,'U','sleep'],'Spore':[0,'U','sleep'],'Hypnosis':[0,'U','sleep'],'Sing':[0,'U','sleep'],
+  'Toxic':[0,'U','badpoison'],'Will-O-Wisp':[0,'U','burn'],
+  'Substitute':[0,'U','sub'],'Protect':[0,'U','protect'],'Detect':[0,'U','protect'],
+  'Roar':[0,'U','phazer'],'Whirlwind':[0,'U','phazer'],
+  'Light Screen':[0,'U','screen'],'Reflect':[0,'U','screen'],
+  // Fire
+  'Ember':[40,'S','burn'],'Flame Wheel':[60,'P','burn'],'Fire Punch':[75,'P','burn'],
+  'Flamethrower':[90,'S','burn'],'Fire Blast':[110,'S','burn'],'Heat Wave':[95,'S','burn'],
+  'Flame Charge':[50,'P','spdup'],'Lava Plume':[80,'S','burn'],
+  'Fire Fang':[65,'P','burn,flinch'],'Fire Spin':[35,'S','trap'],
+  'Flare Blitz':[120,'P','recoil,burn'],'Overheat':[130,'S','spadown'],'Blast Burn':[150,'S','recharge'],
+  'Inferno':[100,'S','burn,inaccurate'],'Sunny Day':[0,'U','sun'],
+  // Water
+  'Water Gun':[40,'S'],'Bubble':[40,'S','spddown'],'Bubble Beam':[65,'S','spddown'],
+  'Water Pulse':[60,'S','confuse'],'Aqua Jet':[40,'P','priority'],
+  'Brine':[65,'S'],'Surf':[90,'S'],'Hydro Pump':[110,'S','inaccurate'],
+  'Aqua Tail':[90,'P'],'Crabhammer':[100,'P','high-crit'],'Waterfall':[80,'P','flinch'],
+  'Dive':[80,'P','charge'],'Scald':[80,'S','burn'],
+  'Rain Dance':[0,'U','rain'],'Withdraw':[0,'U','defup'],
+  // Grass
+  'Absorb':[20,'S','drain'],'Mega Drain':[40,'S','drain'],'Giga Drain':[75,'S','drain'],
+  'Vine Whip':[45,'P'],'Razor Leaf':[55,'P','high-crit'],'Magical Leaf':[60,'S','no-miss'],
+  'Bullet Seed':[25,'P','multi'],'Seed Bomb':[80,'P'],'Leaf Blade':[90,'P','high-crit'],
+  'Solar Beam':[120,'S','charge'],'Energy Ball':[90,'S','spddown'],'Petal Dance':[120,'S','confuse-self'],
+  'Wood Hammer':[120,'P','recoil'],'Leaf Storm':[130,'S','spadown'],
+  'Leech Seed':[0,'U','drain'],
+  // Electric
+  'Thunder Shock':[40,'S','paralysis'],'Spark':[65,'P','paralysis'],'Thunder Punch':[75,'P','paralysis'],
+  'Thunderbolt':[90,'S','paralysis'],'Thunder':[110,'S','paralysis,inaccurate'],
+  'Charge Beam':[50,'S','spaup'],'Discharge':[80,'S','paralysis'],
+  'Volt Tackle':[120,'P','recoil,paralysis'],'Wild Charge':[90,'P','recoil'],
+  'Shock Wave':[60,'S','no-miss'],'Zap Cannon':[120,'S','paralysis,very-inaccurate'],
+  // Ice
+  'Powder Snow':[40,'S','freeze'],'Ice Shard':[40,'P','priority'],'Ice Punch':[75,'P','freeze'],
+  'Aurora Beam':[65,'S','atkdown'],'Icy Wind':[55,'S','spddown'],'Ice Beam':[90,'S','freeze'],
+  'Blizzard':[110,'S','freeze,inaccurate'],'Ice Fang':[65,'P','freeze,flinch'],
+  'Avalanche':[60,'P','priority-low,2x-hit'],
+  // Fighting
+  'Karate Chop':[50,'P','high-crit'],'Double Kick':[30,'P','multi'],'Low Kick':[60,'P'],
+  'Brick Break':[75,'P','breaks-screens'],'Mach Punch':[40,'P','priority'],'Force Palm':[60,'P','paralysis'],
+  'Rock Smash':[40,'P','defdown'],'Drain Punch':[75,'P','drain'],'Hammer Arm':[100,'P','spddown-self'],
+  'Cross Chop':[100,'P','high-crit'],'Sky Uppercut':[85,'P'],'Close Combat':[120,'P','defdown-self'],
+  'Submission':[80,'P','recoil'],'Vacuum Wave':[40,'S','priority'],'Focus Blast':[120,'S','spddown,inaccurate'],
+  'Aura Sphere':[80,'S','no-miss'],'Bulk Up':[0,'U','atkup+defup'],
+  // Poison
+  'Poison Sting':[15,'P','poison'],'Acid':[40,'S','spddown'],'Sludge':[65,'S','poison'],
+  'Smog':[30,'S','poison'],'Sludge Bomb':[90,'S','poison'],'Sludge Wave':[95,'S','poison'],
+  'Poison Jab':[80,'P','poison'],'Cross Poison':[70,'P','poison,high-crit'],
+  'Gunk Shot':[120,'P','poison,inaccurate'],'Toxic Spikes':[0,'U','hazard'],
+  // Ground
+  'Mud Slap':[20,'S','accdown'],'Mud-Slap':[20,'S','accdown'],'Sand Tomb':[35,'P','trap'],
+  'Magnitude':[70,'P','variable'],'Bulldoze':[60,'P','spddown'],'Dig':[80,'P','charge'],
+  'Mud Bomb':[65,'S','accdown'],'Mud Shot':[55,'S','spddown'],
+  'Earthquake':[100,'P'],'Earth Power':[90,'S','spddown'],'Bone Club':[65,'P','flinch'],
+  'Bonemerang':[50,'P','2x-hit'],'Bone Rush':[25,'P','multi'],'Drill Run':[80,'P','high-crit'],
+  // Flying
+  'Peck':[35,'P'],'Wing Attack':[60,'P'],'Gust':[40,'S'],'Aerial Ace':[60,'P','no-miss'],
+  'Air Cutter':[60,'S','high-crit'],'Air Slash':[75,'S','flinch'],'Fly':[90,'P','charge'],
+  'Drill Peck':[80,'P'],'Sky Attack':[140,'P','charge,flinch'],'Brave Bird':[120,'P','recoil'],
+  'Roost':[0,'U','heal50'],'Acrobatics':[55,'P','2x-no-item'],'Pluck':[60,'P'],
+  // Psychic
+  'Confusion':[50,'S','confuse'],'Psybeam':[65,'S','confuse'],'Psychic':[90,'S','spddown'],
+  'Psycho Cut':[70,'P','high-crit'],'Zen Headbutt':[80,'P','flinch'],'Future Sight':[120,'S','delayed'],
+  'Extrasensory':[80,'S','flinch'],'Dream Eater':[100,'S','drain,sleep-only'],
+  // Bug
+  'Bug Bite':[60,'P','steal-berry'],'Fury Cutter':[40,'P','escalates'],'Silver Wind':[60,'S','statup'],
+  'U-turn':[70,'P','switch'],'X-Scissor':[80,'P'],'Bug Buzz':[90,'S','spddown'],
+  'Megahorn':[120,'P'],'Pin Missile':[25,'P','multi'],
+  // Rock
+  'Rock Throw':[50,'P'],'Rock Tomb':[60,'P','spddown'],'Smack Down':[50,'P','grounds'],
+  'Ancient Power':[60,'S','statup'],'Power Gem':[80,'S'],'Rock Slide':[75,'P','flinch'],
+  'Stone Edge':[100,'P','high-crit,inaccurate'],'Head Smash':[150,'P','recoil-huge'],
+  'Stealth Rock':[0,'U','hazard'],
+  // Ghost
+  'Lick':[30,'P','paralysis'],'Astonish':[30,'P','flinch'],'Shadow Sneak':[40,'P','priority'],
+  'Night Shade':[0,'S','flat-dmg'],'Shadow Punch':[60,'P','no-miss'],'Hex':[65,'S','status-2x'],
+  'Shadow Ball':[80,'S','spddown'],'Shadow Claw':[70,'P','high-crit'],'Ominous Wind':[60,'S','statup'],
+  'Phantom Force':[90,'P','charge'],
+  // Dragon
+  'Twister':[40,'S','flinch'],'Dragon Breath':[60,'S','paralysis'],'Dragon Pulse':[85,'S'],
+  'Dragon Claw':[80,'P'],'Dragon Rush':[100,'P','flinch'],'Outrage':[120,'P','confuse-self'],
+  'Dragon Dance':[0,'U','atkup+spdup'],
+  // Dark
+  'Pursuit':[40,'P','2x-switch'],'Feint Attack':[60,'P','no-miss'],'Faint Attack':[60,'P','no-miss'],
+  'Bite':[60,'P','flinch'],'Crunch':[80,'P','spddown'],'Sucker Punch':[70,'P','priority-cond'],
+  'Dark Pulse':[80,'S','flinch'],'Payback':[50,'P','2x-after'],'Punishment':[60,'P','variable'],
+  'Night Slash':[70,'P','high-crit'],'Thief':[60,'P','steal-item'],
+  'Knock Off':[65,'P','removes-item'],
+  // Steel
+  'Metal Claw':[50,'P','atkup'],'Bullet Punch':[40,'P','priority'],'Iron Head':[80,'P','flinch'],
+  'Steel Wing':[70,'P','defup'],'Iron Tail':[100,'P','defdown,inaccurate'],
+  'Flash Cannon':[80,'S','spddown'],'Magnet Bomb':[60,'P','no-miss'],
+  'Meteor Mash':[90,'P','atkup,inaccurate'],
+  // Fairy (Gen 6+ — won't appear in real BDSP since fairy didn't exist; included for forward-compat)
+  'Fairy Wind':[40,'S'],'Disarming Voice':[40,'S','no-miss'],'Draining Kiss':[50,'S','drain'],
+  'Dazzling Gleam':[80,'S'],'Play Rough':[90,'P','atkdown'],'Moonblast':[95,'S','spadown']
+};
+
+function moveData(name) {
+  const canon = resolveMove(name) || name;
+  return MOVE_DATA[canon] || null;
+}
+function movePower(name) { const d = moveData(name); return d ? d[0] : null; }
+function moveCategory(name) { const d = moveData(name); return d ? d[1] : null; }
+function moveEffect(name) { const d = moveData(name); return d && d[2] ? d[2] : ''; }
+// Score a move for "how worth a slot is this move?" — used in suggestions
+// Returns object: { score, label, role }
+function scoreMove(name, ownerTypes, ownerStats) {
+  const canon = resolveMove(name) || name;
+  const type = MOVES[canon];
+  const d = MOVE_DATA[canon];
+  if (!d) return { score: 30, label: 'Unknown', role: 'unknown' }; // unknown moves: neutral mid-score
+  const [power, cat, eff] = d;
+  const isSTAB = type && ownerTypes && ownerTypes.includes(type);
+  if (cat === 'U') {
+    // Utility moves are valued by effect tag — these are conservative scores
+    const utilScores = {
+      'sleep':80, 'badpoison':70, 'paralysis':65, 'burn':65,
+      'atkup+2':70, 'spaup+2':70, 'spdup+2':60, 'spaup+spdup':75, 'atkup+defup':65, 'atkup+spdup':80,
+      'heal50':70, 'heal100,sleep':50, 'heal-weather':55,
+      'sub':60, 'protect':40, 'phazer':35,
+      'confuse':35, 'trap':25, 'screen':45, 'statup':30,
+      'rain':40, 'sun':40,
+      'hazard':50, 'atkdown':35, 'defdown':35, 'spddown':40, 'accdown':25
+    };
+    const score = utilScores[eff] !== undefined ? utilScores[eff] : 30;
+    return { score, label: 'Utility', role: 'util' };
+  }
+  // Damaging
+  let score = power || 30;
+  if (isSTAB) score = Math.round(score * 1.5);
+  // Modifiers
+  if (eff && eff.includes('priority')) score += 5;
+  if (eff && eff.includes('drain')) score += 6;
+  if (eff && eff.includes('no-miss')) score += 3;
+  if (eff && eff.includes('flinch')) score += 4;
+  if (eff && eff.includes('high-crit')) score += 4;
+  if (eff && eff.includes('inaccurate')) score -= 8;
+  if (eff && eff.includes('very-inaccurate')) score -= 25;
+  if (eff && eff.includes('recoil')) score -= 5;
+  if (eff && eff.includes('recoil-huge')) score -= 15;
+  if (eff && eff.includes('recharge')) score -= 15;
+  if (eff && eff.includes('charge')) score -= 10;
+  if (eff && eff.includes('multi')) score += 8; // counts each hit
+  // Stat-mismatched moves get penalized if owner stats are known
+  if (ownerStats && Array.isArray(ownerStats) && ownerStats.length===6) {
+    const [, atk, , spa] = ownerStats;
+    if (cat === 'P' && atk < spa - 20) score -= 12;
+    if (cat === 'S' && spa < atk - 20) score -= 12;
+  }
+  return { score, label: isSTAB ? 'STAB' : '', role: 'attack' };
+}
+
 // Common abilities. Names only — used for dropdown.
 // The scoring engine checks specific names for special effects.
 const ABILITIES = ["Adaptability","Aerilate","Aftermath","Air Lock","Analytic","Anger Point","Anger Shell","Anticipation","Arena Trap","Armor Tail","Aroma Veil","As One","Aura Break","Bad Dreams","Ball Fetch","Battery","Battle Armor","Battle Bond","Beads of Ruin","Beast Boost","Berserk","Big Pecks","Blaze","Bulletproof","Cheek Pouch","Chilling Neigh","Chlorophyll","Clear Body","Cloud Nine","Color Change","Comatose","Commander","Competitive","Compound Eyes","Contrary","Corrosion","Costar","Cotton Down","Cud Chew","Curious Medicine","Cursed Body","Cute Charm","Damp","Dancer","Dark Aura","Dauntless Shield","Dazzling","Defeatist","Defiant","Delta Stream","Desolate Land","Disguise","Download","Dragon's Maw","Drizzle","Drought","Dry Skin","Early Bird","Earth Eater","Effect Spore","Electric Surge","Electromorphosis","Embody Aspect","Emergency Exit","Fairy Aura","Filter","Flame Body","Flare Boost","Flash Fire","Flower Gift","Flower Veil","Fluffy","Forecast","Forewarn","Friend Guard","Frisk","Full Metal Body","Fur Coat","Gale Wings","Galvanize","Gluttony","Good as Gold","Gooey","Gorilla Tactics","Grass Pelt","Grassy Surge","Grim Neigh","Guard Dog","Gulp Missile","Guts","Hadron Engine","Harvest","Healer","Heatproof","Heavy Metal","Honey Gather","Hospitality","Huge Power","Hunger Switch","Hustle","Hydration","Hyper Cutter","Ice Body","Ice Face","Ice Scales","Illuminate","Illusion","Immunity","Imposter","Infiltrator","Innards Out","Inner Focus","Insomnia","Intimidate","Intrepid Sword","Iron Barbs","Iron Fist","Justified","Keen Eye","Klutz","Leaf Guard","Levitate","Libero","Light Metal","Lightning Rod","Limber","Lingering Aroma","Liquid Ooze","Liquid Voice","Long Reach","Magic Bounce","Magic Guard","Magician","Magma Armor","Magnet Pull","Marvel Scale","Mega Launcher","Merciless","Mimicry","Mind's Eye","Minus","Mirror Armor","Misty Surge","Mold Breaker","Moody","Motor Drive","Moxie","Multiscale","Multitype","Mummy","Mycelium Might","Natural Cure","Neuroforce","Neutralizing Gas","No Guard","Normalize","Oblivious","Opportunist","Orichalcum Pulse","Overcoat","Overgrow","Own Tempo","Parental Bond","Pastel Veil","Perish Body","Pickpocket","Pickup","Pixilate","Plus","Poison Heal","Poison Point","Poison Puppeteer","Poison Touch","Power Construct","Power of Alchemy","Power Spot","Prankster","Pressure","Primordial Sea","Prism Armor","Propeller Tail","Protean","Protosynthesis","Psychic Surge","Punk Rock","Pure Power","Purifying Salt","Quark Drive","Queenly Majesty","Quick Draw","Quick Feet","Rain Dish","Rattled","Receiver","Reckless","Refrigerate","Regenerator","Ripen","Rivalry","Rock Head","Rocky Payload","Rough Skin","Run Away","Sand Force","Sand Rush","Sand Spit","Sand Stream","Sand Veil","Sap Sipper","Schooling","Scrappy","Screen Cleaner","Seed Sower","Serene Grace","Shadow Shield","Shadow Tag","Sharpness","Shed Skin","Sheer Force","Shell Armor","Shield Dust","Shields Down","Simple","Skill Link","Slow Start","Slush Rush","Sniper","Snow Cloak","Snow Warning","Solar Power","Solid Rock","Soul-Heart","Soundproof","Speed Boost","Stakeout","Stall","Stalwart","Stamina","Stance Change","Static","Steadfast","Steam Engine","Steely Spirit","Stench","Sticky Hold","Storm Drain","Strong Jaw","Sturdy","Suction Cups","Super Luck","Supersweet Syrup","Supreme Overlord","Surge Surfer","Swarm","Sweet Veil","Swift Swim","Sword of Ruin","Symbiosis","Synchronize","Tablets of Ruin","Tangled Feet","Tangling Hair","Technician","Telepathy","Tera Shell","Tera Shift","Teraform Zero","Thermal Exchange","Thick Fat","Tinted Lens","Torrent","Tough Claws","Toxic Boost","Toxic Chain","Toxic Debris","Trace","Transistor","Triage","Truant","Turboblaze","Unaware","Unburden","Unnerve","Vessel of Ruin","Victory Star","Vital Spirit","Volt Absorb","Wandering Spirit","Water Absorb","Water Bubble","Water Compaction","Water Veil","Weak Armor","Well-Baked Body","White Smoke","Wimp Out","Wind Power","Wind Rider","Wonder Guard","Wonder Skin","Zen Mode","Zero to Hero"];
@@ -825,6 +1208,767 @@ const GAMES = {
   }
 };
 
+/* POKEMON_DB — compact reference for BDSP and related Pokémon.
+   Format: name: { id, t: [type1, type2|null], s: [hp,atk,def,spa,spd,spe], a: [abilities...], e: [evo_target, evo_method] }
+   evo_method: number = level, string = special method (item, trade, friendship, etc.)
+   Types use Gen 8 typing (Fairy is in for BDSP). */
+const POKEMON_DB = {
+  // BDSP starters
+  'Turtwig':{id:387,t:['Grass'],s:[55,68,64,45,55,31],a:['Overgrow','Shell Armor'],e:['Grotle',18]},
+  'Grotle':{id:388,t:['Grass'],s:[75,89,85,55,65,36],a:['Overgrow','Shell Armor'],e:['Torterra',32]},
+  'Torterra':{id:389,t:['Grass','Ground'],s:[95,109,105,75,85,56],a:['Overgrow','Shell Armor']},
+  'Chimchar':{id:390,t:['Fire'],s:[44,58,44,58,44,61],a:['Blaze','Iron Fist'],e:['Monferno',14]},
+  'Monferno':{id:391,t:['Fire','Fighting'],s:[64,78,52,78,52,81],a:['Blaze','Iron Fist'],e:['Infernape',36]},
+  'Infernape':{id:392,t:['Fire','Fighting'],s:[76,104,71,104,71,108],a:['Blaze','Iron Fist']},
+  'Piplup':{id:393,t:['Water'],s:[53,51,53,61,56,40],a:['Torrent','Defiant'],e:['Prinplup',16]},
+  'Prinplup':{id:394,t:['Water'],s:[64,66,68,81,76,50],a:['Torrent','Defiant'],e:['Empoleon',36]},
+  'Empoleon':{id:395,t:['Water','Steel'],s:[84,86,88,111,101,60],a:['Torrent','Defiant']},
+  // Early route mons
+  'Bidoof':{id:399,t:['Normal'],s:[59,45,40,35,40,31],a:['Simple','Unaware','Moody'],e:['Bibarel',15]},
+  'Bibarel':{id:400,t:['Normal','Water'],s:[79,85,60,55,60,71],a:['Simple','Unaware','Moody']},
+  'Starly':{id:396,t:['Normal','Flying'],s:[40,55,30,30,30,60],a:['Keen Eye','Reckless'],e:['Staravia',14]},
+  'Staravia':{id:397,t:['Normal','Flying'],s:[55,75,50,40,40,80],a:['Intimidate','Reckless'],e:['Staraptor',34]},
+  'Staraptor':{id:398,t:['Normal','Flying'],s:[85,120,70,50,60,100],a:['Intimidate','Reckless']},
+  'Shinx':{id:403,t:['Electric'],s:[45,65,34,40,34,45],a:['Rivalry','Intimidate','Guts'],e:['Luxio',15]},
+  'Luxio':{id:404,t:['Electric'],s:[60,85,49,60,49,60],a:['Rivalry','Intimidate','Guts'],e:['Luxray',30]},
+  'Luxray':{id:405,t:['Electric'],s:[80,120,79,95,79,70],a:['Rivalry','Intimidate','Guts']},
+  'Kricketot':{id:401,t:['Bug'],s:[37,25,41,25,41,25],a:['Shed Skin','Run Away'],e:['Kricketune',10]},
+  'Kricketune':{id:402,t:['Bug'],s:[77,85,51,55,51,65],a:['Swarm','Technician']},
+  // Route 204+ common
+  'Wurmple':{id:265,t:['Bug'],s:[45,45,35,20,30,20],a:['Shield Dust','Run Away'],e:['Silcoon/Cascoon',7]},
+  'Silcoon':{id:266,t:['Bug'],s:[50,35,55,25,25,15],a:['Shed Skin'],e:['Beautifly',10]},
+  'Beautifly':{id:267,t:['Bug','Flying'],s:[60,70,50,100,50,65],a:['Swarm','Rivalry']},
+  'Cascoon':{id:268,t:['Bug'],s:[50,35,55,25,25,15],a:['Shed Skin'],e:['Dustox',10]},
+  'Dustox':{id:269,t:['Bug','Poison'],s:[60,50,70,50,90,65],a:['Shield Dust','Compound Eyes']},
+  'Budew':{id:406,t:['Grass','Poison'],s:[40,30,35,50,70,55],a:['Natural Cure','Poison Point','Leaf Guard'],e:['Roselia','friendship (day)']},
+  'Roselia':{id:315,t:['Grass','Poison'],s:[50,60,45,100,80,65],a:['Natural Cure','Poison Point','Leaf Guard'],e:['Roserade','Shiny Stone']},
+  'Roserade':{id:407,t:['Grass','Poison'],s:[60,70,65,125,105,90],a:['Natural Cure','Poison Point','Technician']},
+  'Zubat':{id:41,t:['Poison','Flying'],s:[40,45,35,30,40,55],a:['Inner Focus','Infiltrator'],e:['Golbat',22]},
+  'Golbat':{id:42,t:['Poison','Flying'],s:[75,80,70,65,75,90],a:['Inner Focus','Infiltrator'],e:['Crobat','friendship']},
+  'Crobat':{id:169,t:['Poison','Flying'],s:[85,90,80,70,80,130],a:['Inner Focus','Infiltrator']},
+  'Geodude':{id:74,t:['Rock','Ground'],s:[40,80,100,30,30,20],a:['Rock Head','Sturdy','Sand Veil'],e:['Graveler',25]},
+  'Graveler':{id:75,t:['Rock','Ground'],s:[55,95,115,45,45,35],a:['Rock Head','Sturdy','Sand Veil'],e:['Golem','trade']},
+  'Golem':{id:76,t:['Rock','Ground'],s:[80,120,130,55,65,45],a:['Rock Head','Sturdy','Sand Veil']},
+  'Onix':{id:95,t:['Rock','Ground'],s:[35,45,160,30,45,70],a:['Rock Head','Sturdy','Weak Armor'],e:['Steelix','trade:Metal Coat']},
+  'Steelix':{id:208,t:['Steel','Ground'],s:[75,85,200,55,65,30],a:['Rock Head','Sturdy','Sheer Force']},
+  'Machop':{id:66,t:['Fighting'],s:[70,80,50,35,35,35],a:['Guts','No Guard','Steadfast'],e:['Machoke',28]},
+  'Machoke':{id:67,t:['Fighting'],s:[80,100,70,50,60,45],a:['Guts','No Guard','Steadfast'],e:['Machamp','trade']},
+  'Machamp':{id:68,t:['Fighting'],s:[90,130,80,65,85,55],a:['Guts','No Guard','Steadfast']},
+  'Psyduck':{id:54,t:['Water'],s:[50,52,48,65,50,55],a:['Damp','Cloud Nine','Swift Swim'],e:['Golduck',33]},
+  'Golduck':{id:55,t:['Water'],s:[80,82,78,95,80,85],a:['Damp','Cloud Nine','Swift Swim']},
+  'Buizel':{id:418,t:['Water'],s:[55,65,35,60,30,85],a:['Swift Swim','Water Veil'],e:['Floatzel',26]},
+  'Floatzel':{id:419,t:['Water'],s:[85,105,55,85,50,115],a:['Swift Swim','Water Veil']},
+  'Magikarp':{id:129,t:['Water'],s:[20,10,55,15,20,80],a:['Swift Swim','Rattled'],e:['Gyarados',20]},
+  'Gyarados':{id:130,t:['Water','Flying'],s:[95,125,79,60,100,81],a:['Intimidate','Moxie']},
+  'Goldeen':{id:118,t:['Water'],s:[45,67,60,35,50,63],a:['Swift Swim','Water Veil','Lightning Rod'],e:['Seaking',33]},
+  'Seaking':{id:119,t:['Water'],s:[80,92,65,65,80,68],a:['Swift Swim','Water Veil','Lightning Rod']},
+  'Barboach':{id:339,t:['Water','Ground'],s:[50,48,43,46,41,60],a:['Oblivious','Anticipation','Hydration'],e:['Whiscash',30]},
+  'Whiscash':{id:340,t:['Water','Ground'],s:[110,78,73,76,71,60],a:['Oblivious','Anticipation','Hydration']},
+  'Tentacool':{id:72,t:['Water','Poison'],s:[40,40,35,50,100,70],a:['Clear Body','Liquid Ooze','Rain Dish'],e:['Tentacruel',30]},
+  'Tentacruel':{id:73,t:['Water','Poison'],s:[80,70,65,80,120,100],a:['Clear Body','Liquid Ooze','Rain Dish']},
+  'Wingull':{id:278,t:['Water','Flying'],s:[40,30,30,55,30,85],a:['Keen Eye','Hydration','Rain Dish'],e:['Pelipper',25]},
+  'Pelipper':{id:279,t:['Water','Flying'],s:[60,50,100,95,70,65],a:['Keen Eye','Drizzle','Rain Dish']},
+  'Wooper':{id:194,t:['Water','Ground'],s:[55,45,45,25,25,15],a:['Damp','Water Absorb','Unaware'],e:['Quagsire',20]},
+  'Quagsire':{id:195,t:['Water','Ground'],s:[95,85,85,65,65,35],a:['Damp','Water Absorb','Unaware']},
+  'Finneon':{id:456,t:['Water'],s:[49,49,56,49,61,66],a:['Swift Swim','Storm Drain','Water Veil'],e:['Lumineon',31]},
+  'Lumineon':{id:457,t:['Water'],s:[69,69,76,69,86,91],a:['Swift Swim','Storm Drain','Water Veil']},
+  'Mantyke':{id:458,t:['Water','Flying'],s:[45,20,50,60,120,50],a:['Swift Swim','Water Absorb','Water Veil'],e:['Mantine','level w/ Remoraid']},
+  'Mantine':{id:226,t:['Water','Flying'],s:[85,40,70,80,140,70],a:['Swift Swim','Water Absorb','Water Veil']},
+  'Remoraid':{id:223,t:['Water'],s:[35,65,35,65,35,65],a:['Hustle','Sniper','Moody'],e:['Octillery',25]},
+  'Octillery':{id:224,t:['Water'],s:[75,105,75,105,75,45],a:['Suction Cups','Sniper','Moody']},
+  'Shellos':{id:422,t:['Water'],s:[76,48,48,57,62,34],a:['Sticky Hold','Storm Drain','Sand Force'],e:['Gastrodon',30]},
+  'Gastrodon':{id:423,t:['Water','Ground'],s:[111,83,68,92,82,39],a:['Sticky Hold','Storm Drain','Sand Force']},
+  // Eterna Forest & Old Chateau
+  'Combee':{id:415,t:['Bug','Flying'],s:[30,30,42,30,42,70],a:['Honey Gather','Hustle'],e:['Vespiquen','level 21 (female only)']},
+  'Vespiquen':{id:416,t:['Bug','Flying'],s:[70,80,102,80,102,40],a:['Pressure','Unnerve']},
+  'Burmy':{id:412,t:['Bug'],s:[40,29,45,29,45,36],a:['Shed Skin','Overcoat'],e:['Wormadam/Mothim',20]},
+  'Wormadam':{id:413,t:['Bug','Grass'],s:[60,59,85,79,105,36],a:['Anticipation','Overcoat']},
+  'Mothim':{id:414,t:['Bug','Flying'],s:[70,94,50,94,50,66],a:['Swarm','Tinted Lens']},
+  'Pachirisu':{id:417,t:['Electric'],s:[60,45,70,45,90,95],a:['Run Away','Pickup','Volt Absorb']},
+  'Buneary':{id:427,t:['Normal'],s:[55,66,44,44,56,85],a:['Run Away','Klutz','Limber'],e:['Lopunny','friendship']},
+  'Lopunny':{id:428,t:['Normal'],s:[65,76,84,54,96,105],a:['Cute Charm','Klutz','Limber']},
+  'Ponyta':{id:77,t:['Fire'],s:[50,85,55,65,65,90],a:['Run Away','Flash Fire','Flame Body'],e:['Rapidash',40]},
+  'Rapidash':{id:78,t:['Fire'],s:[65,100,70,80,80,105],a:['Run Away','Flash Fire','Flame Body']},
+  'Hoothoot':{id:163,t:['Normal','Flying'],s:[60,30,30,36,56,50],a:['Insomnia','Keen Eye','Tinted Lens'],e:['Noctowl',20]},
+  'Noctowl':{id:164,t:['Normal','Flying'],s:[100,50,50,86,96,70],a:['Insomnia','Keen Eye','Tinted Lens']},
+  'Gastly':{id:92,t:['Ghost','Poison'],s:[30,35,30,100,35,80],a:['Levitate'],e:['Haunter',25]},
+  'Haunter':{id:93,t:['Ghost','Poison'],s:[45,50,45,115,55,95],a:['Levitate'],e:['Gengar','trade']},
+  'Gengar':{id:94,t:['Ghost','Poison'],s:[60,65,60,130,75,110],a:['Cursed Body']},
+  'Misdreavus':{id:200,t:['Ghost'],s:[60,60,60,85,85,85],a:['Levitate'],e:['Mismagius','Dusk Stone']},
+  'Mismagius':{id:429,t:['Ghost'],s:[60,60,60,105,105,105],a:['Levitate']},
+  'Murkrow':{id:198,t:['Dark','Flying'],s:[60,85,42,85,42,91],a:['Insomnia','Super Luck','Prankster'],e:['Honchkrow','Dusk Stone']},
+  'Honchkrow':{id:430,t:['Dark','Flying'],s:[100,125,52,105,52,71],a:['Insomnia','Super Luck','Moxie']},
+  // Mt Coronet / wider routes
+  'Meditite':{id:307,t:['Fighting','Psychic'],s:[30,40,55,40,55,60],a:['Pure Power','Telepathy'],e:['Medicham',37]},
+  'Medicham':{id:308,t:['Fighting','Psychic'],s:[60,60,75,60,75,80],a:['Pure Power','Telepathy']},
+  'Nosepass':{id:299,t:['Rock'],s:[30,45,135,45,90,30],a:['Sturdy','Magnet Pull','Sand Force'],e:['Probopass','level @ Mt. Coronet']},
+  'Probopass':{id:476,t:['Rock','Steel'],s:[60,55,145,75,150,40],a:['Sturdy','Magnet Pull','Sand Force']},
+  'Cleffa':{id:173,t:['Fairy'],s:[50,25,28,45,55,15],a:['Cute Charm','Magic Guard','Friend Guard'],e:['Clefairy','friendship']},
+  'Clefairy':{id:35,t:['Fairy'],s:[70,45,48,60,65,35],a:['Cute Charm','Magic Guard','Friend Guard'],e:['Clefable','Moon Stone']},
+  'Clefable':{id:36,t:['Fairy'],s:[95,70,73,95,90,60],a:['Cute Charm','Magic Guard','Unaware']},
+  'Chingling':{id:433,t:['Psychic'],s:[45,30,50,65,50,45],a:['Levitate'],e:['Chimecho','friendship at night']},
+  'Chimecho':{id:358,t:['Psychic'],s:[75,50,80,95,90,65],a:['Levitate']},
+  'Stantler':{id:234,t:['Normal'],s:[73,95,62,85,65,85],a:['Intimidate','Frisk','Sap Sipper']},
+  'Bronzor':{id:436,t:['Steel','Psychic'],s:[57,24,86,24,86,23],a:['Levitate','Heatproof','Heavy Metal'],e:['Bronzong',33]},
+  'Bronzong':{id:437,t:['Steel','Psychic'],s:[67,89,116,79,116,33],a:['Levitate','Heatproof','Heavy Metal']},
+  'Snover':{id:459,t:['Grass','Ice'],s:[60,62,50,62,60,40],a:['Snow Warning','Soundproof'],e:['Abomasnow',40]},
+  'Abomasnow':{id:460,t:['Grass','Ice'],s:[90,92,75,92,85,60],a:['Snow Warning','Soundproof']},
+  'Sneasel':{id:215,t:['Dark','Ice'],s:[55,95,55,35,75,115],a:['Inner Focus','Keen Eye','Pickpocket'],e:['Weavile','Razor Claw at night']},
+  'Weavile':{id:461,t:['Dark','Ice'],s:[70,120,65,45,85,125],a:['Pressure','Pickpocket']},
+  'Hippopotas':{id:449,t:['Ground'],s:[68,72,78,38,42,32],a:['Sand Stream','Sand Force'],e:['Hippowdon',34]},
+  'Hippowdon':{id:450,t:['Ground'],s:[108,112,118,68,72,47],a:['Sand Stream','Sand Force']},
+  'Stunky':{id:434,t:['Poison','Dark'],s:[63,63,47,41,41,74],a:['Stench','Aftermath','Keen Eye'],e:['Skuntank',34]},
+  'Skuntank':{id:435,t:['Poison','Dark'],s:[103,93,67,71,61,84],a:['Stench','Aftermath','Keen Eye']},
+  'Skorupi':{id:451,t:['Poison','Bug'],s:[40,50,90,30,55,65],a:['Battle Armor','Sniper','Keen Eye'],e:['Drapion',40]},
+  'Drapion':{id:452,t:['Poison','Dark'],s:[70,90,110,60,75,95],a:['Battle Armor','Sniper','Keen Eye']},
+  'Croagunk':{id:453,t:['Poison','Fighting'],s:[48,61,40,61,40,50],a:['Anticipation','Dry Skin','Poison Touch'],e:['Toxicroak',37]},
+  'Toxicroak':{id:454,t:['Poison','Fighting'],s:[83,106,65,86,65,85],a:['Anticipation','Dry Skin','Poison Touch']},
+  'Carnivine':{id:455,t:['Grass'],s:[74,100,72,90,72,46],a:['Levitate']},
+  'Cherubi':{id:420,t:['Grass'],s:[45,35,45,62,53,35],a:['Chlorophyll'],e:['Cherrim',25]},
+  'Cherrim':{id:421,t:['Grass'],s:[70,60,70,87,78,85],a:['Flower Gift']},
+  'Aipom':{id:190,t:['Normal'],s:[55,70,55,40,55,85],a:['Run Away','Pickup','Skill Link'],e:['Ambipom','level w/ Double Hit']},
+  'Ambipom':{id:424,t:['Normal'],s:[75,100,66,60,66,115],a:['Technician','Pickup','Skill Link']},
+  'Glameow':{id:431,t:['Normal'],s:[49,55,42,42,37,85],a:['Limber','Own Tempo','Keen Eye'],e:['Purugly',38]},
+  'Purugly':{id:432,t:['Normal'],s:[71,82,64,64,59,112],a:['Thick Fat','Own Tempo','Defiant']},
+  'Bonsly':{id:438,t:['Rock'],s:[50,80,95,10,45,10],a:['Sturdy','Rock Head','Rattled'],e:['Sudowoodo','level w/ Mimic']},
+  'Sudowoodo':{id:185,t:['Rock'],s:[70,100,115,30,65,30],a:['Sturdy','Rock Head','Rattled']},
+  'Happiny':{id:440,t:['Normal'],s:[100,5,5,15,65,30],a:['Natural Cure','Serene Grace','Friend Guard'],e:['Chansey','level w/ Oval Stone (day)']},
+  'Chansey':{id:113,t:['Normal'],s:[250,5,5,35,105,50],a:['Natural Cure','Serene Grace','Healer'],e:['Blissey','friendship']},
+  'Blissey':{id:242,t:['Normal'],s:[255,10,10,75,135,55],a:['Natural Cure','Serene Grace','Healer']},
+  'Munchlax':{id:446,t:['Normal'],s:[135,85,40,40,85,5],a:['Pickup','Thick Fat','Gluttony'],e:['Snorlax','friendship']},
+  'Snorlax':{id:143,t:['Normal'],s:[160,110,65,65,110,30],a:['Immunity','Thick Fat','Gluttony']},
+  'Drifloon':{id:425,t:['Ghost','Flying'],s:[90,50,34,60,44,70],a:['Aftermath','Unburden','Flare Boost'],e:['Drifblim',28]},
+  'Drifblim':{id:426,t:['Ghost','Flying'],s:[150,80,44,90,54,80],a:['Aftermath','Unburden','Flare Boost']},
+  'Gible':{id:443,t:['Dragon','Ground'],s:[58,70,45,40,45,42],a:['Sand Veil','Rough Skin'],e:['Gabite',24]},
+  'Gabite':{id:444,t:['Dragon','Ground'],s:[68,90,65,50,55,82],a:['Sand Veil','Rough Skin'],e:['Garchomp',48]},
+  'Garchomp':{id:445,t:['Dragon','Ground'],s:[108,130,95,80,85,102],a:['Sand Veil','Rough Skin']},
+  'Riolu':{id:447,t:['Fighting'],s:[40,70,40,35,40,60],a:['Steadfast','Inner Focus','Prankster'],e:['Lucario','friendship (day)']},
+  'Lucario':{id:448,t:['Fighting','Steel'],s:[70,110,70,115,70,90],a:['Steadfast','Inner Focus','Justified']},
+  'Ralts':{id:280,t:['Psychic','Fairy'],s:[28,25,25,45,35,40],a:['Synchronize','Trace','Telepathy'],e:['Kirlia',20]},
+  'Kirlia':{id:281,t:['Psychic','Fairy'],s:[38,35,35,65,55,50],a:['Synchronize','Trace','Telepathy'],e:['Gardevoir/Gallade',30]},
+  'Gardevoir':{id:282,t:['Psychic','Fairy'],s:[68,65,65,125,115,80],a:['Synchronize','Trace','Telepathy']},
+  'Gallade':{id:475,t:['Psychic','Fighting'],s:[68,125,65,65,115,80],a:['Steadfast','Justified']},
+  'Pikachu':{id:25,t:['Electric'],s:[35,55,40,50,50,90],a:['Static','Lightning Rod'],e:['Raichu','Thunder Stone']},
+  'Pichu':{id:172,t:['Electric'],s:[20,40,15,35,35,60],a:['Static','Lightning Rod'],e:['Pikachu','friendship']},
+  'Raichu':{id:26,t:['Electric'],s:[60,90,55,90,80,110],a:['Static','Lightning Rod']},
+  'Yanma':{id:193,t:['Bug','Flying'],s:[65,65,45,75,45,95],a:['Speed Boost','Compound Eyes','Frisk'],e:['Yanmega','level w/ Ancient Power']},
+  'Yanmega':{id:469,t:['Bug','Flying'],s:[86,76,86,116,56,95],a:['Speed Boost','Tinted Lens','Frisk']},
+  'Abra':{id:63,t:['Psychic'],s:[25,20,15,105,55,90],a:['Synchronize','Inner Focus','Magic Guard'],e:['Kadabra',16]},
+  'Kadabra':{id:64,t:['Psychic'],s:[40,35,30,120,70,105],a:['Synchronize','Inner Focus','Magic Guard'],e:['Alakazam','trade']},
+  'Alakazam':{id:65,t:['Psychic'],s:[55,50,45,135,95,120],a:['Synchronize','Inner Focus','Magic Guard']},
+  'Voltorb':{id:100,t:['Electric'],s:[40,30,50,55,55,100],a:['Soundproof','Static','Aftermath'],e:['Electrode',30]},
+  'Electrode':{id:101,t:['Electric'],s:[60,50,70,80,80,150],a:['Soundproof','Static','Aftermath']},
+  'Magnemite':{id:81,t:['Electric','Steel'],s:[25,35,70,95,55,45],a:['Magnet Pull','Sturdy','Analytic'],e:['Magneton',30]},
+  'Magneton':{id:82,t:['Electric','Steel'],s:[50,60,95,120,70,70],a:['Magnet Pull','Sturdy','Analytic'],e:['Magnezone','level @ Mt. Coronet']},
+  'Magnezone':{id:462,t:['Electric','Steel'],s:[70,70,115,130,90,60],a:['Magnet Pull','Sturdy','Analytic']},
+  'Eevee':{id:133,t:['Normal'],s:[55,55,50,45,65,55],a:['Run Away','Adaptability','Anticipation'],e:['Various','various stones/friendship']},
+  'Vaporeon':{id:134,t:['Water'],s:[130,65,60,110,95,65],a:['Water Absorb','Hydration']},
+  'Jolteon':{id:135,t:['Electric'],s:[65,65,60,110,95,130],a:['Volt Absorb','Quick Feet']},
+  'Flareon':{id:136,t:['Fire'],s:[65,130,60,95,110,65],a:['Flash Fire','Guts']},
+  'Espeon':{id:196,t:['Psychic'],s:[65,65,60,130,95,110],a:['Synchronize','Magic Bounce']},
+  'Umbreon':{id:197,t:['Dark'],s:[95,65,110,60,130,65],a:['Synchronize','Inner Focus']},
+  'Leafeon':{id:470,t:['Grass'],s:[65,110,130,60,65,95],a:['Leaf Guard','Chlorophyll']},
+  'Glaceon':{id:471,t:['Ice'],s:[65,60,110,130,95,65],a:['Snow Cloak','Ice Body']},
+  'Sylveon':{id:700,t:['Fairy'],s:[95,65,65,110,130,60],a:['Cute Charm','Pixilate']},
+  'Spiritomb':{id:442,t:['Ghost','Dark'],s:[50,92,108,92,108,35],a:['Pressure','Infiltrator']},
+  // Lake legendaries & roamers
+  'Uxie':{id:480,t:['Psychic'],s:[75,75,130,75,130,95],a:['Levitate']},
+  'Mesprit':{id:481,t:['Psychic'],s:[80,105,105,105,105,80],a:['Levitate']},
+  'Azelf':{id:482,t:['Psychic'],s:[75,125,70,125,70,115],a:['Levitate']},
+  'Dialga':{id:483,t:['Steel','Dragon'],s:[100,120,120,150,100,90],a:['Pressure','Telepathy']},
+  'Palkia':{id:484,t:['Water','Dragon'],s:[90,120,100,150,120,100],a:['Pressure','Telepathy']},
+  'Giratina':{id:487,t:['Ghost','Dragon'],s:[150,100,120,100,120,90],a:['Pressure','Telepathy']},
+  'Heatran':{id:485,t:['Fire','Steel'],s:[91,90,106,130,106,77],a:['Flash Fire','Flame Body']},
+  'Regigigas':{id:486,t:['Normal'],s:[110,160,110,80,110,100],a:['Slow Start']},
+  'Cresselia':{id:488,t:['Psychic'],s:[120,70,120,75,130,85],a:['Levitate']},
+  'Rotom':{id:479,t:['Electric','Ghost'],s:[50,50,77,95,77,91],a:['Levitate']},
+  // Trophy Garden / extras
+  'Pichu':{id:172,t:['Electric'],s:[20,40,15,35,35,60],a:['Static','Lightning Rod'],e:['Pikachu','friendship']},
+  'Igglybuff':{id:174,t:['Normal','Fairy'],s:[90,30,15,40,20,15],a:['Cute Charm','Competitive','Friend Guard'],e:['Jigglypuff','friendship']},
+  'Jigglypuff':{id:39,t:['Normal','Fairy'],s:[115,45,20,45,25,20],a:['Cute Charm','Competitive','Friend Guard'],e:['Wigglytuff','Moon Stone']},
+  'Wigglytuff':{id:40,t:['Normal','Fairy'],s:[140,70,45,85,50,45],a:['Cute Charm','Competitive','Frisk']},
+  'Houndour':{id:228,t:['Dark','Fire'],s:[45,60,30,80,50,65],a:['Early Bird','Flash Fire','Unnerve'],e:['Houndoom',24]},
+  'Houndoom':{id:229,t:['Dark','Fire'],s:[75,90,50,110,80,95],a:['Early Bird','Flash Fire','Unnerve']},
+  'Tropius':{id:357,t:['Grass','Flying'],s:[99,68,83,72,87,51],a:['Chlorophyll','Solar Power','Harvest']},
+  'Marill':{id:183,t:['Water','Fairy'],s:[70,20,50,20,50,40],a:['Thick Fat','Huge Power','Sap Sipper'],e:['Azumarill',18]},
+  'Azurill':{id:298,t:['Normal','Fairy'],s:[50,20,40,20,40,20],a:['Thick Fat','Huge Power','Sap Sipper'],e:['Marill','friendship']},
+  'Azumarill':{id:184,t:['Water','Fairy'],s:[100,50,80,60,80,50],a:['Thick Fat','Huge Power','Sap Sipper']},
+  'Spheal':{id:363,t:['Ice','Water'],s:[70,40,50,55,50,25],a:['Thick Fat','Ice Body','Oblivious'],e:['Sealeo',32]},
+  'Sealeo':{id:364,t:['Ice','Water'],s:[90,60,70,75,70,45],a:['Thick Fat','Ice Body','Oblivious'],e:['Walrein',44]},
+  'Walrein':{id:365,t:['Ice','Water'],s:[110,80,90,95,90,65],a:['Thick Fat','Ice Body','Oblivious']},
+  'Swablu':{id:333,t:['Normal','Flying'],s:[45,40,60,40,75,50],a:['Natural Cure','Cloud Nine'],e:['Altaria',35]},
+  'Altaria':{id:334,t:['Dragon','Flying'],s:[75,70,90,70,105,80],a:['Natural Cure','Cloud Nine','Pixilate']},
+  'Bagon':{id:371,t:['Dragon'],s:[45,75,60,40,30,50],a:['Rock Head','Sheer Force'],e:['Shelgon',30]},
+  'Shelgon':{id:372,t:['Dragon'],s:[65,95,100,60,50,50],a:['Rock Head','Overcoat'],e:['Salamence',50]},
+  'Salamence':{id:373,t:['Dragon','Flying'],s:[95,135,80,110,80,100],a:['Intimidate','Moxie']},
+  'Larvitar':{id:246,t:['Rock','Ground'],s:[50,64,50,45,50,41],a:['Guts','Sand Veil'],e:['Pupitar',30]},
+  'Pupitar':{id:247,t:['Rock','Ground'],s:[70,84,70,65,70,51],a:['Shed Skin'],e:['Tyranitar',55]},
+  'Tyranitar':{id:248,t:['Rock','Dark'],s:[100,134,110,95,100,61],a:['Sand Stream','Unnerve']},
+  'Numel':{id:322,t:['Fire','Ground'],s:[60,60,40,65,45,35],a:['Oblivious','Simple','Own Tempo'],e:['Camerupt',33]},
+  'Camerupt':{id:323,t:['Fire','Ground'],s:[70,100,70,105,75,40],a:['Magma Armor','Solid Rock','Anger Point']},
+  'Slugma':{id:218,t:['Fire'],s:[40,40,40,70,40,20],a:['Magma Armor','Flame Body','Weak Armor'],e:['Magcargo',38]},
+  'Magcargo':{id:219,t:['Fire','Rock'],s:[60,50,120,90,80,30],a:['Magma Armor','Flame Body','Weak Armor']},
+  'Rhyhorn':{id:111,t:['Ground','Rock'],s:[80,85,95,30,30,25],a:['Lightning Rod','Rock Head','Reckless'],e:['Rhydon',42]},
+  'Rhydon':{id:112,t:['Ground','Rock'],s:[105,130,120,45,45,40],a:['Lightning Rod','Rock Head','Reckless'],e:['Rhyperior','trade:Protector']},
+  'Rhyperior':{id:464,t:['Ground','Rock'],s:[115,140,130,55,55,40],a:['Lightning Rod','Solid Rock','Reckless']},
+  'Tangela':{id:114,t:['Grass'],s:[65,55,115,100,40,60],a:['Chlorophyll','Leaf Guard','Regenerator'],e:['Tangrowth','level w/ Ancient Power']},
+  'Tangrowth':{id:465,t:['Grass'],s:[100,100,125,110,50,50],a:['Chlorophyll','Leaf Guard','Regenerator']},
+  'Lickitung':{id:108,t:['Normal'],s:[90,55,75,60,75,30],a:['Own Tempo','Oblivious','Cloud Nine'],e:['Lickilicky','level w/ Rollout']},
+  'Lickilicky':{id:463,t:['Normal'],s:[110,85,95,80,95,50],a:['Own Tempo','Oblivious','Cloud Nine']},
+  'Electabuzz':{id:125,t:['Electric'],s:[65,83,57,95,85,105],a:['Static','Vital Spirit'],e:['Electivire','trade:Electirizer']},
+  'Elekid':{id:239,t:['Electric'],s:[45,63,37,65,55,95],a:['Static','Vital Spirit'],e:['Electabuzz',30]},
+  'Electivire':{id:466,t:['Electric'],s:[75,123,67,95,85,95],a:['Motor Drive','Vital Spirit']},
+  'Magmar':{id:126,t:['Fire'],s:[65,95,57,100,85,93],a:['Flame Body','Vital Spirit'],e:['Magmortar','trade:Magmarizer']},
+  'Magby':{id:240,t:['Fire'],s:[45,75,37,70,55,83],a:['Flame Body','Vital Spirit'],e:['Magmar',30]},
+  'Magmortar':{id:467,t:['Fire'],s:[75,95,67,125,95,83],a:['Flame Body','Vital Spirit']},
+  'Togepi':{id:175,t:['Fairy'],s:[35,20,65,40,65,20],a:['Hustle','Serene Grace','Super Luck'],e:['Togetic','friendship']},
+  'Togetic':{id:176,t:['Fairy','Flying'],s:[55,40,85,80,105,40],a:['Hustle','Serene Grace','Super Luck'],e:['Togekiss','Shiny Stone']},
+  'Togekiss':{id:468,t:['Fairy','Flying'],s:[85,50,95,120,115,80],a:['Hustle','Serene Grace','Super Luck']},
+  // Trophy Garden + Honey Tree extras
+  'Heracross':{id:214,t:['Bug','Fighting'],s:[80,125,75,40,95,85],a:['Swarm','Guts','Moxie']},
+  'Aipom':{id:190,t:['Normal'],s:[55,70,55,40,55,85],a:['Run Away','Pickup','Skill Link'],e:['Ambipom','level w/ Double Hit']},
+  // Underground (post-Nat Dex Pokémon — abbreviated)
+  'Charmander':{id:4,t:['Fire'],s:[39,52,43,60,50,65],a:['Blaze','Solar Power'],e:['Charmeleon',16]},
+  'Charmeleon':{id:5,t:['Fire'],s:[58,64,58,80,65,80],a:['Blaze','Solar Power'],e:['Charizard',36]},
+  'Charizard':{id:6,t:['Fire','Flying'],s:[78,84,78,109,85,100],a:['Blaze','Solar Power']},
+  'Squirtle':{id:7,t:['Water'],s:[44,48,65,50,64,43],a:['Torrent','Rain Dish'],e:['Wartortle',16]},
+  'Wartortle':{id:8,t:['Water'],s:[59,63,80,65,80,58],a:['Torrent','Rain Dish'],e:['Blastoise',36]},
+  'Blastoise':{id:9,t:['Water'],s:[79,83,100,85,105,78],a:['Torrent','Rain Dish']},
+  'Bulbasaur':{id:1,t:['Grass','Poison'],s:[45,49,49,65,65,45],a:['Overgrow','Chlorophyll'],e:['Ivysaur',16]},
+  'Ivysaur':{id:2,t:['Grass','Poison'],s:[60,62,63,80,80,60],a:['Overgrow','Chlorophyll'],e:['Venusaur',32]},
+  'Venusaur':{id:3,t:['Grass','Poison'],s:[80,82,83,100,100,80],a:['Overgrow','Chlorophyll']},
+  'Cyndaquil':{id:155,t:['Fire'],s:[39,52,43,60,50,65],a:['Blaze','Flash Fire'],e:['Quilava',14]},
+  'Quilava':{id:156,t:['Fire'],s:[58,64,58,80,65,80],a:['Blaze','Flash Fire'],e:['Typhlosion',36]},
+  'Typhlosion':{id:157,t:['Fire'],s:[78,84,78,109,85,100],a:['Blaze','Flash Fire']},
+  'Totodile':{id:158,t:['Water'],s:[50,65,64,44,48,43],a:['Torrent','Sheer Force'],e:['Croconaw',18]},
+  'Croconaw':{id:159,t:['Water'],s:[65,80,80,59,63,58],a:['Torrent','Sheer Force'],e:['Feraligatr',30]},
+  'Feraligatr':{id:160,t:['Water'],s:[85,105,100,79,83,78],a:['Torrent','Sheer Force']},
+  'Chikorita':{id:152,t:['Grass'],s:[45,49,65,49,65,45],a:['Overgrow','Leaf Guard'],e:['Bayleef',16]},
+  'Bayleef':{id:153,t:['Grass'],s:[60,62,80,63,80,60],a:['Overgrow','Leaf Guard'],e:['Meganium',32]},
+  'Meganium':{id:154,t:['Grass'],s:[80,82,100,83,100,80],a:['Overgrow','Leaf Guard']},
+  'Treecko':{id:252,t:['Grass'],s:[40,45,35,65,55,70],a:['Overgrow','Unburden'],e:['Grovyle',16]},
+  'Grovyle':{id:253,t:['Grass'],s:[50,65,45,85,65,95],a:['Overgrow','Unburden'],e:['Sceptile',36]},
+  'Sceptile':{id:254,t:['Grass'],s:[70,85,65,105,85,120],a:['Overgrow','Unburden']},
+  'Torchic':{id:255,t:['Fire'],s:[45,60,40,70,50,45],a:['Blaze','Speed Boost'],e:['Combusken',16]},
+  'Combusken':{id:256,t:['Fire','Fighting'],s:[60,85,60,85,60,55],a:['Blaze','Speed Boost'],e:['Blaziken',36]},
+  'Blaziken':{id:257,t:['Fire','Fighting'],s:[80,120,70,110,70,80],a:['Blaze','Speed Boost']},
+  'Mudkip':{id:258,t:['Water'],s:[50,70,50,50,50,40],a:['Torrent','Damp'],e:['Marshtomp',16]},
+  'Marshtomp':{id:259,t:['Water','Ground'],s:[70,85,70,60,70,50],a:['Torrent','Damp'],e:['Swampert',36]},
+  'Swampert':{id:260,t:['Water','Ground'],s:[100,110,90,85,90,60],a:['Torrent','Damp']},
+  'Pidgey':{id:16,t:['Normal','Flying'],s:[40,45,40,35,35,56],a:['Keen Eye','Tangled Feet','Big Pecks'],e:['Pidgeotto',18]},
+  'Pidgeotto':{id:17,t:['Normal','Flying'],s:[63,60,55,50,50,71],a:['Keen Eye','Tangled Feet','Big Pecks'],e:['Pidgeot',36]},
+  'Pidgeot':{id:18,t:['Normal','Flying'],s:[83,80,75,70,70,101],a:['Keen Eye','Tangled Feet','Big Pecks']},
+  'Diglett':{id:50,t:['Ground'],s:[10,55,25,35,45,95],a:['Sand Veil','Arena Trap','Sand Force'],e:['Dugtrio',26]},
+  'Dugtrio':{id:51,t:['Ground'],s:[35,100,50,50,70,120],a:['Sand Veil','Arena Trap','Sand Force']},
+  'Sandshrew':{id:27,t:['Ground'],s:[50,75,85,20,30,40],a:['Sand Veil','Sand Rush'],e:['Sandslash',22]},
+  'Sandslash':{id:28,t:['Ground'],s:[75,100,110,45,55,65],a:['Sand Veil','Sand Rush']},
+  'Vulpix':{id:37,t:['Fire'],s:[38,41,40,50,65,65],a:['Flash Fire','Drought'],e:['Ninetales','Fire Stone']},
+  'Ninetales':{id:38,t:['Fire'],s:[73,76,75,81,100,100],a:['Flash Fire','Drought']},
+  'Oddish':{id:43,t:['Grass','Poison'],s:[45,50,55,75,65,30],a:['Chlorophyll','Run Away'],e:['Gloom',21]},
+  'Gloom':{id:44,t:['Grass','Poison'],s:[60,65,70,85,75,40],a:['Chlorophyll','Stench'],e:['Vileplume','Leaf Stone']},
+  'Vileplume':{id:45,t:['Grass','Poison'],s:[75,80,85,110,90,50],a:['Chlorophyll','Effect Spore']},
+  'Bellsprout':{id:69,t:['Grass','Poison'],s:[50,75,35,70,30,40],a:['Chlorophyll','Gluttony'],e:['Weepinbell',21]},
+  'Weepinbell':{id:70,t:['Grass','Poison'],s:[65,90,50,85,45,55],a:['Chlorophyll','Gluttony'],e:['Victreebel','Leaf Stone']},
+  'Victreebel':{id:71,t:['Grass','Poison'],s:[80,105,65,100,70,70],a:['Chlorophyll','Gluttony']},
+  'Growlithe':{id:58,t:['Fire'],s:[55,70,45,70,50,60],a:['Intimidate','Flash Fire','Justified'],e:['Arcanine','Fire Stone']},
+  'Arcanine':{id:59,t:['Fire'],s:[90,110,80,100,80,95],a:['Intimidate','Flash Fire','Justified']},
+  'Slowpoke':{id:79,t:['Water','Psychic'],s:[90,65,65,40,40,15],a:['Oblivious','Own Tempo','Regenerator'],e:['Slowbro',37]},
+  'Slowbro':{id:80,t:['Water','Psychic'],s:[95,75,110,100,80,30],a:['Oblivious','Own Tempo','Regenerator']},
+  'Krabby':{id:98,t:['Water'],s:[30,105,90,25,25,50],a:['Hyper Cutter','Shell Armor','Sheer Force'],e:['Kingler',28]},
+  'Kingler':{id:99,t:['Water'],s:[55,130,115,50,50,75],a:['Hyper Cutter','Shell Armor','Sheer Force']},
+  'Cubone':{id:104,t:['Ground'],s:[50,50,95,40,50,35],a:['Rock Head','Lightning Rod','Battle Armor'],e:['Marowak',28]},
+  'Marowak':{id:105,t:['Ground'],s:[60,80,110,50,80,45],a:['Rock Head','Lightning Rod','Battle Armor']},
+  'Tangela':{id:114,t:['Grass'],s:[65,55,115,100,40,60],a:['Chlorophyll','Leaf Guard','Regenerator'],e:['Tangrowth','level w/ Ancient Power']},
+  'Sentret':{id:161,t:['Normal'],s:[35,46,34,35,45,20],a:['Run Away','Keen Eye','Frisk'],e:['Furret',15]},
+  'Furret':{id:162,t:['Normal'],s:[85,76,64,45,55,90],a:['Run Away','Keen Eye','Frisk']},
+  'Hoppip':{id:187,t:['Grass','Flying'],s:[35,35,40,35,55,50],a:['Chlorophyll','Leaf Guard','Infiltrator'],e:['Skiploom',18]},
+  'Sunkern':{id:191,t:['Grass'],s:[30,30,30,30,30,30],a:['Chlorophyll','Solar Power','Early Bird'],e:['Sunflora','Sun Stone']},
+  'Snubbull':{id:209,t:['Fairy'],s:[60,80,50,40,40,30],a:['Intimidate','Run Away','Rattled'],e:['Granbull',23]},
+  'Phanpy':{id:231,t:['Ground'],s:[90,60,60,40,40,40],a:['Pickup','Sand Veil'],e:['Donphan',25]},
+  'Smoochum':{id:238,t:['Ice','Psychic'],s:[45,30,15,85,65,65],a:['Oblivious','Forewarn','Hydration'],e:['Jynx',30]},
+  'Swinub':{id:220,t:['Ice','Ground'],s:[50,50,40,30,30,50],a:['Oblivious','Snow Cloak','Thick Fat'],e:['Piloswine',33]},
+  'Snorunt':{id:361,t:['Ice'],s:[50,50,50,50,50,50],a:['Inner Focus','Ice Body','Moody'],e:['Glalie',42]},
+  'Glalie':{id:362,t:['Ice'],s:[80,80,80,80,80,80],a:['Inner Focus','Ice Body','Moody']},
+  'Absol':{id:359,t:['Dark'],s:[65,130,60,75,60,75],a:['Pressure','Super Luck','Justified']},
+  'Lotad':{id:270,t:['Water','Grass'],s:[40,30,30,40,50,30],a:['Swift Swim','Rain Dish','Own Tempo'],e:['Lombre',14]},
+  'Lombre':{id:271,t:['Water','Grass'],s:[60,50,50,60,70,50],a:['Swift Swim','Rain Dish','Own Tempo'],e:['Ludicolo','Water Stone']},
+  'Surskit':{id:283,t:['Bug','Water'],s:[40,30,32,50,52,65],a:['Swift Swim','Rain Dish'],e:['Masquerain',22]},
+  'Aron':{id:304,t:['Steel','Rock'],s:[50,70,100,40,40,30],a:['Sturdy','Rock Head','Heavy Metal'],e:['Lairon',32]},
+  'Lairon':{id:305,t:['Steel','Rock'],s:[60,90,140,50,50,40],a:['Sturdy','Rock Head','Heavy Metal'],e:['Aggron',42]},
+  'Mawile':{id:303,t:['Steel','Fairy'],s:[50,85,85,55,55,50],a:['Hyper Cutter','Intimidate','Sheer Force']},
+  'Gulpin':{id:316,t:['Poison'],s:[70,43,53,43,53,40],a:['Liquid Ooze','Sticky Hold','Gluttony'],e:['Swalot',26]},
+  'Cacnea':{id:331,t:['Grass'],s:[50,85,40,85,40,35],a:['Sand Veil','Water Absorb'],e:['Cacturne',32]},
+  'Dusclops':{id:356,t:['Ghost'],s:[40,70,130,60,130,25],a:['Pressure','Frisk'],e:['Dusknoir','trade:Reaper Cloth']},
+  'Trapinch':{id:328,t:['Ground'],s:[45,100,45,45,45,10],a:['Hyper Cutter','Arena Trap','Sheer Force'],e:['Vibrava',35]},
+  'Vibrava':{id:329,t:['Ground','Dragon'],s:[50,70,50,50,50,70],a:['Levitate'],e:['Flygon',45]},
+  'Gligar':{id:207,t:['Ground','Flying'],s:[65,75,105,35,65,85],a:['Hyper Cutter','Sand Veil','Immunity'],e:['Gliscor','Razor Fang at night']},
+  'Beldum':{id:374,t:['Steel','Psychic'],s:[40,55,80,35,60,30],a:['Clear Body','Light Metal'],e:['Metang',20]},
+  'Metang':{id:375,t:['Steel','Psychic'],s:[60,75,100,55,80,50],a:['Clear Body','Light Metal'],e:['Metagross',45]},
+  'Unown':{id:201,t:['Psychic'],s:[48,72,48,72,48,48],a:['Levitate']},
+  'Drilbur':{id:529,t:['Ground'],s:[60,85,40,30,45,68],a:['Sand Rush','Sand Force','Mold Breaker'],e:['Excadrill',31]},
+  'Excadrill':{id:530,t:['Ground','Steel'],s:[110,135,60,50,65,88],a:['Sand Rush','Sand Force','Mold Breaker']},
+  'Trubbish':{id:568,t:['Poison'],s:[50,50,62,40,62,65],a:['Stench','Sticky Hold','Aftermath'],e:['Garbodor',36]},
+  'Tympole':{id:535,t:['Water'],s:[50,50,40,50,40,64],a:['Swift Swim','Hydration','Water Absorb'],e:['Palpitoad',25]},
+  'Petilil':{id:548,t:['Grass'],s:[45,35,50,70,50,30],a:['Chlorophyll','Own Tempo','Leaf Guard'],e:['Lilligant','Sun Stone']},
+  'Cottonee':{id:546,t:['Grass','Fairy'],s:[40,27,60,37,50,66],a:['Prankster','Infiltrator','Chlorophyll'],e:['Whimsicott','Sun Stone']},
+  'Sandile':{id:551,t:['Ground','Dark'],s:[50,72,35,35,35,65],a:['Intimidate','Moxie','Anger Point'],e:['Krokorok',29]},
+  'Bergmite':{id:712,t:['Ice'],s:[55,69,85,32,35,28],a:['Own Tempo','Ice Body','Sturdy'],e:['Avalugg',37]},
+  'Klink':{id:599,t:['Steel'],s:[40,55,70,45,60,30],a:['Plus','Minus','Clear Body'],e:['Klang',38]},
+  'Pawniard':{id:624,t:['Dark','Steel'],s:[45,85,70,40,40,60],a:['Defiant','Inner Focus','Pressure'],e:['Bisharp',52]},
+  'Vanillite':{id:582,t:['Ice'],s:[36,50,50,65,60,44],a:['Ice Body','Snow Cloak','Weak Armor'],e:['Vanillish',35]},
+  'Vanillish':{id:583,t:['Ice'],s:[51,65,65,80,75,59],a:['Ice Body','Snow Cloak','Weak Armor'],e:['Vanilluxe',47]},
+  'Vanilluxe':{id:584,t:['Ice'],s:[71,95,85,110,95,79],a:['Ice Body','Snow Cloak','Weak Armor']},
+  'Cubchoo':{id:613,t:['Ice'],s:[55,70,40,60,40,40],a:['Snow Cloak','Slush Rush','Rattled'],e:['Beartic',37]},
+  'Beartic':{id:614,t:['Ice'],s:[95,130,80,70,80,50],a:['Snow Cloak','Slush Rush','Swift Swim']},
+  'Cryogonal':{id:615,t:['Ice'],s:[80,50,50,95,135,105],a:['Levitate']},
+  'Avalugg':{id:713,t:['Ice'],s:[95,117,184,44,46,28],a:['Own Tempo','Ice Body','Sturdy']},
+  'Spritzee':{id:682,t:['Fairy'],s:[78,52,60,63,65,23],a:['Healer','Aroma Veil'],e:['Aromatisse','trade w/ Sachet']},
+  'Delibird':{id:225,t:['Ice','Flying'],s:[45,55,45,65,45,75],a:['Vital Spirit','Hustle','Insomnia']},
+  'Swirlix':{id:684,t:['Fairy'],s:[62,48,66,59,57,49],a:['Sweet Veil','Unburden'],e:['Slurpuff','trade w/ Whipped Dream']}
+};
+
+/* BDSP_ENCOUNTERS — encounter data for Brilliant Diamond / Shining Pearl
+   Per location: type, methods object. Method keys: grass (with morning/day/night), surf, oldRod, goodRod, superRod, honey
+   Each encounter: { p: 'Name', lv: [min,max], r: rate%, v: 'both'|'BD'|'SP' }
+   Compiled from Serebii. */
+const BDSP_ENCOUNTERS = {
+  'Route 201': { type:'route', region:'Sinnoh',
+    methods: {
+      grass: {
+        all: [{p:'Bidoof',lv:[2,3],r:50,v:'both'},{p:'Starly',lv:[2,3],r:50,v:'both'}]
+      }
+    }
+  },
+  'Route 202': { type:'route', region:'Sinnoh',
+    methods: {
+      grass: {
+        all: [{p:'Bidoof',lv:[2,5],r:35,v:'both'},{p:'Starly',lv:[2,5],r:35,v:'both'},{p:'Shinx',lv:[3,5],r:30,v:'both'}]
+      }
+    }
+  },
+  'Route 203': { type:'route', region:'Sinnoh',
+    methods: {
+      grass: {
+        morning: [{p:'Bidoof',lv:[3,6],r:30,v:'both'},{p:'Starly',lv:[3,6],r:30,v:'both'},{p:'Shinx',lv:[3,6],r:30,v:'both'},{p:'Abra',lv:[3,6],r:5,v:'both'},{p:'Zubat',lv:[3,6],r:5,v:'both'}],
+        day: [{p:'Bidoof',lv:[3,6],r:30,v:'both'},{p:'Starly',lv:[3,6],r:30,v:'both'},{p:'Shinx',lv:[3,6],r:30,v:'both'},{p:'Abra',lv:[3,6],r:5,v:'both'},{p:'Zubat',lv:[3,6],r:5,v:'both'}],
+        night: [{p:'Bidoof',lv:[3,6],r:30,v:'both'},{p:'Shinx',lv:[3,6],r:30,v:'both'},{p:'Kricketot',lv:[3,6],r:30,v:'both'},{p:'Abra',lv:[3,6],r:5,v:'both'},{p:'Zubat',lv:[3,6],r:5,v:'both'}]
+      },
+      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
+      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'},{p:'Psyduck',lv:[2,15],r:5,v:'both'}],
+      superRod: [{p:'Magikarp',lv:[15,30],r:60,v:'both'},{p:'Goldeen',lv:[15,30],r:35,v:'both'},{p:'Psyduck',lv:[15,30],r:5,v:'both'}]
+    }
+  },
+  'Oreburgh Gate': { type:'dungeon', region:'Sinnoh', note:'Cave between Routes 203 & 207. Surf area accessible later.',
+    methods: {
+      grass: {
+        all: [{p:'Zubat',lv:[4,7],r:60,v:'both'},{p:'Geodude',lv:[4,7],r:40,v:'both'}]
+      },
+      surf: [{p:'Psyduck',lv:[2,40],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
+      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
+      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'},{p:'Barboach',lv:[2,15],r:5,v:'both'}],
+      superRod: [{p:'Barboach',lv:[15,30],r:60,v:'both'},{p:'Whiscash',lv:[15,30],r:40,v:'both'}]
+    }
+  },
+  'Oreburgh Mine': { type:'dungeon', region:'Sinnoh', note:'Where Roark works. Pre-Gym 1.',
+    methods: {
+      grass: { all: [{p:'Zubat',lv:[5,8],r:55,v:'both'},{p:'Geodude',lv:[5,8],r:45,v:'both'}] }
+    }
+  },
+  'Route 204 (South)': { type:'route', region:'Sinnoh', note:'Below Floaroma Town.',
+    methods: {
+      grass: {
+        morning: [{p:'Bidoof',lv:[3,6],r:35,v:'both'},{p:'Starly',lv:[3,6],r:35,v:'both'},{p:'Wurmple',lv:[3,6],r:20,v:'both'},{p:'Shinx',lv:[3,6],r:10,v:'both'}],
+        day: [{p:'Bidoof',lv:[3,6],r:35,v:'both'},{p:'Starly',lv:[3,6],r:35,v:'both'},{p:'Wurmple',lv:[3,6],r:20,v:'both'},{p:'Shinx',lv:[3,6],r:10,v:'both'}],
+        night: [{p:'Bidoof',lv:[3,6],r:35,v:'both'},{p:'Kricketot',lv:[3,6],r:35,v:'both'},{p:'Wurmple',lv:[3,6],r:20,v:'both'},{p:'Shinx',lv:[3,6],r:10,v:'both'}]
+      }
+    }
+  },
+  'Route 204 (North)': { type:'route', region:'Sinnoh', note:'Above Floaroma Town. Requires HM Cut later. Honey trees available.',
+    methods: {
+      grass: {
+        morning: [{p:'Bidoof',lv:[6,9],r:30,v:'both'},{p:'Starly',lv:[6,9],r:30,v:'both'},{p:'Budew',lv:[6,9],r:20,v:'both'},{p:'Wurmple',lv:[6,9],r:10,v:'both'},{p:'Silcoon',lv:[6,9],r:5,v:'both'},{p:'Cascoon',lv:[6,9],r:5,v:'both'}],
+        day: [{p:'Bidoof',lv:[6,9],r:30,v:'both'},{p:'Starly',lv:[6,9],r:30,v:'both'},{p:'Budew',lv:[6,9],r:20,v:'both'},{p:'Wurmple',lv:[6,9],r:10,v:'both'},{p:'Silcoon',lv:[6,9],r:5,v:'both'},{p:'Cascoon',lv:[6,9],r:5,v:'both'}],
+        night: [{p:'Bidoof',lv:[6,9],r:30,v:'both'},{p:'Kricketot',lv:[6,9],r:30,v:'both'},{p:'Budew',lv:[6,9],r:20,v:'both'},{p:'Wurmple',lv:[6,9],r:10,v:'both'},{p:'Silcoon',lv:[6,9],r:5,v:'both'},{p:'Cascoon',lv:[6,9],r:5,v:'both'}]
+      }
+    }
+  },
+  'Ravaged Path': { type:'dungeon', region:'Sinnoh', note:'Short cave on Route 204. Requires HM Rock Smash.',
+    methods: {
+      grass: { all: [{p:'Zubat',lv:[4,7],r:60,v:'both'},{p:'Psyduck',lv:[4,7],r:40,v:'both'}] },
+      surf: [{p:'Psyduck',lv:[2,40],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
+      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
+      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'},{p:'Barboach',lv:[2,15],r:5,v:'both'}],
+      superRod: [{p:'Barboach',lv:[15,30],r:60,v:'both'},{p:'Whiscash',lv:[15,30],r:40,v:'both'}]
+    }
+  },
+  'Floaroma Meadow': { type:'route', region:'Sinnoh', note:'Honey trees grow nearby. Combee very common — needed for Vespiquen.',
+    methods: {
+      grass: { all: [{p:'Combee',lv:[5,10],r:100,v:'both'}] }
+    }
+  },
+  'Route 205 (South)': { type:'route', region:'Sinnoh', note:'South of Eterna Forest entrance.',
+    methods: {
+      grass: {
+        morning: [{p:'Bidoof',lv:[6,9],r:35,v:'both'},{p:'Buizel',lv:[6,9],r:35,v:'both'},{p:'Shellos',lv:[6,9],r:30,v:'both'}],
+        day: [{p:'Bidoof',lv:[6,9],r:35,v:'both'},{p:'Buizel',lv:[6,9],r:35,v:'both'},{p:'Shellos',lv:[6,9],r:30,v:'both'}],
+        night: [{p:'Bidoof',lv:[6,9],r:35,v:'both'},{p:'Buizel',lv:[6,9],r:35,v:'both'},{p:'Shellos',lv:[6,9],r:30,v:'both'}]
+      },
+      surf: [{p:'Psyduck',lv:[2,40],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
+      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
+      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'},{p:'Psyduck',lv:[2,15],r:5,v:'both'}],
+      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
+    }
+  },
+  'Valley Windworks': { type:'dungeon', region:'Sinnoh', note:'Special Drifloon encounter every Friday outside the building.',
+    methods: {
+      grass: { all: [{p:'Shinx',lv:[5,10],r:50,v:'both'},{p:'Buizel',lv:[5,10],r:30,v:'both'},{p:'Pachirisu',lv:[5,10],r:20,v:'both'}] },
+      special: [{p:'Drifloon',lv:[15,15],r:100,v:'both',note:'Every Friday after Team Galactic event'}]
+    }
+  },
+  'Eterna Forest': { type:'dungeon', region:'Sinnoh', note:'Walk with Cheryl as partner. Honey trees inside.',
+    methods: {
+      grass: {
+        morning: [{p:'Wurmple',lv:[5,10],r:25,v:'both'},{p:'Silcoon',lv:[5,10],r:5,v:'both'},{p:'Cascoon',lv:[5,10],r:5,v:'both'},{p:'Budew',lv:[5,10],r:20,v:'both'},{p:'Buneary',lv:[5,10],r:20,v:'both'},{p:'Bidoof',lv:[5,10],r:10,v:'both'},{p:'Combee',lv:[5,10],r:10,v:'both'},{p:'Cherubi',lv:[5,10],r:5,v:'both'}],
+        day: [{p:'Wurmple',lv:[5,10],r:25,v:'both'},{p:'Silcoon',lv:[5,10],r:5,v:'both'},{p:'Cascoon',lv:[5,10],r:5,v:'both'},{p:'Budew',lv:[5,10],r:20,v:'both'},{p:'Buneary',lv:[5,10],r:20,v:'both'},{p:'Bidoof',lv:[5,10],r:10,v:'both'},{p:'Combee',lv:[5,10],r:10,v:'both'},{p:'Cherubi',lv:[5,10],r:5,v:'both'}],
+        night: [{p:'Wurmple',lv:[5,10],r:25,v:'both'},{p:'Silcoon',lv:[5,10],r:5,v:'both'},{p:'Cascoon',lv:[5,10],r:5,v:'both'},{p:'Hoothoot',lv:[5,10],r:20,v:'both'},{p:'Murkrow',lv:[5,10],r:20,v:'BD'},{p:'Misdreavus',lv:[5,10],r:20,v:'SP'},{p:'Kricketot',lv:[5,10],r:10,v:'both'},{p:'Bidoof',lv:[5,10],r:15,v:'both'}]
+      }
+    }
+  },
+  'Old Chateau': { type:'dungeon', region:'Sinnoh', note:'In Eterna Forest. Ghost-type encounters at night.',
+    methods: {
+      grass: { all: [{p:'Gastly',lv:[10,14],r:100,v:'both'}] }
+    }
+  },
+  'Route 205 (North)': { type:'route', region:'Sinnoh', note:'Past Eterna Forest toward Eterna City.',
+    methods: {
+      grass: {
+        morning: [{p:'Bidoof',lv:[8,11],r:30,v:'both'},{p:'Buizel',lv:[8,11],r:30,v:'both'},{p:'Shellos',lv:[8,11],r:30,v:'both'},{p:'Roselia',lv:[8,11],r:10,v:'both'}],
+        day: [{p:'Bidoof',lv:[8,11],r:30,v:'both'},{p:'Buizel',lv:[8,11],r:30,v:'both'},{p:'Shellos',lv:[8,11],r:30,v:'both'},{p:'Roselia',lv:[8,11],r:10,v:'both'}],
+        night: [{p:'Bidoof',lv:[8,11],r:30,v:'both'},{p:'Buizel',lv:[8,11],r:30,v:'both'},{p:'Shellos',lv:[8,11],r:30,v:'both'},{p:'Roselia',lv:[8,11],r:10,v:'both'}]
+      },
+      surf: [{p:'Psyduck',lv:[2,40],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
+      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
+      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'}],
+      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
+    }
+  },
+  'Route 206': { type:'route', region:'Sinnoh', note:'Cycling Road. Honey trees here too.',
+    methods: {
+      grass: {
+        morning: [{p:'Ponyta',lv:[14,16],r:35,v:'BD'},{p:'Ponyta',lv:[14,16],r:35,v:'SP'},{p:'Stunky',lv:[14,16],r:25,v:'BD'},{p:'Geodude',lv:[14,14],r:10,v:'BD'},{p:'Geodude',lv:[14,14],r:35,v:'SP'},{p:'Kricketune',lv:[14,14],r:10,v:'both'},{p:'Bronzor',lv:[15,15],r:10,v:'both'},{p:'Kricketot',lv:[14,14],r:10,v:'both'}],
+        day: [{p:'Ponyta',lv:[14,16],r:45,v:'both'},{p:'Stunky',lv:[14,16],r:25,v:'BD'},{p:'Geodude',lv:[14,14],r:10,v:'BD'},{p:'Geodude',lv:[14,14],r:35,v:'SP'},{p:'Kricketune',lv:[14,14],r:10,v:'both'},{p:'Bronzor',lv:[15,15],r:10,v:'both'}],
+        night: [{p:'Ponyta',lv:[14,14],r:35,v:'BD'},{p:'Ponyta',lv:[14,16],r:35,v:'SP'},{p:'Stunky',lv:[14,16],r:25,v:'BD'},{p:'Geodude',lv:[14,14],r:10,v:'BD'},{p:'Geodude',lv:[14,14],r:35,v:'SP'},{p:'Kricketune',lv:[14,15],r:10,v:'both'},{p:'Bronzor',lv:[15,15],r:10,v:'both'},{p:'Zubat',lv:[15,15],r:10,v:'both'}]
+      }
+    }
+  },
+  'Wayward Cave': { type:'dungeon', region:'Sinnoh', note:'Under Cycling Road bridge. GIBLE here (hidden entrance, 1% rate in deep cave).',
+    methods: {
+      grass: { all: [{p:'Bronzor',lv:[12,18],r:30,v:'both'},{p:'Geodude',lv:[12,18],r:30,v:'both'},{p:'Zubat',lv:[12,18],r:30,v:'both'},{p:'Gible',lv:[15,20],r:10,v:'both',note:'Hidden lower section only'}] }
+    }
+  },
+  'Route 207': { type:'route', region:'Sinnoh',
+    methods: {
+      grass: {
+        all: [{p:'Geodude',lv:[3,6],r:50,v:'both'},{p:'Machop',lv:[3,6],r:30,v:'both'},{p:'Zubat',lv:[3,6],r:10,v:'both'},{p:'Ponyta',lv:[3,6],r:10,v:'both'}]
+      }
+    }
+  },
+  'Mt. Coronet (B1F / 1F)': { type:'dungeon', region:'Sinnoh', note:'Central mountain. Many levels and entrances.',
+    methods: {
+      grass: { all: [{p:'Zubat',lv:[10,15],r:30,v:'both'},{p:'Cleffa',lv:[10,15],r:5,v:'both'},{p:'Clefairy',lv:[10,15],r:5,v:'both'},{p:'Geodude',lv:[10,15],r:30,v:'both'},{p:'Machop',lv:[10,15],r:20,v:'both'},{p:'Meditite',lv:[10,15],r:10,v:'both'}] }
+    }
+  },
+  'Mt. Coronet (Higher Floors)': { type:'dungeon', region:'Sinnoh', note:'Peak / Spear Pillar area. Strong wild Pokémon.',
+    methods: {
+      grass: { all: [{p:'Golbat',lv:[35,42],r:30,v:'both'},{p:'Graveler',lv:[35,42],r:25,v:'both'},{p:'Machoke',lv:[35,42],r:20,v:'both'},{p:'Nosepass',lv:[35,42],r:10,v:'both'},{p:'Chimecho',lv:[35,42],r:5,v:'both'},{p:'Absol',lv:[35,42],r:5,v:'both'},{p:'Snover',lv:[35,42],r:5,v:'both'}] }
+    }
+  },
+  'Route 208': { type:'route', region:'Sinnoh', note:'East of Mt. Coronet. Berry trees.',
+    methods: {
+      grass: {
+        morning: [{p:'Bidoof',lv:[12,15],r:30,v:'both'},{p:'Bibarel',lv:[12,15],r:10,v:'both'},{p:'Starly',lv:[12,15],r:20,v:'both'},{p:'Staravia',lv:[12,15],r:10,v:'both'},{p:'Roselia',lv:[12,15],r:10,v:'both'},{p:'Ralts',lv:[12,15],r:10,v:'both'},{p:'Kirlia',lv:[12,15],r:10,v:'both'}],
+        day: [{p:'Bidoof',lv:[12,15],r:30,v:'both'},{p:'Bibarel',lv:[12,15],r:10,v:'both'},{p:'Starly',lv:[12,15],r:20,v:'both'},{p:'Staravia',lv:[12,15],r:10,v:'both'},{p:'Roselia',lv:[12,15],r:10,v:'both'},{p:'Ralts',lv:[12,15],r:10,v:'both'},{p:'Kirlia',lv:[12,15],r:10,v:'both'}],
+        night: [{p:'Bidoof',lv:[12,15],r:30,v:'both'},{p:'Bibarel',lv:[12,15],r:10,v:'both'},{p:'Kricketune',lv:[12,15],r:20,v:'both'},{p:'Murkrow',lv:[12,15],r:10,v:'BD'},{p:'Misdreavus',lv:[12,15],r:10,v:'SP'},{p:'Roselia',lv:[12,15],r:10,v:'both'},{p:'Ralts',lv:[12,15],r:10,v:'both'},{p:'Kirlia',lv:[12,15],r:10,v:'both'}]
+      }
+    }
+  },
+  'Route 209': { type:'route', region:'Sinnoh', note:'Lost Tower entrance route.',
+    methods: {
+      grass: {
+        morning: [{p:'Bibarel',lv:[14,17],r:20,v:'both'},{p:'Staravia',lv:[14,17],r:30,v:'both'},{p:'Roselia',lv:[14,17],r:20,v:'both'},{p:'Chansey',lv:[14,17],r:1,v:'both'},{p:'Bonsly',lv:[14,17],r:5,v:'both'},{p:'Pidgey',lv:[14,17],r:24,v:'both'}],
+        day: [{p:'Bibarel',lv:[14,17],r:20,v:'both'},{p:'Staravia',lv:[14,17],r:30,v:'both'},{p:'Roselia',lv:[14,17],r:20,v:'both'},{p:'Chansey',lv:[14,17],r:1,v:'both'},{p:'Bonsly',lv:[14,17],r:5,v:'both'},{p:'Pidgey',lv:[14,17],r:24,v:'both'}],
+        night: [{p:'Bibarel',lv:[14,17],r:20,v:'both'},{p:'Kricketune',lv:[14,17],r:30,v:'both'},{p:'Roselia',lv:[14,17],r:20,v:'both'},{p:'Chansey',lv:[14,17],r:1,v:'both'},{p:'Murkrow',lv:[14,17],r:5,v:'BD'},{p:'Misdreavus',lv:[14,17],r:5,v:'SP'},{p:'Hoothoot',lv:[14,17],r:24,v:'both'}]
+      }
+    }
+  },
+  'Lost Tower': { type:'dungeon', region:'Sinnoh', note:'Ghost-themed tower south of Solaceon. NPC gifts HM Defog at top.',
+    methods: {
+      grass: { all: [{p:'Gastly',lv:[14,16],r:55,v:'both'},{p:'Haunter',lv:[16,18],r:35,v:'both'},{p:'Misdreavus',lv:[15,17],r:10,v:'both'}] }
+    }
+  },
+  'Solaceon Ruins': { type:'dungeon', region:'Sinnoh', note:'Ancient ruins under Solaceon. Unown encounters (different forms per chamber).',
+    methods: {
+      grass: { all: [{p:'Unown',lv:[14,30],r:100,v:'both',note:'Different forms in different rooms'}] }
+    }
+  },
+  'Route 210 (South)': { type:'route', region:'Sinnoh', note:'Below Celestic Town.',
+    methods: {
+      grass: {
+        morning: [{p:'Bibarel',lv:[15,18],r:15,v:'both'},{p:'Staravia',lv:[15,18],r:15,v:'both'},{p:'Ponyta',lv:[15,18],r:20,v:'both'},{p:'Roselia',lv:[15,18],r:30,v:'both'},{p:'Hoothoot',lv:[15,18],r:5,v:'both'},{p:'Noctowl',lv:[15,18],r:5,v:'both'},{p:'Chansey',lv:[15,18],r:1,v:'both'},{p:'Meditite',lv:[15,18],r:9,v:'both'}],
+        day: [{p:'Bibarel',lv:[15,18],r:15,v:'both'},{p:'Staravia',lv:[15,18],r:15,v:'both'},{p:'Ponyta',lv:[15,18],r:20,v:'both'},{p:'Roselia',lv:[15,18],r:30,v:'both'},{p:'Chansey',lv:[15,18],r:1,v:'both'},{p:'Meditite',lv:[15,18],r:19,v:'both'}],
+        night: [{p:'Bibarel',lv:[15,18],r:15,v:'both'},{p:'Kricketune',lv:[15,18],r:15,v:'both'},{p:'Ponyta',lv:[15,18],r:20,v:'both'},{p:'Roselia',lv:[15,18],r:30,v:'both'},{p:'Hoothoot',lv:[15,18],r:10,v:'both'},{p:'Noctowl',lv:[15,18],r:5,v:'both'},{p:'Chansey',lv:[15,18],r:1,v:'both'},{p:'Meditite',lv:[15,18],r:4,v:'both'}]
+      }
+    }
+  },
+  'Route 210 (North)': { type:'route', region:'Sinnoh', note:'Foggy area north of Celestic. Need HM Defog.',
+    methods: {
+      grass: {
+        morning: [{p:'Bibarel',lv:[20,23],r:20,v:'both'},{p:'Hoothoot',lv:[20,23],r:5,v:'both'},{p:'Noctowl',lv:[20,23],r:5,v:'both'},{p:'Ponyta',lv:[20,23],r:20,v:'both'},{p:'Machoke',lv:[20,23],r:5,v:'both'},{p:'Meditite',lv:[20,23],r:10,v:'both'},{p:'Chansey',lv:[20,23],r:1,v:'both'},{p:'Staravia',lv:[20,23],r:34,v:'both'}],
+        day: [{p:'Bibarel',lv:[20,23],r:20,v:'both'},{p:'Ponyta',lv:[20,23],r:20,v:'both'},{p:'Machoke',lv:[20,23],r:5,v:'both'},{p:'Meditite',lv:[20,23],r:10,v:'both'},{p:'Chansey',lv:[20,23],r:1,v:'both'},{p:'Staravia',lv:[20,23],r:44,v:'both'}],
+        night: [{p:'Bibarel',lv:[20,23],r:20,v:'both'},{p:'Hoothoot',lv:[20,23],r:10,v:'both'},{p:'Noctowl',lv:[20,23],r:10,v:'both'},{p:'Ponyta',lv:[20,23],r:20,v:'both'},{p:'Machoke',lv:[20,23],r:5,v:'both'},{p:'Meditite',lv:[20,23],r:5,v:'both'},{p:'Chansey',lv:[20,23],r:1,v:'both'},{p:'Kricketune',lv:[20,23],r:29,v:'both'}]
+      },
+      surf: [{p:'Psyduck',lv:[15,30],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
+      oldRod: [{p:'Magikarp',lv:[2,10],r:65,v:'both'},{p:'Goldeen',lv:[2,10],r:35,v:'both'}],
+      goodRod: [{p:'Magikarp',lv:[2,15],r:60,v:'both'},{p:'Goldeen',lv:[2,15],r:35,v:'both'}],
+      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
+    }
+  },
+  'Route 211 (East)': { type:'route', region:'Sinnoh', note:'East of Mt. Coronet near Celestic.',
+    methods: {
+      grass: {
+        all: [{p:'Geodude',lv:[14,17],r:20,v:'both'},{p:'Bidoof',lv:[14,17],r:10,v:'both'},{p:'Bibarel',lv:[14,17],r:5,v:'both'},{p:'Ponyta',lv:[14,17],r:25,v:'both'},{p:'Hoothoot',lv:[14,17],r:30,v:'both'},{p:'Chingling',lv:[14,17],r:10,v:'both'}]
+      }
+    }
+  },
+  'Route 211 (West)': { type:'route', region:'Sinnoh',
+    methods: {
+      grass: {
+        all: [{p:'Geodude',lv:[12,15],r:30,v:'both'},{p:'Zubat',lv:[12,15],r:30,v:'both'},{p:'Ponyta',lv:[12,15],r:20,v:'both'},{p:'Bibarel',lv:[12,15],r:10,v:'both'},{p:'Chingling',lv:[12,15],r:10,v:'both'}]
+      }
+    }
+  },
+  'Route 212 (North)': { type:'route', region:'Sinnoh', note:'Pokémon Mansion / Trophy Garden side.',
+    methods: {
+      grass: {
+        all: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Roselia',lv:[20,23],r:30,v:'both'},{p:'Ralts',lv:[20,23],r:10,v:'both'},{p:'Kirlia',lv:[20,23],r:5,v:'both'},{p:'Pidgey',lv:[20,23],r:15,v:'both'},{p:'Pidgeotto',lv:[20,23],r:10,v:'both'}]
+      }
+    }
+  },
+  'Route 212 (South)': { type:'route', region:'Sinnoh', note:'Swampy area approaching Pastoria. Rains often.',
+    methods: {
+      grass: {
+        morning: [{p:'Bibarel',lv:[22,25],r:30,v:'both'},{p:'Wooper',lv:[22,25],r:30,v:'both'},{p:'Psyduck',lv:[22,25],r:10,v:'both'},{p:'Marill',lv:[22,25],r:5,v:'both'},{p:'Roselia',lv:[22,25],r:10,v:'both'},{p:'Croagunk',lv:[22,25],r:10,v:'both'},{p:'Toxicroak',lv:[22,25],r:5,v:'both'}],
+        day: [{p:'Bibarel',lv:[22,25],r:30,v:'both'},{p:'Wooper',lv:[22,25],r:30,v:'both'},{p:'Psyduck',lv:[22,25],r:10,v:'both'},{p:'Marill',lv:[22,25],r:5,v:'both'},{p:'Roselia',lv:[22,25],r:10,v:'both'},{p:'Croagunk',lv:[22,25],r:10,v:'both'},{p:'Toxicroak',lv:[22,25],r:5,v:'both'}],
+        night: [{p:'Bibarel',lv:[22,25],r:30,v:'both'},{p:'Wooper',lv:[22,25],r:30,v:'both'},{p:'Psyduck',lv:[22,25],r:10,v:'both'},{p:'Marill',lv:[22,25],r:5,v:'both'},{p:'Roselia',lv:[22,25],r:10,v:'both'},{p:'Croagunk',lv:[22,25],r:10,v:'both'},{p:'Toxicroak',lv:[22,25],r:5,v:'both'}]
+      }
+    }
+  },
+  'Pastoria Great Marsh': { type:'dungeon', region:'Sinnoh', note:'Safari zone equivalent. Rotates daily. Special encounters only here.',
+    methods: { grass: { all: [{p:'Skorupi',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Yanma',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Carnivine',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Quagsire',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Croagunk',lv:[22,28],r:0,v:'both',note:'Rotating pool'},{p:'Tropius',lv:[22,28],r:0,v:'both',note:'Rotating pool'}] } }
+  },
+  'Route 213': { type:'route', region:'Sinnoh', note:'Beach east of Pastoria.',
+    methods: {
+      grass: {
+        all: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Wingull',lv:[20,23],r:25,v:'both'},{p:'Pelipper',lv:[20,23],r:5,v:'both'},{p:'Shellos',lv:[20,23],r:30,v:'both'},{p:'Gastrodon',lv:[20,23],r:10,v:'both'}]
+      },
+      surf: [{p:'Tentacool',lv:[15,30],r:60,v:'both'},{p:'Tentacruel',lv:[15,30],r:30,v:'both'},{p:'Wingull',lv:[15,30],r:10,v:'both'}],
+      oldRod: [{p:'Magikarp',lv:[2,10],r:100,v:'both'}],
+      goodRod: [{p:'Magikarp',lv:[10,30],r:60,v:'both'},{p:'Finneon',lv:[10,30],r:40,v:'both'}],
+      superRod: [{p:'Finneon',lv:[20,40],r:40,v:'both'},{p:'Lumineon',lv:[20,40],r:40,v:'both'},{p:'Gyarados',lv:[20,40],r:20,v:'both'}]
+    }
+  },
+  'Route 214': { type:'route', region:'Sinnoh', note:'South of Veilstone toward Valor Lakefront.',
+    methods: {
+      grass: {
+        morning: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Stunky',lv:[20,23],r:20,v:'BD'},{p:'Glameow',lv:[20,23],r:20,v:'SP'},{p:'Geodude',lv:[20,23],r:20,v:'both'},{p:'Graveler',lv:[20,23],r:5,v:'both'},{p:'Ralts',lv:[20,23],r:5,v:'both'},{p:'Kirlia',lv:[20,23],r:5,v:'both'},{p:'Kricketune',lv:[20,23],r:15,v:'both'}],
+        day: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Stunky',lv:[20,23],r:20,v:'BD'},{p:'Glameow',lv:[20,23],r:20,v:'SP'},{p:'Geodude',lv:[20,23],r:20,v:'both'},{p:'Graveler',lv:[20,23],r:5,v:'both'},{p:'Ralts',lv:[20,23],r:5,v:'both'},{p:'Kirlia',lv:[20,23],r:5,v:'both'},{p:'Kricketune',lv:[20,23],r:15,v:'both'}],
+        night: [{p:'Bibarel',lv:[20,23],r:30,v:'both'},{p:'Stunky',lv:[20,23],r:20,v:'BD'},{p:'Glameow',lv:[20,23],r:20,v:'SP'},{p:'Geodude',lv:[20,23],r:20,v:'both'},{p:'Graveler',lv:[20,23],r:5,v:'both'},{p:'Ralts',lv:[20,23],r:5,v:'both'},{p:'Kirlia',lv:[20,23],r:5,v:'both'},{p:'Kricketune',lv:[20,23],r:15,v:'both'}]
+      }
+    }
+  },
+  'Valor Lakefront': { type:'route', region:'Sinnoh', note:'Outside Lake Valor.',
+    methods: {
+      grass: { all: [{p:'Bibarel',lv:[22,25],r:30,v:'both'},{p:'Stunky',lv:[22,25],r:30,v:'BD'},{p:'Glameow',lv:[22,25],r:30,v:'SP'},{p:'Staravia',lv:[22,25],r:30,v:'both'},{p:'Roselia',lv:[22,25],r:10,v:'both'}] }
+    }
+  },
+  'Route 215': { type:'route', region:'Sinnoh', note:'West of Veilstone. Rainy.',
+    methods: {
+      grass: {
+        all: [{p:'Bibarel',lv:[20,23],r:20,v:'both'},{p:'Kadabra',lv:[20,23],r:5,v:'both'},{p:'Meditite',lv:[20,23],r:15,v:'both'},{p:'Machoke',lv:[20,23],r:15,v:'both'},{p:'Kricketune',lv:[20,23],r:15,v:'both'},{p:'Ponyta',lv:[20,23],r:15,v:'both'},{p:'Stunky',lv:[20,23],r:15,v:'BD'},{p:'Glameow',lv:[20,23],r:15,v:'SP'}]
+      }
+    }
+  },
+  'Route 216': { type:'route', region:'Sinnoh', note:'Snow route to Snowpoint. HM Rock Climb area later.',
+    methods: {
+      grass: {
+        all: [{p:'Snover',lv:[27,30],r:30,v:'both'},{p:'Sneasel',lv:[27,30],r:10,v:'both'},{p:'Meditite',lv:[27,30],r:5,v:'both'},{p:'Machoke',lv:[27,30],r:5,v:'both'},{p:'Noctowl',lv:[27,30],r:5,v:'both'},{p:'Zubat',lv:[27,30],r:10,v:'both'},{p:'Bibarel',lv:[27,30],r:20,v:'both'},{p:'Graveler',lv:[27,30],r:15,v:'both'}]
+      }
+    }
+  },
+  'Route 217': { type:'route', region:'Sinnoh', note:'Heavy blizzard. Reduced visibility.',
+    methods: {
+      grass: { all: [{p:'Snover',lv:[28,31],r:30,v:'both'},{p:'Sneasel',lv:[28,31],r:10,v:'both'},{p:'Snorunt',lv:[28,31],r:10,v:'both'},{p:'Swinub',lv:[28,31],r:30,v:'both'},{p:'Noctowl',lv:[28,31],r:5,v:'both'},{p:'Hoothoot',lv:[28,31],r:5,v:'both'},{p:'Bibarel',lv:[28,31],r:10,v:'both'}] }
+    }
+  },
+  'Acuity Lakefront': { type:'route', region:'Sinnoh',
+    methods: { grass: { all: [{p:'Bibarel',lv:[30,33],r:30,v:'both'},{p:'Snover',lv:[30,33],r:30,v:'both'},{p:'Sneasel',lv:[30,33],r:15,v:'both'},{p:'Snorunt',lv:[30,33],r:15,v:'both'},{p:'Noctowl',lv:[30,33],r:10,v:'both'}] } }
+  },
+  'Route 218': { type:'route', region:'Sinnoh', note:'Coastal route west of Jubilife.',
+    methods: {
+      grass: { all: [{p:'Bibarel',lv:[24,27],r:30,v:'both'},{p:'Wingull',lv:[24,27],r:50,v:'both'},{p:'Pelipper',lv:[24,27],r:10,v:'both'},{p:'Floatzel',lv:[24,27],r:10,v:'both'}] },
+      surf: [{p:'Tentacool',lv:[20,40],r:60,v:'both'},{p:'Tentacruel',lv:[20,40],r:30,v:'both'},{p:'Wingull',lv:[20,40],r:10,v:'both'}],
+      superRod: [{p:'Finneon',lv:[20,40],r:60,v:'both'},{p:'Lumineon',lv:[20,40],r:40,v:'both'}]
+    }
+  },
+  'Route 219': { type:'route', region:'Sinnoh', note:'South of Sandgem. Surfing only.',
+    methods: {
+      surf: [{p:'Tentacool',lv:[20,40],r:60,v:'both'},{p:'Tentacruel',lv:[20,40],r:30,v:'both'},{p:'Wingull',lv:[20,40],r:10,v:'both'}],
+      superRod: [{p:'Finneon',lv:[20,40],r:60,v:'both'},{p:'Lumineon',lv:[20,40],r:40,v:'both'}]
+    }
+  },
+  'Route 221': { type:'route', region:'Sinnoh', note:'Pal Park area (post-game).',
+    methods: {
+      grass: {
+        morning: [{p:'Bibarel',lv:[27,30],r:20,v:'both'},{p:'Floatzel',lv:[27,30],r:10,v:'both'},{p:'Roselia',lv:[27,30],r:20,v:'both'},{p:'Gible',lv:[27,30],r:0,v:'both',note:'rare'},{p:'Pidgey',lv:[27,30],r:30,v:'both'},{p:'Wingull',lv:[27,30],r:20,v:'both'}],
+        day: [{p:'Bibarel',lv:[27,30],r:20,v:'both'},{p:'Floatzel',lv:[27,30],r:10,v:'both'},{p:'Roselia',lv:[27,30],r:20,v:'both'},{p:'Gible',lv:[27,30],r:0,v:'both',note:'rare'},{p:'Pidgey',lv:[27,30],r:30,v:'both'},{p:'Wingull',lv:[27,30],r:20,v:'both'}],
+        night: [{p:'Bibarel',lv:[27,30],r:20,v:'both'},{p:'Floatzel',lv:[27,30],r:10,v:'both'},{p:'Roselia',lv:[27,30],r:20,v:'both'},{p:'Gible',lv:[27,30],r:0,v:'both',note:'rare'},{p:'Pidgey',lv:[27,30],r:30,v:'both'},{p:'Wingull',lv:[27,30],r:20,v:'both'}]
+      }
+    }
+  },
+  'Route 222': { type:'route', region:'Sinnoh', note:'Approach to Sunyshore.',
+    methods: {
+      grass: { all: [{p:'Pikachu',lv:[34,37],r:20,v:'both'},{p:'Electabuzz',lv:[34,37],r:10,v:'both'},{p:'Wingull',lv:[34,37],r:20,v:'both'},{p:'Floatzel',lv:[34,37],r:20,v:'both'},{p:'Pelipper',lv:[34,37],r:10,v:'both'},{p:'Gastrodon',lv:[34,37],r:20,v:'both'}] }
+    }
+  },
+  'Route 224': { type:'route', region:'Sinnoh', note:'Postgame route on path to Spear Pillar/Stark Mountain.',
+    methods: {
+      grass: { all: [{p:'Bibarel',lv:[51,55],r:30,v:'both'},{p:'Staraptor',lv:[51,55],r:30,v:'both'},{p:'Roselia',lv:[51,55],r:20,v:'both'},{p:'Tangela',lv:[51,55],r:20,v:'both'}] }
+    }
+  },
+  'Route 225': { type:'route', region:'Sinnoh', note:'Postgame snowy route to Survival Area.',
+    methods: {
+      grass: { all: [{p:'Machoke',lv:[51,55],r:30,v:'both'},{p:'Graveler',lv:[51,55],r:30,v:'both'},{p:'Magmar',lv:[51,55],r:20,v:'both'},{p:'Electabuzz',lv:[51,55],r:20,v:'both'}] }
+    }
+  },
+  'Route 226': { type:'route', region:'Sinnoh', note:'Postgame coastal.',
+    methods: { grass: { all: [{p:'Wingull',lv:[51,55],r:30,v:'both'},{p:'Pelipper',lv:[51,55],r:20,v:'both'},{p:'Staraptor',lv:[51,55],r:30,v:'both'},{p:'Floatzel',lv:[51,55],r:20,v:'both'}] } }
+  },
+  'Route 227': { type:'route', region:'Sinnoh', note:'Volcanic ash route to Stark Mountain.',
+    methods: { grass: { all: [{p:'Magmar',lv:[55,58],r:30,v:'both'},{p:'Rhyhorn',lv:[55,58],r:30,v:'both'},{p:'Slugma',lv:[55,58],r:20,v:'both'},{p:'Numel',lv:[55,58],r:20,v:'both'}] } }
+  },
+  'Route 228': { type:'route', region:'Sinnoh', note:'Postgame sandstorm route.',
+    methods: { grass: { all: [{p:'Houndour',lv:[51,55],r:30,v:'both'},{p:'Rhyhorn',lv:[51,55],r:30,v:'both'},{p:'Gligar',lv:[51,55],r:20,v:'both'},{p:'Cacnea',lv:[51,55],r:20,v:'both'}] } }
+  },
+  'Route 229': { type:'route', region:'Sinnoh',
+    methods: { grass: { all: [{p:'Bibarel',lv:[44,48],r:30,v:'both'},{p:'Staraptor',lv:[44,48],r:30,v:'both'},{p:'Roselia',lv:[44,48],r:40,v:'both'}] } }
+  },
+  'Route 230': { type:'route', region:'Sinnoh', note:'Surf-only.',
+    methods: {
+      surf: [{p:'Tentacool',lv:[35,55],r:60,v:'both'},{p:'Tentacruel',lv:[35,55],r:40,v:'both'}],
+      superRod: [{p:'Finneon',lv:[35,55],r:30,v:'both'},{p:'Lumineon',lv:[35,55],r:60,v:'both'},{p:'Gyarados',lv:[35,55],r:10,v:'both'}]
+    }
+  },
+  'Lake Verity': { type:'dungeon', region:'Sinnoh', note:'Mesprit awakens here post-game.',
+    methods: {
+      surf: [{p:'Psyduck',lv:[15,30],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
+      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
+    }
+  },
+  'Lake Valor': { type:'dungeon', region:'Sinnoh', note:'Azelf encountered here post-Galactic.',
+    methods: {
+      surf: [{p:'Psyduck',lv:[15,30],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
+      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
+    }
+  },
+  'Lake Acuity': { type:'dungeon', region:'Sinnoh', note:'Uxie encountered here post-Galactic.',
+    methods: {
+      surf: [{p:'Psyduck',lv:[15,30],r:90,v:'both'},{p:'Golduck',lv:[20,40],r:10,v:'both'}],
+      superRod: [{p:'Goldeen',lv:[15,30],r:60,v:'both'},{p:'Seaking',lv:[15,30],r:40,v:'both'}]
+    }
+  },
+  'Iron Island': { type:'dungeon', region:'Sinnoh', note:'Riley gives Riolu egg. Steel-type cave.',
+    methods: { grass: { all: [{p:'Zubat',lv:[22,26],r:25,v:'both'},{p:'Golbat',lv:[22,26],r:5,v:'both'},{p:'Geodude',lv:[22,26],r:20,v:'both'},{p:'Graveler',lv:[22,26],r:5,v:'both'},{p:'Onix',lv:[22,26],r:15,v:'both'},{p:'Steelix',lv:[22,26],r:5,v:'both'},{p:'Machop',lv:[22,26],r:10,v:'both'},{p:'Machoke',lv:[22,26],r:5,v:'both'}] } }
+  },
+  'Victory Road': { type:'dungeon', region:'Sinnoh', note:'Final test before Elite Four. Multi-floor cave.',
+    methods: { grass: { all: [{p:'Golbat',lv:[40,46],r:25,v:'both'},{p:'Graveler',lv:[40,46],r:25,v:'both'},{p:'Onix',lv:[40,46],r:5,v:'both'},{p:'Steelix',lv:[40,46],r:5,v:'both'},{p:'Rhyhorn',lv:[40,46],r:15,v:'both'},{p:'Rhydon',lv:[40,46],r:5,v:'both'},{p:'Magneton',lv:[40,46],r:10,v:'both'},{p:'Floatzel',lv:[40,46],r:10,v:'both'}] } }
+  },
+  'Sendoff Spring / Turnback Cave': { type:'dungeon', region:'Sinnoh', note:'Postgame. Giratina encounter at end.',
+    methods: { grass: { all: [{p:'Golbat',lv:[45,55],r:30,v:'both'},{p:'Graveler',lv:[45,55],r:20,v:'both'},{p:'Bronzor',lv:[45,55],r:20,v:'both'},{p:'Bronzong',lv:[45,55],r:10,v:'both'},{p:'Dusclops',lv:[45,55],r:20,v:'both'}] } }
+  },
+  'Stark Mountain': { type:'dungeon', region:'Sinnoh', note:'Postgame. Heatran at the end.',
+    methods: { grass: { all: [{p:'Slugma',lv:[55,60],r:25,v:'both'},{p:'Magcargo',lv:[55,60],r:15,v:'both'},{p:'Magmar',lv:[55,60],r:20,v:'both'},{p:'Magmortar',lv:[55,60],r:5,v:'both'},{p:'Rhyhorn',lv:[55,60],r:20,v:'both'},{p:'Rhydon',lv:[55,60],r:15,v:'both'}] } }
+  },
+  // Grand Underground Hideaways — distinct biome rooms
+  'Spacious Cave (UG)': { type:'hideaway', region:'Underground', note:'Standard Underground biome — common Pokémon.',
+    methods: { grass: { all: [{p:'Diglett',lv:[6,10],r:20,v:'both'},{p:'Geodude',lv:[6,10],r:20,v:'both'},{p:'Onix',lv:[6,10],r:10,v:'both'},{p:'Cubone',lv:[6,10],r:15,v:'both'},{p:'Wooper',lv:[6,10],r:15,v:'both'},{p:'Phanpy',lv:[6,10],r:10,v:'both'},{p:'Krabby',lv:[6,10],r:10,v:'both'}] } }
+  },
+  'Grassland Cave (UG)': { type:'hideaway', region:'Underground',
+    methods: { grass: { all: [{p:'Bellsprout',lv:[6,10],r:20,v:'both'},{p:'Oddish',lv:[6,10],r:20,v:'both'},{p:'Sentret',lv:[6,10],r:20,v:'both'},{p:'Sunkern',lv:[6,10],r:15,v:'both'},{p:'Hoppip',lv:[6,10],r:15,v:'both'},{p:'Aipom',lv:[6,10],r:10,v:'both'}] } }
+  },
+  'Fountainspring Cave (UG)': { type:'hideaway', region:'Underground',
+    methods: { grass: { all: [{p:'Psyduck',lv:[6,10],r:20,v:'both'},{p:'Marill',lv:[6,10],r:20,v:'both'},{p:'Slowpoke',lv:[6,10],r:20,v:'both'},{p:'Wooper',lv:[6,10],r:15,v:'both'},{p:'Lotad',lv:[6,10],r:15,v:'both'},{p:'Surskit',lv:[6,10],r:10,v:'both'}] } }
+  },
+  'Rocky Cave (UG)': { type:'hideaway', region:'Underground',
+    methods: { grass: { all: [{p:'Geodude',lv:[6,10],r:30,v:'both'},{p:'Onix',lv:[6,10],r:20,v:'both'},{p:'Larvitar',lv:[6,10],r:10,v:'both'},{p:'Nosepass',lv:[6,10],r:15,v:'both'},{p:'Aron',lv:[6,10],r:15,v:'both'},{p:'Bonsly',lv:[6,10],r:10,v:'both'}] } }
+  },
+  'Volcanic Cave (UG)': { type:'hideaway', region:'Underground', note:'Fire-types. Charmander available!',
+    methods: { grass: { all: [{p:'Vulpix',lv:[6,10],r:20,v:'both'},{p:'Growlithe',lv:[6,10],r:20,v:'both'},{p:'Slugma',lv:[6,10],r:15,v:'both'},{p:'Numel',lv:[6,10],r:15,v:'both'},{p:'Magby',lv:[6,10],r:10,v:'both'},{p:'Houndour',lv:[6,10],r:10,v:'both'},{p:'Charmander',lv:[6,10],r:10,v:'both',note:'Post-Nat Dex'}] } }
+  },
+  'Swampy Cave (UG)': { type:'hideaway', region:'Underground',
+    methods: { grass: { all: [{p:'Wooper',lv:[6,10],r:20,v:'both'},{p:'Croagunk',lv:[6,10],r:20,v:'both'},{p:'Gulpin',lv:[6,10],r:15,v:'both'},{p:'Wooper',lv:[6,10],r:15,v:'both'},{p:'Skorupi',lv:[6,10],r:15,v:'both'},{p:'Trubbish',lv:[6,10],r:15,v:'both'}] } }
+  },
+  'Dazzling Cave (UG)': { type:'hideaway', region:'Underground', note:'Fairy/Bug bias.',
+    methods: { grass: { all: [{p:'Clefairy',lv:[6,10],r:15,v:'both'},{p:'Jigglypuff',lv:[6,10],r:15,v:'both'},{p:'Snubbull',lv:[6,10],r:15,v:'both'},{p:'Mawile',lv:[6,10],r:15,v:'both'},{p:'Hippopotas',lv:[6,10],r:20,v:'both'},{p:'Sandshrew',lv:[6,10],r:20,v:'both'}] } }
+  },
+  'Whiteout Cave (UG)': { type:'hideaway', region:'Underground', note:'Ice biome. Mid-game unlock.',
+    methods: { grass: { all: [{p:'Snorunt',lv:[20,30],r:25,v:'both'},{p:'Swinub',lv:[20,30],r:25,v:'both'},{p:'Snover',lv:[20,30],r:20,v:'both'},{p:'Spheal',lv:[20,30],r:15,v:'both'},{p:'Vanillite',lv:[20,30],r:15,v:'both'}] } }
+  },
+  'Icy Cave (UG)': { type:'hideaway', region:'Underground',
+    methods: { grass: { all: [{p:'Sneasel',lv:[20,30],r:20,v:'both'},{p:'Vanillish',lv:[20,30],r:15,v:'both'},{p:'Cubchoo',lv:[20,30],r:20,v:'both'},{p:'Smoochum',lv:[20,30],r:15,v:'both'},{p:'Delibird',lv:[20,30],r:15,v:'both'},{p:'Bergmite',lv:[20,30],r:15,v:'both'}] } }
+  },
+  'Riverbank Cave (UG)': { type:'hideaway', region:'Underground',
+    methods: { grass: { all: [{p:'Bibarel',lv:[20,30],r:30,v:'both'},{p:'Bidoof',lv:[20,30],r:20,v:'both'},{p:'Floatzel',lv:[20,30],r:15,v:'both'},{p:'Buizel',lv:[20,30],r:15,v:'both'},{p:'Wingull',lv:[20,30],r:10,v:'both'},{p:'Pelipper',lv:[20,30],r:10,v:'both'}] } }
+  },
+  'Sandsear Cave (UG)': { type:'hideaway', region:'Underground', note:'Desert biome.',
+    methods: { grass: { all: [{p:'Sandshrew',lv:[20,30],r:20,v:'both'},{p:'Sandslash',lv:[20,30],r:15,v:'both'},{p:'Trapinch',lv:[20,30],r:20,v:'both'},{p:'Hippopotas',lv:[20,30],r:15,v:'both'},{p:'Cacnea',lv:[20,30],r:15,v:'both'},{p:'Sandile',lv:[20,30],r:15,v:'both'}] } }
+  },
+  'Still-Water Cavern (UG)': { type:'hideaway', region:'Underground',
+    methods: { grass: { all: [{p:'Lotad',lv:[20,30],r:20,v:'both'},{p:'Lombre',lv:[20,30],r:15,v:'both'},{p:'Marill',lv:[20,30],r:20,v:'both'},{p:'Wooper',lv:[20,30],r:15,v:'both'},{p:'Tympole',lv:[20,30],r:15,v:'both'},{p:'Wingull',lv:[20,30],r:15,v:'both'}] } }
+  },
+  'Sunlit Cavern (UG)': { type:'hideaway', region:'Underground', note:'Grass biome.',
+    methods: { grass: { all: [{p:'Oddish',lv:[20,30],r:20,v:'both'},{p:'Gloom',lv:[20,30],r:15,v:'both'},{p:'Bellsprout',lv:[20,30],r:20,v:'both'},{p:'Hoppip',lv:[20,30],r:15,v:'both'},{p:'Petilil',lv:[20,30],r:15,v:'both'},{p:'Cottonee',lv:[20,30],r:15,v:'both'}] } }
+  },
+  'Big Bluff Cavern (UG)': { type:'hideaway', region:'Underground',
+    methods: { grass: { all: [{p:'Aron',lv:[30,40],r:20,v:'both'},{p:'Lairon',lv:[30,40],r:15,v:'both'},{p:'Beldum',lv:[30,40],r:15,v:'both'},{p:'Metang',lv:[30,40],r:10,v:'both'},{p:'Mawile',lv:[30,40],r:20,v:'both'},{p:'Pawniard',lv:[30,40],r:20,v:'both'}] } }
+  },
+  'Stargleam Cavern (UG)': { type:'hideaway', region:'Underground', note:'Psychic/Fairy biome. Late unlock.',
+    methods: { grass: { all: [{p:'Clefairy',lv:[30,40],r:20,v:'both'},{p:'Clefable',lv:[30,40],r:10,v:'both'},{p:'Togetic',lv:[30,40],r:15,v:'both'},{p:'Ralts',lv:[30,40],r:15,v:'both'},{p:'Kirlia',lv:[30,40],r:15,v:'both'},{p:'Spritzee',lv:[30,40],r:15,v:'both'},{p:'Swirlix',lv:[30,40],r:10,v:'both'}] } }
+  },
+  'Glacial Cavern (UG)': { type:'hideaway', region:'Underground', note:'Ice biome (late).',
+    methods: { grass: { all: [{p:'Cryogonal',lv:[30,40],r:15,v:'both'},{p:'Vanillish',lv:[30,40],r:20,v:'both'},{p:'Vanilluxe',lv:[30,40],r:10,v:'both'},{p:'Sealeo',lv:[30,40],r:15,v:'both'},{p:'Beartic',lv:[30,40],r:10,v:'both'},{p:'Avalugg',lv:[30,40],r:10,v:'both'},{p:'Glalie',lv:[30,40],r:20,v:'both'}] } }
+  },
+  'Bogsunk Cavern (UG)': { type:'hideaway', region:'Underground',
+    methods: { grass: { all: [{p:'Drilbur',lv:[30,40],r:20,v:'both'},{p:'Excadrill',lv:[30,40],r:10,v:'both'},{p:'Trapinch',lv:[30,40],r:15,v:'both'},{p:'Vibrava',lv:[30,40],r:10,v:'both'},{p:'Gible',lv:[30,40],r:15,v:'both'},{p:'Gabite',lv:[30,40],r:10,v:'both'},{p:'Larvitar',lv:[30,40],r:20,v:'both'}] } }
+  },
+  'Typo Cavern (UG)': { type:'hideaway', region:'Underground', note:'Steel/Rock biome.',
+    methods: { grass: { all: [{p:'Beldum',lv:[30,40],r:20,v:'both'},{p:'Metang',lv:[30,40],r:15,v:'both'},{p:'Bronzor',lv:[30,40],r:15,v:'both'},{p:'Bronzong',lv:[30,40],r:10,v:'both'},{p:'Klink',lv:[30,40],r:20,v:'both'},{p:'Pawniard',lv:[30,40],r:20,v:'both'}] } }
+  }
+};
+
+const BDSP_LOCATION_GROUPS = [
+  { name:'Early Routes (Pre-Gym 1)', items:['Route 201','Route 202','Route 203','Oreburgh Gate','Oreburgh Mine'] },
+  { name:'Floaroma / Eterna Area', items:['Route 204 (South)','Route 204 (North)','Ravaged Path','Floaroma Meadow','Route 205 (South)','Valley Windworks','Eterna Forest','Old Chateau','Route 205 (North)'] },
+  { name:'Cycling Road & Mt. Coronet Approach', items:['Route 206','Wayward Cave','Route 207','Mt. Coronet (B1F / 1F)','Route 208'] },
+  { name:'Hearthome / Solaceon Area', items:['Route 209','Lost Tower','Solaceon Ruins','Route 210 (South)','Route 215'] },
+  { name:'Veilstone / Pastoria Area', items:['Route 211 (West)','Route 211 (East)','Route 212 (North)','Route 212 (South)','Pastoria Great Marsh','Route 213','Route 214'] },
+  { name:'Snowpoint / Lake Area', items:['Route 210 (North)','Route 216','Route 217','Acuity Lakefront','Iron Island'] },
+  { name:'Sunyshore / Late Game', items:['Valor Lakefront','Route 218','Route 219','Route 222','Victory Road'] },
+  { name:'Mt. Coronet Peaks', items:['Mt. Coronet (Higher Floors)'] },
+  { name:'Lakes (Post-Galactic)', items:['Lake Verity','Lake Valor','Lake Acuity'] },
+  { name:'Post-Game Routes', items:['Route 221','Route 224','Route 225','Route 226','Route 227','Route 228','Route 229','Route 230','Stark Mountain','Sendoff Spring / Turnback Cave'] },
+  { name:'Grand Underground Hideaways', items:['Spacious Cave (UG)','Grassland Cave (UG)','Fountainspring Cave (UG)','Rocky Cave (UG)','Volcanic Cave (UG)','Swampy Cave (UG)','Dazzling Cave (UG)','Whiteout Cave (UG)','Icy Cave (UG)','Riverbank Cave (UG)','Sandsear Cave (UG)','Still-Water Cavern (UG)','Sunlit Cavern (UG)','Big Bluff Cavern (UG)','Stargleam Cavern (UG)','Glacial Cavern (UG)','Bogsunk Cavern (UG)','Typo Cavern (UG)'] }
+];
+
 // State management
 let saveKey = null;
 let runs = {}; // {runId: {team, routes, cap, game, name, created}}
@@ -841,6 +1985,208 @@ function curTeam() { return curRun()?.team || []; }
 function curRoutes() { return curRun()?.routes || []; }
 function curGame() { return curRun()?.game || 'shining_pearl'; }
 function curCap() { return curRun()?.cap || null; }
+function curVersion() { return curRun()?.version || (curGame()==='shining_pearl' ? 'SP' : null); }
+
+/* ── Route helpers ── */
+// For Nuzlocke purposes, "Route 205 (South)" and "Route 205 (North)" are the same route.
+// Strip a trailing parenthetical (which we use to indicate a sub-zone) to get the root name.
+function routeRoot(name) {
+  if (!name) return '';
+  return name.replace(/\s*\([^)]+\)\s*$/, '').trim();
+}
+// Case-insensitive compare on root form
+function routesMatch(a, b) {
+  if (!a || !b) return false;
+  return routeRoot(a).toLowerCase() === routeRoot(b).toLowerCase();
+}
+// Build a sorted list of route names for the autocomplete:
+//   - Root names first (preferred for logging — "Route 205", "Mt. Coronet")
+//   - Then sub-zone names with their parenthetical suffix (for reference)
+//   - Each root is annotated with "(combined)" if it has sub-zones
+function getRouteAutocompleteList() {
+  const roots = new Set();
+  const subzones = [];
+  for (const key in (typeof BDSP_ENCOUNTERS === 'object' ? BDSP_ENCOUNTERS : {})) {
+    const root = routeRoot(key);
+    roots.add(root);
+    if (root !== key) subzones.push(key);
+  }
+  // Sort: roots alphabetically, then subzones alphabetically
+  const rootList = [...roots].sort();
+  return [...rootList, ...subzones.sort()];
+}
+// Map a subzone count for hint display
+function routeSubzoneCount(rootName) {
+  let n = 0;
+  for (const key in (typeof BDSP_ENCOUNTERS === 'object' ? BDSP_ENCOUNTERS : {})) {
+    if (routeRoot(key) === rootName && key !== rootName) n++;
+  }
+  return n;
+}
+
+/* ── Sprite & Pokémon info helpers ── */
+function spriteUrl(idOrName, variant) {
+  // Accept either a numeric id or a species name
+  let id = idOrName;
+  if (typeof idOrName === 'string') {
+    const info = pokeInfo(idOrName);
+    if (!info) return '';
+    id = info.id;
+  }
+  if (!id) return '';
+  if (variant === 'art') return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+}
+
+// Case-insensitive lookup with light normalization (handles trailing whitespace, exact match preferred)
+function pokeInfo(name) {
+  if (!name) return null;
+  if (POKEMON_DB[name]) return POKEMON_DB[name];
+  const n = name.trim();
+  if (POKEMON_DB[n]) return POKEMON_DB[n];
+  const lower = n.toLowerCase();
+  for (const k in POKEMON_DB) {
+    if (k.toLowerCase() === lower) return POKEMON_DB[k];
+  }
+  return null;
+}
+
+function pokeId(name) { const i = pokeInfo(name); return i ? i.id : null; }
+function pokeStats(name) { const i = pokeInfo(name); return i ? i.s : null; }
+function pokeBaseSpeed(name) { const i = pokeInfo(name); return i ? i.s[5] : null; }
+function pokeTypes(name) { const i = pokeInfo(name); return i ? i.t : null; }
+function pokeAbilities(name) { const i = pokeInfo(name); return i ? i.a : []; }
+
+function getEvolution(name) {
+  const info = pokeInfo(name);
+  if (!info || !info.e) return null;
+  return { target: info.e[0], method: info.e[1] };
+}
+
+// Generic sprite img tag — used in cards
+function spriteImg(species, opts) {
+  opts = opts || {};
+  const url = spriteUrl(species);
+  if (!url) return `<div class="sprite-wrap${opts.sm?' sprite-sm':''}${opts.lg?' sprite-lg':''}" title="No sprite available"></div>`;
+  const cls = `sprite-img${opts.faded?' faded':''}`;
+  return `<div class="sprite-wrap${opts.sm?' sprite-sm':''}${opts.lg?' sprite-lg':''}"><img class="${cls}" src="${url}" alt="${species}" loading="lazy" onerror="this.style.display='none'"></div>`;
+}
+
+/* ── Learnset cache (fetched from PokeAPI on demand) ── */
+const learnsetCache = {}; // species -> [{lv, name}, ...] or 'loading' or 'error'
+
+function getLearnsetLocalKey(species) { return 'learnset_'+species.toLowerCase(); }
+
+function loadCachedLearnset(species) {
+  try {
+    const raw = localStorage.getItem(getLearnsetLocalKey(species));
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (parsed && parsed.t && (Date.now() - parsed.t) < 1000*60*60*24*30) { // 30 days
+      return parsed.data;
+    }
+  } catch(e) {}
+  return null;
+}
+
+function saveCachedLearnset(species, data) {
+  try { localStorage.setItem(getLearnsetLocalKey(species), JSON.stringify({t:Date.now(), data})); } catch(e){}
+}
+
+async function fetchLearnset(species) {
+  if (!species) return [];
+  if (learnsetCache[species] === 'loading') {
+    // Wait for the in-flight request
+    await new Promise(r => {
+      const tick = setInterval(()=>{ if (learnsetCache[species] !== 'loading') { clearInterval(tick); r(); } }, 100);
+      setTimeout(()=>{ clearInterval(tick); r(); }, 8000);
+    });
+  }
+  if (Array.isArray(learnsetCache[species])) return learnsetCache[species];
+  // Try local cache first
+  const cached = loadCachedLearnset(species);
+  if (cached) { learnsetCache[species] = cached; return cached; }
+  const info = pokeInfo(species);
+  if (!info) { learnsetCache[species] = []; return []; }
+  learnsetCache[species] = 'loading';
+  try {
+    const r = await fetch(`https://pokeapi.co/api/v2/pokemon/${info.id}`);
+    if (!r.ok) throw new Error('fetch failed');
+    const data = await r.json();
+    // Extract level-up moves for BDSP version group (fallback: any gen 4-8 group)
+    const preferred = ['brilliant-diamond-and-shining-pearl','sword-shield','ultra-sun-ultra-moon','sun-moon','platinum','diamond-pearl','heartgold-soulsilver'];
+    let chosenVG = null;
+    for (const vg of preferred) {
+      for (const m of data.moves) {
+        for (const v of m.version_group_details) {
+          if (v.version_group.name === vg && v.move_learn_method.name === 'level-up') { chosenVG = vg; break; }
+        }
+        if (chosenVG) break;
+      }
+      if (chosenVG) break;
+    }
+    const moves = [];
+    for (const m of data.moves) {
+      for (const v of m.version_group_details) {
+        if (v.version_group.name === chosenVG && v.move_learn_method.name === 'level-up' && v.level_learned_at > 0) {
+          moves.push({ lv: v.level_learned_at, name: prettifyMoveName(m.move.name) });
+          break;
+        }
+      }
+    }
+    moves.sort((a,b) => a.lv - b.lv);
+    learnsetCache[species] = moves;
+    saveCachedLearnset(species, moves);
+    return moves;
+  } catch(e) {
+    learnsetCache[species] = [];
+    return [];
+  }
+}
+
+function prettifyMoveName(n) {
+  return n.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    .replace(/^Hi Jump/, 'High Jump').replace('Will O Wisp','Will-O-Wisp').replace(/^X Scissor$/,'X-Scissor')
+    .replace(/^U Turn$/,'U-turn').replace(/^V Create$/,'V-create').replace(/^Mud Slap$/,'Mud-Slap')
+    .replace(/^Self Destruct$/,'Self-Destruct').replace(/^Lock On$/,'Lock-On').replace(/^Soft Boiled$/,'Soft-Boiled')
+    .replace(/^Double Edge$/,'Double-Edge').replace(/^Power Up Punch$/,'Power-Up Punch')
+    .replace(/^Trick Or Treat$/,'Trick-or-Treat').replace(/^Wake Up Slap$/,'Wake-Up Slap');
+}
+
+/* ── Evolve current Pokémon (mutates roster) ── */
+function evolvePoke(idx) {
+  const team = curRun().team;
+  const p = team[idx];
+  if (!p) return;
+  const evo = getEvolution(p.species);
+  if (!evo) { showToast('No evolution data for ' + p.species, 'error'); return; }
+  const target = evo.target;
+  // Some entries have ambiguous targets like 'Silcoon/Cascoon' or 'Wormadam/Mothim'
+  let finalTarget = target;
+  if (target.includes('/')) {
+    const options = target.split('/');
+    const pick = prompt(`Which evolution? (${options.join(' or ')})`, options[0]);
+    if (!pick) return;
+    const match = options.find(o => o.toLowerCase() === pick.trim().toLowerCase());
+    if (!match) { showToast('Unknown evolution target','error'); return; }
+    finalTarget = match;
+  }
+  const targetInfo = pokeInfo(finalTarget);
+  if (!targetInfo) { showToast('Missing data for ' + finalTarget, 'error'); return; }
+  const oldSpecies = p.species;
+  p.species = finalTarget;
+  p.type1 = targetInfo.t[0] || null;
+  p.type2 = targetInfo.t[1] || null;
+  // Preserve ability if it's still valid for the new species; otherwise clear
+  if (p.ability && !targetInfo.a.includes(p.ability)) p.ability = '';
+  // Log the evolution as a timeline event
+  p.events = p.events || [];
+  p.events.push({ t:'evo', from:oldSpecies, to:finalTarget, lv:p.level||null, ts: Date.now() });
+  save(); render();
+  showToast(`${p.nickname || oldSpecies} evolved into ${finalTarget}!`,'success');
+  // Re-open the editor for the now-evolved Pokémon
+  setTimeout(()=>openEdit(idx), 100);
+}
 
 /* ── API ── */
 async function cloudLoad(key) {
@@ -977,11 +2323,16 @@ function promptNewRun() {
   const game = gameIds[idx];
   const name = prompt(`Name this run (e.g. "My ${GAMES[game].short} attempt"):`, GAMES[game].name);
   if (!name) return;
+  let version = null;
+  if (game === 'shining_pearl') {
+    const v = prompt('Which version are you playing?\n\n  1. Brilliant Diamond\n  2. Shining Pearl\n\nEnter 1 or 2:');
+    version = v && v.trim()==='1' ? 'BD' : 'SP';
+  }
   const runId = makeRunId();
-  runs[runId] = { name: name.trim(), game, team:[], routes:[], cap:null, created: Date.now() };
+  runs[runId] = { name: name.trim(), game, team:[], routes:[], cap:null, created: Date.now(), version };
   currentRunId = runId;
   save(); render();
-  showToast(`Started new run: ${name}`,'success');
+  showToast(`Started new run: ${name}${version?' ('+(version==='BD'?'Brilliant Diamond':'Shining Pearl')+')':''}`,'success');
 }
 
 function promptRenameRun() {
@@ -1050,10 +2401,26 @@ function typeBadge(t) {
 }
 
 function cardInner(p, realIdx, showCheck) {
-  const moves = (p.moves||'').split(',').map(m=>m.trim()).filter(Boolean);
+  const moveList = (typeof p.moves === 'string')
+    ? p.moves.split(',').map(s=>s.trim()).filter(Boolean)
+    : (Array.isArray(p.moves) ? p.moves.filter(Boolean) : []);
+  const sprite = spriteImg(p.species, {faded: !p.alive});
+  const ownTypes = [p.type1, p.type2].filter(Boolean);
+  const movePillsHtml = moveList.map(m => {
+    const t = getMoveType(m);
+    const cat = moveCategory(m);
+    // STAB only applies to damaging moves. Treat unknown-category moves conservatively (no STAB).
+    const isDamaging = cat === 'P' || cat === 'S';
+    const isSTAB = isDamaging && t && ownTypes.includes(t);
+    const cls = ['move-pill'];
+    if (t) cls.push('mp-'+t);
+    if (isSTAB) cls.push('stab');
+    return `<div class="${cls.join(' ')}" title="${t||'Unknown type'}${isSTAB?' · STAB':''}${cat==='U'?' · status':''}"><span>${m}</span></div>`;
+  }).join('');
   return `
     <div class="drag-handle" title="Drag to reorder">⠿</div>
     ${showCheck?`<div class="card-check"><input type="checkbox" ${p.inParty?'checked':''} onchange="toggleParty(${realIdx},this.checked)" onclick="event.stopPropagation()"></div>`:''}
+    ${sprite}
     <div class="card-main" onclick="openEdit(${realIdx})">
       <div class="card-header">
         <div><div class="poke-nickname">${p.nickname}</div><div class="poke-species">${p.species||'Unknown'}</div></div>
@@ -1065,12 +2432,13 @@ function cardInner(p, realIdx, showCheck) {
       ${p.ability?`<div class="detail-row"><span class="detail-label">Ability</span><span class="detail-val">${p.ability}</span></div>`:''}
       ${p.nature?`<div class="detail-row"><span class="detail-label">Nature</span><span class="detail-val">${p.nature}</span></div>`:''}
       ${p.held?`<div class="detail-row"><span class="detail-label">Item</span><span class="detail-val">${p.held}</span></div>`:''}
-      ${moves.length?`<div class="detail-row" style="align-items:flex-start"><span class="detail-label" style="padding-top:2px">Moves</span><div class="moves-grid">${moves.map(m=>`<div class="move-pill">${m}</div>`).join('')}</div></div>`:''}
+      ${moveList.length?`<div class="detail-row" style="align-items:flex-start"><span class="detail-label" style="padding-top:2px">Moves</span><div class="moves-grid">${movePillsHtml}</div></div>`:''}
       ${p.notes?`<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-val" style="font-style:italic;color:var(--text3)">${p.notes}</span></div>`:''}
-      <div class="edit-hint">✎ tap to edit</div>
+      <div class="edit-hint">✎ tap to view & edit</div>
     </div>`;
 }
 
+/* ── Learnset toggle handler ── */
 /* ── Sortable ── */
 function initRosterSortable() {
   if (rosterSortable) { rosterSortable.destroy(); rosterSortable = null; }
@@ -1133,7 +2501,7 @@ function renderRoster() {
   document.getElementById('tc-roster').textContent = alive.length;
   if (!alive.length) { g.innerHTML='<div class="empty" style="grid-column:1/-1">No Pokémon added yet.</div>'; return; }
   g.innerHTML = alive.map(({p,i}) =>
-    `<div class="poke-card${p.inParty?' in-party':''}"><div class="card-top">${cardInner(p, i, true)}</div></div>`
+    `<div class="poke-card${p.inParty?' in-party':''}"><div class="card-top with-sprite">${cardInner(p, i, true)}</div></div>`
   ).join('');
   initRosterSortable();
 }
@@ -1147,7 +2515,7 @@ function renderActive() {
   if (!party.length) { g.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display = 'none';
   g.innerHTML = party.map(({p,i}) =>
-    `<div class="poke-card in-party"><div class="card-top">${cardInner(p, i, false)}</div></div>`
+    `<div class="poke-card in-party"><div class="card-top with-sprite">${cardInner(p, i, false)}</div></div>`
   ).join('');
   initActiveSortable();
 }
@@ -1181,7 +2549,7 @@ function renderGrave() {
   empty.style.display = 'none';
   list.innerHTML = dead.map(p=>`
     <div class="rip-card">
-      <span class="rip-skull">💀</span>
+      ${spriteImg(p.species, {sm:true, faded:true})}
       <div class="rip-info">
         <div class="rip-name">${p.nickname} <span>(${p.species||'?'}, Lv ${p.level||'?'})</span></div>
         <div class="rip-detail">${p.causeOfDeath||'Unknown cause'} · ${p.route||'—'}</div>
@@ -1474,7 +2842,7 @@ function renderMatchup() {
       // Reuse card layout but with reco-card class for score badge
       return `<div class="poke-card reco-card"${p.inParty?' style="border-color:rgba(108,143,255,.4);box-shadow:0 0 0 1px rgba(108,143,255,.1)"':''}>
         <div class="reco-score-badge v-${analysis.verdict}" title="Score: ${score.toFixed(1)}">${analysis.label}</div>
-        <div class="card-top">${cardInner(p, idx, false)}</div>
+        <div class="card-top with-sprite">${cardInner(p, idx, false)}</div>
         <div class="reco-reason">${reason}</div>
       </div>`;
     }).join('');
@@ -1499,8 +2867,51 @@ function renderMatchup() {
     }
     html += `</div>`;
   }
+  // ── Speed tier comparison ──
+  html += buildSpeedTierSection(party, boss);
   el.innerHTML = html;
   initRecoSortable();
+}
+
+function buildSpeedTierSection(party, boss) {
+  if (!party.length || !boss || !(boss.team||[]).length) return '';
+  const rows = [];
+  // Mine
+  for (const p of party) {
+    const baseSpd = pokeBaseSpeed(p.species);
+    if (baseSpd == null) continue;
+    rows.push({ name: p.nickname || p.species, lv: p.level || 1, base: baseSpd, side: 'me' });
+  }
+  // Boss
+  for (const b of (boss.team||[])) {
+    const baseSpd = pokeBaseSpeed(b.species);
+    if (baseSpd == null) continue;
+    rows.push({ name: b.species, lv: b.lv || boss.cap || 1, base: baseSpd, side: 'boss' });
+  }
+  if (!rows.length) return '';
+  // Sort fastest first
+  rows.sort((a,b) => b.base - a.base);
+  // Compute max for bar width
+  const maxBase = rows[0].base;
+  // Identify boss outspeeds: does ANY boss mon's base speed exceed ALL party mons'?
+  const myMaxSpeed = Math.max(...rows.filter(r=>r.side==='me').map(r=>r.base), 0);
+  const bossOutspeeders = rows.filter(r=>r.side==='boss' && r.base > myMaxSpeed);
+
+  let html = `<div class="speed-section">
+    <p class="slabel" style="margin-bottom:6px">Speed tier comparison <span style="font-weight:400;color:var(--text3);font-size:11px">— base Speed stat</span></p>`;
+  for (const r of rows) {
+    const width = Math.round((r.base / maxBase) * 100);
+    html += `<div class="speed-bar-row ${r.side}">
+      <span class="speed-bar-name">${spriteImg(r.name, {sm:true})}<span>${r.name}</span></span>
+      <span class="speed-bar-wrap"><span class="speed-bar-fill" style="width:${width}%"></span></span>
+      <span class="speed-bar-val">${r.base}</span>
+    </div>`;
+  }
+  if (bossOutspeeders.length) {
+    html += `<div class="speed-warn">⚠ <strong>${bossOutspeeders.map(r=>r.name).join(', ')}</strong> outspeed${bossOutspeeders.length===1?'s':''} your entire active team by base Speed. Consider priority moves (Quick Attack, Mach Punch, Bullet Punch), paralysis, or trick-room play.</div>`;
+  }
+  html += `</div>`;
+  return html;
 }
 
 function toggleRecoMatchCount(v) { recoMatchCount = v; renderMatchup(); }
@@ -1713,13 +3124,78 @@ function renderStats() {
     <div class="stats-grid">
       <div class="stat-card" style="grid-column:1/-1"><div class="stat-value" style="font-size:18px;font-family:'Outfit',sans-serif">${topTypes}</div><div class="stat-label">Most common types in your active roster</div></div>
     </div>
+    ${buildTimelineSection()}
   `;
+}
+
+function buildTimelineSection() {
+  const team = curTeam();
+  const routes = curRoutes();
+  const events = [];
+  // Catches: use team order as proxy when no timestamp
+  team.forEach((p, idx) => {
+    events.push({
+      type: 'caught', order: idx, ts: p.caughtAt || idx,
+      species: p.species, nickname: p.nickname, lv: p.level, route: p.route
+    });
+    // Deaths
+    if (!p.alive) {
+      events.push({
+        type:'died', order: idx + 0.5, ts: p.deathAt || (idx + 0.5),
+        species: p.species, nickname: p.nickname, lv: p.level,
+        cause: p.causeOfDeath, route: p.route
+      });
+    }
+    // Evolutions (events array)
+    if (Array.isArray(p.events)) {
+      for (const ev of p.events) {
+        if (ev.t === 'evo') {
+          events.push({
+            type:'evo', order: idx + 0.25, ts: ev.ts || (idx + 0.25),
+            from: ev.from, to: ev.to, lv: ev.lv, nickname: p.nickname
+          });
+        }
+      }
+    }
+  });
+  // Boss/cap defeats — when user cleared a cap, the cap toggles. Approximate via routes log? For now, leave out.
+  if (!events.length) {
+    return `<p class="slabel" style="margin-top:24px">Run timeline</p>
+      <div class="timeline"><div class="empty" style="padding:16px">Timeline starts populating once you catch your first Pokémon.</div></div>`;
+  }
+  // Sort chronologically — timestamp first, fall back to order
+  events.sort((a,b) => (a.ts||0) - (b.ts||0));
+  const rows = events.map(e => {
+    if (e.type==='caught') {
+      return `<div class="timeline-row caught">
+        ${spriteImg(e.species, {sm:true})}
+        <span class="timeline-text">Caught <strong>${e.nickname||e.species}</strong>${e.species&&e.species!==e.nickname?` <span class="dim">(${e.species})</span>`:''}${e.lv?` <span class="dim">at Lv ${e.lv}</span>`:''}${e.route?` <span class="dim">— ${e.route}</span>`:''}</span>
+      </div>`;
+    }
+    if (e.type==='evo') {
+      return `<div class="timeline-row evo">
+        ${spriteImg(e.to, {sm:true})}
+        <span class="timeline-text"><strong>${e.nickname||e.from}</strong> evolved <span class="dim">${e.from} → ${e.to}</span>${e.lv?` <span class="dim">(Lv ${e.lv})</span>`:''}</span>
+      </div>`;
+    }
+    if (e.type==='died') {
+      return `<div class="timeline-row died">
+        ${spriteImg(e.species, {sm:true, faded:true})}
+        <span class="timeline-text"><strong>${e.nickname||e.species}</strong> fell${e.lv?` <span class="dim">at Lv ${e.lv}</span>`:''}${e.cause?` <span class="dim">— ${e.cause}</span>`:''}${e.route?` <span class="dim">@ ${e.route}</span>`:''}</span>
+      </div>`;
+    }
+    return '';
+  }).join('');
+  return `<p class="slabel" style="margin-top:24px">Run timeline</p>
+    <div class="timeline">
+      <div class="timeline-list">${rows}</div>
+    </div>`;
 }
 
 function render() {
   populateRunSelect();
   renderRoster(); renderActive(); renderRoutes(); renderGrave();
-  renderCap(); renderMatchup(); renderStats();
+  renderCap(); renderMatchup(); renderStats(); renderEncounters();
 }
 
 function switchTab(n) {
@@ -1729,7 +3205,308 @@ function switchTab(n) {
   document.getElementById(`tab-${n}`).classList.add('active');
   if (n==='matchup') renderMatchup();
   if (n==='stats') renderStats();
+  if (n==='encounters') renderEncounters();
 }
+
+/* ── Encounters page state ── */
+let selectedEncLocation = null;
+let selectedEncTime = 'day';
+let encGroupCollapsed = {}; // groupName → bool
+let encSearchQuery = '';
+
+function setEncLocation(loc) { selectedEncLocation = loc; renderEncounters(); }
+function setEncTime(t) { selectedEncTime = t; renderEncounters(); }
+function toggleEncGroup(name) { encGroupCollapsed[name] = !encGroupCollapsed[name]; renderEncounters(); }
+function setEncSearch(q) { encSearchQuery = q; renderEncounters(); }
+
+function setRunVersion(v) {
+  const r = curRun(); if (!r) return;
+  r.version = v;
+  save(); renderEncounters();
+  showToast(`Set version to ${v==='BD'?'Brilliant Diamond':'Shining Pearl'}`,'success');
+}
+
+/* ── Render Encounters tab (BDSP only) ── */
+function renderEncounters() {
+  const el = document.getElementById('encounters-content');
+  if (!el) return;
+  const game = curGame();
+  if (game !== 'shining_pearl') {
+    el.innerHTML = `<div class="empty">Encounter reference is currently only available for Brilliant Diamond / Shining Pearl.<br><br>Other games will be added in future updates.</div>`;
+    return;
+  }
+  // Ensure version is set
+  const r = curRun();
+  if (r && !r.version) r.version = 'SP';
+  const ver = curVersion();
+
+  // Build left-rail group HTML
+  const q = (encSearchQuery||'').toLowerCase().trim();
+  const railHtml = BDSP_LOCATION_GROUPS.map(g => {
+    const matchedItems = g.items.filter(loc => !q || loc.toLowerCase().includes(q));
+    if (q && !matchedItems.length) return '';
+    const collapsed = encGroupCollapsed[g.name];
+    const itemsHtml = matchedItems.map(loc => {
+      // Logged indicator: route log entry OR a team member caught at this location
+      const routes = curRoutes();
+      const team = curTeam();
+      const teamCaughtHere = team.find(p => routesMatch(p.route, loc));
+      const logged = routes.find(rt => routesMatch(rt.route, loc));
+      let dot = '';
+      if (teamCaughtHere) {
+        // Team caught wins — show solid green "caught" dot
+        dot = `<span class="logged-dot" title="caught: ${teamCaughtHere.nickname} (${teamCaughtHere.species})"></span>`;
+      } else if (logged) {
+        const cls = logged.result==='caught' ? '' : (logged.result==='failed' ? 'failed' : 'skipped');
+        dot = `<span class="logged-dot ${cls}" title="${logged.result||'logged'}${logged.encounter?': '+logged.encounter:''}"></span>`;
+      }
+      return `<div class="enc-loc-item${selectedEncLocation===loc?' active':''}" onclick="setEncLocation('${loc.replace(/'/g,"\\'")}')">${loc}${dot}</div>`;
+    }).join('');
+    return `<div class="enc-group${collapsed?' collapsed':''}">
+      <div class="enc-group-hdr" onclick="toggleEncGroup('${g.name.replace(/'/g,"\\'")}')">
+        <span>${g.name}</span><span class="caret">▼</span>
+      </div>
+      <div class="enc-group-body">${itemsHtml}</div>
+    </div>`;
+  }).join('');
+
+  // Build main panel
+  let mainHtml;
+  if (!selectedEncLocation) {
+    mainHtml = `<div class="enc-empty">
+      <div style="font-size:24px;opacity:0.4;margin-bottom:8px">🗺️</div>
+      Select a location from the left to see its encounter table.<br>
+      <span style="font-size:11px">Currently viewing: <strong>${ver==='BD'?'Brilliant Diamond':'Shining Pearl'}</strong></span>
+    </div>`;
+  } else {
+    mainHtml = buildEncounterMain(selectedEncLocation, ver);
+  }
+
+  el.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+      <p class="slabel" style="margin-bottom:0">BDSP wild encounter reference</p>
+      <div class="ver-pill" title="Toggle which version's exclusives are shown">
+        <button class="${ver==='BD'?'active':''}" onclick="setRunVersion('BD')">Brilliant Diamond</button>
+        <button class="${ver==='SP'?'active':''}" onclick="setRunVersion('SP')">Shining Pearl</button>
+      </div>
+    </div>
+    <div class="enc-layout">
+      <div class="enc-rail">
+        <div class="enc-search">
+          <input type="text" placeholder="Search locations…" value="${encSearchQuery||''}" oninput="setEncSearch(this.value)">
+        </div>
+        ${railHtml || '<div class="enc-empty" style="padding:18px">No locations match.</div>'}
+      </div>
+      <div class="enc-main">${mainHtml}</div>
+    </div>
+  `;
+}
+
+function buildEncounterMain(loc, ver) {
+  let data = BDSP_ENCOUNTERS[loc];
+  // If no direct entry, but this is a root name with sub-zones, show a combined view
+  if (!data) {
+    const subzones = Object.keys(BDSP_ENCOUNTERS).filter(k => k !== loc && routeRoot(k) === loc);
+    if (subzones.length) {
+      // Synthesize a combined data object that points users to the sub-zones
+      data = {
+        type: 'route',
+        region: 'Sinnoh',
+        note: `Combined view across ${subzones.length} sub-zone${subzones.length>1?'s':''}: ${subzones.join(', ')}. Select a specific sub-zone in the left rail to see its encounter table.`,
+        methods: {}
+      };
+    } else {
+      return `<div class="enc-empty">No encounter data for ${loc}.</div>`;
+    }
+  }
+  const team = curTeam();
+  const aliveSpecies = new Set(team.filter(p=>p.alive).map(p=>(p.species||'').toLowerCase()));
+  // Build dupe-set including evolution-line members
+  const teamLineSet = new Set();
+  for (const p of team) {
+    if (!p.alive) continue;
+    const sp = (p.species||'').toLowerCase();
+    if (!sp) continue;
+    teamLineSet.add(sp);
+    // Also add pre-evolutions and post-evolutions of what we have
+    const info = pokeInfo(p.species);
+    if (info && info.e) {
+      const target = info.e[0].split('/')[0];
+      if (target) teamLineSet.add(target.toLowerCase());
+    }
+    // Pre-evolution: scan DB for things that evolve INTO this species
+    for (const k in POKEMON_DB) {
+      const e = POKEMON_DB[k].e;
+      if (e && (e[0]===p.species || e[0].split('/').includes(p.species))) {
+        teamLineSet.add(k.toLowerCase());
+      }
+    }
+  }
+  const deadSpecies = new Set(team.filter(p=>!p.alive).map(p=>(p.species||'').toLowerCase()));
+  const caughtRoutes = curRoutes().filter(rt => rt.result==='caught' && routesMatch(rt.route, loc));
+  const caughtAtThisLoc = new Set(caughtRoutes.map(rt => (rt.encounter||'').toLowerCase()));
+  // Also include any team-member caught at this location (handles direct adds via roster)
+  for (const p of team) {
+    if (routesMatch(p.route, loc) && p.species) {
+      caughtAtThisLoc.add(p.species.toLowerCase());
+    }
+  }
+
+  // Header
+  let html = `<div class="enc-header">
+    <div>
+      <div class="enc-loc-title">${loc}</div>
+      ${data.note?`<div class="enc-loc-sub">${data.note}</div>`:''}
+      <div class="enc-loc-sub" style="margin-top:6px;font-size:10px;color:var(--text3)">⚠ Wild encounter rates and tables may be incomplete. Always verify against the in-game encounter or Serebii / Bulbapedia. Tell Claude if you find a mismatch.</div>
+    </div>
+    <button class="hdr-btn" onclick="prefillEncounterLog('${loc.replace(/'/g,"\\'")}')">+ Log encounter here</button>
+  </div>`;
+
+  // ── "Your catches here" section: show team + route log entries for this loc
+  // Crucial: this shows the linkage even when my encounter data is missing/incorrect.
+  // Uses route-root matching so Route 205 (South) shows catches logged as "Route 205" or "Route 205 (North)".
+  const yourCatches = [];
+  // First pass: team members caught at this route (root match)
+  team.forEach((p, idx) => {
+    if (routesMatch(p.route, loc)) {
+      yourCatches.push({
+        species: p.species, nickname: p.nickname, level: p.level,
+        alive: p.alive !== false, source: 'roster', teamIdx: idx,
+        actualRoute: p.route  // preserve the original "Route 205 (North)" for display
+      });
+    }
+  });
+  // Second pass: route log entries. Dedup if linked to a shown team member,
+  // if encounter matches species/nickname, or if encounter contains team's species or nickname.
+  const norm = s => (s||'').toLowerCase().trim();
+  for (const rt of curRoutes()) {
+    if (!routesMatch(rt.route, loc)) continue;
+    const encLc = norm(rt.encounter);
+    const alreadyShown = yourCatches.some(c => {
+      if (c.source !== 'roster') return false;
+      // 1. Explicit linkage by team index
+      if (rt.linkedTeamIdx !== undefined && rt.linkedTeamIdx === c.teamIdx) return true;
+      if (!encLc) return false;
+      const spLc = norm(c.species);
+      const nickLc = norm(c.nickname);
+      // 2. Exact match either way
+      if (encLc === spLc || encLc === nickLc) return true;
+      // 3. Encounter string contains the species or nickname (handles "Misdreavus (Pearl)" case)
+      if (spLc && encLc.includes(spLc)) return true;
+      if (nickLc && encLc.includes(nickLc)) return true;
+      // 4. Species or nickname contains the encounter string (rare)
+      if (spLc && spLc.includes(encLc) && encLc.length > 2) return true;
+      return false;
+    });
+    if (alreadyShown) continue;
+    yourCatches.push({
+      species: rt.encounter, nickname: null, level: null,
+      alive: rt.result === 'caught', source: 'log', result: rt.result, note: rt.note,
+      actualRoute: rt.route
+    });
+  }
+  if (yourCatches.length) {
+    html += `<div class="enc-section">
+      <div class="enc-section-hdr"><span class="enc-method-label">Your catches / log entries here</span><span style="font-size:10px;color:var(--text3);margin-left:8px">(across all sub-zones)</span></div>
+      <div class="enc-grid">` + yourCatches.map(c => {
+        const stateClass = !c.alive ? ' dead' : ' caught';
+        const flag = c.source === 'roster'
+          ? `<span class="enc-flag caught">${c.alive?'in team':'fallen'}</span>`
+          : `<span class="enc-flag ${c.result==='caught'?'caught':(c.result==='failed'?'dead':'dupe')}">${c.result||'logged'}</span>`;
+        // Show "actual route" hint only when it differs from the location being viewed
+        const subzoneHint = (c.actualRoute && c.actualRoute !== loc)
+          ? `<span style="font-size:10px;color:var(--text3);margin-left:4px">@ ${c.actualRoute}</span>`
+          : '';
+        return `<div class="enc-poke${stateClass}">
+          ${spriteImg(c.species, {sm:true, faded:!c.alive})}
+          <div class="enc-poke-info">
+            <div class="enc-poke-name">${c.nickname || c.species || '?'}${c.nickname&&c.species&&c.nickname!==c.species?` <span style="font-size:10px;color:var(--text3)">(${c.species})</span>`:''}${flag}</div>
+            <div class="enc-poke-meta">
+              ${(pokeTypes(c.species)||[]).map(t=>`<span class="type-badge t-${t}">${t}</span>`).join('')}
+              ${c.level?`<span class="enc-poke-rate">L${c.level}</span>`:''}
+              ${subzoneHint}
+              ${c.note?`<span class="enc-poke-rate" style="font-style:italic">— ${c.note}</span>`:''}
+            </div>
+          </div>
+        </div>`;
+      }).join('') + `</div>
+    </div>`;
+  }
+
+  // Filter encounter entry for current version
+  const matchesVer = (e) => e.v === 'both' || e.v === ver;
+
+  // Render sections per method
+  const methods = data.methods || {};
+  for (const method of ['grass','surf','oldRod','goodRod','superRod','honey','special']) {
+    if (!methods[method]) continue;
+    const methodLabel = {
+      grass:'Walking (tall grass)', surf:'Surfing', oldRod:'Old Rod', goodRod:'Good Rod', superRod:'Super Rod', honey:'Honey tree', special:'Special'
+    }[method];
+    if (method === 'grass') {
+      // Grass may have morning/day/night or just 'all'
+      const grass = methods.grass;
+      const times = grass.all ? ['all'] : ['morning','day','night'].filter(t=>grass[t]);
+      const activeTime = grass.all ? 'all' : (times.includes(selectedEncTime) ? selectedEncTime : times[0]);
+      const list = (grass[activeTime] || []).filter(matchesVer);
+      const tabsHtml = grass.all ? '' : `<div class="enc-time-tabs">${times.map(t=>`<button class="${t===activeTime?'active':''}" onclick="setEncTime('${t}')">${t.charAt(0).toUpperCase()+t.slice(1)}</button>`).join('')}</div>`;
+      html += `<div class="enc-section">
+        <div class="enc-section-hdr">
+          <span class="enc-method-label">${methodLabel}</span>
+          ${tabsHtml}
+        </div>
+        ${renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver)}
+      </div>`;
+    } else {
+      const list = (methods[method] || []).filter(matchesVer);
+      if (!list.length) continue;
+      html += `<div class="enc-section">
+        <div class="enc-section-hdr"><span class="enc-method-label">${methodLabel}</span></div>
+        ${renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver)}
+      </div>`;
+    }
+  }
+  return html;
+}
+
+function renderEncList(list, teamLineSet, deadSpecies, caughtAtThisLoc, ver) {
+  if (!list.length) return `<div class="enc-empty" style="padding:12px;font-size:12px">No encounters of this method in your version.</div>`;
+  return `<div class="enc-grid">` + list.map(e => {
+    const speciesLc = e.p.toLowerCase();
+    const isDupe = teamLineSet.has(speciesLc);
+    const isDead = deadSpecies.has(speciesLc);
+    const isCaught = caughtAtThisLoc.has(speciesLc);
+    let stateClass = '';
+    if (isCaught) stateClass = ' caught';
+    else if (isDead) stateClass = ' dead';
+    else if (isDupe) stateClass = ' dupe';
+    let flag = '';
+    if (isCaught) flag = '<span class="enc-flag caught">caught</span>';
+    else if (isDead) flag = '<span class="enc-flag dead">fallen</span>';
+    else if (isDupe) flag = '<span class="enc-flag dupe">dupe</span>';
+    const verTag = e.v !== 'both' ? `<span class="ver-tag ${e.v}">${e.v}</span>` : '';
+    const lvStr = e.lv[0]===e.lv[1] ? `L${e.lv[0]}` : `L${e.lv[0]}-${e.lv[1]}`;
+    return `<div class="enc-poke${stateClass}" title="${e.note||''}">
+      ${spriteImg(e.p, {sm:true, faded:isDead||isDupe})}
+      <div class="enc-poke-info">
+        <div class="enc-poke-name">${e.p}${verTag}${flag}</div>
+        <div class="enc-poke-meta">
+          ${(pokeTypes(e.p)||[]).map(t=>`<span class="type-badge t-${t}">${t}</span>`).join('')}
+          <span class="enc-poke-rate">${lvStr}${e.r?` · ${e.r}%`:''}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('') + `</div>`;
+}
+
+function prefillEncounterLog(loc) {
+  // Switch to the route log tab and open the add-encounter modal pre-filled
+  editIdx = null; editRouteIdx = null;
+  document.getElementById('modal-title').textContent='Log encounter';
+  document.getElementById('modal-body').innerHTML=routeForm({route:loc});
+  openModal();
+}
+
 function setCap(v) { curRun().cap = v||null; save(); renderCap(); renderMatchup(); }
 function closeModal() { document.getElementById('overlay').classList.remove('open'); }
 function openModal() { document.getElementById('overlay').classList.add('open'); }
@@ -1756,15 +3533,227 @@ function openAdd(mode) {
 function openEdit(idx) {
   editIdx = idx;
   const p = curTeam()[idx];
-  document.getElementById('modal-title').textContent=`Edit — ${p.nickname}`;
-  document.getElementById('modal-body').innerHTML=pokeForm(p,true);
+  document.getElementById('modal-title').textContent = p.nickname;
+  document.getElementById('modal-body').innerHTML=pokeView(p, idx);
   openModal();
+  // Auto-load learnset section
+  setTimeout(()=>renderPokeViewLearnset(idx), 50);
+}
+function openEditForm(idx) {
+  editIdx = idx;
+  const p = curTeam()[idx];
+  document.getElementById('modal-title').textContent = `Edit — ${p.nickname}`;
+  document.getElementById('modal-body').innerHTML=pokeForm(p, true);
 }
 function openEditRoute(idx) {
   editRouteIdx = idx;
   document.getElementById('modal-title').textContent='Edit encounter';
   document.getElementById('modal-body').innerHTML=routeForm(curRoutes()[idx],true);
   openModal();
+}
+
+// Renders the rich detail view (default modal content when clicking a card)
+function pokeView(p, idx) {
+  const info = pokeInfo(p.species);
+  const types = [p.type1, p.type2].filter(Boolean);
+  const moveList = (typeof p.moves === 'string')
+    ? p.moves.split(',').map(s=>s.trim()).filter(Boolean)
+    : (Array.isArray(p.moves) ? p.moves.filter(Boolean) : []);
+  const sprite = p.species && pokeId(p.species)
+    ? `<img src="${spriteUrl(p.species)}" alt="${p.species}" onerror="this.style.display='none'">`
+    : `<div style="color:var(--text3);font-size:11px">no sprite</div>`;
+  // Stats with bars (relative to 180 cap)
+  let statsHtml = '';
+  if (info && info.s) {
+    const labels = ['HP','Atk','Def','SpA','SpD','Spe'];
+    statsHtml = `<div class="stat-bars">` + info.s.map((v,i) => {
+      const pct = Math.min(100, Math.round(v / 180 * 100));
+      const cls = v >= 100 ? 'high' : (v <= 50 ? 'low' : '');
+      return `<span class="sb-label">${labels[i]}</span><span class="sb-wrap"><span class="sb-fill ${cls}" style="width:${pct}%"></span></span><span class="sb-val">${v}</span>`;
+    }).join('') + `</div>`;
+    const bst = info.s.reduce((a,b)=>a+b,0);
+    statsHtml += `<div style="margin-top:6px;font-size:11px;color:var(--text3);text-align:right">BST ${bst}</div>`;
+  }
+  // Weaknesses/resistances based on assigned types
+  let weakHtml = '';
+  if (types.length) {
+    const ALL_TYPES = ['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
+    const mults = {};
+    for (const atk of ALL_TYPES) {
+      const m = effectiveness(atk, types[0], types[1] || null);
+      if (m !== 1) mults[atk] = m;
+    }
+    const sorted = Object.entries(mults).sort((a,b)=>b[1]-a[1]);
+    if (sorted.length) {
+      weakHtml = `<div class="weakness-grid">` + sorted.map(([t,m]) => {
+        const cls = m===4?'x4':(m===2?'x2':(m===0.5?'x05':(m===0.25?'x025':(m===0?'x0':''))));
+        const lbl = m===0?'×0':(m===0.25?'×¼':(m===0.5?'×½':`×${m}`));
+        return `<div class="weak-pill ${cls}"><span>${t}</span><span class="wp-mult">${lbl}</span></div>`;
+      }).join('') + `</div>`;
+    }
+  }
+  // Moves with type badges
+  const movesHtml = `<div class="pv-moves">` + [0,1,2,3].map(i => {
+    const m = moveList[i];
+    if (!m) return `<div class="pv-move"><span class="pv-move-empty">— empty slot —</span></div>`;
+    const t = getMoveType(m);
+    const pwr = movePower(m);
+    const cat = moveCategory(m);
+    return `<div class="pv-move">${t?`<span class="type-badge t-${t}">${t}</span>`:''}<span class="pv-move-name">${m}</span>${pwr?`<span style="font-size:10px;color:var(--text3)">${pwr}${cat==='P'?' Ph':cat==='S'?' Sp':''}</span>`:''}</div>`;
+  }).join('') + `</div>`;
+  // Evolution info
+  const evo = getEvolution(p.species);
+  const evoMethod = evo ? (typeof evo.method === 'number' ? `Lv ${evo.method}` : evo.method) : '';
+  // Actions
+  const isAlive = p.alive !== false;
+  const evoBtnHtml = (isAlive && evo)
+    ? `<button class="btn-edit" onclick="if(confirm('Evolve ${p.nickname} into ${evo.target}?'))evolvePoke(${idx})">→ Evolve to ${evo.target} <span style="font-size:10px;opacity:.75">(${evoMethod})</span></button>`
+    : '';
+  return `
+    <div class="pv-header">
+      <div class="pv-sprite">${sprite}</div>
+      <div class="pv-headline">
+        <div class="pv-nick">${p.nickname}${isAlive?'':' <span style="font-size:13px;color:var(--red)">💀</span>'}</div>
+        <div class="pv-species">${p.species || 'Unknown'}${info?` · ${info.t.join('/')}`:''}</div>
+        <div class="pv-types">${typeBadge(p.type1)}${typeBadge(p.type2)}</div>
+        <span class="pv-lv-badge">Lv ${p.level || '?'}</span>
+        ${p.inParty?'<span class="pv-lv-badge" style="border-color:rgba(108,143,255,.4);background:var(--accent-bg);color:var(--accent);margin-left:6px">In party</span>':''}
+      </div>
+      <div class="pv-actions">
+        <button class="btn-edit" onclick="openEditForm(${idx})">✎ Edit</button>
+        ${evoBtnHtml}
+        ${isAlive?`<button onclick="markDead(${idx})">☠ Mark dead</button>`:''}
+        <button onclick="if(confirm('Remove ${p.nickname} entirely?'))deletePoke(${idx})">🗑</button>
+      </div>
+    </div>
+
+    <div class="pv-section">
+      ${p.route?`<div class="pv-row"><span class="pv-label">Caught</span><span class="pv-val">${p.route}</span></div>`:''}
+      ${p.ability?`<div class="pv-row"><span class="pv-label">Ability</span><span class="pv-val">${p.ability}</span></div>`:''}
+      ${p.nature?`<div class="pv-row"><span class="pv-label">Nature</span><span class="pv-val">${p.nature}</span></div>`:''}
+      ${p.held?`<div class="pv-row"><span class="pv-label">Item</span><span class="pv-val">${p.held}</span></div>`:''}
+      ${p.notes?`<div class="pv-row"><span class="pv-label">Notes</span><span class="pv-val" style="font-style:italic">${p.notes}</span></div>`:''}
+      ${!isAlive&&p.causeOfDeath?`<div class="pv-row"><span class="pv-label">Cause</span><span class="pv-val" style="color:var(--red)">${p.causeOfDeath}</span></div>`:''}
+    </div>
+
+    ${statsHtml?`<div class="pv-section"><div class="pv-section-title">Base stats</div>${statsHtml}</div>`:''}
+
+    ${weakHtml?`<div class="pv-section"><div class="pv-section-title">Type matchups (defending)</div>${weakHtml}</div>`:''}
+
+    <div class="pv-section"><div class="pv-section-title">Moves</div>${movesHtml}</div>
+
+    <div class="pv-section">
+      <div class="pv-section-title">Level-up moves & planner</div>
+      <div id="pv-learnset-container"><div class="learnset-loading">Loading…</div></div>
+    </div>
+  `;
+}
+
+// Asynchronously render the learnset section into the open detail view
+async function renderPokeViewLearnset(idx) {
+  const container = document.getElementById('pv-learnset-container');
+  if (!container) return;
+  const p = curTeam()[idx];
+  if (!p || !p.species) { container.innerHTML = '<div class="learnset-loading">No species selected.</div>'; return; }
+  const ls = await fetchLearnset(p.species);
+  if (!ls.length) { container.innerHTML = '<div class="learnset-loading">No learnset data available offline. (PokeAPI fetch may have failed — check your connection.)</div>'; return; }
+  const info = pokeInfo(p.species);
+  const ownTypes = info ? info.t : [p.type1, p.type2].filter(Boolean);
+  const ownStats = info ? info.s : null;
+  const currentMoves = (typeof p.moves === 'string')
+    ? p.moves.split(',').map(s=>s.trim()).filter(Boolean)
+    : (Array.isArray(p.moves) ? p.moves.filter(Boolean) : []);
+  const ownedCanon = new Set(currentMoves.map(m => (resolveMove(m)||m).toLowerCase()));
+  const lv = p.level || 0;
+  const already = ls.filter(m => m.lv <= lv);
+  const upcoming = ls.filter(m => m.lv > lv);
+
+  // Score current moves
+  const currentScored = currentMoves.map(m => ({ name:m, ...scoreMove(m, ownTypes, ownStats) }));
+  // The weakest current slot (lowest score) — only meaningful if you have 4 slots
+  const sortedCurrent = [...currentScored].sort((a,b) => a.score - b.score);
+
+  // For each upcoming move, decide whether it's worth recommending and which slot to replace
+  const suggestions = [];
+  for (const u of upcoming.slice(0, 12)) {
+    if (ownedCanon.has(u.name.toLowerCase())) continue; // already known
+    const upScore = scoreMove(u.name, ownTypes, ownStats);
+    // Only consider clearly worthwhile additions (score > 50) OR clear STAB
+    if (upScore.score < 45) continue;
+    let bestSwap = null;
+    let bestDelta = 0;
+    if (currentMoves.length >= 4) {
+      for (const c of currentScored) {
+        const delta = upScore.score - c.score;
+        // Need a meaningful improvement (>15 score points) AND not replacing a key utility
+        if (delta > bestDelta && delta >= 15) {
+          // Don't suggest replacing a unique status condition if upcoming doesn't replace it
+          const cEff = moveEffect(c.name) || '';
+          const uEff = moveEffect(u.name) || '';
+          const cIsKeyUtil = /sleep|badpoison|paralysis|burn|sub|heal|spaup\+2|atkup\+2|spdup\+2|atkup\+spdup|spaup\+spdup|trap/.test(cEff);
+          if (cIsKeyUtil && !uEff) continue;
+          bestSwap = c;
+          bestDelta = delta;
+        }
+      }
+    }
+    suggestions.push({ move: u, score: upScore, swap: bestSwap, delta: bestDelta });
+  }
+  // Build HTML
+  const stabBadge = (mname) => {
+    const t = getMoveType(mname);
+    const cat = moveCategory(mname);
+    const isDamaging = cat === 'P' || cat === 'S';
+    return isDamaging && t && ownTypes.includes(t) ? '<span class="pv-ls-flag stab">STAB</span>' : '';
+  };
+  const recentAlready = already.slice(-3);
+  const lsRows = [];
+  for (const m of recentAlready) {
+    const owned = ownedCanon.has(m.name.toLowerCase());
+    const t = getMoveType(m.name);
+    lsRows.push(`<div class="pv-ls-row already${owned?' owned':''}">
+      <span class="pv-ls-lv">L${m.lv}</span>
+      ${t?`<span class="type-badge t-${t}">${t}</span>`:''}
+      <span class="pv-ls-name">${m.name}</span>
+      ${stabBadge(m.name)}
+      ${owned?'<span class="pv-ls-flag owned">✓ known</span>':''}
+    </div>`);
+  }
+  for (let i=0; i<Math.min(10, upcoming.length); i++) {
+    const m = upcoming[i];
+    const t = getMoveType(m.name);
+    const isNext = i === 0;
+    lsRows.push(`<div class="pv-ls-row${isNext?' next':''}">
+      <span class="pv-ls-lv">L${m.lv}</span>
+      ${t?`<span class="type-badge t-${t}">${t}</span>`:''}
+      <span class="pv-ls-name">${m.name}</span>
+      ${stabBadge(m.name)}
+      ${isNext?'<span class="pv-ls-flag next">next</span>':''}
+    </div>`);
+  }
+  let suggHtml = '';
+  if (suggestions.length) {
+    const s = suggestions[0];
+    const upT = getMoveType(s.move.name);
+    const upPwr = movePower(s.move.name);
+    const upCat = moveCategory(s.move.name);
+    const upEff = moveEffect(s.move.name);
+    let body = `<div class="pv-suggest-title">At Lv ${s.move.lv} — <strong>${s.move.name}</strong> ${upT?'('+upT+')':''} ${upPwr?upPwr+' BP':''} ${upCat==='P'?'physical':upCat==='S'?'special':'status'}${s.score.label==='STAB'?' · STAB':''}</div>`;
+    if (s.swap) {
+      const swapT = getMoveType(s.swap.name);
+      body += `Consider replacing <strong>${s.swap.name}</strong>${swapT?` (${swapT})`:''} — this move scores noticeably higher for your set.`;
+      if (s.swap.role === 'util') body += ` Trade-off: you'd lose ${s.swap.name}'s utility, so weigh whether you still need it.`;
+    } else if (currentMoves.length < 4) {
+      body += `You have an empty slot — pick it up freely.`;
+    } else {
+      body += `Worth a look, but no current move scores low enough to make this an obvious swap. Compare manually.`;
+    }
+    if (upEff && /recoil|charge|recharge/.test(upEff)) body += `<br><span style="color:var(--text3);font-size:11px">Note: ${upEff.replace(/,/g,', ')}.</span>`;
+    suggHtml = `<div class="pv-suggest">${body}</div>`;
+  } else if (upcoming.length === 0) {
+    suggHtml = `<div class="pv-suggest" style="background:var(--bg3);border-color:var(--border);color:var(--text3)">No more level-up moves to learn.</div>`;
+  }
+  container.innerHTML = `<div class="pv-learnset">${lsRows.join('')}</div>${suggHtml}`;
 }
 
 function pokeForm(p, isEdit) {
@@ -1777,8 +3766,8 @@ function pokeForm(p, isEdit) {
   while (moveArr.length < 4) moveArr.push('');
   return `
     <div class="frow">
-      <div><div class="flabel">Nickname *</div><input type="text" id="f-nick" value="${p.nickname||''}"></div>
-      <div><div class="flabel">Species *</div><input type="text" id="f-species" value="${p.species||''}"></div>
+      <div><div class="flabel">Nickname *</div><input type="text" id="f-nick" value="${(p.nickname||'').replace(/"/g,'&quot;')}"></div>
+      <div><div class="flabel">Species *</div>${searchableDropdown('f-species', p.species||'', 'species')}</div>
     </div>
     <div class="frow3">
       <div><div class="flabel">Type 1 *</div><select id="f-type1"><option value="">—</option>${typeOpts(p.type1)}</select></div>
@@ -1786,12 +3775,12 @@ function pokeForm(p, isEdit) {
       <div><div class="flabel">Level</div><input type="number" id="f-level" min="1" max="100" value="${p.level||''}"></div>
     </div>
     <div class="frow">
-      <div><div class="flabel">Route / location</div><input type="text" id="f-route" value="${p.route||''}"></div>
+      <div><div class="flabel">Route / location</div>${searchableDropdown('f-route', p.route||'', 'route')}</div>
       <div><div class="flabel">Ability</div>${searchableDropdown('f-ability', p.ability||'', 'ability')}</div>
     </div>
     <div class="frow">
       <div><div class="flabel">Nature</div><select id="f-nature">${natureOpts(p.nature)}</select></div>
-      <div><div class="flabel">Held item</div><input type="text" id="f-held" value="${p.held||''}"></div>
+      <div><div class="flabel">Held item</div><input type="text" id="f-held" value="${(p.held||'').replace(/"/g,'&quot;')}"></div>
     </div>
     <div class="flabel" style="margin-top:4px">Moves</div>
     <div class="frow">
@@ -1802,20 +3791,19 @@ function pokeForm(p, isEdit) {
       <div>${searchableDropdown('f-move-2', moveArr[2], 'move')}</div>
       <div>${searchableDropdown('f-move-3', moveArr[3], 'move')}</div>
     </div>
-    <div class="mfone"><div class="flabel">Notes</div><input type="text" id="f-notes" value="${p.notes||''}"></div>
+    <div class="mfone"><div class="flabel">Notes</div><input type="text" id="f-notes" value="${(p.notes||'').replace(/"/g,'&quot;')}"></div>
     <div class="faction">
       <button class="btn-save" onclick="submitPoke()">${isEdit?'Save changes':'Add'}</button>
-      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-      ${isEdit&&curTeam()[editIdx]&&curTeam()[editIdx].alive?`<button class="btn-danger ml-auto" onclick="markDead(${editIdx})">☠ Mark dead</button>`:''}
-      ${isEdit?`<button class="btn-danger" onclick="deletePoke(${editIdx})">🗑</button>`:''}
+      <button class="btn-cancel" onclick="${isEdit?`openEdit(${editIdx})`:'closeModal()'}">Cancel</button>
+      ${isEdit?`<button class="btn-danger" onclick="if(confirm('Remove this Pokémon entirely?'))deletePoke(${editIdx})" style="margin-left:auto">🗑 Delete</button>`:''}
     </div>`;
 }
 
-// Render a searchable dropdown. kind: 'move' or 'ability'.
+// Render a searchable dropdown. kind: 'move' | 'ability' | 'species'.
 function searchableDropdown(id, value, kind) {
   const moveType = kind === 'move' && value ? getMoveType(value) : null;
   const badge = moveType ? `<span class="sd-type-badge type-badge t-${moveType}" id="${id}-badge">${moveType}</span>` : '';
-  const placeholder = kind === 'move' ? 'Search moves…' : 'Search abilities…';
+  const placeholder = kind === 'move' ? 'Search moves…' : (kind === 'species' ? 'Search Pokémon…' : (kind === 'route' ? 'Search locations…' : 'Search abilities…'));
   const inputClass = moveType ? 'sd-input with-type' : 'sd-input';
   return `<div class="sd-wrap" data-kind="${kind}">
     ${badge}
@@ -1837,6 +3825,20 @@ function sdFilter(input, kind) {
   // Data source
   let items;
   if (kind === 'move') items = Object.keys(MOVES);
+  else if (kind === 'species') items = Object.keys(POKEMON_DB).sort();
+  else if (kind === 'route') {
+    // Use BDSP locations if BDSP run, otherwise routes already used in this run
+    if (curGame() === 'shining_pearl' && typeof BDSP_ENCOUNTERS === 'object') {
+      // Root names first (preferred for logging), then sub-zones for reference
+      items = getRouteAutocompleteList();
+    } else {
+      // Pull unique route names from existing route log + team for non-BDSP games
+      const seen = new Set();
+      curRoutes().forEach(r => r.route && seen.add(r.route));
+      curTeam().forEach(p => p.route && seen.add(p.route));
+      items = [...seen].sort();
+    }
+  }
   else items = ABILITIES;
   // Filter
   let filtered;
@@ -1856,9 +3858,29 @@ function sdFilter(input, kind) {
     list.innerHTML = `<div class="sd-empty">No matches — keep typing or save as custom text</div>`;
   } else {
     list.innerHTML = filtered.map((name, i) => {
-      const type = kind === 'move' ? MOVES[name] : null;
-      const typeBadgeHtml = type ? `<span class="type-badge t-${type}">${type}</span>` : '';
-      return `<div class="sd-item${i===0?' active':''}" onmousedown="sdPick('${input.id}', '${kind}', ${JSON.stringify(name).replace(/"/g,'&quot;')})">${typeBadgeHtml}<span class="sd-item-name">${name}</span></div>`;
+      let badgeHtml = '';
+      let suffix = '';
+      if (kind === 'move') {
+        const type = MOVES[name];
+        badgeHtml = type ? `<span class="type-badge t-${type}">${type}</span>` : '';
+      } else if (kind === 'species') {
+        const info = pokeInfo(name);
+        const types = info ? info.t : [];
+        badgeHtml = types.map(t=>`<span class="type-badge t-${t}">${t}</span>`).join('');
+      } else if (kind === 'route') {
+        // For root routes that have sub-zones, hint at it.
+        // For sub-zones, indicate they share a root.
+        if (typeof BDSP_ENCOUNTERS === 'object' && BDSP_ENCOUNTERS) {
+          const isInDB = !!BDSP_ENCOUNTERS[name];
+          const subCount = routeSubzoneCount(name);
+          if (subCount > 0 && !name.includes('(')) {
+            suffix = `<span style="font-size:10px;color:var(--text3);margin-left:auto">${subCount} sub-zones</span>`;
+          } else if (name.includes('(') && isInDB) {
+            suffix = `<span style="font-size:10px;color:var(--text3);margin-left:auto">sub-zone</span>`;
+          }
+        }
+      }
+      return `<div class="sd-item${i===0?' active':''}" onmousedown="sdPick('${input.id}', '${kind}', ${JSON.stringify(name).replace(/"/g,'&quot;')})">${badgeHtml}<span class="sd-item-name">${name}</span>${suffix}</div>`;
     }).join('');
   }
   list.classList.add('open');
@@ -1875,6 +3897,43 @@ function sdPick(id, kind, name) {
   input.value = name;
   sdUpdateBadge(id, kind);
   sdClose(input);
+  // Species pick → autofill type1/type2 and refresh ability options to that species' abilities
+  if (kind === 'species' && id === 'f-species') {
+    const info = pokeInfo(name);
+    if (info) {
+      const t1 = info.t[0] || '';
+      const t2 = info.t[1] || '';
+      const s1 = document.getElementById('f-type1');
+      const s2 = document.getElementById('f-type2');
+      if (s1) s1.value = t1;
+      if (s2) s2.value = t2;
+      // If current ability isn't in this species' abilities, suggest the first one
+      const abInput = document.getElementById('f-ability');
+      if (abInput) {
+        const cur = abInput.value.trim();
+        if (!cur || !info.a.includes(cur)) {
+          abInput.value = info.a[0] || '';
+        }
+      }
+      // Re-render the evolve button state
+      refreshEvolveBtn();
+    }
+  }
+}
+
+function refreshEvolveBtn() {
+  const btn = document.getElementById('f-evolve-btn');
+  if (!btn) return;
+  const speciesInput = document.getElementById('f-species');
+  if (!speciesInput) return;
+  const evo = getEvolution(speciesInput.value);
+  if (evo) {
+    btn.style.display = '';
+    const method = typeof evo.method === 'number' ? `Lv ${evo.method}` : evo.method;
+    btn.innerHTML = `→ Evolve to ${evo.target} <span style="font-size:10px;opacity:0.75">(${method})</span>`;
+  } else {
+    btn.style.display = 'none';
+  }
 }
 
 function sdClear(id, kind) {
@@ -1933,8 +3992,8 @@ function sdKey(e, input, kind) {
 function routeForm(r, isEdit) {
   return `
     <div class="frow">
-      <div><div class="flabel">Route / Area *</div><input type="text" id="r-route" value="${r.route||''}"></div>
-      <div><div class="flabel">Pokémon encountered</div><input type="text" id="r-enc" value="${r.encounter||''}"></div>
+      <div><div class="flabel">Route / Area *</div>${searchableDropdown('r-route', r.route||'', 'route')}</div>
+      <div><div class="flabel">Pokémon encountered</div>${searchableDropdown('r-enc', r.encounter||'', 'species')}</div>
     </div>
     <div class="frow">
       <div><div class="flabel">Result</div>
@@ -1958,7 +4017,8 @@ function submitPoke() {
   const species = document.getElementById('f-species').value.trim();
   const type1 = document.getElementById('f-type1').value;
   if (!nick||!species||!type1) { showToast('Nickname, species, and Type 1 are required','error'); return; }
-  const team = curRun().team;
+  const run = curRun();
+  const team = run.team;
   const prev = editIdx!==null ? team[editIdx] : {};
   // Collect 4 move slots
   const moves = [];
@@ -1979,10 +4039,40 @@ function submitPoke() {
     notes:document.getElementById('f-notes').value.trim(),
     alive:prev.alive!==undefined?prev.alive:true,
     inParty:prev.inParty||false,
-    causeOfDeath:prev.causeOfDeath
+    causeOfDeath:prev.causeOfDeath,
+    caughtAt: prev.caughtAt || Date.now(),
+    deathAt: prev.deathAt,
+    events: prev.events || []
   };
   if (editIdx!==null) team[editIdx]=obj;
   else team.push(obj);
+
+  // ── Link to routes log: if route is set, ensure there's a matching 'caught' entry
+  if (obj.route) {
+    const routes = run.routes;
+    const existing = routes.find(r =>
+      routesMatch(r.route, obj.route) &&
+      ((r.encounter||'').toLowerCase() === obj.species.toLowerCase()
+       || (r.encounter||'').toLowerCase() === obj.nickname.toLowerCase()
+       || !r.encounter)
+    );
+    if (existing) {
+      // Refresh the linkage info
+      existing.encounter = obj.species;
+      existing.result = 'caught';
+      existing.linkedTeamIdx = editIdx !== null ? editIdx : team.length - 1;
+    } else {
+      routes.push({
+        route: obj.route,
+        encounter: obj.species,
+        result: 'caught',
+        note: '',
+        linkedTeamIdx: editIdx !== null ? editIdx : team.length - 1,
+        autoLogged: true
+      });
+    }
+  }
+
   save(); render(); closeModal();
   showToast(editIdx!==null?'Changes saved':`${nick} added`,'success');
 }
@@ -1992,8 +4082,15 @@ function submitRoute() {
   if (!route) { showToast('Route name is required','error'); return; }
   const obj = {route, encounter:document.getElementById('r-enc').value.trim(), result:document.getElementById('r-result').value, note:document.getElementById('r-note').value.trim()};
   const r = curRun().routes;
-  if (editRouteIdx!==null) r[editRouteIdx]=obj;
-  else r.push(obj);
+  if (editRouteIdx!==null) {
+    // Preserve linkage fields
+    const prev = r[editRouteIdx];
+    if (prev.linkedTeamIdx !== undefined) obj.linkedTeamIdx = prev.linkedTeamIdx;
+    if (prev.autoLogged) obj.autoLogged = prev.autoLogged;
+    r[editRouteIdx]=obj;
+  } else {
+    r.push(obj);
+  }
   save(); render(); closeModal();
   showToast(editRouteIdx!==null?'Entry updated':'Encounter logged','success');
 }
@@ -2009,6 +4106,7 @@ function markDead(idx) {
   const team = curRun().team;
   const cause = prompt(`What killed ${team[idx].nickname}?`)||'Unknown';
   team[idx].alive = false; team[idx].inParty = false; team[idx].causeOfDeath = cause;
+  team[idx].deathAt = Date.now();
   save(); render(); closeModal();
   showToast(`${team[idx].nickname} moved to graveyard`,'error');
 }
