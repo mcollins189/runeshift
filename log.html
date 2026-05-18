@@ -6074,10 +6074,89 @@ function buildEncounterMainFromTables(locName, ver, game) {
     return { p: sp, lv: null, r: chance, v: vTag, apiId: bf?.id || null };
   };
 
-  // Sort level groups ascending so walking pools surface above surf/fishing.
-  const sortedGroups = [...groups.values()].sort((a,b) => a.lvMin - b.lvMin || a.lvMax - b.lvMax);
+  // Detect whether the data carries method tags (BDSP files include grass / surf /
+  // oldRod / goodRod / superRod tags per table). USUM doesn't — it falls through
+  // to the level-range grouping below.
+  const hasMethods = uniquePools.some(p => p.method);
 
-  // Global Day/Night tabs — applied across every pool section in this view.
+  if (hasMethods) {
+    // METHOD-BASED RENDERING: one section per method (Walking / Surfing / Old Rod /
+    // Good Rod / Super Rod), with sub-pools inside when a method has multiple slot
+    // tables (e.g. Route 205 grass split N/S). Day/Night tabs live inside the
+    // grass section since only grass varies by time of day for BDSP.
+    const METHOD_LABELS = {
+      grass: 'Walking (tall grass)', surf: 'Surfing',
+      oldRod: 'Old Rod', goodRod: 'Good Rod', superRod: 'Super Rod',
+      honey: 'Honey tree', rockSmash: 'Rock Smash',
+    };
+    const METHOD_ORDER = ['grass', 'surf', 'oldRod', 'goodRod', 'superRod', 'honey', 'rockSmash'];
+
+    const byMethod = new Map();
+    for (const p of uniquePools) {
+      const m = p.method || 'other';
+      if (!byMethod.has(m)) byMethod.set(m, []);
+      byMethod.get(m).push(p);
+    }
+    const orderedMethods = METHOD_ORDER.filter(m => byMethod.has(m))
+      .concat([...byMethod.keys()].filter(m => !METHOD_ORDER.includes(m)));
+
+    // Determine which time tab to use for grass — only grass cares about day/night
+    // here. Default to selectedEncTime when valid, else fall back to day.
+    const grassPools = byMethod.get('grass') || [];
+    const anyDay = grassPools.some(p => p.day.length);
+    const anyNight = grassPools.some(p => p.night.length);
+    const activeTime = (selectedEncTime === 'night' && anyNight) ? 'night' : (anyDay ? 'day' : 'night');
+
+    const renderPoolSections = (pools, time, method) => {
+      // Sort pools by level range ascending so easier ones surface first.
+      const sortedPools = [...pools].sort((a,b) => a.lvMin - b.lvMin || a.lvMax - b.lvMax);
+      const tag = (i) => sortedPools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '';
+      return sortedPools.map((p, i) => {
+        const vTag = poolVerTag(p);
+        const entries = p[time].map(e => toRenderEntry(e.species, e.chance, vTag))
+          .filter(matchesVer).sort((a,b) => b.r - a.r);
+        if (!entries.length) return '';
+        const total = entries.reduce((s,e) => s + e.r, 0);
+        const lvLabel = p.lvMin === p.lvMax ? `Lv ${p.lvMin}` : `Lv ${p.lvMin}–${p.lvMax}`;
+        const verBadge = vTag !== 'both' ? ` <span class="ver-tag ${vTag}" style="margin-left:4px">${vTag}-only</span>` : '';
+        return `<div style="margin-top:${i?6:0}px">
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px">${lvLabel}${tag(i)}${verBadge} · ${entries.length} species · ${total}%</div>
+          ${renderEncList(entries, teamLineSet, deadSpecies, caughtAtThisLoc, ver, locName)}
+        </div>`;
+      }).filter(Boolean).join('');
+    };
+
+    const sections = orderedMethods.map(method => {
+      const pools = byMethod.get(method);
+      const label = METHOD_LABELS[method] || method;
+      let timeTabsHtml = '';
+      let renderTime = 'day';
+      if (method === 'grass') {
+        const tabs = [];
+        if (anyDay) tabs.push(['day','Day']);
+        if (anyNight) tabs.push(['night','Night']);
+        if (tabs.length > 1) {
+          timeTabsHtml = `<div class="enc-time-tabs">${tabs.map(([k,label])=>`<button class="${k===activeTime?'active':''}" onclick="setEncTime('${k}')">${label}</button>`).join('')}</div>`;
+        }
+        renderTime = activeTime;
+      }
+      const inner = renderPoolSections(pools, renderTime, method);
+      if (!inner) return '';
+      return `<div class="enc-section">
+        <div class="enc-section-hdr">
+          <span class="enc-method-label">${label}</span>
+          ${timeTabsHtml}
+        </div>
+        ${inner}
+      </div>`;
+    }).filter(Boolean).join('');
+
+    return sections || '<div class="enc-empty" style="padding:12px">No species in this time of day.</div>';
+  }
+
+  // METHODLESS RENDERING (USUM and any other source without method tags) — group
+  // by level range with a global Day/Night tab.
+  const sortedGroups = [...groups.values()].sort((a,b) => a.lvMin - b.lvMin || a.lvMax - b.lvMax);
   const anyNight = sortedGroups.some(g => g.pools.some(p => p.night.length));
   const anyDay = sortedGroups.some(g => g.pools.some(p => p.day.length));
   const activeTime = (selectedEncTime === 'night' && anyNight) ? 'night' : (anyDay ? 'day' : 'night');
@@ -6089,8 +6168,6 @@ function buildEncounterMainFromTables(locName, ver, game) {
     : '';
 
   const sections = sortedGroups.flatMap(g => {
-    // Sort pools within a level group by total chance (most populated first)
-    // so the "primary" sub-area surfaces above edge-case pools.
     const sortedPools = [...g.pools].sort((a,b) => {
       const sumA = a[activeTime].reduce((s,e)=>s+e.chance, 0);
       const sumB = b[activeTime].reduce((s,e)=>s+e.chance, 0);
