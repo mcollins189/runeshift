@@ -6018,24 +6018,66 @@ function buildEncounterMainFromTables(locName, ver, game) {
     return `<div class="enc-empty" style="padding:18px">No wild encounter data for "${locName}". This is likely a trainer-only location — see the Bosses or Route log tabs.</div>`;
   }
 
-  // Dedup pools by content signature. The ROM dump re-uses the same encounter
-  // table block across multiple Map IDs (e.g., Map 000/003/010 share 18 tables);
-  // when we expand the bundle, every name accumulates redundant copies of the
-  // same pool. Signature dedup collapses those back so each unique slot table
-  // appears once. Cross-version: same signature in both versions → v='both';
-  // otherwise → v=that single version, so version-exclusive pools surface.
+  // Match pools across versions by STRUCTURAL key (mapId + tableN + lvRange +
+  // method), then merge species within each matched pool. This way Eterna Forest
+  // Night gets ONE pool containing Wurmple ('both'), Silcoon ('both'),
+  // Murkrow ('BD'), Misdreavus ('SP'), etc. — instead of two pools each tagged
+  // as version-exclusive. Per-species version tagging is much more useful than
+  // per-pool tagging.
+  //
+  // Note: pre-merge intra-version sig-dedup would be unsafe — different Map IDs
+  // with same content could be chosen as "the representative" inconsistently
+  // across versions, breaking the structural match. We sig-dedup AFTER cross-
+  // version merge so any pure duplicates still collapse.
   const sigOf = (pool) => {
-    const enc = arr => [...arr].sort((a,b) => a.species.localeCompare(b.species)).map(e => `${e.species}:${e.chance}`).join('|');
-    return `${pool.lvMin}-${pool.lvMax}#D:${enc(pool.day)}#N:${enc(pool.night)}`;
+    const enc = arr => [...arr].sort((a,b) => a.species.localeCompare(b.species)).map(e => `${e.species}:${e.chance}:${[...(e._vers||[])].sort().join(',')}`).join('|');
+    return `${pool.lvMin}-${pool.lvMax}#M:${pool.method||''}#D:${enc(pool.day)}#N:${enc(pool.night)}`;
   };
-  const sigToPool = new Map();
+
+  // Step 1: cross-version merge by structural key. Within each merged pool,
+  // species accumulate per-species version sets.
+  const structMap = new Map();
   for (const v of versionLetters) {
     for (const pool of (dataByVer[v]?.pools || [])) {
-      const s = sigOf(pool);
-      let entry = sigToPool.get(s);
-      if (!entry) { entry = { ...pool, _vers: new Set() }; sigToPool.set(s, entry); }
+      const key = `${pool.mapId}#${pool.tableN}#${pool.lvMin}-${pool.lvMax}#${pool.method||''}`;
+      let entry = structMap.get(key);
+      if (!entry) {
+        entry = {
+          mapId: pool.mapId, tableN: pool.tableN,
+          lvMin: pool.lvMin, lvMax: pool.lvMax,
+          method: pool.method,
+          _dayMap: new Map(), _nightMap: new Map(),
+          _vers: new Set(),
+        };
+        structMap.set(key, entry);
+      }
       entry._vers.add(v);
+      for (const tk of ['day', 'night']) {
+        const target = tk === 'day' ? entry._dayMap : entry._nightMap;
+        for (const e of (pool[tk] || [])) {
+          const sp = target.get(e.species);
+          if (sp) {
+            sp._vers.add(v);
+            if (e.chance > sp.chance) sp.chance = e.chance;
+          } else {
+            target.set(e.species, { species: e.species, chance: e.chance, _vers: new Set([v]) });
+          }
+        }
+      }
     }
+  }
+  const mergedPools = [...structMap.values()].map(p => ({
+    ...p,
+    day: [...p._dayMap.values()],
+    night: [...p._nightMap.values()],
+  }));
+
+  // Step 2: post-merge sig dedup — collapse identical-content pools (e.g.,
+  // when USUM's bundled Map 000/003/010 produce 3 identical pools).
+  const sigToPool = new Map();
+  for (const pool of mergedPools) {
+    const s = sigOf(pool);
+    if (!sigToPool.has(s)) sigToPool.set(s, pool);
   }
   const uniquePools = [...sigToPool.values()];
   // Bucket by level range so multi-pool ranges (sub-areas) get labeled siblings.
@@ -6062,16 +6104,17 @@ function buildEncounterMainFromTables(locName, ver, game) {
   }
   const matchesVer = (e) => e.v === 'both' || e.v === ver;
   const totalVers = versionLetters.length;
-  // Each pool's version tag propagates to every species inside it (a pool is
-  // an atomic slot table — if the table only exists in one version, every slot
-  // is exclusive to that version).
-  const poolVerTag = (pool) => (pool._vers.size === totalVers) ? 'both' : [...pool._vers][0];
-  const toRenderEntry = (sp, chance, vTag) => {
-    if (typeof ensurePokemonBackfilled === 'function' && !pokeInfo(sp)) {
-      ensurePokemonBackfilled(sp);
+  // Per-species version tag (NOT per-pool). A species that appears in every
+  // version's copy of this pool is 'both'; if it's only in one, it's that
+  // version's letter. This gives correct version-exclusivity badges (e.g.,
+  // Murkrow tagged 'BD-only' in an otherwise shared Eterna Forest pool).
+  const speciesVerTag = (sp) => (sp._vers.size === totalVers || totalVers === 1) ? 'both' : [...sp._vers][0];
+  const toRenderEntry = (sp) => {
+    if (typeof ensurePokemonBackfilled === 'function' && !pokeInfo(sp.species)) {
+      ensurePokemonBackfilled(sp.species);
     }
-    const bf = (typeof getBackfilledPokemon === 'function') ? getBackfilledPokemon(sp) : null;
-    return { p: sp, lv: null, r: chance, v: vTag, apiId: bf?.id || null };
+    const bf = (typeof getBackfilledPokemon === 'function') ? getBackfilledPokemon(sp.species) : null;
+    return { p: sp.species, lv: null, r: sp.chance, v: speciesVerTag(sp), apiId: bf?.id || null };
   };
 
   // Detect whether the data carries method tags (BDSP files include grass / surf /
@@ -6112,15 +6155,13 @@ function buildEncounterMainFromTables(locName, ver, game) {
       const sortedPools = [...pools].sort((a,b) => a.lvMin - b.lvMin || a.lvMax - b.lvMax);
       const tag = (i) => sortedPools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '';
       return sortedPools.map((p, i) => {
-        const vTag = poolVerTag(p);
-        const entries = p[time].map(e => toRenderEntry(e.species, e.chance, vTag))
+        const entries = p[time].map(toRenderEntry)
           .filter(matchesVer).sort((a,b) => b.r - a.r);
         if (!entries.length) return '';
         const total = entries.reduce((s,e) => s + e.r, 0);
         const lvLabel = p.lvMin === p.lvMax ? `Lv ${p.lvMin}` : `Lv ${p.lvMin}–${p.lvMax}`;
-        const verBadge = vTag !== 'both' ? ` <span class="ver-tag ${vTag}" style="margin-left:4px">${vTag}-only</span>` : '';
         return `<div style="margin-top:${i?6:0}px">
-          <div style="font-size:11px;color:var(--text3);margin-bottom:4px">${lvLabel}${tag(i)}${verBadge} · ${entries.length} species · ${total}%</div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px">${lvLabel}${tag(i)} · ${entries.length} species · ${total}%</div>
           ${renderEncList(entries, teamLineSet, deadSpecies, caughtAtThisLoc, ver, locName)}
         </div>`;
       }).filter(Boolean).join('');
@@ -6174,19 +6215,17 @@ function buildEncounterMainFromTables(locName, ver, game) {
       return sumB - sumA;
     });
     return sortedPools.map((p, i) => {
-      const vTag = poolVerTag(p);
       const entries = p[activeTime]
-        .map(e => toRenderEntry(e.species, e.chance, vTag))
+        .map(toRenderEntry)
         .filter(matchesVer)
         .sort((a,b) => b.r - a.r);
       if (!entries.length) return '';
       const total = entries.reduce((s,e) => s + e.r, 0);
       const lvLabel = g.lvMin === g.lvMax ? `Lv ${g.lvMin}` : `Lv ${g.lvMin}–${g.lvMax}`;
       const suffix = g.pools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '';
-      const verBadge = vTag !== 'both' ? `<span class="ver-tag ${vTag}" style="margin-left:6px">${vTag}-only</span>` : '';
       return `<div class="enc-section">
         <div class="enc-section-hdr">
-          <span class="enc-method-label">Pool · ${lvLabel}${suffix}</span>${verBadge}
+          <span class="enc-method-label">Pool · ${lvLabel}${suffix}</span>
           <span style="font-size:10px;color:var(--text3);margin-left:8px">${entries.length} species · ${total}%</span>
         </div>
         ${renderEncList(entries, teamLineSet, deadSpecies, caughtAtThisLoc, ver, locName)}
