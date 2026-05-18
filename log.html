@@ -125,8 +125,13 @@
   .card-check{flex-shrink:0;margin-top:3px}
   .card-check input[type=checkbox]{width:15px;height:15px;cursor:pointer;accent-color:var(--accent)}
   /* Party toggle button (replaces the old card-check checkbox). Always visible
-     on touch, hover-reveal would be hostile to mobile users. */
-  .card-party-btn{flex-shrink:0;margin-top:2px;font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;padding:5px 10px;border-radius:6px;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:all .15s;white-space:nowrap;line-height:1}
+     on touch, hover-reveal would be hostile to mobile users. Lives as a footer
+     row inside .poke-card (column flex), align-self:flex-end pins it to the
+     right edge below the main card content so the moves grid in .card-main
+     gets the card's full horizontal space — without this, a 100px button in
+     the horizontal flex row eats a third of a narrow 3-col desktop card and
+     squishes move pills into ellipses. */
+  .card-party-btn{align-self:flex-end;flex-shrink:0;font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;padding:5px 12px;border-radius:6px;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:all .15s;white-space:nowrap;line-height:1}
   .card-party-btn-add{border-color:rgba(108,143,255,.4);color:var(--accent);background:var(--accent-bg)}
   .card-party-btn-add:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
   .card-party-btn-remove{border-color:rgba(255,87,87,.35);color:#ff8888;background:rgba(255,87,87,.08)}
@@ -4190,7 +4195,19 @@ function typeBadge(t) {
   return `<span class="type-badge t-${t}">${t}</span>`;
 }
 
-function cardInner(p, realIdx, showCheck) {
+// Party-toggle button (rendered as a footer row of .poke-card, NOT inside the
+// .card-top horizontal flex). On desktop's 3-col grid the card is narrow enough
+// that a button-in-the-row eats a third of the horizontal space and squishes
+// the moves grid. Putting it on its own row (poke-card is column flex) lets
+// the moves grid use the card's full width.
+function cardPartyBtn(p, realIdx) {
+  if (p.inParty) {
+    return `<button class="card-party-btn card-party-btn-remove" onclick="event.stopPropagation();toggleParty(${realIdx},false)" title="Remove from party">× Remove from party</button>`;
+  }
+  return `<button class="card-party-btn card-party-btn-add" onclick="event.stopPropagation();toggleParty(${realIdx},true)" title="Add to party">+ Add to party</button>`;
+}
+
+function cardInner(p, realIdx) {
   const moveList = (typeof p.moves === 'string')
     ? p.moves.split(',').map(s=>s.trim()).filter(Boolean)
     : (Array.isArray(p.moves) ? p.moves.filter(Boolean) : []);
@@ -4207,21 +4224,8 @@ function cardInner(p, realIdx, showCheck) {
     if (isSTAB) cls.push('stab');
     return `<div class="${cls.join(' ')}" title="${m} · ${t||'Unknown type'}${isSTAB?' · STAB':''}${cat==='U'?' · status':''}"><span>${m}</span></div>`;
   }).join('');
-  // Party-toggle button. When `showCheck` is true we surface either:
-  //   - "+ Add to party" on bench cards (alive, not in party)
-  //   - "× Remove" on Active Team cards (already in party)
-  // Both stop propagation so clicking the button doesn't also open the modal.
-  let partyBtn = '';
-  if (showCheck) {
-    if (p.inParty) {
-      partyBtn = `<button class="card-party-btn card-party-btn-remove" onclick="event.stopPropagation();toggleParty(${realIdx},false)" title="Remove from party">× Remove</button>`;
-    } else {
-      partyBtn = `<button class="card-party-btn card-party-btn-add" onclick="event.stopPropagation();toggleParty(${realIdx},true)" title="Add to party">+ Add to party</button>`;
-    }
-  }
   return `
     <div class="drag-handle" title="Hold to reorder">⠿</div>
-    ${partyBtn}
     ${sprite}
     <div class="card-main">
       <div class="card-header">
@@ -4286,14 +4290,26 @@ function initRosterSortable() {
     onEnd(evt) {
       _markDragEnd();
       if (evt.oldIndex === evt.newIndex) return;
+      // evt.oldIndex / newIndex are positions within the bench grid (which
+      // excludes party members + applies the type filter), NOT positions
+      // within the team array. Must map back to team indices using the SAME
+      // filter logic as renderRoster's `bench`, otherwise the splice mangles
+      // unrelated slots — e.g. with party members present, using `alive`
+      // here would shift a party member instead of the dragged bench card.
       const team = curRun().team;
-      const alive = team.map((p,i)=>({p,i})).filter(x=>x.p.alive);
-      const srcStateIdx = alive[evt.oldIndex].i;
+      const matchFilter = (p) => rosterFilterType === 'all' || p.type1 === rosterFilterType || p.type2 === rosterFilterType;
+      const benchOf = (arr) => arr.map((p,i)=>({p,i})).filter(x => x.p.alive && !x.p.inParty && matchFilter(x.p));
+      const srcStateIdx = benchOf(team)[evt.oldIndex].i;
       const [removed] = team.splice(srcStateIdx, 1);
-      const newAlive = team.map((p,i)=>({p,i})).filter(x=>x.p.alive);
-      const destStateIdx = evt.newIndex < newAlive.length ? newAlive[evt.newIndex].i : team.length;
+      const newBench = benchOf(team);
+      const destStateIdx = evt.newIndex < newBench.length ? newBench[evt.newIndex].i : team.length;
       team.splice(destStateIdx, 0, removed);
       save();
+      // Re-render so `onclick="openEdit(${i})"` handlers on each card pick up
+      // the new team indices. Without this, clicking the moved card after a
+      // drag opens a DIFFERENT Pokémon (the one whose index the stale handler
+      // still references), and any edit then saves into the wrong slot.
+      renderRoster();
     }
   });
 }
@@ -4314,6 +4330,10 @@ function initActiveSortable() {
       const destStateIdx = evt.newIndex < newParty.length ? newParty[evt.newIndex].i : team.length;
       team.splice(destStateIdx, 0, removed);
       save();
+      // Refresh onclick handlers — see initRosterSortable for rationale.
+      // The party strip in renderRoster also reads team order, so re-render both.
+      renderActive();
+      renderRoster();
     }
   });
 }
@@ -4417,7 +4437,7 @@ function renderRoster() {
     return;
   }
   g.innerHTML = bench.map(({p,i}) =>
-    `<div class="poke-card${p.inParty?' in-party':''}" onclick="openEdit(${i})"><div class="card-top with-sprite">${cardInner(p, i, true)}</div></div>`
+    `<div class="poke-card${p.inParty?' in-party':''}" onclick="openEdit(${i})"><div class="card-top with-sprite">${cardInner(p, i)}</div>${cardPartyBtn(p, i)}</div>`
   ).join('');
   // Sortable only meaningful in custom-order mode.
   if (rosterSort === 'custom') initRosterSortable();
@@ -4432,7 +4452,7 @@ function renderActive() {
   if (!party.length) { g.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display = 'none';
   g.innerHTML = party.map(({p,i}) =>
-    `<div class="poke-card in-party" onclick="openEdit(${i})"><div class="card-top with-sprite">${cardInner(p, i, true)}</div></div>`
+    `<div class="poke-card in-party" onclick="openEdit(${i})"><div class="card-top with-sprite">${cardInner(p, i)}</div>${cardPartyBtn(p, i)}</div>`
   ).join('');
   initActiveSortable();
 }
@@ -4828,7 +4848,7 @@ function renderMatchup() {
       // Reuse card layout but with reco-card class for score badge
       return `<div class="poke-card reco-card" onclick="openEdit(${idx})"${p.inParty?' style="border-color:rgba(108,143,255,.4);box-shadow:0 0 0 1px rgba(108,143,255,.1)"':''}>
         <div class="reco-score-badge v-${analysis.verdict}" title="Score: ${score.toFixed(1)}">${analysis.label}</div>
-        <div class="card-top with-sprite">${cardInner(p, idx, false)}</div>
+        <div class="card-top with-sprite">${cardInner(p, idx)}</div>
         <div class="reco-reason">${reason}</div>
       </div>`;
     }).join('');
