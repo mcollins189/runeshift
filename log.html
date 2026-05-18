@@ -3029,6 +3029,42 @@ function getEvolution(name) {
   return { target: info.e[0], method: info.e[1] };
 }
 
+// Walks the full evolution line through `species` — pre-evos, the species
+// itself, and post-evos — and returns a Set of lowercase species names.
+// Used by the dupes clause: if you catch a Geodude and it evolves to Graveler,
+// Geodude AND Golem should still count as dupes in the encounters view.
+// BFS handles branched evos (Eevee → 8 Eeveelutions) and multi-step lines
+// (Charmander → Charmeleon → Charizard).
+function getEvoChainSet(species) {
+  const out = new Set();
+  if (!species) return out;
+  const queue = [species];
+  while (queue.length) {
+    const cur = queue.shift();
+    const key = cur.toLowerCase();
+    if (out.has(key)) continue;
+    out.add(key);
+    // Forward: pokeInfo.e[0] is the evolution target; "X/Y" notation means
+    // branched (Slowpoke → Slowbro/Slowking, Eevee → many forms, etc.).
+    const info = pokeInfo(cur);
+    if (info?.e?.[0]) {
+      for (const t of String(info.e[0]).split('/')) {
+        if (t && !out.has(t.toLowerCase())) queue.push(t);
+      }
+    }
+    // Backward: scan POKEMON_DB for entries whose evolution target is `cur`.
+    if (typeof POKEMON_DB === 'object' && POKEMON_DB) {
+      for (const k in POKEMON_DB) {
+        const e = POKEMON_DB[k]?.e;
+        if (!e) continue;
+        const targets = String(e[0] || '').split('/');
+        if (targets.includes(cur) && !out.has(k.toLowerCase())) queue.push(k);
+      }
+    }
+  }
+  return out;
+}
+
 // Generic sprite img tag — used in cards
 function spriteImg(species, opts) {
   opts = opts || {};
@@ -4111,6 +4147,15 @@ const SORTABLE_BASE = {
   chosenClass: 'sortable-chosen',
   delay: IS_TOUCH ? 250 : 0,
   delayOnTouchOnly: true,
+  // Auto-scroll the window when the user drags near the top/bottom edge so
+  // you can drop into items below the fold. On touch SortableJS uses its
+  // fallback (since HTML5 drag isn't supported), and the fallback needs
+  // forceFallback enabled to actually trigger window scrolling.
+  forceFallback: IS_TOUCH,
+  scroll: true,
+  scrollSensitivity: 60,    // px from viewport edge before scroll kicks in
+  scrollSpeed: 20,          // pixels per frame
+  bubbleScroll: true,       // scroll all parents, including window
 };
 const sortableHandle = (handle) => IS_TOUCH ? {} : { handle };
 function initRosterSortable() {
@@ -6025,13 +6070,15 @@ function buildEncounterMainFromTables(locName, ver, game) {
     groups.get(key).pools.push(p);
   }
 
-  // Roster intel (same shape as renderEncList expects)
+  // Roster intel (same shape as renderEncList expects). Walk each team
+  // member's full evolution line so post-evolution dupes still grey out —
+  // catching a Geodude that later evolves to Graveler keeps Geodude itself
+  // (and Golem) flagged.
   const team = curTeam();
   const teamLineSet = new Set();
   for (const p of team) {
-    if (!p.alive) continue;
-    const sp = (p.species||'').toLowerCase();
-    if (sp) teamLineSet.add(sp);
+    if (!p.alive || !p.species) continue;
+    for (const s of getEvoChainSet(p.species)) teamLineSet.add(s);
   }
   const deadSpecies = new Set(team.filter(p=>!p.alive).map(p=>(p.species||'').toLowerCase()));
   const caughtRoutes = curRoutes().filter(rt => rt.result==='caught' && routesMatch(rt.route, locName));
@@ -6488,13 +6535,13 @@ function buildEncounterMainNuzData(locName, merged, ver, game) {
   }
 
   // Roster intel — keep semantics identical to BDSP path so the same enc-grid
-  // CSS lights up rows for dupes/dead/caught.
+  // CSS lights up rows for dupes/dead/caught. Includes pre/post-evos so an
+  // evolved team member still flags its line as dupes.
   const team = curTeam();
   const teamLineSet = new Set();
   for (const p of team) {
-    if (!p.alive) continue;
-    const sp = (p.species||'').toLowerCase();
-    if (sp) teamLineSet.add(sp);
+    if (!p.alive || !p.species) continue;
+    for (const s of getEvoChainSet(p.species)) teamLineSet.add(s);
   }
   const deadSpecies = new Set(team.filter(p=>!p.alive).map(p=>(p.species||'').toLowerCase()));
   const caughtRoutes = curRoutes().filter(rt => rt.result==='caught' && routesMatch(rt.route, locName));
@@ -6622,26 +6669,13 @@ function buildEncounterMain(loc, ver) {
   }
   const team = curTeam();
   const aliveSpecies = new Set(team.filter(p=>p.alive).map(p=>(p.species||'').toLowerCase()));
-  // Build dupe-set including evolution-line members
+  // Build dupe-set including the full evolution line — handles multi-step
+  // chains (Geodude → Graveler → Golem all dupe-flag if you have any of them)
+  // and branched evos (Eevee → 8 forms).
   const teamLineSet = new Set();
   for (const p of team) {
-    if (!p.alive) continue;
-    const sp = (p.species||'').toLowerCase();
-    if (!sp) continue;
-    teamLineSet.add(sp);
-    // Also add pre-evolutions and post-evolutions of what we have
-    const info = pokeInfo(p.species);
-    if (info && info.e) {
-      const target = info.e[0].split('/')[0];
-      if (target) teamLineSet.add(target.toLowerCase());
-    }
-    // Pre-evolution: scan DB for things that evolve INTO this species
-    for (const k in POKEMON_DB) {
-      const e = POKEMON_DB[k].e;
-      if (e && (e[0]===p.species || e[0].split('/').includes(p.species))) {
-        teamLineSet.add(k.toLowerCase());
-      }
-    }
+    if (!p.alive || !p.species) continue;
+    for (const s of getEvoChainSet(p.species)) teamLineSet.add(s);
   }
   const deadSpecies = new Set(team.filter(p=>!p.alive).map(p=>(p.species||'').toLowerCase()));
   const caughtRoutes = curRoutes().filter(rt => rt.result==='caught' && routesMatch(rt.route, loc));
