@@ -4242,15 +4242,19 @@ function cardInner(p, realIdx, showCheck) {
 
 /* ── Learnset toggle handler ── */
 /* ── Sortable ──
-   Hold-to-drag on every device: a short hold (250ms) on the card starts a
-   drag, while a quick click still opens the detail modal. Consistent gesture
+   Hold-to-drag on every device: a short hold on the card starts a drag,
+   while a quick click still opens the detail modal. Consistent gesture
    across desktop and touch. forceFallback uses SortableJS's own drag impl
    (not native HTML5) so window-level auto-scroll works on touch too. */
+const IS_TOUCH = typeof matchMedia !== 'undefined' && matchMedia('(pointer:coarse)').matches;
 const SORTABLE_BASE = {
   animation: 150,
   ghostClass: 'sortable-ghost',
   chosenClass: 'sortable-chosen',
-  delay: 250,
+  // 150ms on mouse feels responsive without triggering on a normal click;
+  // touch needs longer (250ms) because tap-and-scroll gestures need a bit
+  // more time to register as a hold rather than a swipe.
+  delay: IS_TOUCH ? 250 : 150,
   // No handle restriction — the whole card responds to hold-to-drag.
   forceFallback: true,
   scroll: true,
@@ -4261,6 +4265,18 @@ const SORTABLE_BASE = {
 // Kept for back-compat with existing call sites — now a no-op since
 // SORTABLE_BASE doesn't restrict to any handle.
 const sortableHandle = () => ({});
+
+// After a drag completes, the browser fires a click event on the drop target,
+// which would otherwise open the detail modal for a random card. Track when
+// a drag ended and short-circuit any click that lands within 300ms after.
+let _suppressClickUntil = 0;
+function _markDragEnd() { _suppressClickUntil = Date.now() + 300; }
+document.addEventListener('click', (e) => {
+  if (Date.now() < _suppressClickUntil) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+}, true);  // capture phase intercepts before the inline onclick handlers
 function initRosterSortable() {
   if (rosterSortable) { rosterSortable.destroy(); rosterSortable = null; }
   const el = document.getElementById('roster-grid');
@@ -4268,6 +4284,7 @@ function initRosterSortable() {
   rosterSortable = Sortable.create(el, {
     ...SORTABLE_BASE, ...sortableHandle('.drag-handle'),
     onEnd(evt) {
+      _markDragEnd();
       if (evt.oldIndex === evt.newIndex) return;
       const team = curRun().team;
       const alive = team.map((p,i)=>({p,i})).filter(x=>x.p.alive);
@@ -4287,6 +4304,7 @@ function initActiveSortable() {
   activeSortable = Sortable.create(el, {
     ...SORTABLE_BASE, ...sortableHandle('.drag-handle'),
     onEnd(evt) {
+      _markDragEnd();
       if (evt.oldIndex === evt.newIndex) return;
       const team = curRun().team;
       const party = team.map((p,i)=>({p,i})).filter(x=>x.p.alive&&x.p.inParty);
@@ -4306,6 +4324,7 @@ function initRouteSortable() {
   routeSortable = Sortable.create(el, {
     ...SORTABLE_BASE, ...sortableHandle('.route-drag-handle'),
     onEnd(evt) {
+      _markDragEnd();
       if (evt.oldIndex === evt.newIndex) return;
       const r = curRun().routes;
       const [removed] = r.splice(evt.oldIndex, 1);
@@ -5056,6 +5075,7 @@ function initRecoSortable() {
   // Allow reordering within the displayed reco list — purely visual, doesn't modify roster order
   recoSortable = Sortable.create(el, {
     ...SORTABLE_BASE, ...sortableHandle('.drag-handle'),
+    onEnd() { _markDragEnd(); },
   });
 }
 
