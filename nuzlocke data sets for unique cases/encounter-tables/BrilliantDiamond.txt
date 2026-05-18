@@ -174,7 +174,7 @@ Encounters (Levels 20-50): Gyarados (40%), Octillery (35%), Luvdisc (25%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 195 - Oreburgh Mine
+Map: 195 - Oreburgh Mine (1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 5-9): Geodude (70%), Zubat (20%), Onix (10%)
@@ -185,7 +185,7 @@ Encounters (Levels 5-9): Geodude (70%), Zubat (20%), Onix (10%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 196 - Oreburgh Mine
+Map: 196 - Oreburgh Mine (B1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 6-10): Geodude (70%), Zubat (20%), Onix (10%)
@@ -336,7 +336,7 @@ Encounters (Levels 20-55): Gyarados (65%), Whiscash (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 204 - Mt. Coronet
+Map: 204 - Mt. Coronet (2F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 36-38): Bronzong (20%), Graveler (20%), Machoke (10%), Clefairy (15%), Medicham (10%), Golbat (10%), Chingling (10%), Bronzor (5%)
@@ -347,7 +347,7 @@ Encounters (Levels 36-38): Bronzong (20%), Graveler (20%), Machoke (10%), Clefai
 Additional SOS encounters: (None)
 
 ==========
-Map: 205 - Mt. Coronet
+Map: 205 - Mt. Coronet (3F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 36-38): Bronzong (20%), Graveler (20%), Machoke (10%), Clefairy (15%), Medicham (10%), Golbat (10%), Chingling (10%), Bronzor (5%)
@@ -358,18 +358,7 @@ Encounters (Levels 36-38): Bronzong (20%), Graveler (20%), Machoke (10%), Clefai
 Additional SOS encounters: (None)
 
 ==========
-Map: 206 - Mt. Coronet
-Tables: 1
-Table 1 [grass] (Day):
-Encounters (Levels 38-40): Snover (20%), Abomasnow (20%), Medicham (20%), Machoke (20%), Chingling (10%), Bronzong (5%), Clefairy (5%)
-Additional SOS encounters: (None)
-
-Table 1 [grass] (Night):
-Encounters (Levels 38-40): Snover (20%), Abomasnow (20%), Golbat (10%), Noctowl (10%), Medicham (10%), Machoke (10%), Chingling (10%), Bronzong (5%), Clefairy (5%)
-Additional SOS encounters: (None)
-
-==========
-Map: 207 - Mt. Coronet
+Map: 206 - Mt. Coronet (Snow Area)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 38-40): Snover (20%), Abomasnow (20%), Medicham (20%), Machoke (20%), Chingling (10%), Bronzong (5%), Clefairy (5%)
@@ -380,7 +369,18 @@ Encounters (Levels 38-40): Snover (20%), Abomasnow (20%), Golbat (10%), Noctowl 
 Additional SOS encounters: (None)
 
 ==========
-Map: 208 - Mt. Coronet
+Map: 207 - Mt. Coronet (Summit)
+Tables: 1
+Table 1 [grass] (Day):
+Encounters (Levels 38-40): Snover (20%), Abomasnow (20%), Medicham (20%), Machoke (20%), Chingling (10%), Bronzong (5%), Clefairy (5%)
+Additional SOS encounters: (None)
+
+Table 1 [grass] (Night):
+Encounters (Levels 38-40): Snover (20%), Abomasnow (20%), Golbat (10%), Noctowl (10%), Medicham (10%), Machoke (10%), Chingling (10%), Bronzong (5%), Clefairy (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 208 - Mt. Coronet (4F)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 38-40): Bronzong (25%), Graveler (20%), Machoke (10%), Clefairy (15%), Medicham (10%), Golbat (10%), Chingling (10%)
@@ -423,7 +423,7 @@ Encounters (Levels 15-55): Gyarados (65%), Dratini (25%), Dragonair (10%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 209 - Mt. Coronet
+Map: 209 - Mt. Coronet (5F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 38-40): Bronzong (25%), Graveler (20%), Machoke (10%), Clefairy (15%), Medicham (10%), Golbat (10%), Chingling (5%), Chimecho (5%)
@@ -434,7 +434,7 @@ Encounters (Levels 38-40): Bronzong (25%), Graveler (20%), Machoke (10%), Clefai
 Additional SOS encounters: (None)
 
 ==========
-Map: 210 - Mt. Coronet
+Map: 210 - Mt. Coronet (6F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 40-42): Bronzong (25%), Graveler (20%), Machoke (10%), Clefairy (15%), Medicham (10%), Golbat (10%), Chimecho (10%)
@@ -445,7 +445,7 @@ Encounters (Levels 40-42): Bronzong (25%), Graveler (20%), Machoke (10%), Clefai
 Additional SOS encounters: (None)
 
 ==========
-Map: 211 - Mt. Coronet
+Map: 211 - Mt. Coronet (7F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 40-42): Bronzong (25%), Graveler (20%), Machoke (10%), Clefairy (15%), Medicham (10%), Golbat (10%), Chimecho (10%)
@@ -456,7 +456,7 @@ Encounters (Levels 40-42): Bronzong (25%), Graveler (20%), Machoke (10%), Clefai
 Additional SOS encounters: (None)
 
 ==========
-Map: 212 - Mt. Coronet
+Map: 212 - Mt. Coronet (Summit)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 38-40): Graveler (40%), Machoke (10%), Clefairy (15%), Medicham (10%), Golbat (10%), Chingling (10%), Bronzong (5%)
@@ -467,7 +467,7 @@ Encounters (Levels 38-40): Graveler (40%), Machoke (10%), Clefairy (15%), Medich
 Additional SOS encounters: (None)
 
 ==========
-Map: 213 - Mt. Coronet
+Map: 213 - Mt. Coronet (B1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 30-32): Meditite (25%), Graveler (20%), Clefairy (15%), Golbat (20%), Machoke (10%), Chingling (10%)
@@ -532,7 +532,7 @@ Encounters (Levels 20-55): Gyarados (65%), Whiscash (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 225 - Solaceon Ruins
+Map: 225 - Solaceon Ruins (2F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 14-25): Unown (100%)
@@ -730,7 +730,7 @@ Encounters (Levels 14-25): Unown (100%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 244 - Victory Road
+Map: 244 - Victory Road (1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 44-46): Machoke (25%), Graveler (20%), Medicham (15%), Golbat (20%), Onix (10%), Steelix (10%)
@@ -741,7 +741,7 @@ Encounters (Levels 44-46): Machoke (25%), Graveler (20%), Medicham (15%), Golbat
 Additional SOS encounters: (None)
 
 ==========
-Map: 245 - Victory Road
+Map: 245 - Victory Road (2F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 45-47): Kadabra (25%), Graveler (20%), Medicham (15%), Golbat (20%), Onix (10%), Steelix (10%)
@@ -752,7 +752,7 @@ Encounters (Levels 45-47): Kadabra (25%), Graveler (20%), Medicham (15%), Golbat
 Additional SOS encounters: (None)
 
 ==========
-Map: 246 - Victory Road
+Map: 246 - Victory Road (B1F)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 44-46): Machoke (25%), Floatzel (30%), Medicham (15%), Golbat (20%), Steelix (10%)
@@ -903,7 +903,7 @@ Encounters (Levels 20-55): Gyarados (65%), Whiscash (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 255 - Oreburgh Gate
+Map: 255 - Oreburgh Gate (1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 4-8): Geodude (80%), Zubat (20%)
@@ -914,7 +914,7 @@ Encounters (Levels 4-8): Geodude (80%), Zubat (20%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 256 - Oreburgh Gate
+Map: 256 - Oreburgh Gate (B1F)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 8-10): Zubat (60%), Psyduck (30%), Geodude (10%)
@@ -957,7 +957,7 @@ Encounters (Levels 20-55): Gyarados (65%), Whiscash (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 259 - Stark Mountain
+Map: 259 - Stark Mountain (Outside)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 22-56): Camerupt (20%), Rhydon (20%), Fearow (20%), Graveler (15%), Weezing (10%), Skarmory (5%), Numel (5%), Rhyhorn (5%)
@@ -968,7 +968,7 @@ Encounters (Levels 22-56): Camerupt (20%), Rhydon (20%), Banette (10%), Golbat (
 Additional SOS encounters: (None)
 
 ==========
-Map: 260 - Stark Mountain
+Map: 260 - Stark Mountain (1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 25-56): Graveler (20%), Magcargo (30%), Golbat (10%), Machoke (10%), Weezing (10%), Onix (5%), Camerupt (5%), Geodude (5%), Slugma (5%)
@@ -979,7 +979,7 @@ Encounters (Levels 25-56): Graveler (20%), Magcargo (30%), Golbat (10%), Machoke
 Additional SOS encounters: (None)
 
 ==========
-Map: 261 - Stark Mountain
+Map: 261 - Stark Mountain (B1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 27-58): Graveler (20%), Magcargo (30%), Golbat (10%), Machoke (10%), Weezing (10%), Onix (5%), Camerupt (5%), Geodude (5%), Slugma (5%)
@@ -1264,7 +1264,7 @@ Encounters (Levels 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor 
 Additional SOS encounters: (None)
 
 ==========
-Map: 286 - Snowpoint Temple
+Map: 286 - Snowpoint Temple (1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 50-52): Golbat (35%), Sneasel (35%), Graveler (10%), Onix (15%), Steelix (5%)
@@ -1275,7 +1275,7 @@ Encounters (Levels 50-52): Golbat (35%), Sneasel (35%), Graveler (10%), Onix (15
 Additional SOS encounters: (None)
 
 ==========
-Map: 287 - Snowpoint Temple
+Map: 287 - Snowpoint Temple (B1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 52-54): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix (15%), Onix (5%)
@@ -1286,7 +1286,7 @@ Encounters (Levels 52-54): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix 
 Additional SOS encounters: (None)
 
 ==========
-Map: 288 - Snowpoint Temple
+Map: 288 - Snowpoint Temple (B2F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 52-54): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix (15%), Onix (5%)
@@ -1297,7 +1297,7 @@ Encounters (Levels 52-54): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix 
 Additional SOS encounters: (None)
 
 ==========
-Map: 289 - Snowpoint Temple
+Map: 289 - Snowpoint Temple (B3F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 52-54): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix (15%), Onix (5%)
@@ -1308,18 +1308,7 @@ Encounters (Levels 52-54): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix 
 Additional SOS encounters: (None)
 
 ==========
-Map: 290 - Snowpoint Temple
-Tables: 1
-Table 1 [grass] (Day):
-Encounters (Levels 54-56): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix (20%)
-Additional SOS encounters: (None)
-
-Table 1 [grass] (Night):
-Encounters (Levels 54-56): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix (20%)
-Additional SOS encounters: (None)
-
-==========
-Map: 291 - Snowpoint Temple
+Map: 290 - Snowpoint Temple (B4F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 54-56): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix (20%)
@@ -1330,7 +1319,18 @@ Encounters (Levels 54-56): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix 
 Additional SOS encounters: (None)
 
 ==========
-Map: 292 - Wayward Cave
+Map: 291 - Snowpoint Temple (B5F)
+Tables: 1
+Table 1 [grass] (Day):
+Encounters (Levels 54-56): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix (20%)
+Additional SOS encounters: (None)
+
+Table 1 [grass] (Night):
+Encounters (Levels 54-56): Golbat (35%), Sneasel (35%), Graveler (10%), Steelix (20%)
+Additional SOS encounters: (None)
+
+==========
+Map: 292 - Wayward Cave (Main)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 14-16): Bronzor (40%), Zubat (45%), Geodude (15%)
@@ -1341,7 +1341,7 @@ Encounters (Levels 14-16): Bronzor (40%), Zubat (45%), Geodude (15%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 293 - Wayward Cave
+Map: 293 - Wayward Cave (Hidden)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 15-17): Bronzor (40%), Zubat (35%), Geodude (10%), Gible (15%)
@@ -1431,7 +1431,7 @@ Encounters (Levels 20-50): Gyarados (40%), Lumineon (35%), Qwilfish (25%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 299 - Iron Island
+Map: 299 - Iron Island (1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 29-33): Geodude (35%), Graveler (35%), Zubat (10%), Golbat (10%), Onix (10%)
@@ -1442,7 +1442,7 @@ Encounters (Levels 29-33): Geodude (35%), Graveler (35%), Zubat (10%), Golbat (1
 Additional SOS encounters: (None)
 
 ==========
-Map: 300 - Iron Island
+Map: 300 - Iron Island (B1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 29-33): Graveler (69%), Golbat (20%), Onix (10%), Geodude (1%)
@@ -1464,7 +1464,7 @@ Encounters (Levels 29-33): Graveler (69%), Golbat (20%), Onix (10%), Geodude (1%
 Additional SOS encounters: (None)
 
 ==========
-Map: 302 - Iron Island
+Map: 302 - Iron Island (B2F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 29-33): Graveler (49%), Onix (30%), Golbat (20%), Geodude (1%)
@@ -1475,7 +1475,7 @@ Encounters (Levels 29-33): Graveler (49%), Onix (30%), Golbat (20%), Geodude (1%
 Additional SOS encounters: (None)
 
 ==========
-Map: 303 - Iron Island
+Map: 303 - Iron Island (B3F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 30-34): Graveler (39%), Onix (30%), Golbat (20%), Steelix (10%), Geodude (1%)
@@ -1596,7 +1596,7 @@ Encounters (Levels 12-16): Gastly (100%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 323 - Lake Verity
+Map: 323 - Lake Verity (Before)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 2-4): Starly (50%), Bidoof (50%)
@@ -1639,7 +1639,7 @@ Encounters (Levels 20-55): Gyarados (65%), Seaking (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 324 - Lake Verity
+Map: 324 - Lake Verity (After)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 2-4): Starly (50%), Bidoof (50%)
@@ -1682,7 +1682,7 @@ Encounters (Levels 20-55): Gyarados (65%), Seaking (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 327 - Lake Valor
+Map: 327 - Lake Valor (After)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 34-36): Bibarel (45%), Staravia (25%), Psyduck (20%), Chingling (10%)
@@ -1725,7 +1725,7 @@ Encounters (Levels 20-55): Gyarados (65%), Seaking (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 330 - Lake Acuity
+Map: 330 - Lake Acuity (After)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 34-36): Bibarel (35%), Sneasel (25%), Psyduck (30%), Chingling (10%)
@@ -1855,7 +1855,7 @@ Encounters (Levels 20-55): Gyarados (65%), Seaking (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 357 - Route 204
+Map: 357 - Route 204 (South)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 4-6): Starly (35%), Bidoof (25%), Budew (25%), Shinx (15%)
@@ -1898,7 +1898,7 @@ Encounters (Levels 20-55): Gyarados (65%), Seaking (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 358 - Route 204
+Map: 358 - Route 204 (North)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 6-8): Starly (35%), Bidoof (25%), Budew (25%), Shinx (15%)
@@ -1941,7 +1941,7 @@ Encounters (Levels 20-55): Gyarados (65%), Seaking (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 359 - Route 205
+Map: 359 - Route 205 (South)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 8-10): Buizel (35%), Shellos (45%), Bidoof (10%), Pachirisu (10%)
@@ -1984,7 +1984,7 @@ Encounters (Levels 20-50): Gyarados (40%), Lumineon (35%), Shellder (25%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 361 - Route 205
+Map: 361 - Route 205 (North)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 10-12): Buizel (35%), Bidoof (45%), Shellos (10%), Pachirisu (10%)
@@ -2135,7 +2135,7 @@ Encounters (Levels 20-55): Gyarados (65%), Seaking (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 368 - The Lost Tower
+Map: 368 - The Lost Tower (1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 16-18): Gastly (50%), Zubat (50%)
@@ -2146,7 +2146,7 @@ Encounters (Levels 16-18): Gastly (40%), Zubat (40%), Murkrow (20%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 369 - The Lost Tower
+Map: 369 - The Lost Tower (2F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 17-19): Gastly (50%), Zubat (50%)
@@ -2157,7 +2157,7 @@ Encounters (Levels 17-19): Gastly (40%), Zubat (40%), Murkrow (20%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 370 - The Lost Tower
+Map: 370 - The Lost Tower (3F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 18-20): Gastly (50%), Zubat (49%), Golbat (1%)
@@ -2168,7 +2168,7 @@ Encounters (Levels 18-20): Gastly (40%), Zubat (39%), Murkrow (20%), Golbat (1%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 371 - The Lost Tower
+Map: 371 - The Lost Tower (4F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 19-21): Gastly (50%), Zubat (45%), Golbat (5%)
@@ -2179,7 +2179,7 @@ Encounters (Levels 19-21): Gastly (40%), Zubat (35%), Murkrow (20%), Golbat (5%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 372 - The Lost Tower
+Map: 372 - The Lost Tower (5F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 20-23): Gastly (50%), Zubat (40%), Golbat (10%)
@@ -2190,7 +2190,7 @@ Encounters (Levels 20-23): Gastly (40%), Zubat (30%), Murkrow (20%), Golbat (10%
 Additional SOS encounters: (None)
 
 ==========
-Map: 373 - Route 210
+Map: 373 - Route 210 (South)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 18-20): Ponyta (50%), Geodude (30%), Kricketune (10%), Chansey (5%), Mime Jr. (5%)
@@ -2201,7 +2201,7 @@ Encounters (Levels 18-20): Ponyta (30%), Geodude (30%), Kricketune (30%), Chanse
 Additional SOS encounters: (None)
 
 ==========
-Map: 375 - Route 210
+Map: 375 - Route 210 (North)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 24-26): Psyduck (20%), Bibarel (20%), Meditite (30%), Machop (20%), Machoke (10%)
@@ -2244,7 +2244,7 @@ Encounters (Levels 20-55): Gyarados (65%), Whiscash (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 377 - Route 211
+Map: 377 - Route 211 (West)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 12-14): Meditite (35%), Bidoof (35%), Geodude (10%), Ponyta (10%), Chingling (10%)
@@ -2255,7 +2255,7 @@ Encounters (Levels 12-14): Meditite (25%), Bidoof (25%), Zubat (10%), Hoothoot (
 Additional SOS encounters: (None)
 
 ==========
-Map: 378 - Route 211
+Map: 378 - Route 211 (East)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 26-28): Meditite (35%), Graveler (20%), Ponyta (15%), Machoke (20%), Chingling (10%)
@@ -2266,7 +2266,7 @@ Encounters (Levels 26-28): Meditite (35%), Graveler (20%), Zubat (10%), Noctowl 
 Additional SOS encounters: (None)
 
 ==========
-Map: 379 - Route 212
+Map: 379 - Route 212 (North)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 16-18): Starly (20%), Budew (30%), Staravia (25%), Roselia (15%), Kricketune (10%)
@@ -2309,7 +2309,7 @@ Encounters (Levels 20-55): Gyarados (65%), Seaking (35%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 383 - Route 212
+Map: 383 - Route 212 (South)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 18-20): Wooper (30%), Bibarel (35%), Roselia (25%), Kricketune (10%)
