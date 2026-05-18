@@ -1404,6 +1404,12 @@ const GAMES = {
     dataSources: {
       routes: { X: 'X', Y: 'Y' },
       leagues: 'XY',
+      // ROM-extracted via AngefloSH/PokemonEncCalc binary. Carries hordes,
+      // tall grass, shallow water, three flower variants, surf, all three
+      // rods, and rock smash — none of which PokeAPI's kalos region has
+      // condition data for. PokeAPI kept as fallback for sub-zones we
+      // didn't extract.
+      encounterTables: { X: 'X', Y: 'Y' },
       pokeapiRegion: 'kalos'
     }
   },
@@ -1437,17 +1443,19 @@ const GAMES = {
       pokeapiRegion: 'alola'
     }
   },
-  // Gen 8 — Sword / Shield. PokeAPI has galar region but ZERO encounter data
-  // (Wild Area + open world structure isn't reflected in the API). We use the
-  // NUZ_DATA-only path (species lists from txt routes; bosses + leagues work).
+  // Gen 8 — Sword / Shield. PokeAPI has galar region but ZERO encounter data,
+  // so we use ROM-equivalent data scraped from Serebii's per-zone Pokearth
+  // pages. Covers main routes, all 17 main Wild Area zones, all 16 Isle of
+  // Armor zones, and 13 Crown Tundra zones, with weather variants emitted
+  // as sub-zones (e.g. "Rolling Fields (Overcast)") on the Wild Area maps.
   'sword_shield': {
     name: 'Sword / Shield', short: 'Sw/Sh', gen: 8,
     versions: { S: 'Sword', H: 'Shield' },
     defaultVersion: 'S',
     dataSources: {
       routes: { S: 'Sword', H: 'Shield' },
-      leagues: 'SwordShield'
-      // No pokeapiRegion → renderEncountersFromNuzData path (species-only view).
+      leagues: 'SwordShield',
+      encounterTables: { S: 'Sword', H: 'Shield' }
     }
   },
   // Gen 9 — Scarlet / Violet. PokeAPI's paldea region has no location-areas at
@@ -6323,8 +6331,24 @@ function buildEncounterMainFromTables(locName, ver, game) {
       grass: 'Walking (tall grass)', surf: 'Surfing',
       oldRod: 'Old Rod', goodRod: 'Good Rod', superRod: 'Super Rod',
       honey: 'Honey tree', rockSmash: 'Rock Smash',
+      // XY-specific methods. The Kalos slot tables split walking into
+      // multiple distinct mechanics (tall grass on certain routes, shallow
+      // water wading, three flower-tile color variants, hordes). Each gets
+      // its own section in the encounter view rather than merging into a
+      // single "Walking" bucket because the species + rates genuinely differ.
+      tallGrass: 'Tall grass',
+      shallowWater: 'Shallow water (wading)',
+      yellowFlowers: 'Yellow flowers',
+      redFlowers: 'Red flowers',
+      purpleFlowers: 'Purple flowers',
+      horde: 'Horde encounter',
     };
-    const METHOD_ORDER = ['grass', 'surf', 'oldRod', 'goodRod', 'superRod', 'honey', 'rockSmash'];
+    const METHOD_ORDER = [
+      'grass', 'tallGrass', 'shallowWater',
+      'yellowFlowers', 'redFlowers', 'purpleFlowers',
+      'surf', 'oldRod', 'goodRod', 'superRod',
+      'honey', 'rockSmash', 'horde',
+    ];
     // Gen-7 (SM/USUM) tall-grass tables actually mix four distinct mechanics
     // under a single [grass] method tag — regular walking, rare flying overhead,
     // berry-tree spots, and rustling grass. Classify each pool by its slot
