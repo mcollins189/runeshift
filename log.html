@@ -5758,12 +5758,17 @@ function renderEncountersByRegion(el, gameKey, game) {
   const apiNameSet = new Set(region.locations.map(l => l.name));
   let allLocs;
   if (txtRoutes && txtRoutes.locations.length) {
-    // Use txt order. Hide trainer-only entries (no species, no PokeAPI match).
+    // Use txt order. Hide trainer-only entries — a routes-file location is
+    // kept only if it has at least one wild encounter source: explicit species
+    // in the txt OR a PokeAPI match (region location with the same display name).
     allLocs = [];
     const seen = new Set();
     for (const loc of txtRoutes.locations) {
       if (seen.has(loc.name)) continue;
       seen.add(loc.name);
+      const hasTxtSpecies = (loc.species || []).length > 0;
+      const isInApi = apiNameSet.has(loc.name);
+      if (!hasTxtSpecies && !isInApi) continue;
       allLocs.push(loc.name);
     }
     // Append any PokeAPI locations not present in the txt (e.g. seasonal areas).
@@ -5866,12 +5871,31 @@ function renderEncountersFromTables(el, gameKey, game) {
     return;
   }
 
+  // Pre-collect every encounter-tables file across all versions, so we can
+  // ask "does this location have any pool data anywhere?" without re-fetching
+  // per-location during the rail filter pass.
+  const encTablesData = [];
+  const src = peelVariant(game.dataSources?.encounterTables, game, curVariant());
+  const versionLetters = typeof src === 'string' ? [null] : Object.keys(src || {});
+  const fileFor = v => typeof src === 'string' ? src : src?.[v];
+  for (const v of versionLetters) {
+    const file = fileFor(v);
+    const td = file && window.NUZ_DATA?.encounterTables?.[file];
+    if (td) encTablesData.push(td);
+  }
+
   const q = (encSearchQuery||'').toLowerCase().trim();
   const allLocs = [];
   const seenLoc = new Set();
   for (const loc of txtRoutes.locations) {
     if (seenLoc.has(loc.name)) continue;
     seenLoc.add(loc.name);
+    // Filter trainer-only locations: keep only if it has species in the txt OR
+    // matching data in any encounter-tables file. The Bosses tab still covers
+    // trainer-only spots so we lose nothing by hiding them here.
+    const hasTxtSpecies = (loc.species || []).length > 0;
+    const hasTableData = encTablesData.some(td => _lookupEncTable(td, loc.name));
+    if (!hasTxtSpecies && !hasTableData) continue;
     allLocs.push(loc.name);
   }
   const matched = allLocs.filter(loc => !q || loc.toLowerCase().includes(q));
@@ -6201,6 +6225,11 @@ function buildLocationGroups(merged) {
   const byRegion = new Map();
   const noRegion = [];
   for (const loc of merged.locations) {
+    // Skip trainer-only locations — they exist in the routes file purely to
+    // anchor trainer markers (gyms, indoor fights) and have no wild encounters
+    // for the player to log. Bosses tab still surfaces them via the leagues data.
+    const hasAnySpecies = Object.values(loc.speciesByVersion || {}).some(arr => arr && arr.length > 0);
+    if (!hasAnySpecies) continue;
     if (loc.region) {
       if (!byRegion.has(loc.region)) byRegion.set(loc.region, []);
       byRegion.get(loc.region).push(loc.name);
