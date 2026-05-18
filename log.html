@@ -6415,6 +6415,51 @@ function buildEncounterMainFromTables(locName, ver, game) {
       honey: 'Honey tree', rockSmash: 'Rock Smash',
     };
     const METHOD_ORDER = ['grass', 'surf', 'oldRod', 'goodRod', 'superRod', 'honey', 'rockSmash'];
+    // Gen-7 (SM/USUM) tall-grass tables actually mix four distinct mechanics
+    // under a single [grass] method tag — regular walking, rare flying overhead,
+    // berry-tree spots, and rustling grass. Classify each pool by its slot
+    // distribution + species composition and emit them as separate sections.
+    const ALOLA_GRASS_SUB_LABELS = {
+      walking: 'Walking (tall grass)',
+      rustling: 'Rustling grass',
+      flying: 'Pokémon flying overhead',
+      berry: 'Under berry trees',
+    };
+    const ALOLA_GRASS_SUB_ORDER = ['walking', 'rustling', 'flying', 'berry'];
+    // Bird species that appear in the "flying overhead" rare-grass tables.
+    const ALOLA_FLYING_SET = new Set([
+      'spearow','fearow','pikipek','trumbeak','toucannon',
+      'rufflet','braviary','vullaby','mandibuzz',
+    ]);
+    // Species that genuinely live under/on berry trees in Alola. Any other
+    // 1-species 100% pool (Pikipek piles, Diglett 100% spots, etc.) is closer
+    // to a "rustling" encounter than a berry tree — Serebii splits these too.
+    const ALOLA_BERRY_TREE_SET = new Set(['crabrawler','crabominable','komala']);
+    const classifyGrassSubMethod = (pool) => {
+      // Pick whichever phase has the richest data to classify on. Berry/flying
+      // pools tend to be identical between Day and Night; Walking/Rustling can
+      // differ slightly, but the rough shape stays the same.
+      const phases = [pool.day, pool.night, pool.morning]
+        .filter(a => Array.isArray(a) && a.length);
+      if (!phases.length) return 'walking';
+      const list = phases.reduce((a,b) => (b.length > a.length ? b : a));
+      const filtered = list.filter(e => e.species && e.chance > 0);
+      if (!filtered.length) return 'walking';
+      if (filtered.length === 1 && filtered[0].chance >= 95) {
+        const sp = String(filtered[0].species).toLowerCase();
+        return ALOLA_BERRY_TREE_SET.has(sp) ? 'berry' : 'rustling';
+      }
+      const top = Math.max(...filtered.map(e => e.chance));
+      // Flying overhead: small pool of bird-types, top species dominant.
+      if (filtered.length <= 3 && top >= 60) {
+        const allBirds = filtered.every(e =>
+          ALOLA_FLYING_SET.has(String(e.species || '').toLowerCase()));
+        if (allBirds) return 'flying';
+      }
+      // Rustling grass: skewed distribution with a few species (50/30/15/5 etc.).
+      if (filtered.length >= 2 && filtered.length <= 4 && top >= 50) return 'rustling';
+      return 'walking';
+    };
 
     const byMethod = new Map();
     for (const p of uniquePools) {
@@ -6438,14 +6483,40 @@ function buildEncounterMainFromTables(locName, ver, game) {
     ].filter(Boolean);
     const activeTime = availPhases.includes(selectedEncTime) ? selectedEncTime : (availPhases[0] || 'day');
 
+    const buildGrassTimeTabs = () => {
+      const tabs = [];
+      if (anyMorning) tabs.push(['morning','Morning']);
+      if (anyDay) tabs.push(['day','Day']);
+      if (anyNight) tabs.push(['night','Night']);
+      if (tabs.length <= 1) return '';
+      return `<div class="enc-time-tabs">${tabs.map(([k,label])=>`<button class="${k===activeTime?'active':''}" onclick="setEncTime('${k}')">${label}</button>`).join('')}</div>`;
+    };
+
     const renderPoolSections = (pools, time, method) => {
       // Sort pools by level range ascending so easier ones surface first.
       const sortedPools = [...pools].sort((a,b) => a.lvMin - b.lvMin || a.lvMax - b.lvMax);
       // Prefer the sub-zone label (Beachfront / 1F Outside / etc.) over the
-      // generic A/B/C falback when the parsed data carries one.
-      const tag = (p, i) => p.subZone
-        ? ` · ${p.subZone}`
-        : (sortedPools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '');
+      // generic A/B/C fallback when the parsed data carries one. When several
+      // siblings share the same subZone (Route 1 SM/USUM has 4 distinct grass
+      // pools all tagged "Hau'oli Outskirts" because the source pk3DS dump
+      // bundles multiple Map IDs under the same parenthetical name), append
+      // A/B/C to disambiguate — "Hau'oli Outskirts A / B / C / D".
+      const subZoneCounts = new Map();
+      for (const p of sortedPools) {
+        if (p.subZone) subZoneCounts.set(p.subZone, (subZoneCounts.get(p.subZone) || 0) + 1);
+      }
+      const subZoneSeen = new Map();
+      const tag = (p, i) => {
+        if (p.subZone) {
+          if ((subZoneCounts.get(p.subZone) || 0) > 1) {
+            const idx = subZoneSeen.get(p.subZone) || 0;
+            subZoneSeen.set(p.subZone, idx + 1);
+            return ` · ${p.subZone} ${String.fromCharCode(65 + idx)}`;
+          }
+          return ` · ${p.subZone}`;
+        }
+        return sortedPools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '';
+      };
       return sortedPools.map((p, i) => {
         const entries = p[time].map(toRenderEntry)
           .filter(matchesVer).sort((a,b) => b.r - a.r);
@@ -6459,30 +6530,84 @@ function buildEncounterMainFromTables(locName, ver, game) {
       }).filter(Boolean).join('');
     };
 
-    const sections = orderedMethods.map(method => {
+    const sections = orderedMethods.flatMap(method => {
       const pools = byMethod.get(method);
-      const label = METHOD_LABELS[method] || method;
-      let timeTabsHtml = '';
-      let renderTime = 'day';
+
+      // For [grass], try splitting into Alola-style sub-methods. If only one
+      // sub-method class shows up (e.g., BDSP / Gen 2 always classify as plain
+      // "walking"), this collapses back to the original single Walking section.
       if (method === 'grass') {
-        const tabs = [];
-        if (anyMorning) tabs.push(['morning','Morning']);
-        if (anyDay) tabs.push(['day','Day']);
-        if (anyNight) tabs.push(['night','Night']);
-        if (tabs.length > 1) {
-          timeTabsHtml = `<div class="enc-time-tabs">${tabs.map(([k,label])=>`<button class="${k===activeTime?'active':''}" onclick="setEncTime('${k}')">${label}</button>`).join('')}</div>`;
+        // Classify each pool, then promote-to-walking if the location lacks a
+        // walking baseline. Memorial Hill / Akala Outskirts / Resolution Cave
+        // each have a single skewed grass pool that's the *only* encounter
+        // mechanic on that map — calling it "Rustling grass" without a walking
+        // sibling is misleading. Similarly Diglett's Tunnel's main pool
+        // (Zubat 60 / Diglett 30 / Larvitar 10) should read as Walking while
+        // the Diglett-100% sibling stays as Rustling.
+        const subAssignments = pools.map(p => classifyGrassSubMethod(p));
+        if (!subAssignments.includes('walking')) {
+          let bestIdx = -1, bestLen = -1;
+          for (let i = 0; i < subAssignments.length; i++) {
+            if (subAssignments[i] !== 'rustling') continue;
+            const phase = pools[i].day.length ? pools[i].day : pools[i].night;
+            const len = phase.filter(e => e.species && e.chance > 0).length;
+            if (len > bestLen) { bestLen = len; bestIdx = i; }
+          }
+          if (bestIdx >= 0) {
+            // Promote in two situations:
+            //  1. The candidate has 3+ species — it's walking-shaped enough
+            //     that calling it the route's main encounter is correct even
+            //     if its only siblings are off-level (Paniola Ranch in Sun,
+            //     Memorial Hill, Akala Outskirts, Resolution Cave).
+            //  2. The candidate has 1-2 species but its level range either
+            //     stands alone or overlaps with a sibling — handles 1-pool
+            //     caves (Golbat/Dugtrio in Resolution Cave) and pools that
+            //     share level with another at the same map (Diglett's
+            //     Tunnel main pool). Skips stray Lv 2-3 Pikipek piles whose
+            //     only sibling is a berry tree at the route's actual level.
+            const target = pools[bestIdx];
+            const others = pools.filter((_, i) => i !== bestIdx);
+            const overlaps = others.length === 0 || others.some(op =>
+              op.lvMax >= target.lvMin && op.lvMin <= target.lvMax);
+            if (bestLen >= 3 || overlaps) subAssignments[bestIdx] = 'walking';
+          }
         }
-        renderTime = activeTime;
+        const bySub = new Map();
+        for (let i = 0; i < pools.length; i++) {
+          const sub = subAssignments[i];
+          if (!bySub.has(sub)) bySub.set(sub, []);
+          bySub.get(sub).push(pools[i]);
+        }
+        const orderedSubs = ALOLA_GRASS_SUB_ORDER.filter(s => bySub.has(s))
+          .concat([...bySub.keys()].filter(s => !ALOLA_GRASS_SUB_ORDER.includes(s)));
+
+        return orderedSubs.map((sub, subIdx) => {
+          const subLabel = ALOLA_GRASS_SUB_LABELS[sub] || METHOD_LABELS.grass;
+          const subPools = bySub.get(sub);
+          // Time tabs only on the first grass-style section; selectedEncTime is
+          // shared global state so the lower sections re-render in sync.
+          const timeTabsHtml = subIdx === 0 ? buildGrassTimeTabs() : '';
+          const inner = renderPoolSections(subPools, activeTime, 'grass');
+          if (!inner) return '';
+          return `<div class="enc-section">
+            <div class="enc-section-hdr">
+              <span class="enc-method-label">${subLabel}</span>
+              ${timeTabsHtml}
+            </div>
+            ${inner}
+          </div>`;
+        }).filter(Boolean);
       }
-      const inner = renderPoolSections(pools, renderTime, method);
-      if (!inner) return '';
-      return `<div class="enc-section">
+
+      const label = METHOD_LABELS[method] || method;
+      const inner = renderPoolSections(pools, 'day', method);
+      if (!inner) return [];
+      return [`<div class="enc-section">
         <div class="enc-section-hdr">
           <span class="enc-method-label">${label}</span>
-          ${timeTabsHtml}
         </div>
         ${inner}
-      </div>`;
+      </div>`];
     }).filter(Boolean).join('');
 
     return sections || '<div class="enc-empty" style="padding:12px">No species in this time of day.</div>';
@@ -6507,6 +6632,12 @@ function buildEncounterMainFromTables(locName, ver, game) {
       const sumB = b[activeTime].reduce((s,e)=>s+e.chance, 0);
       return sumB - sumA;
     });
+    // Same duplicate-subZone disambiguation as the method-based renderer.
+    const subZoneCounts = new Map();
+    for (const p of sortedPools) {
+      if (p.subZone) subZoneCounts.set(p.subZone, (subZoneCounts.get(p.subZone) || 0) + 1);
+    }
+    const subZoneSeen = new Map();
     return sortedPools.map((p, i) => {
       const entries = p[activeTime]
         .map(toRenderEntry)
@@ -6516,10 +6647,20 @@ function buildEncounterMainFromTables(locName, ver, game) {
       const total = entries.reduce((s,e) => s + e.r, 0);
       const lvLabel = g.lvMin === g.lvMax ? `Lv ${g.lvMin}` : `Lv ${g.lvMin}–${g.lvMax}`;
       // Prefer the sub-zone label parsed from "Map: NNN - Parent (SubZone)"
-      // headers; fall back to A/B/C only when no sub-zone is set.
-      const suffix = p.subZone
-        ? ` · ${p.subZone}`
-        : (g.pools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '');
+      // headers; fall back to A/B/C only when no sub-zone is set. Disambiguate
+      // siblings sharing a sub-zone with an A/B/C suffix.
+      let suffix;
+      if (p.subZone) {
+        if ((subZoneCounts.get(p.subZone) || 0) > 1) {
+          const idx = subZoneSeen.get(p.subZone) || 0;
+          subZoneSeen.set(p.subZone, idx + 1);
+          suffix = ` · ${p.subZone} ${String.fromCharCode(65 + idx)}`;
+        } else {
+          suffix = ` · ${p.subZone}`;
+        }
+      } else {
+        suffix = g.pools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '';
+      }
       return `<div class="enc-section">
         <div class="enc-section-hdr">
           <span class="enc-method-label">Pool · ${lvLabel}${suffix}</span>
