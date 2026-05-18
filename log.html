@@ -109,8 +109,15 @@
   .fbar-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);font-weight:600}
   .fbar-select{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 8px;color:var(--text);font-family:'Outfit',sans-serif;font-size:12px;cursor:pointer}
   .fbar-select:focus{outline:none;border-color:var(--accent)}
-  .poke-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;gap:8px;position:relative;transition:border-color .15s,box-shadow .15s;cursor:pointer}
-  .poke-card:hover{border-color:var(--border2)}
+  /* user-select:none — prevents the browser from selecting text when a
+     hold-to-drag is interpreted as a quick click+drag. Without this, dragging
+     a card before the 150ms (mouse) / 250ms (touch) hold delay completes
+     starts a native text selection on the nickname / move pills instead of a
+     Sortable drag, and the cursor stays in "I-beam" mode until you click away.
+     -webkit-touch-callout suppresses the iOS long-press callout menu that
+     would otherwise compete with the hold-to-drag gesture. */
+  .poke-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;gap:8px;position:relative;transition:border-color .15s,box-shadow .15s,background-color .15s;cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+  .poke-card:hover{border-color:rgba(108,143,255,.55);background:var(--bg2-hover,var(--bg2));box-shadow:0 2px 14px rgba(0,0,0,.28),0 0 0 1px rgba(108,143,255,.18)}
   .poke-card.in-party{border-color:rgba(108,143,255,.4);box-shadow:0 0 0 1px rgba(108,143,255,.1)}
   .poke-card.sortable-chosen{border-color:var(--accent) !important;box-shadow:0 8px 30px rgba(0,0,0,0.5) !important;opacity:0.95;z-index:50}
   .poke-card.sortable-ghost{opacity:0.15;border:2px dashed var(--accent) !important;box-shadow:none !important;background:var(--bg3) !important}
