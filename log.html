@@ -5700,13 +5700,26 @@ function derivePoolsFromMethods(data, opts) {
         for (const [key, sum] of Object.entries(sp.chanceBy || {})) {
           const [aIdx, sn, letter, cond] = key.split(':');
           if (+aIdx !== areaIdx) continue;
-          if (letter !== ver && versionLetters.length > 1) continue;
           if (!includeConditionals && cond !== 'base') continue;
           if (sn !== 'all' && season && season !== 'all' && sn !== season) continue;
           let bucket = perCond.get(cond);
           if (!bucket) { bucket = { chance: 0, letters: new Set() }; perCond.set(cond, bucket); }
-          if (sum > bucket.chance) bucket.chance = sum;
+          // Track every version letter that has data for this species in this
+          // bucket, even off-version ones — the cross-version exclusivity tag
+          // (set just below) needs to see ALL letters. Filtering letter !== ver
+          // here was the HGSS bug: a shared species like Geodude has both H and
+          // S buckets, but skipping the S bucket before letters.add stripped
+          // the cross-version evidence, so letters.size always == 1 and every
+          // shared species got tagged as version-exclusive.
           bucket.letters.add(letter);
+          // Only the active version's buckets contribute to the displayed
+          // chance. Off-version species (S-only when on HG) end up with
+          // chance=0 here and are filtered out by `if (chance <= 0) continue`
+          // a few lines down — so this preserves the "don't show the other
+          // version's exclusives" behavior without polluting the tag logic.
+          if (letter === ver || versionLetters.length === 1) {
+            if (sum > bucket.chance) bucket.chance = sum;
+          }
         }
         for (const [cond, { chance, letters }] of perCond) {
           if (chance <= 0) continue;
