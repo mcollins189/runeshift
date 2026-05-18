@@ -64,7 +64,7 @@ Ruin Maniac's Cave|geodude,hippopotas
 Celestic Town|psyduck,goldeen,magikarp,gyarados,barboach,whiscash,corphish,crawdaunt
 --Hearthome Gym|5|gym-leader|Fantina
 Fuego Ironworks|shinx,luxio,pachirisu,floatzel,shellos,gastrodon,tentacool,tentacruel,wingull,pelipper,magikarp,gyarados,finneon,lumineon,shellder,magnemite,hoppip,skiploom,aron
-Routes 219|tentacool,tentacruel,wingull,pelipper,magikarp,gyarados,finneon,clamperl,lumineon
+Route 219|tentacool,tentacruel,wingull,pelipper,magikarp,gyarados,finneon,clamperl,lumineon
 Route 220|tentacool,tentacruel,wingull,pelipper,magikarp,gyarados,finneon,lumineon,chinchou
 Route 221|sudowoodo,wingull,roselia,floatzel,shellos,gastrodon,stunky,skuntank,te
 Route 218|mr-mime,floatzel,shellos,gastrodon,glameow,tentacool,wingull,pelipper,magikarp,gyarados,finneon,lumineon,voltorb,ditto

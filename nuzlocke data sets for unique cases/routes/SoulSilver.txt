@@ -80,8 +80,8 @@ Indigo Plateau|
 --Elite Four|e3|elite-four|Bruno
 --Elite Four|e4|elite-four|Karen
 --Champion Fight|c|elite-four|Lance
-Vermillion City|spearow,diglett,tentacool,tentacruel,shellder,magikarp,chinchou,lanturn,shuckle,heracross,wingull,combee
---Vermillion City Gym|k1|gym-leader|Lt. Surge
+Vermilion City|spearow,diglett,tentacool,tentacruel,shellder,magikarp,chinchou,lanturn,shuckle,heracross,wingull,combee
+--Vermilion City Gym|k1|gym-leader|Lt. Surge
 Route 6|pidgey,nidoranf,nidoranm,vulpix,exeggcute,hoothoot,ledyba,sudowoodo,pineco,stantler,plusle,minun,shinx
 Saffron City|pikachu
 --Saffron City Gym|k2|gym-leader|Sabrina
@@ -91,8 +91,8 @@ Celadon City|mrmime,eevee,porygon
 Route 16|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
 Route 17|kakuna,beedrill,raticate,spearow,fearow,gloom,tentacool,tentacruel,farfetchd,seel,shellder,exeggcute,staryu,magikarp,ditto,hoothoot,noctowl,ledyba,chinchou,lanturn,pineco,heracross,miltank,linoone,whismur,bidoof,buizel
 Route 18|raticate,meowth,magnemite,farfetchd,exeggcute,tauros,hoothoot,ledyba,pineco,snubbull,miltank,plusle,minun,shinx,burmy
-Fuschia City|magikarp,gyarados,hoothoot,ledyba,wurmple
---Fuschia City Gym|k4|gym-leader|Janine
+Fuchsia City|magikarp,gyarados,hoothoot,ledyba,wurmple
+--Fuchsia City Gym|k4|gym-leader|Janine
 Route 15|pidgey,nidoranf,nidoranm,psyduck,golduck,poliwag,abra,drowzee,exeggcute,magikarp,ditto,hoothoot,ledyba,yanma,pineco,linoone,whismur,bidoof,buizel
 Route 14|tentacool,tentacruel
 Route 13|rattata,spearow,ekans,zubat,hoppip,plusle,minun,shinx

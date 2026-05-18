@@ -49,7 +49,7 @@ Route 213|tentacool,tentacruel,magikarp,gyarados,aipom,heracross,remoraid,octill
 Celestic Town|psyduck,golduck,goldeen,seaking,magikarp,gyarados,corphish,crawdaunt
 --Celestic Town|cyr1|evil-team|Cyrus
 Fuego Ironworks|tentacool,tentacruel,magnemite,shellder,magmar,magikarp,gyarados,aipom,heracross,wurmple,aron,burmy,combee,floatzel,cherubi,shellos,gastrodon,munchlax,finneon,lumineon
-Routes 219|tentacool,tentacruel,magikarp,gyarados,wingull,pelipper,finneon,lumineon
+Route 219|tentacool,tentacruel,magikarp,gyarados,wingull,pelipper,finneon,lumineon
 Route 220|tentacool,tentacruel,magikarp,gyarados,chinchou,wingull,pelipper,finneon,lumineon
 Route 221|nidorina,nidorino,tentacool,tentacruel,farfetchd,magikarp,gyarados,sudowoodo,aipom,girafarig,heracross,wurmple,wingull,pelipper,roselia,burmy,combee,floatzel,cherubi,munchlax,finneon,lumineon
 Route 218|tentacool,tentacruel,voltorb,mrmime,magikarp,gyarados,aipom,heracross,wurmple,burmy,combee,floatzel,cherubi,shellos,gastrodon,chatot,munchlax,finneon,lumineon

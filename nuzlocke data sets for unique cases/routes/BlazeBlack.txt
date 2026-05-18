@@ -74,9 +74,9 @@ Twist Mountain|phanpy,teddiursa,cubchoo,sneasel,delibird,swinub,graveler,boldore
 
 --Twist Mountain|c6|rival|Cheren
 
-Iccirus City|palpitoad,stunfisk,croagunk,gulpin,koffing,grimer,gastrodon,quagsire,toxicroak,swalot,weezing,muk,barboach,whiscash,seismitoad
+Icirrus City|palpitoad,stunfisk,croagunk,gulpin,koffing,grimer,gastrodon,quagsire,toxicroak,swalot,weezing,muk,barboach,whiscash,seismitoad
 
---Iccirus Gym|7|gym-leader|Brycen
+--Icirrus Gym|7|gym-leader|Brycen
 
 Route 8|palpitoad,stunfisk,croagunk,gulpin,koffing,grimer,gastrodon,quagsire,toxicroak,swalot,weezing,muk,barboach,whiscash,seismitoad
 

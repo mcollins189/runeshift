@@ -61,7 +61,7 @@ Tapu Village|raticatealola,sandshrewalola,graveler,magikarp,gyarados,swinub,peli
 Route 15|raticatealola,tentacool,slowpoke,magikarp,gyarados,porygon,pelipper,finneon,gumshoos,crabrawler,wishiwashi,bruxish
 Aether House|porygon
 Route 14|raticatealola,sandshrewalola,tentacool,magikarp,gyarados,pelipper,absol,snorunt,finneon,gumshoos,wishiwashi,bruxish
-Thrify Megamart|golbat,haunter,gengar,klefki,mimikyu
+Thrifty Megamart|golbat,haunter,gengar,klefki,mimikyu
 --Totem Trial|9|gym-leader|Acerola's Trial
 --Route 15|p2|evil-team|Plumeria
 Route 16|raticatealola,slowpoke,pelipper,duosion,zygarde,gumshoos,crabrawler

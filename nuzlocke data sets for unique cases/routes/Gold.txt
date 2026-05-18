@@ -71,8 +71,8 @@ Indigo Plateau|
 --Elite Four|e3|elite-four|Bruno
 --Elite Four|e4|elite-four|Karen
 --Champion Fight|c|elite-four|Lance
-Vermillion City|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
---Vermillion City Gym|k1|gym-leader|Lt. Surge
+Vermilion City|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
+--Vermilion City Gym|k1|gym-leader|Lt. Surge
 Route 6|caterpie,metapod,butterfree,pidgey,nidoranf,nidoranm,growlithe,exeggcute,hoothoot,sudowoodo,pineco,stantler
 --Saffron City Gym|k2|gym-leader|Sabrina
 Route 5|spearow,geodude,graveler,magikarp,dratini,dragonair,aipom,gligar,heracross,teddiursa
@@ -90,8 +90,8 @@ Route 4|caterpie,metapod,butterfree,pidgey,pidgeotto,oddish,venonat,venomoth,abr
 Route 16|tentacool,tentacruel,krabby,kingler,staryu,magikarp,corsola,mantine
 Route 17|fearow,grimer,muk,slugma
 Route 18|caterpie,metapod,butterfree,rattata,raticate,magnemite,farfetchd,exeggcute,tauros,pineco,snubbull,miltank
-Fuschia City|magikarp,gyarados
---Fuschia City Gym|k4|gym-leader|Janine
+Fuchsia City|magikarp,gyarados
+--Fuchsia City Gym|k4|gym-leader|Janine
 Route 15|caterpie,metapod,butterfree,pidgey,spearow,nidoranf,nidoranm,psyduck,golduck,poliwag,poliwhirl,abra,drowzee,exeggcute,magikarp,ditto,hoothoot,noctowl,yanma,pineco
 Route 14|tentacool,tentacruel,krabby,kingler,staryu,magikarp,shuckle,corsola
 Route 13|rattata,spearow,zubat,hoppip,aipom,heracross

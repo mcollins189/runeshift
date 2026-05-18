@@ -26,7 +26,7 @@ Route 10|eevee,yanma,snubbull,nosepass,electrike,sigilyph,emolga,golett,hawlucha
 Route 11|nidoranf,nidorina,nidoranm,nidorino,hariyama,starly,staravia,chingling,stunky,throh,dedenne
 Reflection Cave|mrmime,wobbuffet,sableye,chingling,mimejr,roggenrola,woobat,solosis,ferroseed,carbink
 Shalour City|tentacool,chinchou,lanturn,remoraid,octillery,luvdisc,mantyke,alomomola
-Tower of Mystery|lucario
+Tower of Mastery|lucario
 --Tower of Mastery|se1|rival|Serena
 --Shalour Gym|3|gym-leader|Korrina
 --Tower of Mastery|3b|rival|Korrina

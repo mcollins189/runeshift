@@ -85,8 +85,8 @@ Indigo Plateau
 --Elite Four|e3|elite-four|Bruno
 --Elite Four|e4|elite-four|Karen
 --Champion Fight|c|elite-four|Lance
-Vermillion City|wingull,pelipper,lanturn,tentacool,chinchou,shellder,tentacruel,krabby,shuckle
---Vermillion City Gym|k1|gym-leader|Lt. Surge
+Vermilion City|wingull,pelipper,lanturn,tentacool,chinchou,shellder,tentacruel,krabby,shuckle
+--Vermilion City Gym|k1|gym-leader|Lt. Surge
 Route 6|pidgeotto,kadabra,raticate,weepinbell,cherrim,persian,gloom,hippowdon,dunsparce,psyduck,golduck,magikarp,poliwag,poliwhirl
 Saffron City
 --Saffron City Gym|k2|gym-leader|Sabrina
@@ -96,8 +96,8 @@ Celadon City|grimer,muk
 Route 16|grimer,gulpin,skorupi,muk,magcargo,drapion,swalot,ninjask
 Route 17|grimer,gulpin,fearow,muk,magcargo,dodrio,misdreavus,swalot,mismagius,dusclops,drifblim
 Route 18|grimer,gulpin,fearow,muk,magcargo,dodrio,murkrow,swalot,honchkrow,ninjask
-Fuschia City
---Fuschia City Gym|k4|gym-leader|Janine
+Fuchsia City
+--Fuchsia City Gym|k4|gym-leader|Janine
 Route 15|nidorina,nidorino,swellow,skiploom,ditto,nidorina,venomoth,ditto,jumpluff
 Route 14|nidorina,nidorino,swellow,skiploom,chansey,nidorina,venomoth,chansey,jumpluff,bonsly,mime-jr
 Route 13|nidorina,nidorino,swellow,skiploom,farfetchd,nidorina,quagsire,noctowl,jumpluff,bonsly,mime-jr,chansey,slowpoke,slowbro,magikarp,poliwag,goldeen,horsea,seadra,poliwhirl,qwilfish

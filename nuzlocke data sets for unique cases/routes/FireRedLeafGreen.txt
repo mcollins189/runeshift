@@ -18,9 +18,9 @@ Route 24|psyduck,tentacool,slowpoke,krabby,horsea,magikarp,gyarados
 Route 25|caterpie,metapod,weedle,kakuna,pidgey,oddish,psyduck,poliwag,poliwhirl,abra,bellsprout,slowpoke,goldeen,magikarp,gyarados
 Route 5|pidgey,oddish,meowth,bellsprout
 Route 6|pidgey,oddish,meowth,psyduck,poliwag,poliwhirl,bellsprout,slowpoke,goldeen,magikarp,gyarados
-Vermillion City|psyduck,tentacool,slowpoke,shellder,krabby,horsea,staryu,magikarp,gyarados
+Vermilion City|psyduck,tentacool,slowpoke,shellder,krabby,horsea,staryu,magikarp,gyarados
 --S.S. Anne|r4|rival|Blue
---Vermillion City Gym|3|gym-leader|Lt. Surge
+--Vermilion City Gym|3|gym-leader|Lt. Surge
 Route 11|spearow,ekans,sandshrew,psyduck,tentacool,slowpoke,drowzee,krabby,horsea,magikarp,gyarados
 Diglett's Cave|diglett,dugtrio
 Route 9|rattata,spearow,ekans,sandshrew
@@ -41,8 +41,8 @@ Saffron City|hitmonlee,hitmonchan,lapras
 Route 16|rattata,raticate,spearow,doduo,snorlax
 Route 17|rattata,raticate,spearow,fearow,doduo
 Route 18|rattata,raticate,spearow,fearow,doduo
-Fuschia City|magikarp,poliwag,goldeen,psyduck,seaking,gyarados,slowpoke
---Fuschia City Gym|5|gym-leader|Koga
+Fuchsia City|magikarp,poliwag,goldeen,psyduck,seaking,gyarados,slowpoke
+--Fuchsia City Gym|5|gym-leader|Koga
 Safari Zone|nidoran-f,nidorina,nidoran-m,nidorino,parasect,venonat,psyduck,poliwag,slowpoke,exeggcute,rhyhorn,chansey,goldeen,seaking,scyther,pinsir,magikarp,dratini,dragonair
 Route 15|pidgey,pidgeotto,oddish,gloom,venonat,bellsprout,weepinbell,ditto
 Route 14|pidgey,pidgeotto,oddish,gloom,venonat,bellsprout,weepinbell,ditto

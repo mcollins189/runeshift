@@ -39,9 +39,9 @@ Cerulean City|chewtle,clauncher,wishiwashi,wailmer,remoraid,luvdisc,sharpedo,oct
 
 Route 5|meowth,hatenna,solosis,growlithe,swirlix,morelull,vulpix,grimer,drifloon,meowth-galar,gothita,vulpix-alola,spritzee,grimer-alola,eiscue
 Route 6|chinchou,shellder,slowpoke-galar,qwilfish,slowbro-galar,lanturn,gyarados,psyduck,golduck,sunkern,cherubi,gulpin,furfrou,sizzlipede,dedenne,lickitung,meditite,togepi,bounsweet,gossifleur,trubbish,komala
-Vermillion City|arrokuda,finneon,frillish,shellder,krabby,luvdisc,alomomola,seadra,gyarados,tentacool,pelipper,tentacruel,squirtle,farfetchd-galar
+Vermilion City|arrokuda,finneon,frillish,shellder,krabby,luvdisc,alomomola,seadra,gyarados,tentacool,pelipper,tentacruel,squirtle,farfetchd-galar
 
---Vermillion City Gym|3_hard|gym-leader|Lt. Surge
+--Vermilion City Gym|3_hard|gym-leader|Lt. Surge
 
 Digletts Cave|diglett,stunfisk,silicobra,wooper,sandshrew,drilbur,gligar,dugtrio,hippopotas,diglett-alola,stunfisk-galar,phanpy,shellos,sandile,dugtrio-alola,machop,numel,yamask,geodude,trapinch,bronzor,nosepass,noibat,pancham,yamask-galar,geodude-alola
 
@@ -81,11 +81,11 @@ Saffron City|mudkip,lapras,treecko,clobbopus,crabrawler
 Route 16|heracross,yanma,rhyhorn,skorupi,cufant,durant,togedemaru,skarmory,lileep,escavalier,scyther,forretress,falinks,anorith
 Route 17|weezing,zebstrika,muk,hypno,grumpig,torkoal,audino,drampa,skarmory,weezing-galar,muk-alola,turtonator
 Route 18|xatu,vikavolt,poliwrath,abomasnow,altaria,parasect,toxicroak,kabutops,arctovish,dracovish,politoed,jynx,heliolisk,omastar,morpeko-full-belly
-Fuschia City|magikarp,poliwag,goldeen,psyduck,seaking,gyarados,slowpoke
+Fuchsia City|magikarp,poliwag,goldeen,psyduck,seaking,gyarados,slowpoke
 
 --Safari Zone|b3_hard|rival|Brendan
 
---Fuschia City Gym|6_hard|gym-leader|Koga
+--Fuchsia City Gym|6_hard|gym-leader|Koga
 
 Safari Zone|kecleon,spinda,absol,meltan,porygon,scyther,chansey,heracross,magikarp,krabby,qwilfish,mareanie,mantyke,alomomola,basculin,sharpedo,feebas,frillish,golduck,jellicent,hawlucha,castform,bouffalant,wobbuffet,zorua,pinsir,kangaskhan,tauros,zorua-hisui,arrokuda,corsola,seadra,remoraid,gorebyss,huntail,starmie,dhelmise,wimpod,lanturn,araquanid,seismitoad,dewpider,toxapex,golisopod,kingler,bruxish,skrelp,pyukumuku,wailmer,poliwag,klefki,throh,bisharp,corviknight,binacle,axew,sawk,skarmory,druddigon,vespiquen,hippowdon,yanma,crabominable,smeargle,horsea,crawdaunt,seaking,relicanth,lumineon,floatzel,milotic
 Route 15|amoonguss,ambipom,tsareena,galvantula,simipour,oricorio,sigilyph,ferrothorn,ditto
@@ -151,7 +151,7 @@ Kindle Road|absol,smeargle,alcremie,centiskorch,gardevoir,seviper,centiskorch-se
 
 --Cerulean City Gym|2r_hard|gym-leader|Misty Rematch
 
---Vermillion City Gym|3r_hard|gym-leader|Lt. Surge Rematch
+--Vermilion City Gym|3r_hard|gym-leader|Lt. Surge Rematch
 
 --Celadon City Gym|4r_hard|gym-leader|Erika Rematch
 

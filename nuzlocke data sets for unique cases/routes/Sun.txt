@@ -16,7 +16,6 @@ Route 3|rattataalola,spearow,mankey,cyndaquil,delibird,bagon,salamence,rufflet,y
 Melemele Meadow|caterpie,metapod,butterfree,cottonee,oricorio,cutiefly,buzzwole
 Seaward Cave|zubat,diglettalola,psyduck,magikarp,gyarados,totodile,barboach,whiscash
 --Hala's Grand Trial|2|gym-leader|Hala
--Hau'oli City|rattataalola,pikachu,meowthalola,abra,magnemite,grimeralola,pichu,wingull,happiny,klink,yungoos
 Kala'e Bay|rattataalola,tentacool,slowpoke,slowbro,shellder,horsea,magikarp,gyarados,wingull,bagon,shelgon,finneon,yungoos,wishiwashi
 Ten Carat Hill|zubat,diglettalola,machop,sableye,spinda,roggenrola,deino,carbink,rockruff,necrozma
 --Heahea City|dsa|rival|Dexio
@@ -62,7 +61,7 @@ Tapu Village|raticatealola,vulpixalola,graveler,magikarp,gyarados,swinub,pelippe
 Route 15|raticatealola,tentacool,slowpoke,magikarp,gyarados,porygon,pelipper,finneon,gumshoos,crabrawler,wishiwashi,bruxish
 Aether House|porygon
 Route 14|raticatealola,vulpixalola,tentacool,magikarp,gyarados,pelipper,absol,snorunt,finneon,gumshoos,wishiwashi,bruxish
-Thrify Megamart|golbat,haunter,gengar,klefki,mimikyu
+Thrifty Megamart|golbat,haunter,gengar,klefki,mimikyu
 --Totem Trial|9|gym-leader|Acerola's Trial
 --Route 15|p2|evil-team|Plumeria
 Route 16|raticatealola,slowpoke,pelipper,duosion,zygarde,gumshoos,crabrawler

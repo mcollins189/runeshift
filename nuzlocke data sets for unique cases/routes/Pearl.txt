@@ -49,7 +49,7 @@ Ruin Maniac's Tunnel|geodude,hippopotas
 Celestic Town|psyduck,golduck,magikarp,gyarados,barboach,whiscash,corphish,crawdaunt
 --Hearthome Gym|5|gym-leader|Fantina
 Fuego Ironworks|tentacool,tentacruel,magnemite,shellder,magikarp,gyarados,hoppip,skiploom,aipom,heracross,wurmple,cascoon,wingull,pelipper,shinx,luxio,burmy,combee,pachirisu,floatzel,cherubi,shellos,gastrodon,munchlax,finneon,lumineon
-Routes 219|tentacool,tentacruel,magikarp,gyarados,wingull,pelipper,clamperl,finneon,lumineon
+Route 219|tentacool,tentacruel,magikarp,gyarados,wingull,pelipper,clamperl,finneon,lumineon
 Route 220|tentacool,tentacruel,magikarp,gyarados,chinchou,lanturn,wingull,pelipper,finneon,lumineon
 Route 221|nidorina,nidorino,tentacool,tentacruel,farfetchd,magikarp,gyarados,sudowoodo,aipom,heracross,wurmple,cascoon,wingull,pelipper,roselia,clamperl,burmy,combee,floatzel,cherubi,shellos,gastrodon,munchlax,finneon,lumineon
 Route 218|tentacool,tentacruel,voltorb,magikarp,gyarados,ditto,aipom,heracross,wurmple,cascoon,wingull,pelipper,burmy,combee,floatzel,cherubi,shellos,gastrodon,glameow,munchlax,finneon,lumineon

@@ -33,9 +33,9 @@ Vermilion City|paras,nincada,wurmple,anorith,surskit,scyther,trapinch,venonat,he
 --S.S. Anne|r3|rival|Rival
 
 
---Vermillion City Gym|3_a|mini-boss|Lt. Surge
---Vermillion City Gym|3_b|mini-boss|Wattson
---Vermillion City Gym|3_c|gym-leader|Gym Leader Franklin
+--Vermilion City Gym|3_a|mini-boss|Lt. Surge
+--Vermilion City Gym|3_b|mini-boss|Wattson
+--Vermilion City Gym|3_c|gym-leader|Gym Leader Franklin
 
 Long Cave|mankey,bellsprout,hoppip,chinchou,trapinch,kecleon,phanpy,aipom
 Route 11|meditite,farfetchd,mankey,machop,phanpy,taillow,aipom,shroomish,absol,makuhita
@@ -69,9 +69,9 @@ Route 15|electrike,whismur,growlithe,venonat,pineco,poochyena,eevee,doduo,dunspa
 Fuchsia City|zubat,whismur,solrock,lunatone,clefairy,jigglypuff,snubbull,swablu,beldum,larvitar
 Safari zone|larvitar,beldum,dratini,bagon,slakoth,zubat,growlithe,swablu,nidoran-f,nidorina,nidoran-m,nidorino,parasect,venonat,psyduck,poliwag,slowpoke,exeggcute,rhyhorn,chansey,goldeen,seaking,scyther,pinsir,magikarp,dragonair
 
---Fuschia City Gym|5_a|mini-boss|Koga
---Fuschia City Gym|5_b|mini-boss|Norman
---Fuschia City Gym|5_c|gym-leader|Gym Leader AAAAAAAHHH
+--Fuchsia City Gym|5_a|mini-boss|Koga
+--Fuchsia City Gym|5_b|mini-boss|Norman
+--Fuchsia City Gym|5_c|gym-leader|Gym Leader AAAAAAAHHH
 
 --Silph Co|r5|rival|Rival
 
