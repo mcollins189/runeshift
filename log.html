@@ -5789,10 +5789,11 @@ function renderEncountersByRegion(el, gameKey, game) {
       if (!hasTxtSpecies && !isInApi) continue;
       allLocs.push(loc.name);
     }
-    // Append any PokeAPI locations not present in the txt (e.g. seasonal areas).
-    for (const apiLoc of region.locations) {
-      if (!seen.has(apiLoc.name)) allLocs.push(apiLoc.name);
-    }
+    // txt routes file is the curated, authoritative list. Don't append leftover
+    // PokeAPI region locations — most are dead entries (towns, gates, league,
+    // subway, Black City / White Forest as slugs) with no wild encounter data,
+    // and the PokeAPI slug form ('accumula-town') doesn't match our display
+    // names anyway. If a real wild-encounter route is missing, add it to the txt.
   } else {
     allLocs = region.locations.map(l => l.name);
   }
@@ -5838,15 +5839,35 @@ function renderEncountersByRegion(el, gameKey, game) {
     </div>`;
   }
 
-  // Gen 5 (BW/B2W2 + Drayano hacks of them) introduced seasonal encounters.
-  // Show a season pill so the user can filter; default Spring matches the
-  // typical PokeAPI ordering for these tables.
+  // Gen 5 (BW/B2W2 + Drayano hacks of them) introduced seasonal encounters,
+  // but PokeAPI only tags season conditions on ~9 of Unova's 120 walking-data
+  // areas (most are empty condition_values). Probe the selected location's
+  // fetched data and only show the pill when at least one species actually has
+  // season-tagged buckets — otherwise the toggle silently does nothing.
   let seasonPillHtml = '';
-  if (game.gen === 5) {
-    const seasons = [['spring','Spring'],['summer','Summer'],['autumn','Autumn'],['winter','Winter'],['all','All']];
-    seasonPillHtml = `<div class="ver-pill season-pill" title="Filter to encounters in the selected season">
-      ${seasons.map(([k,label]) => `<button class="${selectedEncSeason===k?'active':''}" onclick="setEncSeason('${k}')">${label}</button>`).join('')}
-    </div>`;
+  if (game.gen === 5 && selectedEncLocation) {
+    const data = encounterCache[selectedEncLocation + '@' + gameKey];
+    let hasSeasonData = false;
+    if (data && typeof data === 'object' && data.methods) {
+      outer: for (const m in data.methods) {
+        const slot = data.methods[m];
+        const lists = Array.isArray(slot) ? [slot] : Object.values(slot || {});
+        for (const list of lists) {
+          for (const sp of (list || [])) {
+            for (const k of Object.keys(sp.chanceBy || {})) {
+              const sn = k.split(':')[1];
+              if (sn && sn !== 'all') { hasSeasonData = true; break outer; }
+            }
+          }
+        }
+      }
+    }
+    if (hasSeasonData) {
+      const seasons = [['spring','Spring'],['summer','Summer'],['autumn','Autumn'],['winter','Winter'],['all','All']];
+      seasonPillHtml = `<div class="ver-pill season-pill" title="Filter to encounters in the selected season">
+        ${seasons.map(([k,label]) => `<button class="${selectedEncSeason===k?'active':''}" onclick="setEncSeason('${k}')">${label}</button>`).join('')}
+      </div>`;
+    }
   }
 
   el.innerHTML = `
