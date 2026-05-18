@@ -1,0 +1,284 @@
+--item
+toxtricitite|mawilite|Allows Toxtricity to Mega Evolve into Mega Toxtricity.
+duraludite|aggronite|Allows Duraludon to Mega Evolve into Mega Duraludon.
+heavy-duty-boots|heavy-duty-boots|When switching in, the holder is unaffected by hazards on its side of the field.
+eternamax-orb|toxic-orb|If held by an Eternatus, this item triggers its Primal Reversion in battle.
+
+--move
+# Modifications
+drill-peck|||Has an increased chance for a critical hit.
+triple-kick||20
+charge-beam|||Boosts the user's Special Attack by one stage
+self-destruct||100|Target's Defense is halved during damage. User faints.
+explosion||100|Target's Defense is halved during damage. User faints.
+poison-fang||75
+shadow-claw||80
+parabolic-charge||75
+rock-smash||60
+kings-shield|||Protects from damaging attacks.
+roar-of-time||80|Forces the target to switch to a random ally.
+ice-hammer|||No effect
+
+# New moves
+soul-robbery|psychic|100|The target's stat increases are stolen from it and applied to the user before dealing damage.|special
+dark-hole|dark|100|This move has a 40% chance to inflict sleep on the target, it also bypasses substitute.|special
+draco-barrage|dragon|100|This move becomes a physical attack if the user's Attack is greater than its Special Attack. If the target lost HP, the user takes recoil damage equal to 33% the HP. This move can hit Fairy-type Pokemon.|special
+
+hidden-power-grass|grass|60||special|Hidden Power
+hidden-power-ground|ground|60||special|Hidden Power
+hidden-power-rock|rock|60||special|Hidden Power
+hidden-power-bug|bug|60||special|Hidden Power
+hidden-power-electric|electric|60||special|Hidden Power
+hidden-power-fire|fire|60||special|Hidden Power
+hidden-power-fighting|fighting|60||special|Hidden Power
+hidden-power-dark|dark|60||special|Hidden Power
+hidden-power-ice|ice|60||special|Hidden Power
+
+--ability
+
+# Ability modifications
+defeatist|While this Pokemon has ⅓ or less of its maximum HP, its Attack and Special Attack are halved.
+iron-fist|This Pokemon's punch-based attacks have their power multiplied by 1.3×.
+flare-boost|When burned, special attacks have 1.5× power. This Pokemon is also immune to burn damage.
+illusion|Appears as last Pokemon in party until damaged. Moves have their power multiplied by 1.3× whilst disguised.
+liquid-voice|This Pokemon's sound-based moves become Water-type moves and have their power multiplied by 1.2×.
+fatal-precision|Super Effective Moves from this Pokemon can’t miss and receive a 20% damage boost.
+
+# New abilities
+blazing-soul|If this Pokemon is at full HP, its Fire-type moves have their priority increased by 1.
+blademaster|This Pokemon's blade-based attacks have their power multiplied by 1.2× and get a +1 critical hit ratio.
+bad-company|Prevents self-lowering stat drops and recoil.
+as-one|This Pokemon's Attack is raised by 1 stage if it attacks and knocks out another Pokemon. While this Pokemon is active, it prevents opposing Pokemon from using their Berries. This Ability activates before hazards and other Abilities take effect.
+primal-armor|This Pokemon receives 1/2 damage from supereffective attacks.
+striker|This Pokemon's kick-based attacks have their power multiplied by 1.3.
+stalwart|This Pokemon's moves cannot be redirected to a different target by any effect.
+
+blubber-defense|If this Pokemon is at full HP, damage taken from attacks is halved.
+bone-zone|Bone moves ignore immunities and deal double damage on not very effective.
+fatal-precision|Super Effective Moves from this Pokemon can’t miss and receive a 20% damage boost.
+phoenix-down|Once per battle, this Pokemon restores 1/2 of its maximum HP, has its non-volatile status condition cured, and has its stat stages reset to 0 instead of fainting.
+sage-power|This Pokemon's Sp. Atk is 1.5x, but it can only select the first move it executes.
+
+--pokemon
+#hp,atk,def,spa,spd,spe|name|type|sprite
+,,,95|butterfree
+60,91|raticate
+,86|raticate-alola
+,100,,,,115|fearow
+75,,75|arbok|poison,dark
+70,100,,100|raichu
+,110,120,25,65|sandslash
+,110|sandslash-alola
+80,110,100|parasect
+,,65,95|venomoth|bug,psychic
+,110|dugtrio-alola
+,80,,60|persian
+,,,55|persian-alola
+,,,100,,100|golduck|water,psychic
+,,70,,75|victreebel
+,60,80,90|tentacruel
+|ponyta-galar|fire,fairy
+,,,60,,125|rapidash-galar|fire,fairy
+,,,60,,125|rapidash
+,75,105,115|slowbro-galar
+,50,,90|dewgong
+,55,,100|electrode
+80,,,30|marowak
+,115|hitmonchan
+75,,70,,77|farfetchd|fighting,flying
+50,60,150,,,65|onix
+50|mrmime
+,,,70|tauros
+,,,65,100,95|flareon
+,,50,,,100|jynx
+,70,,,,105|articuno
+,70,95,,,100|articuno-galar
+,86|furret
+110|noctowl
+,90,,35,100|ledian|bug,fighting
+,95,,,,70|ariados
+,,,90|crobat
+,50,65,90|lanturn
+,,,105,,105|xatu
+85,70|bellossom
+90|sudowoodo
+,85,,35|jumpluff
+95,,,135,,55|sunflora|grass,fire
+100,,90|quagsire
+,,80,,75|dunsparce
+100|granbull|fairy,fighting
+,105|qwilfish
+,100,,,,105|delibird
+100,,80,55,80|ursaring
+85,,100,,100|corsola
+,,,,,75|octillery
+,,,90|mantine
+80,100,70,100,73,100|stantler
+,85|miltank
+,105,,85|sceptile|grass,dragon
+,95|mightyena
+85,85|linoone
+,,,104,,75|beautifly
+80,40,,60|dustox
+,120,,110|shiftry
+80|masquerain|water,bug
+,81,,,,73|exploud
+,,,65|delcatty
+,,,,,110|plusle
+,85,75,50,40,110|minun
+85,47,,90,,100|volbeat|bug,electric
+85,90,47,,100|illumise|bug,fairy
+,88,88,93,88|swalot
+150,50,80,105,80,50|wailord
+90|camerupt
+90|grumpig
+100,,,100|flygon
+,120,,120|cacturne
+85|altaria
+,,70,,70,100|zangoose
+83,,83,,73,100|seviper
+,,,105,,90|lunatone
+,105,,,,90|solrock
+,75,,95|torkoal
+,,,80|claydol
+,,84,,,86|milotic
+85,100|kecleon
+,,,92,,81|tropius|grass,dragon
+90,,,,,80|chimecho
+90|walrein
+,,,104|gorebyss|water,fairy
+,105,115|relicanth
+,,,100|luvdisc|water,fairy
+,110,,110,,113|infernape
+,,80,,80,50|bibarel
+,95,71,,71,80|kricketune
+,59,,79|wormadam-sandy
+,59,,79|wormadam-trash
+,84,,,,80|mothim
+85|vespiquen
+75,,,95|pachirisu
+90,90|floatzel
+,100,,60|cherrim
+70,,70|mismagius|ghost,fairy
+,,,,,96|honchkrow
+100,,79,,79|purugly
+,,,91|skuntank
+,,,,,101|chatot
+,80|drapion
+89,,82,55,82|carnivine
+79,59,,96,69,101|lumineon
+,95,,,,30|lickilicky
+,113,,105|electivire
+,80,,,,98|magmortar
+,130,110|leafeon
+80,45,100,,,75|glaceon
+65,45,,80|probopass
+,95,,95|froslass
+,,70,,70|rotom
+,108,,95,,100|samurott|water,steel
+80,100,74,,74|watchog
+90,115|stoutland
+,95,,78|liepard
+,,,,,108|unfezant
+75,,65|swoobat
+,,95,,95|throh
+,110|basculin
+,130|darmanitan-galar
+,106,,85|maractus
+,,,,,55|crustle
+,115,,,,60|garbodor
+,77,,97,,108|swanna
+,90,,,,84|vanilluxe
+,110,,,,105|sawsbuck
+,55,,95|emolga
+,,80,75|jellicent
+,105,,115|eelektross
+95|beheeyem
+,140|beartic|ice,fighting
+,110|cryogonal
+90,,,,,41|druddigon
+100,,90,,90|golurk
+,90,,,,100|heatmor
+,,,,,65|bouffalant
+,91|talonflame
+,,72,67,87,74|gogoat
+,90|furfrou
+,55|meowstic
+,62,82|aromatisse
+,90,,75|slurpuff
+,,,,,72|clawitzer
+,,,91|dedenne
+,120,82|trevenant
+,,,102|noivern
+,,,95,85,100|decidueye
+90|toucannon
+98|gumshoos
+,,,,,55|lurantis|grass,fighting
+75|shiinotic
+,,110,,80|oranguru
+,,,,75|passimian
+75|komala
+70,58|turtonator
+,108|togedemaru
+103,50|drampa
+,74,,,,98|xurkitree
+203,,73,,73,23|guzzlord
+,111|cinderace
+,,,97,,110|thievul
+75,,,|90eldegoss
+82|dubwool
+,100,,80|boltund
+,,65,100,,105|cramorant
+90,,,30|perrserker
+80,75,,,,55|cursola
+82|sirfetchd
+,65,,,90,100|mrrime
+75,,,60|falinks|bug,fighting
+68,81|pincurchin|electric,water
+,,65|frosmoth
+,,,,50,80|stonjourner
+,100,,45|eiscue
+,110|morpeko
+,,79,,79|copperajah
+,,,55,,80|arctovish
+,,,,55,80|arctozolt
+85|duraludon
+
+|pikachu-belle|electric,ice
+|pikachu-phd|electric,psychic
+|pikachu-libre|electric,fighting
+|pikachu-rockstar|electric,steel
+|pikachu-pop-star|electric,fairy
+
+--fakemon
+# stats|name|alias|type|sprite|evoline>evos
+# New pokemon
+45,45,32,65,32,76|Seviian Blitzle|blitzle-sevii|ice,electric|/radred/blitzle-sevii|blitzle>zebstrika-sevii|
+75,70,63,110,63,116|Seviian Zebstrika|zebstrika-sevii|ice,electric|/radred/zebstrika-sevii|blitzle|
+94,100,92,55,77,36|Seviian Carnivine|carnivine-sevii|poison,steel|/radred/carnivine-sevii|carnivine|
+100,115,65,65,90,90|Seviian Centiskorch|centiskorch-sevii|ground,bug|/radred/centiskorch-sevii|sizzlipede|
+50,65,45,50,50,45|Seviian Sizzlipede|sizzlipede-sevii|ground,bug|/radred/sizzlipede-sevii|sizzlipede>centiskorch-sevii|
+50,38,62,58,63,59|Seviian Clauncher|clauncher-sevii|bug,dark|/radred/clauncher-sevii|clauncher>clawitzer-sevii|
+81,63,83,110,79,97|Seviian Clawitzer|clawitzer-sevii|bug,dark|/radred/clawitzer-sevii|clauncher|
+90,81,105,106,95,40|Seviian Dhelmise|dhelmise-sevii|water,grass|/radred/dhelmise-sevii|dhelmise|
+65,125,65,40,65,110|Seviian Dodrio|dodrio-sevii|fire,ground|/radred/dodrio-sevii|doduo|
+40,80,45,35,35,75|Seviian Doduo|doduo-sevii|fire,ground|/radred/doduo-sevii|doduo>dodrio-sevii|
+20,15,20,10,55,80|Seviian Feebas|feebas-sevii|water,ground|/radred/feebas-sevii|feebas>milotic-sevii|
+95,60,84,105,125,81|Seviian Milotic|milotic-sevii|fairy,ground|/radred/milotic-sevii|feebas|
+80,30,70,100,120,95|Seviian Mantine|mantine-sevii|electric,poison|/radred/mantine-sevii|mantyke|
+45,20,55,70,85,70|Seviian Mantyke|mantyke-sevii|electric,poison|/radred/mantyke-sevii|mantyke>mantine-sevii|
+55,80,50,45,50,50|Seviian Teddiursa|teddiursa-sevii|ghost|/radred/teddiursa-sevii|teddiursa>ursaring-sevii|
+100,110,90,55,90,55|Seviian Ursaring|ursaring-sevii|ghost,fighting|/radred/ursaring-sevii|teddiursa|
+60,20,20,25,15,35|Seviian Wishiwashi|wishiwashi-sevii|ghost|/radred/wishiwashi-sevii|wishwashi|
+60,140,130,140,135,25|Seviian Wishiwashi|wishiwashi-sevii-school|ghost,dragon|/radred/wishiwashi-sevii-school|wishiwashi
+
+35,55,40,50,50,90|Flying Pikachu|pikachu-flying>pikachu|electric,flying|/radred/pikachu-flying|pikachu
+35,55,40,50,50,90|Surfing Pikachu|pikachu-surfing>pikachu|electric,water|/radred/pikachu-surfing|pikachu
+
+120,120,120,120,120,120|Arceus|arceus-ground|ground|/radred/arceus-ground|arceus
+120,120,120,120,120,120|Arceus|arceus-steel|steel|/radred/arceus-steel|arceus
+120,120,120,120,120,120|Arceus|arceus-fairy|fairy|/radred/arceus-fairy|arceus
+100,100,100,100,100,100|Silvally|silvally-ghost|ghost|/radred/silvally-ghost|type-null
+100,100,100,100,100,100|Silvally|silvally-fairy|fairy|/radred/silvally-fairy|type-null
+
+75,120,80,155,80,111|Mega Toxtricity|toxtricity-mega|electric,poison|/radred/toxtricity-mega|toxel
