@@ -2489,7 +2489,14 @@ function peelVariant(srcConfig, game, variant) {
    evil-team, mini-boss, champion), look each up in the matching leagues file, and
    build a {name, location, cap, theme, team[{species, lv, types, note, moves, ability, item}]}
    entry that drops straight into the existing renderCap/renderMatchup code paths. */
-const BOSS_BATTLE_TYPES = new Set(['gym-leader','elite-four','champion','evil-team','mini-boss']);
+// Battle-type tags from the txt routes files that count as "bosses" for the
+// matchup tab / cap dropdown. evil-team is intentionally NOT here: it would
+// surface N's four BW battles, Ghetsis, Cyrus, Maxie/Archie, Lysandre, Guzma,
+// etc. — story bosses but not gym-leader / E4 / Champion tier, and the user
+// wanted a clean BDSP-style list. mini-boss IS kept because ROM hacks like
+// Blaze Black 2 / Volt White 2 and New Generations use it as their primary
+// boss tag for cross-region gym leaders.
+const BOSS_BATTLE_TYPES = new Set(['gym-leader','elite-four','champion','mini-boss']);
 let _bossesCache = {};
 
 function getBosses(gameKey) {
@@ -2577,22 +2584,33 @@ function deriveBossesFromData(game) {
   const league = leagueKey ? window.NUZ_DATA.leagues?.[leagueKey] : null;
   if (!league) return [];
 
-  // Pick a primary routes file for tier annotation. For paired games we use the
-  // default-version's routes (which has the full trainer-order anyway — both
-  // files share the same trainer keys). Peel the variant level first.
+  // Walk EVERY version's routes file when building tierByKey. Paired-version
+  // games like BW have version-exclusive gym leaders (Drayden in Black, Iris
+  // in White) — if we only checked the default version's routes, the other
+  // version's gym leader would miss the lookup and fall through as ?-tier.
   const routes = peelVariant(sources.routes, game, variant);
-  let routeKey = null;
-  if (typeof routes === 'string') routeKey = routes;
-  else if (routes && typeof routes === 'object') routeKey = routes[game.defaultVersion] || Object.values(routes)[0];
-  const routeData = routeKey ? window.NUZ_DATA.routes?.[routeKey] : null;
+  const routeKeys = typeof routes === 'string'
+    ? [routes]
+    : (routes && typeof routes === 'object' ? Object.values(routes) : []);
 
-  // Map: trainerKey -> { battleType, location } from routes (first occurrence wins
-  // — some trainers like N appear multiple times with different types in the file).
+  // Map: trainerKey -> { battleType, location } from routes. First non-rival
+  // occurrence across all version files wins, so a gym-leader marker in one
+  // version's file isn't shadowed by a rival marker in the other.
   const tierByKey = {};
-  if (routeData) {
+  for (const rk of routeKeys) {
+    const routeData = window.NUZ_DATA.routes?.[rk];
+    if (!routeData) continue;
     for (const loc of routeData.locations) {
       for (const t of (loc.trainers || [])) {
-        if (!tierByKey[t.key]) tierByKey[t.key] = { battleType: t.battleType, location: loc.name };
+        const existing = tierByKey[t.key];
+        // Prefer the strongest tier when keys collide across files (e.g. N's
+        // four BW battles span both Black.txt and White.txt with the same
+        // keys). gym-leader / elite-four / champion / mini-boss outranks
+        // rival / evil-team.
+        const isBoss = BOSS_BATTLE_TYPES.has(t.battleType);
+        if (!existing || (isBoss && !BOSS_BATTLE_TYPES.has(existing.battleType))) {
+          tierByKey[t.key] = { battleType: t.battleType, location: loc.name };
+        }
       }
     }
   }
@@ -2602,10 +2620,11 @@ function deriveBossesFromData(game) {
   for (const [key, trainer] of Object.entries(league.trainers)) {
     const tier = tierByKey[key];
     const battleType = tier?.battleType || null;
-    if (battleType && !BOSS_BATTLE_TYPES.has(battleType)) continue;
-    // If we have no tier info at all (trainer key not in routes), still include it
-    // unless the trainer's leagues "section" looks like a rival section. Defensive.
-    if (!battleType && /rival/i.test(trainer.section || '')) continue;
+    // Strict: only entries explicitly tagged as a boss-tier battleType in the
+    // routes file count. No battleType (key missing from routes) → drop —
+    // catches leagues-file orphans like XY AZ, SM Gladion g2, and ORAS Team
+    // Aqua admins that don't have a `--Location|key|tag|Name` marker.
+    if (!battleType || !BOSS_BATTLE_TYPES.has(battleType)) continue;
 
     const team = (trainer.team || []).map(member => {
       const info = pokeInfo(member.species);
@@ -2631,6 +2650,21 @@ function deriveBossesFromData(game) {
       team
     });
   }
+
+  // Pass 1b — collapse rematches: when the same trainer name reappears at the
+  // SAME location with a different cap, keep only the lowest-cap entry. This
+  // drops BW/B2W2's second-round Elite Four (Shauntal cap 50 + cap 73 → 50
+  // wins) and similar post-game rematches, without affecting legitimate
+  // multi-location bosses like N (different rooms) — though N is gone anyway
+  // since evil-team is no longer in BOSS_BATTLE_TYPES.
+  const byNameLoc = new Map();
+  for (const r of raw) {
+    const key = `${r.rawName}|${r.location || ''}`;
+    const existing = byNameLoc.get(key);
+    if (!existing || r.cap < existing.cap) byNameLoc.set(key, r);
+  }
+  raw.length = 0;
+  for (const r of byNameLoc.values()) raw.push(r);
 
   // Pass 2 — name disambiguation. Single-occurrence trainer → just name.
   // Multiple → name + location. Same location twice → also include theme.
