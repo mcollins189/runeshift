@@ -158,7 +158,7 @@ Route 39|raticate,magneton,pidgeot,tauros
 Route 34|raticate,pidgeot,kadabra,jigglypuff,ditto,tentacruel,kingler
 Ilex Forest|butterfree,beedrill
 
---Ilex Forst|f_7|evil-team|Fusion Boss Regina
+--Ilex Forest|f_7|evil-team|Fusion Boss Regina
 
 --Azalea Town Gym|12|gym-leader|Bugsy
 Slowpoke Well|golbat,slowpoke,slowbro

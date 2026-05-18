@@ -35,8 +35,8 @@ Celadon City|vulpix,wigglytuff,abra,scyther,pinsir,porygon
 --Celadon City Gym|4|gym-leader|Erica
 --Rocket Hideout|jj2|evil-team|Jessie & James
 --Rocket Hideout|g1|evil-team|Giovanni
---Pokemon Tower|jj3|evil-team|Jessie & James
---Pokemon Tower|r5|rival|Blue
+--Pokémon Tower|jj3|evil-team|Jessie & James
+--Pokémon Tower|r5|rival|Blue
 Saffron City|hitmonlee,hitmonchan
 --Silph Co.|r6|rival|Blue
 --Silph Co.|jj4|evil-team|Jessie & James

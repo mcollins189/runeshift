@@ -136,7 +136,7 @@ Team Plasma Safehouse|zorua
 
 Giants Chasm|tangela,swellow,golbat,lunatone,solrock,clefairy,vanillish,piloswine,audino,vanilluxe,mamoswine,clefable,crobat,delibird,boldore,jynx,cryogonal,sneasel,shellos,seel,gastrodon,dewgong,shellder,cloyster,ditto,metang,snorunt,abomasnow,snover,kyurem
 
---Giant Chasm|ghetsis_c|evil-team|Ghetsis
+--Giants Chasm|ghetsis_c|evil-team|Ghetsis
 
 Route 23|bouffalant,mienfoo,mienshao,sawk,throh,vullaby,mandibuzz,rufflet,braviary,tropius,amoonguss,gligar,tauros,audino,emolga,wooper,shellos,quagsire,gastrodon,krabby,basculin,basculin,kingler
 

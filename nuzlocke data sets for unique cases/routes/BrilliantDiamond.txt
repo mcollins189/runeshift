@@ -15,7 +15,7 @@ Ravaged Path|zubat,golbat,psyduck,golduck,geodude,magikarp,gyarados,barboach,whi
 Floaroma Meadow|aipom,heracross,wurmple,silcoon,cascoon,burmy,combee,cherubi,munchlax
 Route 205|psyduck,golduck,tentacool,tentacruel,shellder,magikarp,gyarados,hoppip,skiploom,wingull,pelipper,barboach,whiscash,bidoof,pachirisu,buizel,shellos,finneon,lumineon
 Valley Windworks|tentacool,tentacruel,shellder,magikarp,gyarados,mareep,wingull,pelipper,electrike,bidoof,pachirisu,buizel,shellos,finneon,lumineon
---Valley Windoworks|mars1|evil-team|Mars
+--Valley Windworks|mars1|evil-team|Mars
 Eterna Forest|murkrow,wurmple,silcoon,beautifly,slakoth,nincada,budew,buneary
 The Old Chateau|gastly
 Eterna City|psyduck,golduck,magikarp,gyarados,barboach,whiscash

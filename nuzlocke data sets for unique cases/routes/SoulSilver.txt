@@ -9,7 +9,7 @@ Route 31|weedle,kakuna,pidgey,rattata,poliwag,poliwhirl,bellsprout,exeggcute,mag
 Dark Cave|zubat,geodude,goldeen,seaking,magikarp,dunsparce,makuhita,absol,chingling,bronzor
 Violet City|poliwag,poliwhirl,onix,exeggcute,magikarp,hoothoot,pineco,whiscash
 Sprout Tower|rattata,gastly,zigzagoon,meditite,spinda,chatot
---Sprout Tower|li|mini-boss|Elder Li
+--Sprout Tower|li|event-boss|Elder Li
 --Violet City Gym|1|gym-leader|Falkner
 Route 32|rattata,ekans,zubat,bellsprout,tentacool,tentacruel,exeggcute,magikarp,hoothoot,mareep,hoppip,wooper,quagsire,pineco,qwilfish,linoone,whismur,bidoof,buizel
 Ruins of Alph|poliwag,geodude,magikarp,natu,wooper,quagsire,smeargle,linoone,whismur,bidoof,buizel
@@ -40,7 +40,7 @@ Route 40|tentacool,tentacruel
 Route 41|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
 Whirl Islands|zubat,golbat,seel,krabby,lugia,makuhita,absol,chingling,bronzor
 Cianwood City|tentacool,tentacruel,krabby,shuckle
---Suicune Encounter|eusine|mini-boss|Eusine
+--Suicune Encounter|eusine|event-boss|Eusine
 --Cianwood City Gym|5|gym-leader|Chuck
 --Olivine City Gym|6|gym-leader|Jasmine
 Cliff Edge Gate|poliwag,magikarp,wooper,quagsire
@@ -71,7 +71,7 @@ Route 45|spearow,poliwag,geodude,graveler,magikarp,aipom,heracross,teddiursa,ska
 Route 27|pidgey,rattata,exeggcute,sentret,hoothoot,ledyba,pineco,plusle,minun,shinx
 Tohjo Falls|rattata,raticate,zubat,golbat,slowpoke,goldeen,seaking,magikarp,makuhita,absol,chingling,bronzor
 Route 26|rattata,ekans,zubat,bellsprout,tentacool,tentacruel,exeggcute,magikarp,hoothoot,mareep,hoppip,wooper,quagsire,pineco,qwilfish,linoone,whismur,bidoof,buizel
---Ecruteak City Dance Hall|kimono|mini-boss|Kimono Girls
+--Ecruteak City Dance Hall|kimono|event-boss|Kimono Girls
 Victory Road|golbat,geodude,graveler,onix,rhyhorn,ursaring,donphan
 --Victory Road|r5|rival|Silver
 Indigo Plateau|
@@ -124,7 +124,7 @@ Route 21|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
 Cinnabar Island|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
 Route 20|tentacool,tentacruel
 --Cinnabar Island Gym|k7|gym-leader|Blaine
---Virdian City Gym|k8|gym-leader|Blue
+--Viridian City Gym|k8|gym-leader|Blue
 Route 19|weedle,kakuna,pidgey,rattata,poliwag,poliwhirl,bellsprout,exeggcute,magikarp,hoothoot,ledyba,pineco,linoone,whismur,bidoof,buizel
 Route 22|pidgey,rattata,exeggcute,sentret,hoothoot,ledyba,pineco,plusle,minun,shinx
 Route 28|spearow,zubat,goldeen,seaking,magikarp,mareep,flaaffy,aipom,heracross,linoone,whismur,bidoof,buizel

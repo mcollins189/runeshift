@@ -110,7 +110,7 @@ Pallet Town|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
 Route 21|tentacool,tentacruel,krabby,kingler,staryu,magikarp,corsola
 Cinnabar Island|tentacool,tentacruel,krabby,kingler,magikarp
 --Cinnabar Island Gym|k7|gym-leader|Blaine
---Virdian City Gym|k8|gym-leader|Blue
+--Viridian City Gym|k8|gym-leader|Blue
 Route 20|tentacool,tentacruel,krabby,kingler,staryu,magikarp,shuckle,corsola
 Route 19|weedle,kakuna,pidgey,rattata,spearow,poliwag,poliwhirl,bellsprout,magikarp,hoothoot,ledyba,aipom,heracross
 Route 22|pidgey,rattata,spearow,sentret,hoothoot,aipom,heracross

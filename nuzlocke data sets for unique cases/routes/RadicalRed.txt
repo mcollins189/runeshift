@@ -12,7 +12,7 @@ Route 22|starly,budew,mankey,morelull,snubbull,lillipup,oddish,sandygast,bellspr
 Route 2|bidoof,sentret,ponyta,phanpy,meditite,shinx,mareep,litleo,zigzagoon,abra,pansage,poochyena,ponyta-galar,houndour,zigzagoon-galar,mr-mime-galar
 Viridian Forest|caterpie,weedle,pikachu,sewaddle,scatterbug,ledyba,surskit,shroomish,combee,joltik,spinarak,wurmple,burmy,nincada,kricketot,blipbug,grubbin,pumpkaboo,phantump,snom
 
---Virdian Forest|b1|rival|Brendan
+--Viridian Forest|b1|rival|Brendan
 
 --Pewter City Museum|mb1|mini-boss|Falkner
 

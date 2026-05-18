@@ -25,7 +25,7 @@ Floaroma Meadow|cherubi,shroomish,exeggcute,seedot,tangela
 Route 205|bidoof,slowpoke,marill,croagunk,exeggcute,volbeat,illumise,yanma,azumarill,magikarp,corphish,gyarados,crawdaunt,starly,pidgey,hoothoot,taillow,farfetchd
 Valley Windworks|magnemite,elekid,electrike,voltorb,drifloon,pachirisu,plusle,minun,shellos,tentacool,gastrodon,tentacruel,magikarp,shellder,chinchou,gyarados,cloyster,lanturn,aipom,slakoth,caterpie,weedle,munchlax
 
---Valley Windoworks|mars1|evil-team|Mars
+--Valley Windworks|mars1|evil-team|Mars
 
 Eterna Forest|buneary,shroomish,paras,slakoth,nincada,taillow,murkrow,misdreavus,beautifly,dustox,beedrill
 

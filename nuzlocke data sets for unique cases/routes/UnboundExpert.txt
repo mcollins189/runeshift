@@ -40,7 +40,7 @@ Tehl Town|marill,psyduck,golduck,azumarill,magikarp,wishiwashi,goldeen,seaking,g
 Tarmigan Town|pachirisu,poliwhirl,slowpoke,poliwag,politoed,magikarp,psyduck,golduck
 --Tramigan Mansion|mb1_exp|mini-boss|Successor Maxima
 Thundercap Mt.|nosepass,magnemite,cubone,klink,elekid,tynamo,magneton,electabuzz,timburr,gurdurr,klang,marowak,klang,eelektrik,joltik,ferroseed,pincurchin,stunfisk,chinchou,tynamo,lanturn,eelektrik,magikarp,geodude-alola,graveler-alola,nosepass,shuckle,binacle,corsola,krabby,kingler
---Thunder Cap Mt.|sh5_exp|evil-team|Shadow Admin Marlon
+--Thundercap Mt.|sh5_exp|evil-team|Shadow Admin Marlon
 Route 12|tentacool,pelipper,tentacruel,mantyke,magikarp,carvanha,wailmer,sharpedo,wailord,gyarados,fletchling,hoothoot,rockruff,solosis,gothita,mienfoo,ponyta,snubbull,deerling,fletchinder,noctowl,dedenne,spritzee,swirlix,ponyta-galar,applin
 --Route 12|r4_exp|rival|Rival Axelford
 Dehara City|tentacool,pelipper,tentacruel,pyukumuku,magikarp,staryu,poliwag,poliwhirl,starmie,turtwig,chimchar,piplup,sandygast,voltorb,electrode,emolga,hawlucha,eevee,klefki,axew,porygon

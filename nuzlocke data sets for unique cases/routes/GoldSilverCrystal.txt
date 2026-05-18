@@ -111,7 +111,7 @@ Pallet Town|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
 Route 21|rattata,raticate,tentacool,tentacruel,shellder,tangela,mr. mime,magikarp,chinchou,lanturn
 Cinnabar Island|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
 --Cinnabar Island Gym|k7|gym-leader|Blaine
---Virdian City Gym|k8|gym-leader|Blue
+--Viridian City Gym|k8|gym-leader|Blue
 Route 20|tentacool,tentacruel,shellder,magikarp,chinchou,lanturn
 Route 19|tentacool,tentacruel,krabby,kingler,staryu,magikarp,corsola
 Route 22|rattata,spearow,fearow,poliwag,poliwhirl,ponyta,doduo,magikarp
