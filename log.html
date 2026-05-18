@@ -3930,6 +3930,47 @@ function migrateLegacyGameKeys(data) {
   }
 }
 
+/* Rewrites typo'd location strings in saved data when the txt routes file gets
+   corrected. Without this, a catch logged at "Vermillion City" (old typo'd
+   rail label) wouldn't link to the new "Vermilion City" rail row because
+   routesMatch() is strict lowercase-equality. Substring-replace so longer
+   forms like "Vermillion City Gym" also migrate. Order matters when one
+   target is a substring of another — none of these conflict but keep the
+   list small and explicit.
+*/
+const LEGACY_LOCATION_NAME_SUBSTRINGS = [
+  ['Vermillion',         'Vermilion'],            // Gen 1/2/4 Kanto routes
+  ['Fuschia',            'Fuchsia'],              // Gen 1/2/4 Kanto routes
+  ['Iccirus',            'Icirrus'],              // BW Icirrus City
+  ['Tower of Mystery',   'Tower of Mastery'],     // XY
+  ['Routes 219',         'Route 219'],            // DP/Pt singular typo
+  ['Thrify Megamart',    'Thrifty Megamart'],     // SM
+  ['Dalizapa Passagea',  'Dalizapa Passage'],     // SV
+];
+function rewriteLegacyLocation(s) {
+  if (!s || typeof s !== 'string') return s;
+  let out = s;
+  for (const [from, to] of LEGACY_LOCATION_NAME_SUBSTRINGS) {
+    if (out.includes(from)) out = out.split(from).join(to);
+  }
+  return out;
+}
+function migrateLegacyLocationNames(data) {
+  if (!data) return;
+  const fixRun = (r) => {
+    if (!r) return;
+    if (Array.isArray(r.team)) {
+      for (const p of r.team) if (p && p.route) p.route = rewriteLegacyLocation(p.route);
+    }
+    if (Array.isArray(r.routes)) {
+      for (const rt of r.routes) if (rt && rt.route) rt.route = rewriteLegacyLocation(rt.route);
+    }
+  };
+  if (data.runs) for (const r of Object.values(data.runs)) fixRun(r);
+  // Pre-v2 flat format (data.team / data.routes at top level).
+  fixRun(data);
+}
+
 /* ── API ── */
 async function cloudLoad(key) {
   const r = await fetch(`${API}/${encodeURIComponent(key)}`);
@@ -4049,6 +4090,7 @@ async function doLogin() {
   try {
     const data = await cloudLoad(key);
     migrateLegacyGameKeys(data);
+    migrateLegacyLocationNames(data);
     // Migration: if data has flat team/routes format, convert to multi-run
     if (data.version === 2 && data.runs && data.currentRunId) {
       runs = data.runs;
@@ -6279,11 +6321,15 @@ function buildEncounterMainFromTables(locName, ver, game) {
           mapId: pool.mapId, tableN: pool.tableN,
           lvMin: pool.lvMin, lvMax: pool.lvMax,
           method: pool.method,
+          subZone: pool.subZone || null,
           _morningMap: new Map(), _dayMap: new Map(), _nightMap: new Map(),
           _vers: new Set(),
         };
         structMap.set(key, entry);
       }
+      // Carry sub-zone label from any version that has one (rare for the
+      // same pool to differ across versions, but be defensive).
+      if (!entry.subZone && pool.subZone) entry.subZone = pool.subZone;
       entry._vers.add(v);
       // Morning is Gen 2 (GS/Crystal). BDSP/USUM pools won't have it; the
       // map stays empty and the renderer suppresses the Morning tab below.
@@ -6395,7 +6441,11 @@ function buildEncounterMainFromTables(locName, ver, game) {
     const renderPoolSections = (pools, time, method) => {
       // Sort pools by level range ascending so easier ones surface first.
       const sortedPools = [...pools].sort((a,b) => a.lvMin - b.lvMin || a.lvMax - b.lvMax);
-      const tag = (i) => sortedPools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '';
+      // Prefer the sub-zone label (Beachfront / 1F Outside / etc.) over the
+      // generic A/B/C falback when the parsed data carries one.
+      const tag = (p, i) => p.subZone
+        ? ` · ${p.subZone}`
+        : (sortedPools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '');
       return sortedPools.map((p, i) => {
         const entries = p[time].map(toRenderEntry)
           .filter(matchesVer).sort((a,b) => b.r - a.r);
@@ -6403,7 +6453,7 @@ function buildEncounterMainFromTables(locName, ver, game) {
         const total = entries.reduce((s,e) => s + e.r, 0);
         const lvLabel = p.lvMin === p.lvMax ? `Lv ${p.lvMin}` : `Lv ${p.lvMin}–${p.lvMax}`;
         return `<div style="margin-top:${i?6:0}px">
-          <div style="font-size:11px;color:var(--text3);margin-bottom:4px">${lvLabel}${tag(i)} · ${entries.length} species · ${total}%</div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px">${lvLabel}${tag(p, i)} · ${entries.length} species · ${total}%</div>
           ${renderEncList(entries, teamLineSet, deadSpecies, caughtAtThisLoc, ver, locName)}
         </div>`;
       }).filter(Boolean).join('');
@@ -6465,7 +6515,11 @@ function buildEncounterMainFromTables(locName, ver, game) {
       if (!entries.length) return '';
       const total = entries.reduce((s,e) => s + e.r, 0);
       const lvLabel = g.lvMin === g.lvMax ? `Lv ${g.lvMin}` : `Lv ${g.lvMin}–${g.lvMax}`;
-      const suffix = g.pools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '';
+      // Prefer the sub-zone label parsed from "Map: NNN - Parent (SubZone)"
+      // headers; fall back to A/B/C only when no sub-zone is set.
+      const suffix = p.subZone
+        ? ` · ${p.subZone}`
+        : (g.pools.length > 1 ? ` · ${String.fromCharCode(65 + i)}` : '');
       return `<div class="enc-section">
         <div class="enc-section-hdr">
           <span class="enc-method-label">Pool · ${lvLabel}${suffix}</span>
