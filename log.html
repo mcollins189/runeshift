@@ -569,6 +569,11 @@
   .enc-poke-name .ver-tag.V{background:rgba(168,128,255,.18);color:#bba0ff}
   .enc-poke-name .ver-tag.S{background:rgba(251,146,60,.18);color:#fcb37a}
   .enc-poke-name .ver-tag.M{background:rgba(129,140,248,.18);color:#a5b4fc}
+  /* Sword = crimson (the blade), Shield = cyan/teal (the metal rim). Distinct
+     from the existing S (Sun, orange) and SP (Shining Pearl, pink) palettes
+     so two-letter SwSh badges read as clearly different from older games. */
+  .enc-poke-name .ver-tag.Sw{background:rgba(220,38,38,.18);color:#fca5a5}
+  .enc-poke-name .ver-tag.Sh{background:rgba(6,182,212,.18);color:#67e8f9}
   .enc-poke-meta{font-size:10px;color:var(--text3);margin-top:1px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
   .enc-poke-rate{font-size:10px;color:var(--text2);font-weight:600;background:var(--bg4);padding:1px 5px;border-radius:3px}
   .enc-flag{font-size:9px;font-weight:600;padding:1px 5px;border-radius:3px;letter-spacing:.04em;text-transform:uppercase}
@@ -1498,12 +1503,16 @@ const GAMES = {
   // as sub-zones (e.g. "Rolling Fields (Overcast)") on the Wild Area maps.
   'sword_shield': {
     name: 'Sword / Shield', short: 'Sw/Sh', gen: 8,
-    versions: { S: 'Sword', H: 'Shield' },
-    defaultVersion: 'S',
+    // Two-char keys (Sw/Sh) instead of single letters. Sword and Shield both
+    // start with S so a one-letter key is ambiguous — Sw/Sh disambiguates in
+    // version-exclusive badges and in the header pill. Existing saves with
+    // run.version === 'S' or 'H' get migrated by migrateLegacyGameKeys.
+    versions: { Sw: 'Sword', Sh: 'Shield' },
+    defaultVersion: 'Sw',
     dataSources: {
-      routes: { S: 'Sword', H: 'Shield' },
+      routes: { Sw: 'Sword', Sh: 'Shield' },
       leagues: 'SwordShield',
-      encounterTables: { S: 'Sword', H: 'Shield' }
+      encounterTables: { Sw: 'Sword', Sh: 'Shield' }
     }
   },
   // Gen 9 — Scarlet / Violet. PokeAPI's paldea region has no location-areas at
@@ -3920,14 +3929,25 @@ function migrateLegacyGameKeys(data) {
     run.game = m.game;
     if (m.variant && !run.variant) run.variant = m.variant;
   };
+  // SwSh used to key versions as 'S' (Sword) and 'H' (Shield); we relabeled
+  // them to 'Sw' and 'Sh' to disambiguate (both games start with S). Migrate
+  // any existing run's stored version letter so the version pill, encounter
+  // rendering, and per-route file lookups all see the new keys.
+  const migrateSwShVersion = (run) => {
+    if (run?.game !== 'sword_shield') return;
+    if (run.version === 'S') run.version = 'Sw';
+    else if (run.version === 'H') run.version = 'Sh';
+  };
   if (data.game && LEGACY_GAME_KEY_MAP[data.game]) {
     // Top-level legacy single-run format (pre-v2 schema). Wrap into a fake "run"
     // so the same remap helper applies.
     remap(data, data.game);
   }
+  if (data.game === 'sword_shield') migrateSwShVersion(data);
   if (data.runs) {
     for (const r of Object.values(data.runs)) {
       if (r && r.game) remap(r, r.game);
+      migrateSwShVersion(r);
     }
   }
 }
@@ -6418,10 +6438,18 @@ function buildEncounterMainFromTables(locName, ver, game) {
 
   // Step 1: cross-version merge by structural key. Within each merged pool,
   // species accumulate per-species version sets.
+  // Key intentionally OMITS pool.lvMin/lvMax. Within one Map block, Table N
+  // refers to the same slot table regardless of minor level-range jitter
+  // between versions — most acute in SwSh, where Serebii-scraped Sword and
+  // Shield tables for the same table # can list slightly different level
+  // ranges (e.g. "Lv 7-9" vs "Lv 7-10") for what is conceptually the same
+  // table. Including lvRange in the key prevents those from merging, which
+  // then mis-flags every species in them as version-exclusive. We union the
+  // ranges below so the displayed lvLabel covers both versions.
   const structMap = new Map();
   for (const v of versionLetters) {
     for (const pool of (dataByVer[v]?.pools || [])) {
-      const key = `${pool.mapId}#${pool.tableN}#${pool.lvMin}-${pool.lvMax}#${pool.method||''}`;
+      const key = `${pool.mapId}#${pool.tableN}#${pool.method||''}#${pool.subZone||''}`;
       let entry = structMap.get(key);
       if (!entry) {
         entry = {
@@ -6433,6 +6461,11 @@ function buildEncounterMainFromTables(locName, ver, game) {
           _vers: new Set(),
         };
         structMap.set(key, entry);
+      } else {
+        // Same conceptual pool from another version — widen the level range
+        // to cover both so the displayed "Lv X-Y" reflects the union.
+        if (pool.lvMin < entry.lvMin) entry.lvMin = pool.lvMin;
+        if (pool.lvMax > entry.lvMax) entry.lvMax = pool.lvMax;
       }
       // Carry sub-zone label from any version that has one (rare for the
       // same pool to differ across versions, but be defensive).
