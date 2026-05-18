@@ -116,12 +116,21 @@
   .poke-card.sortable-ghost{opacity:0.15;border:2px dashed var(--accent) !important;box-shadow:none !important;background:var(--bg3) !important}
   .route-item.sortable-chosen{border-color:var(--accent) !important;box-shadow:0 4px 20px rgba(0,0,0,0.4) !important;opacity:0.95;z-index:50}
   .route-item.sortable-ghost{opacity:0.15;border:2px dashed var(--accent) !important;box-shadow:none !important;background:var(--bg3) !important}
-  .drag-handle{position:absolute;top:8px;right:8px;cursor:grab;color:var(--text3);font-size:15px;opacity:0;transition:opacity .15s;line-height:1;padding:2px 3px;user-select:none}
-  .poke-card:hover .drag-handle{opacity:0.6}
-  .drag-handle:hover{opacity:1 !important;color:var(--accent)}
+  /* Drag handle hidden — the whole card is now a hold-to-drag target across
+     all devices. Class kept on the DOM so SortableJS keeps initializing
+     against it, but it's not user-facing. */
+  .drag-handle{display:none}
   .card-top{display:flex;align-items:flex-start;gap:10px}
+  /* Legacy checkbox class kept in case anything still references it. */
   .card-check{flex-shrink:0;margin-top:3px}
   .card-check input[type=checkbox]{width:15px;height:15px;cursor:pointer;accent-color:var(--accent)}
+  /* Party toggle button (replaces the old card-check checkbox). Always visible
+     on touch, hover-reveal would be hostile to mobile users. */
+  .card-party-btn{flex-shrink:0;margin-top:2px;font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;padding:5px 10px;border-radius:6px;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:all .15s;white-space:nowrap;line-height:1}
+  .card-party-btn-add{border-color:rgba(108,143,255,.4);color:var(--accent);background:var(--accent-bg)}
+  .card-party-btn-add:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .card-party-btn-remove{border-color:rgba(255,87,87,.35);color:#ff8888;background:rgba(255,87,87,.08)}
+  .card-party-btn-remove:hover{background:#ff5757;color:#fff;border-color:#ff5757}
   .card-main{flex:1;min-width:0;cursor:pointer}
   .card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:4px;margin-bottom:3px;padding-right:20px}
   .poke-nickname{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -169,8 +178,8 @@
   .route-list{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
   .route-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;user-select:none;transition:border-color .15s,box-shadow .15s}
   .route-item:hover{border-color:var(--border2)}
-  .route-drag-handle{color:var(--text3);font-size:14px;flex-shrink:0;cursor:grab;padding:0 2px;opacity:0.4;transition:opacity .15s}
-  .route-item:hover .route-drag-handle{opacity:1}
+  /* Route drag handle hidden — same hold-to-drag-the-whole-row pattern. */
+  .route-drag-handle{display:none}
   .route-name{font-weight:500;min-width:90px;color:var(--text)}
   .route-enc{color:var(--text3);flex:1;font-size:12px}
   .route-note-text{font-style:italic;color:var(--text3);font-size:11px}
@@ -395,6 +404,10 @@
   .pv-actions button:hover{color:var(--text);border-color:var(--accent)}
   .pv-actions .btn-edit{background:var(--accent-bg);color:var(--accent);border-color:transparent}
   .pv-actions .btn-edit:hover{background:var(--accent);color:#fff}
+  .pv-actions .btn-party-add{background:var(--accent-bg);color:var(--accent);border-color:rgba(108,143,255,.4)}
+  .pv-actions .btn-party-add:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .pv-actions .btn-party-remove{background:rgba(255,87,87,.1);color:#ff8888;border-color:rgba(255,87,87,.35)}
+  .pv-actions .btn-party-remove:hover{background:#ff5757;color:#fff;border-color:#ff5757}
   .pv-section{margin-top:14px}
   .pv-section-title{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:8px;font-weight:600}
   .pv-row{display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:4px;line-height:1.5}
@@ -624,18 +637,9 @@
     .pv-nick { font-size: 19px; }
     .pv-actions { width: 100%; }
     .pv-actions button { flex: 1 1 auto; min-width: 0; justify-content: center; text-align: center; }
-    /* Replace "⠿ drag to reorder" hint text — long-press is the touch gesture.
-       Wrap original text in zero font-size so it's not read by AT/screen reader
-       twice, surface the new hint via ::before. */
-    .drag-hint { font-size: 0; }
-    .drag-hint::before {
-      content: '⠿ long-press to reorder';
-      font-size: 11px; color: var(--text3); font-weight: 400;
-    }
-    /* Drag handles are hard to grab on touch — SortableJS's `delay` opt lets
-       you long-press anywhere on the card to start a drag. Hide the tiny
-       grab handles since they're no longer functional. */
-    .drag-handle, .route-drag-handle { display: none; }
+    /* Drag-handle and hint rules are now in the base CSS (applies on every
+       device since hold-to-drag is the universal gesture). Nothing extra
+       needed at this breakpoint. */
   }
   @media (max-width: 420px) {
     .header-title { font-size: 14px; }
@@ -719,14 +723,14 @@
       <div class="warn" id="warn-box"></div>
       <div class="party-strip" id="party-strip"></div>
       <div class="roster-header">
-        <p class="slabel" style="margin:0">Bench <span class="drag-hint">⠿ drag to reorder</span></p>
+        <p class="slabel" style="margin:0">Bench <span class="drag-hint">⠿ hold to reorder</span></p>
         <div class="filter-bar" id="roster-filters"></div>
       </div>
       <div class="poke-grid" id="roster-grid"></div>
       <button class="add-btn" onclick="openAdd('poke')">+ Add Pokémon</button>
     </div>
     <div id="tab-active" class="section">
-      <p class="slabel">Active team <span class="slabel-count" id="party-count">0/6</span><span class="drag-hint" style="margin-left:auto">⠿ drag to reorder</span></p>
+      <p class="slabel">Active team <span class="slabel-count" id="party-count">0/6</span><span class="drag-hint" style="margin-left:auto">⠿ hold to reorder</span></p>
       <div class="poke-grid" id="active-grid"></div>
       <div id="active-empty" class="empty" style="display:none">Check Pokémon in the Roster tab to add them to your active team.</div>
       <button class="copy-btn" onclick="copyTeamSummary()">Copy team summary for Claude ↗</button>
@@ -738,7 +742,7 @@
       <div id="encounters-content"></div>
     </div>
     <div id="tab-routes" class="section">
-      <p class="slabel">Route log <span class="drag-hint">⠿ drag to reorder</span></p>
+      <p class="slabel">Route log <span class="drag-hint">⠿ hold to reorder</span></p>
       <div class="route-list" id="route-list"></div>
       <div id="route-empty" class="empty" style="display:none">No encounters logged yet.</div>
       <button class="add-btn" onclick="openAdd('route')">+ Log encounter</button>
@@ -4197,9 +4201,21 @@ function cardInner(p, realIdx, showCheck) {
     if (isSTAB) cls.push('stab');
     return `<div class="${cls.join(' ')}" title="${m} · ${t||'Unknown type'}${isSTAB?' · STAB':''}${cat==='U'?' · status':''}"><span>${m}</span></div>`;
   }).join('');
+  // Party-toggle button. When `showCheck` is true we surface either:
+  //   - "+ Add to party" on bench cards (alive, not in party)
+  //   - "× Remove" on Active Team cards (already in party)
+  // Both stop propagation so clicking the button doesn't also open the modal.
+  let partyBtn = '';
+  if (showCheck) {
+    if (p.inParty) {
+      partyBtn = `<button class="card-party-btn card-party-btn-remove" onclick="event.stopPropagation();toggleParty(${realIdx},false)" title="Remove from party">× Remove</button>`;
+    } else {
+      partyBtn = `<button class="card-party-btn card-party-btn-add" onclick="event.stopPropagation();toggleParty(${realIdx},true)" title="Add to party">+ Add to party</button>`;
+    }
+  }
   return `
-    <div class="drag-handle" title="Drag to reorder">⠿</div>
-    ${showCheck?`<div class="card-check"><input type="checkbox" ${p.inParty?'checked':''} onchange="toggleParty(${realIdx},this.checked)" onclick="event.stopPropagation()"></div>`:''}
+    <div class="drag-handle" title="Hold to reorder">⠿</div>
+    ${partyBtn}
     ${sprite}
     <div class="card-main" onclick="openEdit(${realIdx})">
       <div class="card-header">
@@ -4220,27 +4236,25 @@ function cardInner(p, realIdx, showCheck) {
 
 /* ── Learnset toggle handler ── */
 /* ── Sortable ──
-   On touch devices we drop the small `.drag-handle` requirement (CSS hides it
-   too) and use SortableJS's `delay` so long-press anywhere on the card starts
-   the drag. `delayOnTouchOnly` keeps desktop click-and-drag instant. */
-const IS_TOUCH = typeof matchMedia !== 'undefined' && matchMedia('(pointer:coarse)').matches;
+   Hold-to-drag on every device: a short hold (250ms) on the card starts a
+   drag, while a quick click still opens the detail modal. Consistent gesture
+   across desktop and touch. forceFallback uses SortableJS's own drag impl
+   (not native HTML5) so window-level auto-scroll works on touch too. */
 const SORTABLE_BASE = {
   animation: 150,
   ghostClass: 'sortable-ghost',
   chosenClass: 'sortable-chosen',
-  delay: IS_TOUCH ? 250 : 0,
-  delayOnTouchOnly: true,
-  // Auto-scroll the window when the user drags near the top/bottom edge so
-  // you can drop into items below the fold. On touch SortableJS uses its
-  // fallback (since HTML5 drag isn't supported), and the fallback needs
-  // forceFallback enabled to actually trigger window scrolling.
-  forceFallback: IS_TOUCH,
+  delay: 250,
+  // No handle restriction — the whole card responds to hold-to-drag.
+  forceFallback: true,
   scroll: true,
-  scrollSensitivity: 60,    // px from viewport edge before scroll kicks in
-  scrollSpeed: 20,          // pixels per frame
-  bubbleScroll: true,       // scroll all parents, including window
+  scrollSensitivity: 60,
+  scrollSpeed: 20,
+  bubbleScroll: true,
 };
-const sortableHandle = (handle) => IS_TOUCH ? {} : { handle };
+// Kept for back-compat with existing call sites — now a no-op since
+// SORTABLE_BASE doesn't restrict to any handle.
+const sortableHandle = () => ({});
 function initRosterSortable() {
   if (rosterSortable) { rosterSortable.destroy(); rosterSortable = null; }
   const el = document.getElementById('roster-grid');
@@ -4393,7 +4407,7 @@ function renderActive() {
   if (!party.length) { g.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display = 'none';
   g.innerHTML = party.map(({p,i}) =>
-    `<div class="poke-card in-party"><div class="card-top with-sprite">${cardInner(p, i, false)}</div></div>`
+    `<div class="poke-card in-party"><div class="card-top with-sprite">${cardInner(p, i, true)}</div></div>`
   ).join('');
   initActiveSortable();
 }
@@ -6734,8 +6748,14 @@ function buildEncounterMain(loc, ver) {
   if (hasMap) {
     richData = getRichEncountersSync(loc, gameKey);
     if (richData) {
-      // Overlay fresh API data on top of static
-      data = { ...data, methods: richData.methods };
+      // Overlay fresh API data on top of static. CRITICAL: also pull through
+      // `areas` and `versionsUsed` — `poolModeProbe` in the renderer below
+      // only triggers when data.areas is populated, and without it multi-floor
+      // caves (Union Cave HGSS, Mt. Coronet DPPt, Victory Road, etc.) fall
+      // back to the legacy method-loop that mashes all floors into one section
+      // with cross-pool inflated rates and "no %" entries from method/area
+      // edge cases.
+      data = { ...data, methods: richData.methods, areas: richData.areas, versionsUsed: richData.versionsUsed };
     } else {
       const cacheKey = loc + '@' + gameKey;
       const state = encounterCache[cacheKey];
@@ -7289,6 +7309,10 @@ function pokeView(p, idx) {
       <div class="pv-actions">
         <button class="btn-edit" onclick="openEditForm(${idx})">✎ Edit</button>
         ${evoBtnHtml}
+        ${isAlive ? (p.inParty
+          ? `<button class="btn-party-remove" onclick="toggleParty(${idx},false);openEdit(${idx})">× Remove from party</button>`
+          : `<button class="btn-party-add" onclick="toggleParty(${idx},true);openEdit(${idx})">+ Add to party</button>`
+        ) : ''}
         ${isAlive?`<button onclick="markDead(${idx})">☠ Mark dead</button>`:''}
         <button onclick="if(confirm('Remove ${p.nickname} entirely?'))deletePoke(${idx})">🗑</button>
       </div>
