@@ -64,7 +64,7 @@ Ruin Maniac's Cave|magnemite,staryu,mrmime,tauros,chinchou,lanturn,sneasel,teddi
 Celestic Town|psyduck,golduck,magikarp,gyarados,barboach,whiscash,corphish,crawdaunt
 --Hearthome Gym|5|gym-leader|Fantina
 Fuego Ironworks|tentacool,tentacruel,magnemite,shellder,magikarp,gyarados,hoppip,skiploom,wingull,pelipper,shinx,luxio,pachirisu,floatzel,shellos,gastrodon,finneon,lumineon
-Routes 219|tentacool,tentacruel,magikarp,gyarados,wingull,pelipper,clamperl,finneon,lumineon
+Route 219|tentacool,tentacruel,magikarp,gyarados,wingull,pelipper,clamperl,finneon,lumineon
 Route 220|tentacool,tentacruel,magikarp,gyarados,chinchou,lanturn,wingull,pelipper,finneon,lumineon
 Route 221|nidorina,nidorino,tentacool,tentacruel,farfetchd,magikarp,gyarados,sudowoodo,wingull,pelipper,roselia,clamperl,floatzel,shellos,gastrodon,finneon,lumineon
 Route 218|tentacool,tentacruel,voltorb,magikarp,gyarados,ditto,wingull,pelipper,floatzel,shellos,gastrodon,glameow,finneon,lumineon
@@ -97,3 +97,16 @@ Pokémon League|tentacruel,magikarp,gyarados,remoraid,octillery,pelipper,luvdisc
 --Elite Four|e3|elite-four|Flint
 --Elite Four|e4|elite-four|Lucian
 --Champion|c|elite-four|Cynthia
+## Battle Zone (post-game)
+Maniac Tunnel|diglett,ditto,dugtrio,hippopotas,trapinch,whismur
+Sendoff Spring|bibarel,chimecho,dusclops,golduck,gyarados,lunatone,magikarp,staravia
+Turnback Cave|banette,chimecho,dusclops,golbat,haunter,lunatone,solrock
+Stark Mountain|camerupt,fearow,gligar,golbat,graveler,machoke,magcargo,magmar,muk,rhydon,torkoal,weezing
+Route 224|beautifly,chatot,corsola,dustox,gloom,gyarados,luvdisc,magikarp,pelipper,shuckle,tentacruel,weepinbell,xatu
+Route 225|barboach,fearow,golduck,graveler,grumpig,gyarados,hariyama,machoke,magikarp,poliwhirl,primeape,raticate,whiscash
+Route 226|arbok,dodrio,fearow,gyarados,horsea,kingler,magikarp,pelipper,raticate,relicanth,sandslash,seadra,tentacruel,wingull
+Route 227|barboach,camerupt,gligar,gyarados,magikarp,poliwhirl,rhydon,skarmory,torkoal,weezing,whiscash
+Route 228|barboach,cacturne,claydol,dugtrio,gabite,gyarados,hippowdon,houndour,magikarp,metang,poliwhirl,whiscash
+Route 229|ariados,goldeen,gyarados,illumise,ledian,magikarp,masquerain,pinsir,roselia,scyther,seaking,sunkern,volbeat,weepinbell
+Route 230|corsola,floatzel,golduck,gyarados,magikarp,pelipper,sealeo,tentacruel,togetic,tropius,wailmer,wailord,zangoose
+Resort Area|magikarp
