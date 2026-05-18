@@ -84,10 +84,15 @@
   .party-slot:hover{border-color:var(--accent);background:var(--bg3)}
   .party-slot.empty{border-style:dashed;border-color:var(--border);background:transparent;color:var(--text3);justify-content:center;font-size:11px;cursor:default;font-style:italic}
   .party-slot.empty:hover{border-color:var(--border);background:transparent}
-  /* Remove-from-party "×" — invisible until hover, red on hover-of-self. */
+  /* Remove-from-party "×" — invisible until hover on mouse devices, always
+     visible (and larger) on touch where there's no hover. */
   .party-slot-x{position:absolute;top:2px;right:3px;width:18px;height:18px;border-radius:9px;background:transparent;border:none;color:var(--text3);font-size:14px;line-height:1;cursor:pointer;opacity:0;transition:opacity .12s,background .12s,color .12s;padding:0;display:flex;align-items:center;justify-content:center}
   .party-slot:hover .party-slot-x{opacity:.6}
   .party-slot-x:hover{opacity:1 !important;background:rgba(255,87,87,.18);color:#ff5757}
+  @media (hover: none), (pointer: coarse) {
+    .party-slot-x{opacity:.75;width:26px;height:26px;border-radius:13px;font-size:18px;background:rgba(0,0,0,.35);color:var(--text2)}
+    .party-slot-x:active{background:rgba(255,87,87,.25);color:#ff5757}
+  }
   .party-slot .sprite-wrap.sprite-sm{width:36px;height:36px;flex-shrink:0}
   .party-slot-info{display:flex;flex-direction:column;gap:1px;min-width:0;flex:1}
   .party-slot-name{font-size:12px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -286,8 +291,12 @@
 
   .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:100;align-items:flex-start;justify-content:center;padding:60px 16px 16px;overflow-y:auto}
   .overlay.open{display:flex}
-  .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:20px;width:680px;max-width:100%}
-  .modal h3{font-family:'Crimson Pro',serif;font-size:17px;font-weight:600;margin-bottom:16px;color:var(--text)}
+  .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:20px;width:680px;max-width:100%;position:relative}
+  .modal h3{font-family:'Crimson Pro',serif;font-size:17px;font-weight:600;margin-bottom:16px;color:var(--text);padding-right:36px}
+  /* Always-visible close button in the modal top-right corner. The h3 above
+     reserves padding-right so its text doesn't run under the button. */
+  .modal-close{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:8px;background:transparent;border:1px solid var(--border);color:var(--text2);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;padding:0}
+  .modal-close:hover{background:var(--bg3);border-color:var(--accent);color:var(--text)}
   .rules-static,.rules-toggles{display:flex;flex-direction:column;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px}
   .rules-toggles.disabled{opacity:.45}
   .rules-toggles.disabled .rule-row{cursor:not-allowed}
@@ -686,6 +695,9 @@
       <div class="ver-pill ver-pill-header" id="header-variant-pill" title="Difficulty / mode variant"></div>
       <div class="hdr-btns">
         <button class="hdr-btn green" onclick="cloudSave(true)">💾 Save now</button>
+        <button class="hdr-btn" onclick="exportSave()" title="Download a JSON backup of all runs">⬇ Export</button>
+        <button class="hdr-btn" onclick="document.getElementById('import-file').click()" title="Restore runs from a JSON backup">⬆ Import</button>
+        <input type="file" id="import-file" accept=".json,application/json" style="display:none" onchange="importSave(this)">
         <button class="hdr-btn danger" onclick="doLogout()">Switch save</button>
       </div>
     </div>
@@ -746,7 +758,11 @@
 
 <div class="toast" id="toast"></div>
 <div class="overlay" id="overlay" onclick="overlayBg(event)">
-  <div class="modal"><h3 id="modal-title"></h3><div id="modal-body"></div></div>
+  <div class="modal">
+    <button class="modal-close" type="button" onclick="closeModal()" aria-label="Close" title="Close">×</button>
+    <h3 id="modal-title"></h3>
+    <div id="modal-body"></div>
+  </div>
 </div>
 
 <script>
@@ -4069,6 +4085,73 @@ function save() {
   setSaveStatus('saving','Unsaved changes');
   clearTimeout(saveTimer);
   saveTimer = setTimeout(()=>cloudSave(false), 300000);
+}
+
+// Defensive push when the tab is backgrounded / closed. The 5-min autosave
+// window is long enough that a refresh or accidental close can lose changes;
+// visibilitychange fires reliably on both desktop and mobile when the tab
+// goes hidden, so we squeeze in a save attempt before the browser potentially
+// freezes/kills the page. cloudSave is async but we don't await — best-effort.
+if (typeof document !== 'undefined') {
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden' && saveKey) {
+      // Only push if there are unsaved changes (saveTimer != null means dirty).
+      if (saveTimer) {
+        clearTimeout(saveTimer);
+        saveTimer = null;
+        cloudSave(false);
+      }
+    }
+  });
+}
+
+// Download all runs as a JSON file the user can keep locally as a safety net.
+// Useful when running multiple tabs/devices — the cloud is last-writer-wins,
+// so an out-of-date device can clobber newer state. Export to a file gives
+// the user a permanent point-in-time snapshot they can restore via Import.
+function exportSave() {
+  if (!saveKey) { showToast('Log in first','error'); return; }
+  const payload = { ...buildPayload(), exportedAt: new Date().toISOString(), saveKey };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const stamp = new Date().toISOString().slice(0,16).replace(/[:T]/g, '-');
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `nuzlocke-${saveKey}-${stamp}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 100);
+  showToast('Backup downloaded ✓','success');
+}
+
+// Restore runs from a JSON backup. By default we REPLACE the current state
+// (matches user mental model of "load this snapshot"). The user is warned
+// before destructive action.
+async function importSave(input) {
+  const file = input.files?.[0];
+  if (!file) return;
+  input.value = ''; // allow re-importing the same file later
+  let parsed;
+  try {
+    const text = await file.text();
+    parsed = JSON.parse(text);
+  } catch (e) {
+    showToast('Couldn’t read that file — must be JSON','error');
+    return;
+  }
+  if (!parsed || typeof parsed !== 'object' || !parsed.runs) {
+    showToast('Doesn’t look like a backup file','error');
+    return;
+  }
+  const runCount = Object.keys(parsed.runs).length;
+  if (!confirm(`Restore ${runCount} run(s) from this backup? This will replace your current state on this save key. (Your cloud copy is overwritten on the next save.)`)) return;
+  runs = parsed.runs;
+  currentRunId = parsed.currentRunId || Object.keys(runs)[0] || null;
+  render();
+  // Persist immediately so a refresh keeps the restored state.
+  cloudSave(true);
+  showToast(`Restored ${runCount} run(s) ✓`,'success');
 }
 async function cloudSave(manual) {
   if (!saveKey) return;
