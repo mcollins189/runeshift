@@ -109,7 +109,7 @@
   .fbar-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);font-weight:600}
   .fbar-select{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 8px;color:var(--text);font-family:'Outfit',sans-serif;font-size:12px;cursor:pointer}
   .fbar-select:focus{outline:none;border-color:var(--accent)}
-  .poke-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;gap:8px;position:relative;transition:border-color .15s,box-shadow .15s}
+  .poke-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;gap:8px;position:relative;transition:border-color .15s,box-shadow .15s;cursor:pointer}
   .poke-card:hover{border-color:var(--border2)}
   .poke-card.in-party{border-color:rgba(108,143,255,.4);box-shadow:0 0 0 1px rgba(108,143,255,.1)}
   .poke-card.sortable-chosen{border-color:var(--accent) !important;box-shadow:0 8px 30px rgba(0,0,0,0.5) !important;opacity:0.95;z-index:50}
@@ -391,15 +391,21 @@
   .ver-pill-header{align-self:center}
 
   /* Detail view (poke-view) */
-  .pv-header{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+  /* `flex-wrap:wrap` + `pv-actions{flex-basis:100%}` forces the action buttons
+     to ALWAYS sit on their own row below the sprite + headline. Without this,
+     5+ buttons (Edit / Evolve / Add or Remove from party / Mark dead / Trash)
+     can intrinsically be wider than the modal can give them alongside the
+     headline, which then collapses to zero width and the name overflows under
+     the buttons. */
+  .pv-header{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
   .pv-sprite{width:96px;height:96px;background:var(--bg3);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
   .pv-sprite img{width:96px;height:96px;image-rendering:pixelated;object-fit:contain}
-  .pv-headline{flex:1;min-width:0}
+  .pv-headline{flex:1;min-width:200px}
   .pv-nick{font-family:'Crimson Pro',serif;font-size:22px;font-weight:600;color:var(--text);line-height:1.1}
   .pv-species{font-size:13px;color:var(--text3);margin-top:2px}
   .pv-types{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap}
   .pv-lv-badge{font-size:12px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:4px 10px;color:var(--text2);margin-top:8px;display:inline-block}
-  .pv-actions{display:flex;gap:6px;flex-wrap:wrap;align-self:flex-start}
+  .pv-actions{display:flex;gap:6px;flex-wrap:wrap;align-self:flex-start;width:100%}
   .pv-actions button{font-family:'Outfit',sans-serif;font-size:12px;padding:6px 12px;border-radius:6px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);cursor:pointer;transition:all .15s;font-weight:500}
   .pv-actions button:hover{color:var(--text);border-color:var(--accent)}
   .pv-actions .btn-edit{background:var(--accent-bg);color:var(--accent);border-color:transparent}
@@ -4217,7 +4223,7 @@ function cardInner(p, realIdx, showCheck) {
     <div class="drag-handle" title="Hold to reorder">⠿</div>
     ${partyBtn}
     ${sprite}
-    <div class="card-main" onclick="openEdit(${realIdx})">
+    <div class="card-main">
       <div class="card-header">
         <div><div class="poke-nickname">${p.nickname}</div><div class="poke-species">${p.species||'Unknown'}</div></div>
         <div class="card-lv">Lv ${p.level||'?'}</div>
@@ -4392,7 +4398,7 @@ function renderRoster() {
     return;
   }
   g.innerHTML = bench.map(({p,i}) =>
-    `<div class="poke-card${p.inParty?' in-party':''}"><div class="card-top with-sprite">${cardInner(p, i, true)}</div></div>`
+    `<div class="poke-card${p.inParty?' in-party':''}" onclick="openEdit(${i})"><div class="card-top with-sprite">${cardInner(p, i, true)}</div></div>`
   ).join('');
   // Sortable only meaningful in custom-order mode.
   if (rosterSort === 'custom') initRosterSortable();
@@ -4407,7 +4413,7 @@ function renderActive() {
   if (!party.length) { g.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display = 'none';
   g.innerHTML = party.map(({p,i}) =>
-    `<div class="poke-card in-party"><div class="card-top with-sprite">${cardInner(p, i, true)}</div></div>`
+    `<div class="poke-card in-party" onclick="openEdit(${i})"><div class="card-top with-sprite">${cardInner(p, i, true)}</div></div>`
   ).join('');
   initActiveSortable();
 }
@@ -4801,7 +4807,7 @@ function renderMatchup() {
       const analysis = analyzeMatchup(p, boss);
       const reason = getMatchupReason(p, boss);
       // Reuse card layout but with reco-card class for score badge
-      return `<div class="poke-card reco-card"${p.inParty?' style="border-color:rgba(108,143,255,.4);box-shadow:0 0 0 1px rgba(108,143,255,.1)"':''}>
+      return `<div class="poke-card reco-card" onclick="openEdit(${idx})"${p.inParty?' style="border-color:rgba(108,143,255,.4);box-shadow:0 0 0 1px rgba(108,143,255,.1)"':''}>
         <div class="reco-score-badge v-${analysis.verdict}" title="Score: ${score.toFixed(1)}">${analysis.label}</div>
         <div class="card-top with-sprite">${cardInner(p, idx, false)}</div>
         <div class="reco-reason">${reason}</div>
