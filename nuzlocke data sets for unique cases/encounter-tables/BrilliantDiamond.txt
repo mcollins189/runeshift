@@ -1,0 +1,3112 @@
+==========
+Map: 024 - Canalave City
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Staryu (15%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Staryu (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 054 - Eterna City
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 110 - Pastoria City
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Octillery (45%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Octillery (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 142 - Sunyshore City
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 30-45): Tentacruel (60%), Pelipper (30%), Mantyke (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 30-45): Tentacruel (60%), Pelipper (30%), Mantyke (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Octillery (45%), Staryu (15%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Octillery (45%), Staryu (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 167 - Pokémon League
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 35-45): Pelipper (65%), Tentacruel (35%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 35-45): Pelipper (65%), Tentacruel (35%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Octillery (45%), Luvdisc (15%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Octillery (45%), Luvdisc (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 195 - Oreburgh Mine
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 5-9): Geodude (60%), Zubat (30%), Onix (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 5-9): Geodude (60%), Zubat (30%), Onix (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 196 - Oreburgh Mine
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 6-10): Geodude (60%), Zubat (30%), Onix (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 6-10): Geodude (60%), Zubat (30%), Onix (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 197 - Valley Windworks
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 7-9): Buizel (45%), Pachirisu (25%), Shellos (30%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 7-9): Buizel (45%), Pachirisu (25%), Shellos (30%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Shellder (15%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Shellder (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 200 - Eterna Forest
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 10-12): Wurmple (40%), Silcoon (20%), Budew (29%), Buneary (9%), Beautifly (2%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 10-12): Wurmple (30%), Silcoon (20%), Murkrow (20%), Budew (19%), Buneary (9%), Beautifly (2%)
+Additional SOS encounters: (None)
+
+==========
+Map: 201 - Fuego Ironworks
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 28-30): Floatzel (25%), Shellos (20%), Shinx (20%), Wingull (10%), Gastrodon (15%), Pachirisu (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 28-30): Floatzel (25%), Shellos (20%), Shinx (20%), Wingull (10%), Gastrodon (15%), Pachirisu (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Shellder (15%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Shellder (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 203 - Mt. Coronet
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 14-16): Machop (25%), Geodude (30%), Cleffa (15%), Zubat (20%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-16): Machop (25%), Geodude (30%), Cleffa (15%), Zubat (20%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Zubat (90%), Golbat (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Zubat (90%), Golbat (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 204 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 36-38): Bronzong (20%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (10%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 36-38): Bronzong (20%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (10%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 205 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 36-38): Bronzong (20%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (10%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 36-38): Bronzong (20%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (10%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 206 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 38-40): Snover (20%), Abomasnow (20%), Medicham (20%), Machoke (20%), Chingling (10%), Bronzong (5%), Clefairy (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 38-40): Snover (20%), Abomasnow (20%), Medicham (10%), Golbat (10%), Noctowl (10%), Machoke (10%), Chingling (10%), Bronzong (5%), Clefairy (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 207 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 38-40): Snover (20%), Abomasnow (20%), Medicham (20%), Machoke (20%), Chingling (10%), Bronzong (5%), Clefairy (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 38-40): Snover (20%), Abomasnow (20%), Medicham (10%), Golbat (10%), Noctowl (10%), Machoke (10%), Chingling (10%), Bronzong (5%), Clefairy (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 208 - Mt. Coronet
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 38-40): Bronzong (25%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 38-40): Bronzong (25%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Zubat (90%), Golbat (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Zubat (90%), Golbat (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 15-55): Gyarados (55%), Dratini (40%), Dragonair (5%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 15-55): Gyarados (55%), Dratini (40%), Dragonair (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 209 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 38-40): Bronzong (25%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (5%), Chimecho (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 38-40): Bronzong (25%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (5%), Chimecho (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 210 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 40-42): Bronzong (25%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chimecho (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 40-42): Bronzong (25%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chimecho (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 211 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 40-42): Bronzong (25%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chimecho (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 40-42): Bronzong (25%), Graveler (20%), Machoke (20%), Clefairy (15%), Golbat (10%), Chimecho (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 212 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 38-40): Graveler (40%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (10%), Bronzong (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 38-40): Graveler (40%), Machoke (20%), Clefairy (15%), Golbat (10%), Chingling (10%), Bronzong (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 213 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 30-32): Meditite (25%), Graveler (20%), Clefairy (25%), Golbat (20%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 30-32): Meditite (25%), Graveler (20%), Clefairy (25%), Golbat (20%), Chingling (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 214 - Mt. Coronet
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-14): Meditite (25%), Geodude (30%), Cleffa (15%), Zubat (20%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-14): Meditite (25%), Geodude (30%), Cleffa (15%), Zubat (20%), Chingling (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 215 - Mt. Coronet
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 30-32): Meditite (25%), Graveler (20%), Clefairy (25%), Golbat (20%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 30-32): Meditite (25%), Graveler (20%), Clefairy (25%), Golbat (20%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Zubat (90%), Golbat (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Zubat (90%), Golbat (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 225 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 227 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 228 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 229 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 230 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 231 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 232 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 233 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 234 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 235 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 236 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 237 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 238 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 239 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 240 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 241 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 242 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 243 - Solaceon Ruins
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-25): Unown (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 244 - Victory Road
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 44-46): Machoke (25%), Graveler (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 44-46): Machoke (25%), Graveler (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 245 - Victory Road
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 45-47): Kadabra (25%), Graveler (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 45-47): Kadabra (25%), Graveler (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 246 - Victory Road
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 44-46): Machoke (25%), Floatzel (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 44-46): Machoke (25%), Floatzel (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 35-50): Golbat (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 35-50): Golbat (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (100%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 247 - Victory Road
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 50-52): Machoke (25%), Floatzel (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 50-52): Machoke (25%), Floatzel (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 40-60): Golbat (90%), Lapras (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 40-60): Golbat (90%), Lapras (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (100%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 248 - Victory Road
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 50-52): Machoke (25%), Graveler (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 50-52): Machoke (25%), Graveler (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 249 - Victory Road
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 50-52): Machoke (25%), Graveler (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 50-52): Machoke (25%), Graveler (20%), Medicham (25%), Golbat (20%), Steelix (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 252 - Ravaged Path
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 4-6): Zubat (68%), Geodude (30%), Psyduck (2%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 4-6): Zubat (68%), Geodude (30%), Psyduck (2%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Zubat (60%), Psyduck (30%), Golbat (5%), Golduck (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Zubat (60%), Psyduck (30%), Golbat (5%), Golduck (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 255 - Oreburgh Gate
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 4-8): Geodude (70%), Zubat (30%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 4-8): Geodude (70%), Zubat (30%)
+Additional SOS encounters: (None)
+
+==========
+Map: 256 - Oreburgh Gate
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 8-10): Zubat (60%), Psyduck (30%), Geodude (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 8-10): Zubat (60%), Psyduck (30%), Geodude (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Zubat (60%), Psyduck (30%), Golbat (5%), Golduck (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Zubat (60%), Psyduck (30%), Golbat (5%), Golduck (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 259 - Stark Mountain
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 22-56): Camerupt (20%), Rhydon (20%), Fearow (20%), Graveler (15%), Weezing (10%), Skarmory (5%), Numel (5%), Rhyhorn (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 22-56): Camerupt (20%), Rhydon (20%), Fearow (10%), Banette (10%), Golbat (10%), Weezing (10%), Skarmory (5%), Graveler (5%), Numel (5%), Rhyhorn (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 260 - Stark Mountain
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 25-56): Graveler (20%), Magcargo (20%), Golbat (20%), Machoke (10%), Weezing (10%), Onix (5%), Camerupt (5%), Geodude (5%), Slugma (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 25-56): Graveler (20%), Magcargo (20%), Golbat (20%), Machoke (10%), Weezing (10%), Onix (5%), Camerupt (5%), Geodude (5%), Slugma (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 261 - Stark Mountain
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 27-58): Graveler (20%), Magcargo (20%), Golbat (20%), Machoke (10%), Weezing (10%), Onix (5%), Camerupt (5%), Geodude (5%), Slugma (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 27-58): Graveler (20%), Magcargo (20%), Golbat (20%), Machoke (10%), Weezing (10%), Onix (5%), Camerupt (5%), Geodude (5%), Slugma (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 263 - Sendoff Spring
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 52-54): Bibarel (45%), Staravia (35%), Golduck (10%), Chimecho (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 52-54): Bibarel (45%), Staravia (15%), Noctowl (20%), Golduck (10%), Chimecho (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 40-55): Golduck (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 40-55): Golduck (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 264 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 265 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 266 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 267 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 268 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 269 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 270 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 271 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 272 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 44-46): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 273 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 274 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 275 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 276 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 277 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 278 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 279 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 280 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 281 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 282 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 283 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 284 - Turnback Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 64-66): Golbat (30%), Bronzong (35%), Haunter (30%), Bronzor (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 286 - Snowpoint Temple
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 50-52): Golbat (35%), Sneasel (25%), Graveler (20%), Onix (15%), Steelix (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 50-52): Golbat (35%), Sneasel (25%), Graveler (20%), Onix (15%), Steelix (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 287 - Snowpoint Temple
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 52-54): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (15%), Onix (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 52-54): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (15%), Onix (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 288 - Snowpoint Temple
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 52-54): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (15%), Onix (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 52-54): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (15%), Onix (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 289 - Snowpoint Temple
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 52-54): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (15%), Onix (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 52-54): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (15%), Onix (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 290 - Snowpoint Temple
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (20%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (20%)
+Additional SOS encounters: (None)
+
+==========
+Map: 291 - Snowpoint Temple
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 54-56): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (20%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 54-56): Golbat (35%), Sneasel (25%), Graveler (20%), Steelix (20%)
+Additional SOS encounters: (None)
+
+==========
+Map: 292 - Wayward Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-16): Bronzor (30%), Zubat (45%), Geodude (25%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-16): Bronzor (30%), Zubat (45%), Geodude (25%)
+Additional SOS encounters: (None)
+
+==========
+Map: 293 - Wayward Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 15-17): Bronzor (30%), Zubat (35%), Geodude (20%), Gible (15%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 15-17): Bronzor (30%), Zubat (35%), Geodude (20%), Gible (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 294 - Ruin Maniac's Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 22-23): Geodude (95%), Hippopotas (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 22-23): Geodude (95%), Hippopotas (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 295 - Ruin Maniac's Cave
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 22-24): Geodude (90%), Hippopotas (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 22-24): Geodude (90%), Hippopotas (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 296 - Maniac Tunnel
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 22-25): Geodude (80%), Hippopotas (20%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 22-25): Geodude (80%), Hippopotas (20%)
+Additional SOS encounters: (None)
+
+==========
+Map: 297 - Trophy Garden
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 16-18): Staravia (40%), Roselia (20%), Pichu (20%), Kricketune (10%), Pikachu (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 16-18): Staravia (20%), Roselia (20%), Pichu (20%), Kricketune (30%), Pikachu (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 298 - Iron Island
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Qwilfish (15%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Qwilfish (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 299 - Iron Island
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 30-33): Geodude (25%), Graveler (35%), Zubat (20%), Golbat (10%), Onix (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 30-33): Geodude (25%), Graveler (35%), Zubat (20%), Golbat (10%), Onix (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 300 - Iron Island
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 30-33): Graveler (59%), Golbat (30%), Onix (10%), Geodude (1%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 30-33): Graveler (59%), Golbat (30%), Onix (10%), Geodude (1%)
+Additional SOS encounters: (None)
+
+==========
+Map: 301 - Iron Island
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 30-33): Graveler (59%), Golbat (30%), Onix (10%), Geodude (1%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 30-33): Graveler (59%), Golbat (30%), Onix (10%), Geodude (1%)
+Additional SOS encounters: (None)
+
+==========
+Map: 302 - Iron Island
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 30-33): Graveler (39%), Onix (30%), Golbat (30%), Geodude (1%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 30-33): Graveler (39%), Onix (30%), Golbat (30%), Geodude (1%)
+Additional SOS encounters: (None)
+
+==========
+Map: 303 - Iron Island
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 31-34): Graveler (29%), Onix (30%), Golbat (30%), Steelix (10%), Geodude (1%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 31-34): Graveler (29%), Onix (30%), Golbat (30%), Steelix (10%), Geodude (1%)
+Additional SOS encounters: (None)
+
+==========
+Map: 304 - Iron Island
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 31-34): Graveler (29%), Onix (30%), Golbat (30%), Steelix (10%), Geodude (1%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 31-34): Graveler (29%), Onix (30%), Golbat (30%), Steelix (10%), Geodude (1%)
+Additional SOS encounters: (None)
+
+==========
+Map: 306 - The Old Chateau
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 307 - The Old Chateau
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 308 - The Old Chateau
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 309 - The Old Chateau
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 310 - The Old Chateau
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 311 - The Old Chateau
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 312 - The Old Chateau
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 313 - The Old Chateau
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 314 - The Old Chateau
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-16): Gastly (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 323 - Lake Verity
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 2-4): Starly (50%), Bidoof (50%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 2-4): Starly (40%), Bidoof (60%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 324 - Lake Verity
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 2-4): Starly (50%), Bidoof (50%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 2-4): Starly (40%), Bidoof (60%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 327 - Lake Valor
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 34-36): Bibarel (45%), Staravia (35%), Psyduck (10%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 34-36): Bibarel (45%), Staravia (15%), Noctowl (20%), Psyduck (10%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 330 - Lake Acuity
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 34-36): Bibarel (45%), Sneasel (25%), Psyduck (20%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 34-36): Bibarel (35%), Sneasel (25%), Noctowl (20%), Psyduck (10%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 347 - Valor Lakefront
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 20-22): Girafarig (30%), Geodude (20%), Staravia (25%), Graveler (15%), Kricketune (5%), Bibarel (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-22): Girafarig (30%), Geodude (20%), Staravia (15%), Kricketune (25%), Bibarel (5%), Graveler (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 351 - Acuity Lakefront
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 34-36): Snover (25%), Sneasel (25%), Meditite (20%), Machoke (20%), Medicham (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 34-36): Snover (25%), Sneasel (25%), Meditite (10%), Zubat (10%), Noctowl (10%), Machoke (10%), Medicham (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 354 - Route 201
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 2-3): Starly (50%), Bidoof (50%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 2-3): Starly (40%), Bidoof (60%)
+Additional SOS encounters: (None)
+
+==========
+Map: 355 - Route 202
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 2-4): Shinx (30%), Bidoof (30%), Starly (40%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 2-4): Shinx (30%), Bidoof (30%), Starly (20%), Kricketot (20%)
+Additional SOS encounters: (None)
+
+==========
+Map: 356 - Route 203
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 4-6): Starly (55%), Shinx (25%), Abra (15%), Bidoof (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 4-6): Starly (35%), Shinx (25%), Zubat (10%), Kricketot (10%), Abra (15%), Bidoof (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 357 - Route 204
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 4-6): Starly (35%), Bidoof (25%), Budew (25%), Shinx (15%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 4-6): Starly (25%), Bidoof (25%), Budew (15%), Zubat (10%), Kricketot (10%), Shinx (15%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 358 - Route 204
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 6-8): Starly (35%), Bidoof (25%), Budew (25%), Shinx (15%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 6-8): Starly (25%), Bidoof (25%), Budew (15%), Zubat (10%), Kricketot (10%), Shinx (15%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 359 - Route 205
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 8-10): Buizel (45%), Shellos (45%), Pachirisu (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 8-10): Buizel (45%), Shellos (45%), Pachirisu (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Shellder (15%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Shellder (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 361 - Route 205
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 10-12): Buizel (45%), Bidoof (45%), Pachirisu (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 10-12): Buizel (45%), Bidoof (45%), Pachirisu (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 362 - Route 206
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 14-16): Ponyta (55%), Stunky (25%), Kricketune (10%), Bronzor (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 14-16): Ponyta (35%), Stunky (25%), Zubat (10%), Kricketune (20%), Bronzor (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 364 - Route 207
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 5-7): Machop (55%), Geodude (45%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 5-7): Machop (35%), Geodude (45%), Zubat (10%), Kricketot (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 365 - Route 208
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 16-18): Psyduck (30%), Bidoof (20%), Meditite (20%), Machop (20%), Bibarel (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 16-18): Psyduck (30%), Bidoof (20%), Meditite (10%), Zubat (20%), Machop (10%), Bibarel (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 367 - Route 209
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 16-18): Starly (20%), Bibarel (35%), Mime Jr. (15%), Staravia (25%), Chansey (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 16-18): Starly (20%), Bibarel (25%), Mime Jr. (15%), Gastly (10%), Zubat (10%), Staravia (15%), Chansey (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 368 - The Lost Tower
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 16-18): Gastly (50%), Zubat (50%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 16-18): Gastly (40%), Zubat (40%), Murkrow (20%)
+Additional SOS encounters: (None)
+
+==========
+Map: 369 - The Lost Tower
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 17-19): Gastly (50%), Zubat (50%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 17-19): Gastly (40%), Zubat (40%), Murkrow (20%)
+Additional SOS encounters: (None)
+
+==========
+Map: 370 - The Lost Tower
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 18-20): Gastly (50%), Zubat (49%), Golbat (1%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 18-20): Gastly (40%), Zubat (39%), Murkrow (20%), Golbat (1%)
+Additional SOS encounters: (None)
+
+==========
+Map: 371 - The Lost Tower
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 19-21): Gastly (50%), Zubat (45%), Golbat (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 19-21): Gastly (40%), Zubat (35%), Murkrow (20%), Golbat (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 372 - The Lost Tower
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 20-23): Gastly (50%), Zubat (40%), Golbat (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-23): Gastly (40%), Zubat (30%), Murkrow (20%), Golbat (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 373 - Route 210
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 18-20): Ponyta (50%), Geodude (20%), Mime Jr. (15%), Kricketune (10%), Chansey (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 18-20): Ponyta (30%), Geodude (20%), Mime Jr. (15%), Kricketune (30%), Chansey (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 375 - Route 210
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 24-26): Psyduck (20%), Bibarel (20%), Meditite (30%), Machop (20%), Machoke (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 24-26): Psyduck (20%), Bibarel (20%), Meditite (20%), Hoothoot (10%), Noctowl (10%), Machop (10%), Machoke (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 377 - Route 211
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 12-14): Meditite (45%), Bidoof (35%), Ponyta (10%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 12-14): Meditite (35%), Bidoof (25%), Zubat (10%), Hoothoot (10%), Ponyta (10%), Chingling (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 378 - Route 211
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 26-28): Meditite (35%), Graveler (20%), Ponyta (25%), Machoke (10%), Chingling (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 26-28): Meditite (35%), Graveler (20%), Ponyta (15%), Zubat (10%), Noctowl (10%), Chingling (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 379 - Route 212
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 16-18): Starly (20%), Budew (30%), Staravia (35%), Roselia (5%), Kricketune (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 16-18): Starly (20%), Budew (30%), Staravia (15%), Kricketune (30%), Roselia (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 383 - Route 212
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 18-20): Wooper (30%), Bibarel (35%), Roselia (35%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 18-20): Wooper (30%), Bibarel (25%), Roselia (25%), Kricketune (20%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Wooper (90%), Quagsire (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Wooper (90%), Quagsire (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 385 - Route 213
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 20-22): Buizel (40%), Shellos (30%), Wingull (20%), Floatzel (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-22): Buizel (40%), Shellos (40%), Wingull (10%), Floatzel (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (40%), Octillery (45%), Sharpedo (15%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (40%), Octillery (45%), Sharpedo (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 392 - Route 214
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 22-24): Ponyta (45%), Geodude (20%), Graveler (15%), Girafarig (10%), Kricketune (5%), Stunky (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 22-24): Ponyta (35%), Geodude (20%), Kricketune (25%), Girafarig (10%), Stunky (5%), Graveler (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 394 - Route 215
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 20-22): Ponyta (50%), Geodude (25%), Kricketune (10%), Kadabra (15%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-22): Ponyta (30%), Geodude (25%), Kricketune (30%), Kadabra (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 395 - Route 216
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 32-34): Snover (25%), Sneasel (25%), Meditite (20%), Machoke (20%), Graveler (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 32-34): Snover (25%), Sneasel (25%), Meditite (10%), Zubat (10%), Noctowl (10%), Machoke (10%), Graveler (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 397 - Route 217
+Tables: 1
+Table 1 (Day):
+Encounters (Lv 34-36): Snover (25%), Sneasel (25%), Meditite (20%), Machoke (20%), Medicham (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 34-36): Snover (25%), Sneasel (25%), Meditite (10%), Zubat (10%), Noctowl (10%), Machoke (10%), Medicham (10%)
+Additional SOS encounters: (None)
+
+==========
+Map: 400 - Route 218
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 28-30): Floatzel (45%), Shellos (20%), Gastrodon (20%), Wingull (10%), Mr. Mime (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 28-30): Floatzel (45%), Shellos (20%), Gastrodon (20%), Wingull (10%), Mr. Mime (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Lumineon (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Lumineon (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 403 - Route 219
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Clamperl (15%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Clamperl (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 404 - Route 221
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 28-30): Floatzel (25%), Stunky (20%), Roselia (20%), Shellos (10%), Wingull (10%), Gastrodon (10%), Skuntank (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 28-30): Floatzel (25%), Stunky (20%), Roselia (20%), Shellos (10%), Wingull (10%), Gastrodon (10%), Skuntank (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Clamperl (15%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Lumineon (45%), Clamperl (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 407 - Route 222
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 40-42): Floatzel (25%), Gastrodon (30%), Chatot (30%), Wingull (10%), Mr. Mime (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 40-42): Floatzel (35%), Gastrodon (40%), Chatot (10%), Wingull (10%), Mr. Mime (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (40%), Octillery (45%), Sharpedo (15%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (40%), Octillery (45%), Sharpedo (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 411 - Route 224
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 23-54): Floatzel (20%), Gastrodon (20%), Chatot (30%), Roselia (10%), Gloom (5%), Weepinbell (5%), Buizel (4%), Beautifly (5%), Shellos (1%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 23-54): Floatzel (30%), Gastrodon (30%), Chatot (10%), Roselia (10%), Gloom (5%), Weepinbell (5%), Buizel (4%), Beautifly (5%), Shellos (1%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 40-55): Pelipper (65%), Tentacruel (35%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 40-55): Pelipper (65%), Tentacruel (35%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-50): Gyarados (40%), Octillery (45%), Luvdisc (15%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-50): Gyarados (40%), Octillery (45%), Luvdisc (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 412 - Route 225
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 20-52): Fearow (50%), Raticate (20%), Skuntank (10%), Machoke (5%), Roselia (5%), Spearow (5%), Rattata (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-52): Fearow (30%), Raticate (20%), Banette (20%), Skuntank (10%), Machoke (5%), Roselia (5%), Spearow (5%), Rattata (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 40-55): Golduck (70%), Poliwhirl (30%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 40-55): Golduck (70%), Poliwhirl (30%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Poliwag (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Poliwag (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 30-55): Gyarados (55%), Poliwhirl (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 30-55): Gyarados (55%), Poliwhirl (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 414 - Route 227
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 22-56): Camerupt (20%), Rhydon (20%), Fearow (20%), Graveler (15%), Weezing (10%), Skarmory (5%), Numel (5%), Rhyhorn (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 22-56): Camerupt (20%), Rhydon (20%), Fearow (10%), Banette (10%), Golbat (10%), Weezing (10%), Skarmory (5%), Graveler (5%), Numel (5%), Rhyhorn (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-55): Poliwhirl (70%), Poliwag (30%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-55): Poliwhirl (70%), Poliwag (30%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 416 - Route 228
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 23-54): Dugtrio (30%), Cacturne (20%), Hippowdon (30%), Rhydon (10%), Diglett (5%), Cacnea (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 23-54): Dugtrio (30%), Cacturne (40%), Hippowdon (20%), Diglett (5%), Cacnea (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 20-55): Poliwhirl (70%), Poliwag (30%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 20-55): Poliwhirl (70%), Poliwag (30%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Whiscash (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 420 - Route 229
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 20-52): Weepinbell (30%), Gloom (30%), Ledian (10%), Roselia (10%), Scyther (5%), Volbeat (5%), Bellsprout (5%), Oddish (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-52): Weepinbell (20%), Gloom (20%), Ledian (10%), Ariados (20%), Roselia (10%), Scyther (5%), Volbeat (5%), Bellsprout (5%), Oddish (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 40-55): Wingull (70%), Pelipper (30%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 40-55): Wingull (70%), Pelipper (30%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 20-55): Gyarados (100%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 20-55): Gyarados (100%)
+Additional SOS encounters: (None)
+
+==========
+Map: 422 - Twinleaf Town
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 456 - Celestic Town
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-40): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Barboach (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 30-55): Gyarados (40%), Corphish (40%), Whiscash (15%), Crawdaunt (5%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 30-55): Gyarados (40%), Corphish (40%), Whiscash (15%), Crawdaunt (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 473 - Resort Area
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 40-55): Golduck (100%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 40-55): Golduck (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Goldeen (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 20-55): Gyarados (55%), Seaking (45%)
+Additional SOS encounters: (None)
+
+==========
+Map: 485 - Route 220
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-40): Tentacool (60%), Wingull (30%), Tentacruel (5%), Pelipper (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Finneon (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 15-45): Gyarados (40%), Chinchou (40%), Lumineon (15%), Lanturn (5%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 15-45): Gyarados (40%), Chinchou (40%), Lumineon (15%), Lanturn (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 486 - Route 223
+Tables: 4
+Table 1 (Day):
+Encounters (Lv 30-45): Tentacruel (60%), Pelipper (30%), Mantyke (10%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 30-45): Tentacruel (60%), Pelipper (30%), Mantyke (10%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 30-55): Gyarados (40%), Wailmer (40%), Octillery (15%), Wailord (5%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 30-55): Gyarados (40%), Wailmer (40%), Octillery (15%), Wailord (5%)
+Additional SOS encounters: (None)
+
+==========
+Map: 487 - Route 226
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 20-53): Fearow (50%), Raticate (20%), Machoke (10%), Golduck (10%), Spearow (5%), Rattata (5%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 20-53): Fearow (30%), Raticate (20%), Banette (20%), Machoke (10%), Golduck (10%), Spearow (5%), Rattata (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 35-55): Pelipper (60%), Seel (30%), Tentacruel (5%), Dewgong (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 35-55): Pelipper (60%), Seel (30%), Tentacruel (5%), Dewgong (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Horsea (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Horsea (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 30-55): Gyarados (40%), Seadra (45%), Relicanth (15%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 30-55): Gyarados (40%), Seadra (45%), Relicanth (15%)
+Additional SOS encounters: (None)
+
+==========
+Map: 489 - Route 230
+Tables: 5
+Table 1 (Day):
+Encounters (Lv 18-52): Weepinbell (20%), Gloom (20%), Golduck (20%), Beautifly (10%), Oddish (11%), Floatzel (13%), Gastrodon (5%), Bellsprout (1%)
+Additional SOS encounters: (None)
+
+Table 1 (Night):
+Encounters (Lv 18-52): Weepinbell (20%), Gloom (20%), Golduck (20%), Beautifly (10%), Oddish (11%), Floatzel (13%), Gastrodon (5%), Bellsprout (1%)
+Additional SOS encounters: (None)
+
+Table 2 (Day):
+Encounters (Lv 35-55): Pelipper (60%), Seel (30%), Tentacruel (5%), Dewgong (5%)
+Additional SOS encounters: (None)
+
+Table 2 (Night):
+Encounters (Lv 35-55): Pelipper (60%), Seel (30%), Tentacruel (5%), Dewgong (5%)
+Additional SOS encounters: (None)
+
+Table 3 (Day):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 3 (Night):
+Encounters (Lv 3-7): Magikarp (100%)
+Additional SOS encounters: (None)
+
+Table 4 (Day):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 4 (Night):
+Encounters (Lv 10-25): Magikarp (80%), Remoraid (20%)
+Additional SOS encounters: (None)
+
+Table 5 (Day):
+Encounters (Lv 30-55): Gyarados (40%), Wailmer (40%), Octillery (15%), Wailord (5%)
+Additional SOS encounters: (None)
+
+Table 5 (Night):
+Encounters (Lv 30-55): Gyarados (40%), Wailmer (40%), Octillery (15%), Wailord (5%)
+Additional SOS encounters: (None)
+
