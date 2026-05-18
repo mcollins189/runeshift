@@ -293,7 +293,7 @@ Encounters (Levels 20-50): Gyarados (40%), Lumineon (35%), Shellder (25%)
 Additional SOS encounters: (None)
 
 ==========
-Map: 203 - Mt. Coronet
+Map: 203 - Mt. Coronet (1F)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 14-16): Machop (25%), Geodude (30%), Zubat (20%), Meditite (10%), Chingling (10%), Cleffa (5%)
@@ -478,7 +478,7 @@ Encounters (Levels 30-32): Meditite (25%), Graveler (20%), Clefairy (15%), Golba
 Additional SOS encounters: (None)
 
 ==========
-Map: 214 - Mt. Coronet
+Map: 214 - Mt. Coronet (1F)
 Tables: 1
 Table 1 [grass] (Day):
 Encounters (Levels 12-14): Meditite (25%), Geodude (30%), Zubat (20%), Machop (10%), Chingling (10%), Cleffa (5%)
@@ -489,7 +489,7 @@ Encounters (Levels 12-14): Meditite (25%), Geodude (30%), Zubat (20%), Machop (1
 Additional SOS encounters: (None)
 
 ==========
-Map: 215 - Mt. Coronet
+Map: 215 - Mt. Coronet (B1F)
 Tables: 5
 Table 1 [grass] (Day):
 Encounters (Levels 30-32): Meditite (25%), Graveler (20%), Clefairy (15%), Golbat (20%), Machoke (10%), Chingling (10%)
