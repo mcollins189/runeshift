@@ -426,6 +426,39 @@
   .pv-actions .btn-party-add:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
   .pv-actions .btn-party-remove{background:rgba(255,87,87,.1);color:#ff8888;border-color:rgba(255,87,87,.35)}
   .pv-actions .btn-party-remove:hover{background:#ff5757;color:#fff;border-color:#ff5757}
+  /* Level Up button — uses the green-ish "growth" palette to read as a positive
+     advance, distinct from the accent-blue Edit and the green Evolve. */
+  .pv-actions .btn-level{background:rgba(34,197,94,.10);color:#86efac;border-color:rgba(34,197,94,.35)}
+  .pv-actions .btn-level:hover{background:#22c55e;color:#0f0f10;border-color:#22c55e}
+  /* New-move prompt at the top of pokeView when a level-up or evolution
+     queued a move for the user to consider. Visually punchy (accent border,
+     gradient backdrop) so it can't be missed, but lives inside the modal
+     scroll area rather than as a separate popup — keeps the user in the
+     detail-view context they were already in. */
+  .new-move-prompt{margin:0 0 14px;padding:14px;background:linear-gradient(180deg,rgba(108,143,255,.10),rgba(108,143,255,.04));border:1px solid rgba(108,143,255,.45);border-radius:10px;box-shadow:0 0 0 1px rgba(108,143,255,.10),0 4px 18px rgba(0,0,0,.25)}
+  .new-move-prompt .nmp-title{font-size:14px;color:var(--text);margin-bottom:6px}
+  .new-move-prompt .nmp-title strong{color:var(--accent)}
+  .new-move-prompt .nmp-remaining{font-size:11px;color:var(--text3);margin-left:6px}
+  .new-move-prompt .nmp-meta-line{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text2);margin-bottom:8px}
+  .new-move-prompt .nmp-tip{font-size:11px;color:var(--text2);background:rgba(0,0,0,.18);border-radius:6px;padding:6px 9px;margin-bottom:10px;line-height:1.5}
+  .new-move-prompt .nmp-tip strong{color:var(--accent)}
+  .new-move-prompt .nmp-slots{display:flex;flex-direction:column;gap:5px}
+  .new-move-prompt .nmp-slot{display:flex;align-items:center;gap:10px;padding:7px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:6px}
+  .new-move-prompt .nmp-slot.recommended{border-color:rgba(108,143,255,.55);background:rgba(108,143,255,.10)}
+  .new-move-prompt .nmp-slot.empty{background:rgba(255,255,255,.02);border-style:dashed}
+  .new-move-prompt .nmp-slot-info{flex:1;display:flex;align-items:center;gap:8px;min-width:0;flex-wrap:wrap}
+  .new-move-prompt .nmp-slot-name{font-size:12px;color:var(--text);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .new-move-prompt .nmp-slot.empty .nmp-slot-name{color:var(--text3);font-style:italic;font-weight:400}
+  .new-move-prompt .nmp-slot-meta{font-size:10px;color:var(--text3)}
+  .new-move-prompt .nmp-btn{font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;padding:5px 10px;border-radius:5px;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:all .15s;white-space:nowrap;flex-shrink:0}
+  .new-move-prompt .nmp-btn.replace{background:var(--accent-bg);color:var(--accent);border-color:rgba(108,143,255,.4)}
+  .new-move-prompt .nmp-btn.replace:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .new-move-prompt .nmp-slot.recommended .nmp-btn.replace{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 0 0 2px rgba(108,143,255,.25)}
+  .new-move-prompt .nmp-btn.teach{background:rgba(34,197,94,.10);color:#86efac;border-color:rgba(34,197,94,.35)}
+  .new-move-prompt .nmp-btn.teach:hover{background:#22c55e;color:#0f0f10;border-color:#22c55e}
+  .new-move-prompt .nmp-actions{display:flex;justify-content:flex-end;margin-top:10px}
+  .new-move-prompt .nmp-btn.skip{background:transparent;color:var(--text3);border-color:transparent}
+  .new-move-prompt .nmp-btn.skip:hover{color:var(--text2);border-color:var(--border2);background:var(--bg3)}
   .pv-section{margin-top:14px}
   .pv-section-title{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:8px;font-weight:600}
   .pv-row{display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:4px;line-height:1.5}
@@ -444,6 +477,11 @@
   .weak-pill.x05{background:rgba(34,197,94,.10);border-color:rgba(34,197,94,.3);color:#86efac}
   .weak-pill.x025{background:rgba(34,197,94,.18);border-color:rgba(34,197,94,.5);color:#4ade80}
   .weak-pill.x0{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.4);color:#93c5fd}
+  /* Catching tip strip under the type-matchup grid in the speciesView modal.
+     Lists the types that do <1× to the wild Pokémon so the player can pick
+     them to chip down without one-shotting during a catch attempt. */
+  .catch-tip{margin-top:10px;padding:8px 10px;background:rgba(34,197,94,.06);border:1px dashed rgba(34,197,94,.3);border-radius:6px;font-size:11px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .catch-tip .catch-tip-label{font-weight:600;color:#86efac}
   .pv-moves{display:grid;grid-template-columns:1fr 1fr;gap:6px}
   .pv-move{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:7px 10px;display:flex;align-items:center;gap:8px;font-size:12px}
   .pv-move .pv-move-name{flex:1;color:var(--text)}
@@ -493,6 +531,14 @@
   .enc-time-tabs{display:flex;gap:0;background:var(--bg3);border-radius:6px;padding:2px;font-size:11px}
   .enc-time-tabs button{background:transparent;border:none;color:var(--text3);padding:3px 9px;border-radius:4px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:11px;transition:all .15s}
   .enc-time-tabs button.active{background:var(--bg4);color:var(--text)}
+  /* Weather tab strip — SwSh Wild Area locations have up to 9 weather
+     variants. Rendered as a wrap-friendly tab row above the encounter
+     sections (the Day/Night strip is small enough to stay inline, but
+     weather has more options so we let it span the full width and wrap). */
+  .enc-weather-tabs{display:flex;flex-wrap:wrap;gap:4px;background:var(--bg3);border-radius:6px;padding:3px;font-size:11px;margin-bottom:10px}
+  .enc-weather-tabs button{background:transparent;border:none;color:var(--text3);padding:4px 10px;border-radius:4px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:11px;transition:all .15s;white-space:nowrap}
+  .enc-weather-tabs button:hover{color:var(--text2)}
+  .enc-weather-tabs button.active{background:var(--accent-bg);color:var(--accent);font-weight:500}
   .enc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
   .enc-poke{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 10px;display:flex;align-items:center;gap:10px;transition:all .15s;position:relative}
   .enc-poke:hover{border-color:var(--border2)}
@@ -508,6 +554,8 @@
   .enc-action-menu .eam-btn.skipped{background:rgba(168,168,168,.08);color:var(--text2)}
   .enc-action-menu .eam-btn.failed{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.3);color:#fca5a5}
   .enc-action-menu .eam-btn.failed:hover{background:rgba(239,68,68,.22);border-color:rgba(239,68,68,.5)}
+  .enc-action-menu .eam-btn.details{background:rgba(108,143,255,.10);border-color:rgba(108,143,255,.3);color:var(--accent)}
+  .enc-action-menu .eam-btn.details:hover{background:rgba(108,143,255,.20);border-color:rgba(108,143,255,.5)}
   .enc-action-menu .eam-btn.cancel{background:transparent;color:var(--text3);border-color:transparent;font-size:11px;margin-top:4px}
   .enc-poke.dupe{opacity:0.5}
   .enc-poke.dead{opacity:0.4;border-color:rgba(248,113,113,.2)}
@@ -3698,8 +3746,17 @@ function prettifyMoveName(n) {
     .replace(/^Trick Or Treat$/,'Trick-or-Treat').replace(/^Wake Up Slap$/,'Wake-Up Slap');
 }
 
+/* ── Pending-move learn queue ──
+   When a Pokémon levels up or evolves into a move-unlocking state, we don't
+   yank the user out of the detail view to dump them into the edit form.
+   Instead we push the new moves onto this map (keyed by team index) and the
+   pokeView renderer surfaces an inline "Wants to learn X!" prompt at the top
+   with replace/teach/skip buttons. State is cleared as the user works
+   through the queue. Map (not object) so iteration order is deterministic. */
+const _pendingLearnMoves = new Map();  // idx → array of { lv, name, isEvo }
+
 /* ── Evolve current Pokémon (mutates roster) ── */
-function evolvePoke(idx) {
+async function evolvePoke(idx) {
   const team = curRun().team;
   const p = team[idx];
   if (!p) return;
@@ -3727,10 +3784,123 @@ function evolvePoke(idx) {
   // Log the evolution as a timeline event
   p.events = p.events || [];
   p.events.push({ t:'evo', from:oldSpecies, to:finalTarget, lv:p.level||null, ts: Date.now() });
+
+  // Queue up evolution-learned moves (and any level-1 moves the previous form
+  // never learned) for the user to optionally teach. Filter out anything the
+  // Pokémon already knows. Done before save/render so the prompt shows on the
+  // first render after the species switch.
+  await queueLearnableMoves(idx, finalTarget, { includeEvo: true });
+
   save(); render();
   showToast(`${p.nickname || oldSpecies} evolved into ${finalTarget}!`,'success');
   // Re-open the editor for the now-evolved Pokémon
   setTimeout(()=>openEdit(idx), 100);
+}
+
+/* ── One-shot level-up ──
+   Bumps level by 1, queues any newly-unlocked moves for the inline prompt,
+   then re-renders the detail view so the user sees both the new level and
+   the move-learn prompt without leaving the modal. Async because we wait on
+   fetchLearnset before showing the prompt; if learnset is uncached the user
+   might see a brief "Lv N → Lv N+1" before the prompt renders, which is
+   fine — it's the same delay the existing learnset planner has on first
+   open. */
+async function levelUpPoke(idx) {
+  const team = curRun().team;
+  const p = team[idx];
+  if (!p || p.alive === false) return;
+  const oldLv = p.level || 1;
+  if (oldLv >= 100) { showToast(`${p.nickname || p.species} is already Lv 100`, 'info'); return; }
+  const newLv = oldLv + 1;
+  p.level = newLv;
+  p.events = p.events || [];
+  p.events.push({ t:'level', from:oldLv, to:newLv, ts: Date.now() });
+
+  await queueLearnableMoves(idx, p.species, { atLevel: newLv });
+
+  save(); render();
+  // Toast only when there's nothing to prompt about — otherwise the inline
+  // prompt is louder than a toast already.
+  if (!_pendingLearnMoves.has(idx)) {
+    showToast(`${p.nickname || p.species} grew to Lv ${newLv}!`, 'success');
+  }
+  setTimeout(() => openEdit(idx), 60);
+}
+
+/* Build the pending-learn queue for `idx`. Pulls the learnset for `species`,
+   filters to either (a) moves with lv === atLevel (single-level pickups,
+   for levelUpPoke) or (b) every evo-tagged move (for evolvePoke), drops
+   any move already in the current moveset, and stashes the survivors on
+   _pendingLearnMoves[idx]. Caller should `await` so the prompt shows on
+   the next render. */
+async function queueLearnableMoves(idx, species, opts) {
+  const p = curRun().team[idx];
+  if (!p) return;
+  const ls = await fetchLearnset(species);
+  if (!ls || !ls.length) return;
+  const currentMoves = (typeof p.moves === 'string')
+    ? p.moves.split(',').map(s=>s.trim()).filter(Boolean)
+    : (Array.isArray(p.moves) ? p.moves.filter(Boolean) : []);
+  const owned = new Set(currentMoves.map(m => (resolveMove(m) || m).toLowerCase()));
+  let candidates;
+  if (opts.atLevel != null) {
+    candidates = ls.filter(m => m.lv === opts.atLevel && !m.isEvo);
+  } else if (opts.includeEvo) {
+    candidates = ls.filter(m => m.isEvo);
+  } else {
+    candidates = [];
+  }
+  const queue = candidates.filter(m => !owned.has(m.name.toLowerCase()));
+  if (queue.length) _pendingLearnMoves.set(idx, queue);
+}
+
+/* Inline-prompt action handlers. All three pop the head off the queue,
+   apply the chosen mutation to p.moves (or no mutation for skip), and
+   re-render. When the queue empties, the prompt section disappears. */
+function _shiftPendingMove(idx) {
+  const q = _pendingLearnMoves.get(idx);
+  if (!q || !q.length) { _pendingLearnMoves.delete(idx); return null; }
+  const m = q.shift();
+  if (!q.length) _pendingLearnMoves.delete(idx);
+  return m;
+}
+function _currentMovesArr(p) {
+  return (typeof p.moves === 'string')
+    ? p.moves.split(',').map(s=>s.trim()).filter(Boolean)
+    : (Array.isArray(p.moves) ? p.moves.filter(Boolean) : []);
+}
+function learnMoveTeach(idx) {
+  const p = curRun().team[idx];
+  const m = _shiftPendingMove(idx);
+  if (!p || !m) return;
+  const moves = _currentMovesArr(p);
+  if (moves.length >= 4) {
+    showToast('No empty slot — pick a move to replace instead', 'error');
+    // Re-queue the move so the user can still act on it
+    const q = _pendingLearnMoves.get(idx) || [];
+    q.unshift(m);
+    _pendingLearnMoves.set(idx, q);
+    save(); render(); openEdit(idx);
+    return;
+  }
+  moves.push(m.name);
+  p.moves = moves.join(', ');
+  save(); render(); openEdit(idx);
+}
+function learnMoveReplace(idx, slot) {
+  const p = curRun().team[idx];
+  const m = _shiftPendingMove(idx);
+  if (!p || !m) return;
+  const moves = _currentMovesArr(p);
+  // If the requested slot is past the end, treat as teach (append).
+  if (slot >= moves.length) moves.push(m.name);
+  else moves[slot] = m.name;
+  p.moves = moves.join(', ');
+  save(); render(); openEdit(idx);
+}
+function learnMoveSkip(idx) {
+  _shiftPendingMove(idx);
+  save(); render(); openEdit(idx);
 }
 
 /* Renames retired GAMES keys in-place on loaded cloud data so old saves keep
@@ -5657,8 +5827,28 @@ let selectedEncLocation = null;
 let selectedEncTime = 'day';
 let selectedEncSeason = 'spring';  // BW/B2W2 seasons; 'all' = combined view
 let selectedEncConditionals = false; // off = baseline-only (no swarm/radar/slot2); on = include conditional pools
+let selectedEncWeather = 'Normal Weather';  // SwSh Wild Area weather tab; 'Normal Weather' = clear/default
 let encGroupCollapsed = {}; // groupName → bool
 let encSearchQuery = '';
+
+// SwSh Wild Area weather vocabulary — drives the weather-tab detection in
+// buildEncounterMainFromTables. The Sword.txt / Shield.txt scraper encodes
+// each weather as a sub-zone suffix (e.g. "Rolling Fields (Overcast)" →
+// pool.subZone = "Overcast", or "Rolling Fields (Area 2, Overcast)" →
+// pool.subZone = "Area 2, Overcast"). When we see one of these names as
+// the last comma-separated segment we peel it off and use it for tabbing
+// instead of rendering it as just another sub-zone section.
+const WEATHER_NAMES = ['Normal Weather','Overcast','Raining','Thunderstorm','Intense Sun','Snowing','Snowstorm','Sandstorm','Fog'];
+const WEATHER_SET = new Set(WEATHER_NAMES);
+function extractWeather(subZone) {
+  if (!subZone) return null;
+  const parts = subZone.split(',').map(s => s.trim()).filter(Boolean);
+  if (!parts.length) return null;
+  const last = parts[parts.length - 1];
+  if (!WEATHER_SET.has(last)) return null;
+  const residual = parts.slice(0, -1).join(', ');
+  return { weather: last, residual: residual || null };
+}
 
 function setEncLocation(loc) {
   selectedEncLocation = loc;
@@ -5676,6 +5866,7 @@ function setEncLocation(loc) {
 }
 function setEncTime(t) { selectedEncTime = t; renderEncounters(); }
 function setEncSeason(s) { selectedEncSeason = s; renderEncounters(); }
+function setEncWeather(w) { selectedEncWeather = w; renderEncounters(); }
 function toggleEncConditionals() { selectedEncConditionals = !selectedEncConditionals; renderEncounters(); }
 
 // Strip region/route prefixes from a PokeAPI area slug to leave a friendly
@@ -6277,7 +6468,50 @@ function buildEncounterMainFromTables(locName, ver, game) {
     const s = sigOf(pool);
     if (!sigToPool.has(s)) sigToPool.set(s, pool);
   }
-  const uniquePools = [...sigToPool.values()];
+  let uniquePools = [...sigToPool.values()];
+
+  // ── SwSh weather tabs ──
+  // The Sword.txt / Shield.txt files encode each Wild Area weather variant as
+  // a sub-zone suffix. Rendered naïvely that gives the user 9 stacked
+  // "Walking" sections per location, one per weather. Instead we collect the
+  // distinct weather names present in this location's pools, build a tab
+  // strip above the sections (parallel to the Day/Night strip), and filter
+  // pools to only those matching the active weather. Pools with a non-weather
+  // residual in their sub-zone (e.g. "Area 2, Overcast" → "Area 2") keep that
+  // residual so sub-area labeling still works inside a weather view.
+  const weatherSeen = new Map();  // name → insertion order
+  for (const p of uniquePools) {
+    const w = extractWeather(p.subZone);
+    if (w && !weatherSeen.has(w.weather)) weatherSeen.set(w.weather, weatherSeen.size);
+  }
+  const availWeathers = WEATHER_NAMES.filter(n => weatherSeen.has(n));
+  let weatherTabsHtml = '';
+  if (availWeathers.length > 1) {
+    const activeWeather = availWeathers.includes(selectedEncWeather) ? selectedEncWeather : availWeathers[0];
+    // Filter to pools matching active weather; pools with no weather tag
+    // pass through unchanged (covers Routes 1-10 and any non-Wild-Area data).
+    uniquePools = uniquePools
+      .map(p => {
+        const w = extractWeather(p.subZone);
+        if (!w) return p;
+        if (w.weather !== activeWeather) return null;
+        // Strip the weather portion of the sub-zone so it doesn't double up
+        // in the section label below.
+        return { ...p, subZone: w.residual };
+      })
+      .filter(Boolean);
+    weatherTabsHtml = `<div class="enc-weather-tabs">${availWeathers.map(w =>
+      `<button class="${w === activeWeather ? 'active' : ''}" onclick="setEncWeather('${w.replace(/'/g, "\\'")}')">${w}</button>`
+    ).join('')}</div>`;
+  } else if (availWeathers.length === 1) {
+    // Single weather (rare — usually the only-Normal-Weather case from a
+    // location with no other variants). Strip the suffix so it doesn't show
+    // up as a useless one-option sub-zone.
+    uniquePools = uniquePools.map(p => {
+      const w = extractWeather(p.subZone);
+      return w ? { ...p, subZone: w.residual } : p;
+    });
+  }
   // Bucket by level range so multi-pool ranges (sub-areas) get labeled siblings.
   const groups = new Map();
   for (const p of uniquePools) {
@@ -6544,7 +6778,7 @@ function buildEncounterMainFromTables(locName, ver, game) {
       </div>`];
     }).filter(Boolean).join('');
 
-    return sections || '<div class="enc-empty" style="padding:12px">No species in this time of day.</div>';
+    return `${weatherTabsHtml}${sections || '<div class="enc-empty" style="padding:12px">No species in this time of day.</div>'}`;
   }
 
   // METHODLESS RENDERING (USUM and any other source without method tags) — group
@@ -6605,7 +6839,7 @@ function buildEncounterMainFromTables(locName, ver, game) {
     });
   }).filter(Boolean).join('');
 
-  return `${globalTabsHtml}${sections || '<div class="enc-empty" style="padding:12px">No species in this time of day.</div>'}`;
+  return `${weatherTabsHtml}${globalTabsHtml}${sections || '<div class="enc-empty" style="padding:12px">No species in this time of day.</div>'}`;
 }
 
 function renderEncountersFromNuzData(el, gameKey, game) {
@@ -7266,12 +7500,15 @@ function encActionMenu(loc, species, ev) {
     <button class="eam-btn caught" onclick="encActionCaught('${loc.replace(/'/g,"\\\\'")}', '${species.replace(/'/g,"\\\\'")}')">✓ Caught — fill out details</button>
     <button class="eam-btn skipped" onclick="encActionLog('${loc.replace(/'/g,"\\\\'")}', '${species.replace(/'/g,"\\\\'")}', 'skipped')">⊘ Skipped (dupe)</button>
     <button class="eam-btn failed" onclick="encActionLog('${loc.replace(/'/g,"\\\\'")}', '${species.replace(/'/g,"\\\\'")}', 'failed')">✗ Missed / fled / KO'd</button>
+    <button class="eam-btn details" onclick="encActionDetails('${species.replace(/'/g,"\\\\'")}')">🔍 Details (types, stats, matchups)</button>
     <button class="eam-btn cancel" onclick="closeEncActionMenu()">Cancel</button>
   `;
   // Position near the click
   const x = ev.clientX, y = ev.clientY;
   menu.style.left = Math.min(window.innerWidth - 260, x) + 'px';
-  menu.style.top = Math.min(window.innerHeight - 220, y) + 'px';
+  // Five buttons + title + dividers come out to ~260px tall; clamp so it
+  // doesn't get cropped at the bottom of short viewports.
+  menu.style.top = Math.min(window.innerHeight - 260, y) + 'px';
   document.body.appendChild(menu);
   // Close on outside-click
   setTimeout(() => document.addEventListener('mousedown', _encMenuOutsideClick), 0);
@@ -7319,6 +7556,108 @@ function encActionLog(loc, species, result) {
   }
   save(); render();
   showToast(`${species} at ${loc} → ${result}`, result === 'failed' ? 'error' : 'success');
+}
+
+// "Details" branch: opens a read-only species view in the modal. The user
+// hasn't caught this Pokémon yet — they're considering it. Surfaces typing,
+// stats, and the defensive-matchup grid so the player can pick what NOT to
+// hit the wild encounter with (avoids accidentally 1-shotting it during a
+// catch attempt). Distinct from pokeView (which expects a team member with
+// idx, nickname, route, etc.) — speciesView only needs a species name.
+function encActionDetails(species) {
+  closeEncActionMenu();
+  // Reset any team-edit cursors so closing the modal returns to a clean slate
+  editIdx = null;
+  document.getElementById('modal-title').textContent = species;
+  document.getElementById('modal-body').innerHTML = speciesView(species);
+  openModal();
+}
+
+// Renders the species detail view used by the "Details" encounter action.
+// Read-only — no roster fields, no actions, no learnset planner. Just the
+// matchup-critical info: types, BST, base stats, and the full defensive
+// type-effectiveness grid (4× / 2× / ½× / ¼× / 0× entries).
+function speciesView(species) {
+  const info = pokeInfo(species);
+  const sprite = species && pokeId(species)
+    ? `<img src="${spriteUrl(species)}" alt="${species}" onerror="this.style.display='none'">`
+    : `<div style="color:var(--text3);font-size:11px">no sprite</div>`;
+  const types = info?.t || [];
+  const abilities = info?.a || [];
+
+  let statsHtml = '';
+  let bst = 0;
+  if (info && info.s) {
+    const labels = ['HP','Atk','Def','SpA','SpD','Spe'];
+    bst = info.s.reduce((a,b) => a+b, 0);
+    statsHtml = `<div class="stat-bars">` + info.s.map((v,i) => {
+      const pct = Math.min(100, Math.round(v / 180 * 100));
+      return `<span class="sb-label">${labels[i]}</span><span class="sb-wrap"><span class="sb-fill" style="width:${pct}%;background:${statColor(v)}"></span></span><span class="sb-val">${v}</span>`;
+    }).join('') + `</div>`;
+    statsHtml += `<div style="margin-top:6px;font-size:11px;color:var(--text3);text-align:right">BST ${bst}</div>`;
+  }
+
+  // Defensive type matchups — sorted high→low so the dangerous 4×/2×
+  // "don't-attack-with-this" types are at the top of the catching player's eye.
+  let weakHtml = '';
+  if (types.length) {
+    const ALL_TYPES = ['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
+    const mults = {};
+    for (const atk of ALL_TYPES) {
+      const m = effectiveness(atk, types[0], types[1] || null);
+      if (m !== 1) mults[atk] = m;
+    }
+    const sorted = Object.entries(mults).sort((a,b) => b[1] - a[1]);
+    if (sorted.length) {
+      weakHtml = `<div class="weakness-grid">` + sorted.map(([t,m]) => {
+        const cls = m===4?'x4':(m===2?'x2':(m===0.5?'x05':(m===0.25?'x025':(m===0?'x0':''))));
+        const lbl = m===0?'×0':(m===0.25?'×¼':(m===0.5?'×½':`×${m}`));
+        return `<div class="weak-pill ${cls}"><span>${t}</span><span class="wp-mult">${lbl}</span></div>`;
+      }).join('') + `</div>`;
+    }
+  }
+
+  // Quick catching tip: list the "safe to chip with" types (resisted / immune).
+  // These do <1× to the target so you can pile damage without one-shotting.
+  let safeTypesHtml = '';
+  if (types.length) {
+    const ALL_TYPES = ['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
+    const safe = [];
+    for (const atk of ALL_TYPES) {
+      const m = effectiveness(atk, types[0], types[1] || null);
+      if (m > 0 && m < 1) safe.push(atk);
+    }
+    if (safe.length) {
+      safeTypesHtml = `<div class="catch-tip"><span class="catch-tip-label">Safe to chip with</span> ${safe.map(t => `<span class="type-badge t-${t}">${t}</span>`).join('')}</div>`;
+    }
+  }
+
+  const abilitiesHtml = abilities.length
+    ? `<div class="pv-row"><span class="pv-label">Abilities</span><span class="pv-val">${abilities.join(', ')}</span></div>`
+    : '';
+
+  return `
+    <div class="pv-header">
+      <div class="pv-sprite">${sprite}</div>
+      <div class="pv-headline">
+        <div class="pv-nick">${species}</div>
+        <div class="pv-species">${info ? info.t.join('/') : 'Unknown typing'}${bst?` · BST ${bst}`:''}</div>
+        <div class="pv-types">${types.map(t => typeBadge(t)).join('')}</div>
+      </div>
+    </div>
+
+    ${abilitiesHtml ? `<div class="pv-section">${abilitiesHtml}</div>` : ''}
+
+    ${statsHtml ? `<div class="pv-section"><div class="pv-section-title">Base stats</div>${statsHtml}</div>` : ''}
+
+    ${weakHtml ? `<div class="pv-section">
+      <div class="pv-section-title">Type matchups (defending)</div>
+      ${weakHtml}
+      ${safeTypesHtml}
+    </div>` : ''}
+
+    ${!info ? '<div class="pv-section" style="color:var(--text3);font-size:11px;font-style:italic">No data for this species yet — typing/stats may load after PokeAPI backfill completes.</div>' : ''}
+  `;
 }
 
 
@@ -7431,7 +7770,89 @@ function pokeView(p, idx) {
   const evoBtnHtml = (isAlive && evo)
     ? `<button class="btn-edit" onclick="if(confirm('Evolve ${p.nickname} into ${evo.target}?'))evolvePoke(${idx})">→ Evolve to ${evo.target} <span style="font-size:10px;opacity:.75">(${evoMethod})</span></button>`
     : '';
+  const levelBtnHtml = isAlive && (p.level || 0) < 100
+    ? `<button class="btn-level" onclick="levelUpPoke(${idx})">▲ Level Up <span style="font-size:10px;opacity:.75">(Lv ${(p.level || 1) + 1})</span></button>`
+    : '';
+  // Inline new-move prompt — top of the modal when a pending move is queued
+  // from a recent level-up or evolution. See `_pendingLearnMoves` and the
+  // `learnMove*` handlers. Rendering uses the same scoreMove machinery as
+  // the learnset planner so the "Replace X" buttons can show which slot is
+  // the recommended swap.
+  const pending = _pendingLearnMoves.get(idx);
+  let learnPromptHtml = '';
+  if (pending && pending.length && isAlive) {
+    const m = pending[0];
+    const ownTypes = [p.type1, p.type2].filter(Boolean);
+    const ownStats = info?.s || null;
+    const upScore = scoreMove(m.name, ownTypes, ownStats);
+    const upType = getMoveType(m.name);
+    const upPwr = movePower(m.name);
+    const upCat = moveCategory(m.name);
+    const stab = upType && ownTypes.includes(upType) && (upCat === 'P' || upCat === 'S');
+    const metaBits = [
+      upType,
+      upPwr ? `${upPwr} BP` : null,
+      upCat === 'P' ? 'physical' : upCat === 'S' ? 'special' : (upCat === 'U' ? 'status' : null),
+      stab ? 'STAB' : null,
+    ].filter(Boolean).join(' · ');
+    // Score each current slot; the lowest-scoring slot that the new move
+    // clearly beats (delta ≥ 15) gets the "Recommended" tag.
+    const currentScored = moveList.map(mv => ({ name: mv, ...scoreMove(mv, ownTypes, ownStats) }));
+    let bestSlot = -1, bestDelta = 0;
+    for (let i = 0; i < currentScored.length; i++) {
+      const delta = upScore.score - currentScored[i].score;
+      if (delta > bestDelta && delta >= 15) { bestSlot = i; bestDelta = delta; }
+    }
+    const slotRows = [];
+    for (let i = 0; i < 4; i++) {
+      const cur = moveList[i];
+      if (cur) {
+        const c = currentScored[i];
+        const cType = getMoveType(cur);
+        const cPwr = movePower(cur);
+        const cCat = moveCategory(cur);
+        const cMeta = [cType, cPwr ? `${cPwr} BP` : null, cCat === 'P' ? 'Ph' : cCat === 'S' ? 'Sp' : 'St'].filter(Boolean).join(' · ');
+        const isRec = i === bestSlot;
+        slotRows.push(`<div class="nmp-slot${isRec ? ' recommended' : ''}">
+          <div class="nmp-slot-info">
+            ${cType ? `<span class="type-badge t-${cType}">${cType}</span>` : ''}
+            <span class="nmp-slot-name">${cur}</span>
+            <span class="nmp-slot-meta">${cMeta} · score ${c.score}</span>
+          </div>
+          <button class="nmp-btn replace" onclick="learnMoveReplace(${idx}, ${i})">Replace${isRec ? ' (recommended)' : ''}</button>
+        </div>`);
+      } else {
+        slotRows.push(`<div class="nmp-slot empty">
+          <div class="nmp-slot-info"><span class="nmp-slot-name">— empty slot ${i + 1} —</span></div>
+          <button class="nmp-btn teach" onclick="learnMoveTeach(${idx})">Teach here</button>
+        </div>`);
+      }
+    }
+    const remainingHint = pending.length > 1 ? ` <span class="nmp-remaining">(${pending.length - 1} more after this)</span>` : '';
+    const lvLabel = m.isEvo ? 'on evolution' : `at Lv ${m.lv}`;
+    learnPromptHtml = `
+      <div class="new-move-prompt">
+        <div class="nmp-title">
+          ${p.nickname || p.species} wants to learn <strong>${m.name}</strong> ${lvLabel}!${remainingHint}
+        </div>
+        <div class="nmp-meta-line">
+          ${upType ? `<span class="type-badge t-${upType}">${upType}</span>` : ''}
+          <span class="nmp-meta-text">${metaBits || 'unknown'} · score ${upScore.score}</span>
+        </div>
+        <div class="nmp-tip">${bestSlot >= 0
+          ? `<strong>${moveList[bestSlot]}</strong> looks like the obvious swap — the new move scores ${bestDelta} points higher for this set.`
+          : (moveList.length < 4
+            ? 'You have an empty slot — pick it up freely.'
+            : 'Your current set already scores well; replacing anything is a judgment call.')}</div>
+        <div class="nmp-slots">${slotRows.join('')}</div>
+        <div class="nmp-actions">
+          <button class="nmp-btn skip" onclick="learnMoveSkip(${idx})">Don't learn</button>
+        </div>
+      </div>
+    `;
+  }
   return `
+    ${learnPromptHtml}
     <div class="pv-header">
       <div class="pv-sprite">${sprite}</div>
       <div class="pv-headline">
@@ -7443,6 +7864,7 @@ function pokeView(p, idx) {
       </div>
       <div class="pv-actions">
         <button class="btn-edit" onclick="openEditForm(${idx})">✎ Edit</button>
+        ${levelBtnHtml}
         ${evoBtnHtml}
         ${isAlive ? (p.inParty
           ? `<button class="btn-party-remove" onclick="toggleParty(${idx},false);openEdit(${idx})">× Remove from party</button>`
