@@ -1,0 +1,2853 @@
+==========
+Map: 001 - Olivine City
+Tables: 7
+Table 1 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 5 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 5 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 6 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 6 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 7 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 7 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 002 - Route 38
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 13-16): Rattata (30%), Raticate (30%), Magnemite (20%), Farfetch’d (10%), Miltank (5%), Tauros (4%), Snubbull (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 13-16): Rattata (30%), Raticate (30%), Magnemite (20%), Farfetch’d (10%), Miltank (5%), Tauros (4%), Snubbull (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 13-16): Rattata (40%), Raticate (30%), Magnemite (20%), Miltank (5%), Tauros (4%), Snubbull (1%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 003 - Route 39
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 15-17): Rattata (30%), Raticate (30%), Magnemite (20%), Farfetch’d (10%), Miltank (5%), Tauros (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 15-17): Rattata (30%), Raticate (30%), Magnemite (20%), Farfetch’d (10%), Miltank (5%), Tauros (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 15-17): Rattata (40%), Raticate (30%), Magnemite (20%), Miltank (5%), Tauros (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 004 - Mahogany Town
+Tables: 3
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 005 - Route 42
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 13-17): Mankey (30%), Mareep (30%), Spearow (30%), Flaaffy (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 13-17): Mankey (30%), Mareep (30%), Spearow (30%), Flaaffy (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 13-17): Mankey (30%), Mareep (30%), Zubat (30%), Flaaffy (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+==========
+Map: 006 - Route 44
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 22-26): Tangela (30%), Weepinbell (35%), Bellsprout (20%), Lickitung (15%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 22-26): Tangela (30%), Weepinbell (35%), Bellsprout (20%), Lickitung (15%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 22-26): Tangela (30%), Weepinbell (35%), Bellsprout (20%), Lickitung (15%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 20-25): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 20-25): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (70%), Magikarp (20%), Remoraid (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (70%), Magikarp (20%), Remoraid (10%)
+Additional SOS encounters: (None)
+==========
+Map: 007 - Sprout Tower
+Tables: 4
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [grass] (Morning):
+Encounters (Levels 3-6): Rattata (100%)
+Additional SOS encounters: (None)
+Table 4 [grass] (Day):
+Encounters (Levels 3-6): Rattata (100%)
+Additional SOS encounters: (None)
+Table 4 [grass] (Night):
+Encounters (Levels 3-6): Gastly (85%), Rattata (15%)
+Additional SOS encounters: (None)
+==========
+Map: 008 - Tin Tower
+Tables: 4
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [grass] (Morning):
+Encounters (Levels 20-24): Rattata (100%)
+Additional SOS encounters: (None)
+Table 4 [grass] (Day):
+Encounters (Levels 20-24): Rattata (100%)
+Additional SOS encounters: (None)
+Table 4 [grass] (Night):
+Encounters (Levels 20-24): Gastly (80%), Rattata (20%)
+Additional SOS encounters: (None)
+==========
+Map: 009 - Burned Tower
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 13-16): Rattata (50%), Koffing (35%), Zubat (10%), Raticate (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 13-16): Rattata (50%), Koffing (35%), Zubat (10%), Raticate (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 13-16): Rattata (50%), Koffing (35%), Zubat (10%), Raticate (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Morning):
+Encounters (Levels 14-16): Rattata (40%), Koffing (50%), Zubat (5%), Magmar (5%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Day):
+Encounters (Levels 14-16): Rattata (35%), Koffing (50%), Magmar (10%), Zubat (5%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Night):
+Encounters (Levels 14-16): Rattata (40%), Koffing (50%), Zubat (5%), Magmar (5%)
+Additional SOS encounters: (None)
+==========
+Map: 010 - National Park
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 10-14): Caterpie (50%), Metapod (30%), Pidgey (20%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 10-14): Caterpie (30%), Metapod (30%), Sunkern (25%), Pidgey (15%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 10-14): Hoothoot (100%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 011 - Ruins of Alph
+Tables: 9
+Table 1 [grass] (Morning):
+Encounters (Levels 18-24): Natu (90%), Smeargle (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 18-24): Natu (90%), Smeargle (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 18-24): Natu (90%), Smeargle (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Wooper (60%), Quagsire (40%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Wooper (60%), Quagsire (40%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 6 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 6 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 7 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 7 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 8 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 8 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 9 [grass] (Morning):
+Encounters (Levels 5-5): Unown (100%)
+Additional SOS encounters: (None)
+Table 9 [grass] (Day):
+Encounters (Levels 5-5): Unown (100%)
+Additional SOS encounters: (None)
+Table 9 [grass] (Night):
+Encounters (Levels 5-5): Unown (100%)
+Additional SOS encounters: (None)
+==========
+Map: 012 - Union Cave
+Tables: 11
+Table 1 [grass] (Morning):
+Encounters (Levels 4-7): Geodude (30%), Sandshrew (30%), Zubat (25%), Rattata (10%), Onix (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 4-7): Geodude (30%), Sandshrew (30%), Zubat (25%), Rattata (10%), Onix (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 4-7): Geodude (30%), Sandshrew (30%), Zubat (25%), Rattata (10%), Onix (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Wooper (60%), Quagsire (40%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Wooper (60%), Quagsire (40%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Morning):
+Encounters (Levels 6-9): Geodude (30%), Sandshrew (30%), Zubat (25%), Onix (10%), Rattata (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Day):
+Encounters (Levels 6-9): Geodude (30%), Sandshrew (30%), Zubat (25%), Onix (10%), Rattata (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Night):
+Encounters (Levels 6-9): Geodude (30%), Sandshrew (30%), Zubat (25%), Onix (10%), Rattata (5%)
+Additional SOS encounters: (None)
+Table 7 [grass] (Morning):
+Encounters (Levels 20-23): Zubat (30%), Raticate (30%), Golbat (20%), Geodude (10%), Rattata (5%), Onix (5%)
+Additional SOS encounters: (None)
+Table 7 [grass] (Day):
+Encounters (Levels 20-23): Zubat (30%), Raticate (30%), Golbat (20%), Geodude (10%), Rattata (5%), Onix (5%)
+Additional SOS encounters: (None)
+Table 7 [grass] (Night):
+Encounters (Levels 20-23): Zubat (30%), Raticate (30%), Golbat (20%), Geodude (10%), Rattata (5%), Onix (5%)
+Additional SOS encounters: (None)
+Table 8 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (60%), Quagsire (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 8 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (60%), Quagsire (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 9 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 9 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 10 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 10 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 11 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 11 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 013 - Slowpoke Well
+Tables: 7
+Table 1 [grass] (Morning):
+Encounters (Levels 5-8): Zubat (85%), Slowpoke (15%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 5-8): Zubat (85%), Slowpoke (15%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 5-8): Zubat (85%), Slowpoke (15%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 10-20): Slowpoke (100%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 10-20): Slowpoke (100%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Morning):
+Encounters (Levels 19-23): Zubat (80%), Slowpoke (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Day):
+Encounters (Levels 19-23): Zubat (80%), Slowpoke (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Night):
+Encounters (Levels 19-23): Zubat (80%), Slowpoke (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 7 [surf] (Day):
+Encounters (Levels 15-20): Slowpoke (90%), Slowbro (10%)
+Additional SOS encounters: (None)
+Table 7 [surf] (Night):
+Encounters (Levels 15-20): Slowpoke (90%), Slowbro (10%)
+Additional SOS encounters: (None)
+==========
+Map: 014 - Olivine Lighthouse
+Tables: 3
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 015 - Ilex Forest
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 5-6): Caterpie (50%), Metapod (30%), Paras (15%), Zubat (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 5-6): Caterpie (60%), Metapod (30%), Zubat (5%), Paras (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 5-6): Oddish (60%), Zubat (25%), Paras (15%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 10-15): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 10-15): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 016 - Goldenrod City
+Tables: 3
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 017 - Mt. Mortar
+Tables: 9
+Table 1 [grass] (Morning):
+Encounters (Levels 13-16): Zubat (60%), Machop (20%), Rattata (14%), Geodude (5%), Marill (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 13-16): Zubat (60%), Machop (20%), Rattata (14%), Geodude (5%), Marill (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 13-16): Zubat (60%), Machop (20%), Rattata (14%), Geodude (5%), Marill (1%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Morning):
+Encounters (Levels 13-15): Geodude (50%), Machop (35%), Rattata (10%), Zubat (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Day):
+Encounters (Levels 13-15): Geodude (50%), Machop (35%), Rattata (10%), Zubat (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Night):
+Encounters (Levels 13-15): Geodude (50%), Machop (35%), Rattata (10%), Zubat (5%)
+Additional SOS encounters: (None)
+Table 7 [grass] (Morning):
+Encounters (Levels 28-32): Graveler (30%), Machoke (30%), Geodude (20%), Raticate (10%), Machop (5%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 7 [grass] (Day):
+Encounters (Levels 28-32): Graveler (30%), Machoke (30%), Geodude (20%), Raticate (10%), Machop (5%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 7 [grass] (Night):
+Encounters (Levels 28-32): Graveler (30%), Machoke (30%), Geodude (20%), Raticate (10%), Machop (5%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 8 [surf] (Day):
+Encounters (Levels 20-25): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 8 [surf] (Night):
+Encounters (Levels 20-25): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 9 [grass] (Morning):
+Encounters (Levels 15-17): Zubat (60%), Rattata (20%), Machop (10%), Geodude (5%), Raticate (5%)
+Additional SOS encounters: (None)
+Table 9 [grass] (Day):
+Encounters (Levels 15-17): Zubat (60%), Rattata (20%), Machop (10%), Geodude (5%), Raticate (5%)
+Additional SOS encounters: (None)
+Table 9 [grass] (Night):
+Encounters (Levels 15-17): Zubat (60%), Rattata (20%), Machop (10%), Geodude (5%), Raticate (5%)
+Additional SOS encounters: (None)
+==========
+Map: 018 - Ice Path
+Tables: 6
+Table 1 [grass] (Morning):
+Encounters (Levels 21-23): Swinub (40%), Golbat (30%), Zubat (25%), Jynx (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 20-23): Swinub (40%), Golbat (30%), Zubat (20%), Jynx (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 21-23): Swinub (40%), Golbat (30%), Zubat (25%), Jynx (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (90%), Dratini (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (90%), Dratini (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Magikarp (60%), Dratini (30%), Dragonair (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Magikarp (60%), Dratini (30%), Dragonair (10%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Morning):
+Encounters (Levels 22-24): Swinub (40%), Golbat (30%), Zubat (25%), Jynx (5%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Day):
+Encounters (Levels 21-24): Swinub (40%), Golbat (30%), Zubat (20%), Jynx (10%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Night):
+Encounters (Levels 22-24): Swinub (40%), Golbat (30%), Zubat (25%), Jynx (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Morning):
+Encounters (Levels 23-25): Swinub (40%), Golbat (30%), Zubat (25%), Jynx (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Day):
+Encounters (Levels 22-25): Swinub (40%), Golbat (30%), Zubat (20%), Jynx (10%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Night):
+Encounters (Levels 23-25): Swinub (40%), Golbat (30%), Zubat (25%), Jynx (5%)
+Additional SOS encounters: (None)
+==========
+Map: 019 - Whirl Islands
+Tables: 6
+Table 1 [grass] (Morning):
+Encounters (Levels 22-24): Krabby (50%), Zubat (30%), Seel (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 22-24): Krabby (50%), Zubat (30%), Seel (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 22-24): Krabby (50%), Zubat (30%), Seel (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (60%), Horsea (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (60%), Horsea (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 3 [grass] (Morning):
+Encounters (Levels 23-25): Krabby (50%), Zubat (30%), Seel (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 3 [grass] (Day):
+Encounters (Levels 23-25): Krabby (50%), Zubat (30%), Seel (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 3 [grass] (Night):
+Encounters (Levels 23-25): Krabby (50%), Zubat (30%), Seel (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 4 [surf] (Day):
+Encounters (Levels 15-20): Horsea (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 4 [surf] (Night):
+Encounters (Levels 15-20): Horsea (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Morning):
+Encounters (Levels 24-26): Krabby (50%), Zubat (30%), Seel (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Day):
+Encounters (Levels 24-26): Krabby (50%), Zubat (30%), Seel (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Night):
+Encounters (Levels 24-26): Krabby (50%), Zubat (30%), Seel (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 6 [surf] (Day):
+Encounters (Levels 20-20): Horsea (60%), Tentacruel (30%), Seadra (10%)
+Additional SOS encounters: (None)
+Table 6 [surf] (Night):
+Encounters (Levels 20-20): Horsea (60%), Tentacruel (30%), Seadra (10%)
+Additional SOS encounters: (None)
+==========
+Map: 020 - Mt. Silver
+Tables: 13
+Table 1 [grass] (Morning):
+Encounters (Levels 15-45): Onix (30%), Ursaring (30%), Graveler (30%), Golbat (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 15-45): Onix (30%), Ursaring (30%), Graveler (30%), Golbat (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 15-45): Onix (30%), Ursaring (30%), Graveler (30%), Golbat (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Morning):
+Encounters (Levels 15-48): Quagsire (40%), Golduck (30%), Ursaring (20%), Golbat (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Day):
+Encounters (Levels 15-48): Quagsire (40%), Golduck (30%), Ursaring (20%), Golbat (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Night):
+Encounters (Levels 15-48): Quagsire (30%), Golduck (30%), Ursaring (20%), Misdreavus (10%), Golbat (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 6 [surf] (Day):
+Encounters (Levels 35-40): Seaking (90%), Goldeen (10%)
+Additional SOS encounters: (None)
+Table 6 [surf] (Night):
+Encounters (Levels 35-40): Seaking (90%), Goldeen (10%)
+Additional SOS encounters: (None)
+Table 7 [grass] (Morning):
+Encounters (Levels 15-51): Golbat (50%), Onix (30%), Ursaring (10%), Golduck (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 7 [grass] (Day):
+Encounters (Levels 15-51): Golbat (50%), Onix (30%), Ursaring (10%), Golduck (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 7 [grass] (Night):
+Encounters (Levels 15-51): Golbat (50%), Onix (30%), Ursaring (10%), Golduck (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 8 [grass] (Morning):
+Encounters (Levels 15-48): Quagsire (40%), Golduck (30%), Ursaring (20%), Golbat (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 8 [grass] (Day):
+Encounters (Levels 15-48): Quagsire (40%), Golduck (30%), Ursaring (20%), Golbat (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 8 [grass] (Night):
+Encounters (Levels 15-48): Misdreavus (30%), Golduck (30%), Ursaring (20%), Quagsire (10%), Golbat (5%), Larvitar (5%)
+Additional SOS encounters: (None)
+Table 9 [grass] (Morning):
+Encounters (Levels 41-44): Tangela (30%), Ponyta (30%), Ursaring (20%), Rapidash (10%), Doduo (5%), Dodrio (5%)
+Additional SOS encounters: (None)
+Table 9 [grass] (Day):
+Encounters (Levels 41-44): Tangela (30%), Ponyta (30%), Ursaring (20%), Rapidash (10%), Doduo (5%), Dodrio (5%)
+Additional SOS encounters: (None)
+Table 9 [grass] (Night):
+Encounters (Levels 38-44): Tangela (30%), Ponyta (30%), Ursaring (20%), Rapidash (10%), Sneasel (10%)
+Additional SOS encounters: (None)
+Table 10 [surf] (Day):
+Encounters (Levels 35-40): Poliwhirl (90%), Poliwag (10%)
+Additional SOS encounters: (None)
+Table 10 [surf] (Night):
+Encounters (Levels 35-40): Poliwhirl (90%), Poliwag (10%)
+Additional SOS encounters: (None)
+Table 11 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 11 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 12 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 12 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 13 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 13 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 021 - Dark Cave
+Tables: 6
+Table 1 [grass] (Morning):
+Encounters (Levels 2-4): Geodude (60%), Zubat (39%), Dunsparce (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 2-4): Geodude (60%), Zubat (39%), Dunsparce (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 2-4): Geodude (60%), Zubat (39%), Dunsparce (1%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 5-15): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 5-15): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Morning):
+Encounters (Levels 20-25): Geodude (30%), Zubat (30%), Graveler (20%), Wobbuffet (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Day):
+Encounters (Levels 20-25): Geodude (30%), Zubat (30%), Graveler (20%), Wobbuffet (15%), Golbat (5%)
+Additional SOS encounters: (None)
+Table 6 [grass] (Night):
+Encounters (Levels 20-25): Geodude (30%), Zubat (30%), Graveler (20%), Wobbuffet (15%), Golbat (5%)
+Additional SOS encounters: (None)
+==========
+Map: 022 - Dragon's Den
+Tables: 4
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (90%), Dratini (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (90%), Dratini (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Magikarp (60%), Dratini (30%), Dragonair (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Magikarp (60%), Dratini (30%), Dragonair (10%)
+Additional SOS encounters: (None)
+Table 4 [surf] (Day):
+Encounters (Levels 10-15): Magikarp (90%), Dratini (10%)
+Additional SOS encounters: (None)
+Table 4 [surf] (Night):
+Encounters (Levels 10-15): Magikarp (90%), Dratini (10%)
+Additional SOS encounters: (None)
+==========
+Map: 023 - Tohjo Falls
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 20-23): Zubat (30%), Raticate (30%), Golbat (20%), Slowpoke (15%), Rattata (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 20-23): Zubat (30%), Raticate (30%), Golbat (20%), Slowpoke (15%), Rattata (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 20-23): Zubat (30%), Raticate (30%), Golbat (20%), Slowpoke (15%), Rattata (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 20-20): Goldeen (60%), Slowpoke (30%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 20-20): Goldeen (60%), Slowpoke (30%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+==========
+Map: 024 - Diglett's Cave
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 13-29): Diglett (90%), Dugtrio (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 13-29): Diglett (90%), Dugtrio (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 13-29): Diglett (90%), Dugtrio (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 025 - Mt. Moon
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 6-12): Zubat (30%), Geodude (30%), Sandshrew (20%), Paras (10%), Sandslash (5%), Clefairy (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 6-12): Zubat (30%), Geodude (30%), Sandshrew (20%), Paras (10%), Sandslash (5%), Clefairy (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 6-12): Zubat (30%), Geodude (30%), Sandshrew (20%), Paras (10%), Sandslash (5%), Clefairy (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 026 - Rock Tunnel
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 8-14): Cubone (35%), Geodude (30%), Machop (20%), Zubat (10%), Machoke (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 8-14): Cubone (35%), Geodude (30%), Machop (20%), Zubat (10%), Machoke (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 8-14): Cubone (35%), Geodude (30%), Machop (20%), Zubat (10%), Machoke (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Morning):
+Encounters (Levels 10-16): Cubone (30%), Geodude (30%), Onix (20%), Zubat (10%), Marowak (5%), Kangaskhan (5%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Day):
+Encounters (Levels 10-16): Cubone (30%), Geodude (30%), Onix (20%), Zubat (10%), Marowak (5%), Kangaskhan (5%)
+Additional SOS encounters: (None)
+Table 5 [grass] (Night):
+Encounters (Levels 10-16): Cubone (30%), Geodude (30%), Onix (20%), Zubat (10%), Marowak (5%), Kangaskhan (5%)
+Additional SOS encounters: (None)
+==========
+Map: 027 - Fuchsia City
+Tables: 7
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [surf] (Day):
+Encounters (Levels 10-20): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 4 [surf] (Night):
+Encounters (Levels 10-20): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 5 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 5 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 6 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (90%), Gyarados (10%)
+Additional SOS encounters: (None)
+Table 6 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (90%), Gyarados (10%)
+Additional SOS encounters: (None)
+Table 7 [superRod] (Day):
+Encounters (Levels 40-40): Magikarp (70%), Gyarados (30%)
+Additional SOS encounters: (None)
+Table 7 [superRod] (Night):
+Encounters (Levels 40-40): Magikarp (70%), Gyarados (30%)
+Additional SOS encounters: (None)
+==========
+Map: 028 - Victory Road
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 32-36): Graveler (30%), Golbat (30%), Ursaring (20%), Onix (15%), Rhyhorn (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 32-36): Graveler (30%), Golbat (30%), Ursaring (20%), Onix (15%), Rhyhorn (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 32-36): Graveler (30%), Golbat (30%), Ursaring (20%), Onix (15%), Rhyhorn (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 029 - Ecruteak City
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 15-20): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 15-20): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 030 - Blackthorn City
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 5-15): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 5-15): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 031 - Route 45
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 20-27): Geodude (30%), Graveler (40%), Gligar (20%), Teddiursa (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 20-27): Geodude (30%), Graveler (40%), Gligar (20%), Teddiursa (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 20-27): Geodude (30%), Graveler (40%), Gligar (20%), Teddiursa (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 5-20): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 5-20): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 10-10): Magikarp (90%), Dratini (10%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 10-10): Magikarp (90%), Dratini (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 10-10): Magikarp (60%), Dratini (30%), Dragonair (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 10-10): Magikarp (60%), Dratini (30%), Dragonair (10%)
+Additional SOS encounters: (None)
+==========
+Map: 032 - Route 46
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 2-5): Geodude (40%), Spearow (35%), Rattata (20%), Jigglypuff (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 2-5): Geodude (40%), Spearow (35%), Rattata (20%), Jigglypuff (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 2-5): Geodude (45%), Rattata (50%), Jigglypuff (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 033 - Cinnabar Island
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 034 - Route 19
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 035 - Route 20
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 036 - Route 21
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 20-35): Tangela (95%), Mr. Mime (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 20-35): Tangela (90%), Mr. Mime (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 20-35): Tangela (95%), Mr. Mime (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 037 - Cerulean City
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 5-10): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 5-10): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+==========
+Map: 038 - Route 10
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 15-18): Spearow (30%), Voltorb (30%), Raticate (20%), Fearow (10%), Quagsire (5%), Electabuzz (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 15-18): Spearow (30%), Voltorb (30%), Raticate (20%), Fearow (10%), Electabuzz (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 15-18): Quagsire (40%), Voltorb (30%), Raticate (25%), Electabuzz (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 10-15): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 10-15): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+==========
+Map: 039 - Route 25
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 8-14): Pidgey (30%), Bellsprout (30%), Venonat (20%), Abra (10%), Pidgeotto (5%), Weepinbell (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 8-14): Pidgey (50%), Bellsprout (30%), Abra (10%), Pidgeotto (5%), Weepinbell (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 8-14): Venonat (30%), Oddish (30%), Venomoth (20%), Abra (10%), Weepinbell (5%), Bellsprout (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 5-10): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 5-10): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+==========
+Map: 040 - Route 4
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 5-10): Spearow (55%), Rattata (35%), Jigglypuff (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 5-10): Spearow (55%), Rattata (35%), Jigglypuff (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 5-10): Spearow (30%), Zubat (30%), Rattata (30%), Jigglypuff (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 5-10): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 5-10): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+==========
+Map: 041 - Route 9
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 13-15): Mankey (30%), Rattata (30%), Spearow (20%), Raticate (10%), Fearow (5%), Primeape (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 13-15): Mankey (30%), Rattata (30%), Spearow (20%), Raticate (10%), Fearow (5%), Primeape (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 13-15): Mankey (30%), Rattata (40%), Raticate (25%), Primeape (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 10-15): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 10-15): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+==========
+Map: 042 - Route 24
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 8-14): Bellsprout (60%), Abra (20%), Weepinbell (15%), Venonat (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 8-14): Bellsprout (35%), Sunkern (30%), Abra (20%), Weepinbell (15%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 8-13): Venonat (30%), Oddish (30%), Abra (20%), Weepinbell (10%), Bellsprout (5%), Venomoth (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 5-10): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 5-10): Goldeen (90%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Goldeen (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Goldeen (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Goldeen (70%), Magikarp (20%), Seaking (10%)
+Additional SOS encounters: (None)
+==========
+Map: 043 - Azalea Town
+Tables: 3
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 044 - Route 33
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 4-8): Hoppip (35%), Rattata (40%), Spearow (20%), Zubat (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 6-8): Hoppip (35%), Rattata (45%), Spearow (20%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 6-8): Zubat (40%), Rattata (60%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 045 - Lake of Rage
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 10-15): Magikarp (90%), Gyarados (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 10-15): Magikarp (90%), Gyarados (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (90%), Gyarados (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (90%), Gyarados (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Magikarp (70%), Gyarados (30%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Magikarp (70%), Gyarados (30%)
+Additional SOS encounters: (None)
+==========
+Map: 046 - Route 43
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 15-17): Flaaffy (30%), Girafarig (30%), Pidgeotto (25%), Mareep (10%), Venonat (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 15-17): Flaaffy (40%), Girafarig (30%), Pidgeotto (20%), Mareep (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 15-17): Flaaffy (30%), Girafarig (30%), Noctowl (20%), Venonat (15%), Mareep (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 10-20): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 10-20): Magikarp (100%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 047 - Route 32
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 4-6): Bellsprout (30%), Rattata (35%), Mareep (20%), Hoppip (10%), Wooper (4%), Zubat (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 4-8): Bellsprout (30%), Rattata (40%), Mareep (20%), Hoppip (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 4-8): Wooper (35%), Rattata (30%), Bellsprout (20%), Mareep (10%), Zubat (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (60%), Quagsire (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (60%), Quagsire (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Tentacool (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Tentacool (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Tentacool (70%), Magikarp (20%), Qwilfish (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Tentacool (70%), Magikarp (20%), Qwilfish (10%)
+Additional SOS encounters: (None)
+==========
+Map: 048 - Route 35
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 10-14): Nidoran♂ (30%), Nidoran♀ (30%), Drowzee (20%), Abra (10%), Pidgey (5%), Ditto (4%), Yanma (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 10-14): Nidoran♂ (30%), Nidoran♀ (30%), Drowzee (20%), Abra (10%), Pidgey (5%), Ditto (4%), Yanma (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 10-14): Nidoran♂ (30%), Nidoran♀ (30%), Drowzee (20%), Abra (10%), Hoothoot (5%), Ditto (4%), Yanma (1%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 049 - Route 36
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 12-15): Nidoran♂ (30%), Nidoran♀ (30%), Pidgey (25%), Growlithe (10%), Stantler (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 12-15): Nidoran♂ (30%), Nidoran♀ (30%), Pidgey (20%), Growlithe (15%), Stantler (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 12-15): Nidoran♂ (30%), Nidoran♀ (30%), Hoothoot (25%), Growlithe (10%), Stantler (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 050 - Route 37
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 13-15): Pidgey (60%), Stantler (30%), Growlithe (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 13-16): Pidgey (50%), Stantler (30%), Growlithe (15%), Pidgeotto (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 13-15): Spinarak (40%), Stantler (30%), Hoothoot (20%), Growlithe (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 051 - Violet City
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 15-20): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 15-20): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 052 - Route 34
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 10-13): Drowzee (50%), Rattata (35%), Abra (10%), Ditto (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 10-13): Drowzee (50%), Rattata (35%), Abra (10%), Ditto (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 10-13): Drowzee (50%), Rattata (35%), Abra (10%), Ditto (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 053 - Route 6
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 12-15): Pidgey (50%), Bellsprout (30%), Magnemite (10%), Abra (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 12-15): Pidgey (50%), Bellsprout (30%), Magnemite (10%), Abra (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 12-15): Oddish (60%), Bellsprout (20%), Magnemite (10%), Abra (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 5-10): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 5-10): Psyduck (90%), Golduck (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 054 - Route 11
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 14-16): Drowzee (40%), Rattata (30%), Magnemite (20%), Hypno (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 14-16): Drowzee (40%), Rattata (30%), Magnemite (20%), Hypno (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 14-16): Drowzee (40%), Rattata (30%), Magnemite (20%), Hypno (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 055 - Vermilion City
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 056 - Route 1
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 2-6): Pidgey (45%), Rattata (30%), Sentret (20%), Furret (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 2-6): Pidgey (45%), Rattata (30%), Sentret (20%), Furret (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 2-6): Hoothoot (45%), Rattata (55%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 057 - Pallet Town
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 30-35): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 058 - Route 3
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 5-10): Spearow (55%), Rattata (35%), Jigglypuff (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 5-10): Spearow (55%), Rattata (35%), Jigglypuff (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 5-10): Rattata (60%), Zubat (30%), Jigglypuff (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 059 - Pewter City
+Tables: 3
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 060 - Route 23
+Tables: 3
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 061 - Route 13
+Tables: 2
+Table 1 [grass] (Morning):
+Encounters (Levels 22-25): Nidorina (30%), Nidorino (30%), Pidgeotto (20%), Hoppip (15%), Quagsire (4%), Chansey (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 22-25): Nidorina (30%), Nidorino (30%), Pidgeotto (20%), Hoppip (19%), Chansey (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 22-25): Nidorina (30%), Nidorino (30%), Noctowl (20%), Quagsire (19%), Chansey (1%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 25-25): Tentacool (60%), Quagsire (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 25-25): Tentacool (60%), Quagsire (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+==========
+Map: 062 - Route 14
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 22-26): Nidorina (30%), Nidorino (30%), Pidgeotto (20%), Hoppip (10%), Skiploom (5%), Quagsire (4%), Chansey (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 23-26): Nidorina (30%), Nidorino (30%), Pidgeotto (20%), Hoppip (10%), Skiploom (9%), Chansey (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 22-25): Nidorina (30%), Nidorino (30%), Noctowl (20%), Quagsire (19%), Chansey (1%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 063 - Route 15
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 22-25): Nidorina (30%), Nidorino (30%), Pidgeotto (20%), Hoppip (15%), Quagsire (4%), Chansey (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 22-25): Nidorina (30%), Nidorino (30%), Pidgeotto (20%), Hoppip (19%), Chansey (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 22-25): Nidorina (30%), Nidorino (30%), Noctowl (20%), Quagsire (19%), Chansey (1%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 064 - Route 18
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 26-30): Grimer (50%), Fearow (40%), Slugma (5%), Muk (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 26-30): Grimer (50%), Fearow (40%), Slugma (5%), Muk (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 26-30): Grimer (80%), Muk (15%), Slugma (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 065 - Route 8
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 15-19): Pidgeotto (65%), Abra (20%), Growlithe (10%), Kadabra (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 15-19): Pidgeotto (65%), Abra (20%), Growlithe (10%), Kadabra (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 15-20): Noctowl (40%), Haunter (30%), Abra (20%), Growlithe (5%), Kadabra (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 066 - Route 12
+Tables: 1
+Table 1 [surf] (Day):
+Encounters (Levels 25-25): Tentacool (60%), Quagsire (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 25-25): Tentacool (60%), Quagsire (30%), Tentacruel (10%)
+Additional SOS encounters: (None)
+==========
+Map: 067 - Lavender Town
+Tables: 3
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 068 - Route 28
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 39-43): Tangela (30%), Ponyta (30%), Ursaring (20%), Rapidash (10%), Doduo (5%), Dodrio (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 39-43): Tangela (30%), Ponyta (30%), Ursaring (20%), Rapidash (10%), Doduo (5%), Dodrio (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 39-42): Tangela (30%), Ponyta (30%), Ursaring (20%), Sneasel (10%), Rapidash (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 35-40): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 35-40): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 069 - Route 7
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 15-19): Rattata (40%), Spearow (30%), Growlithe (20%), Raticate (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 15-19): Rattata (35%), Spearow (30%), Growlithe (25%), Raticate (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 15-19): Rattata (30%), Murkrow (35%), Growlithe (20%), Raticate (10%), Houndour (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 070 - Route 16
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 26-30): Grimer (50%), Fearow (40%), Slugma (5%), Muk (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 26-30): Grimer (50%), Fearow (40%), Slugma (5%), Muk (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 26-30): Grimer (80%), Murkrow (10%), Slugma (5%), Muk (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 071 - Route 17
+Tables: 1
+Table 1 [grass] (Morning):
+Encounters (Levels 27-32): Fearow (40%), Grimer (50%), Slugma (5%), Muk (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 25-32): Fearow (40%), Slugma (35%), Grimer (20%), Muk (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 27-32): Grimer (80%), Muk (15%), Slugma (5%)
+Additional SOS encounters: (None)
+==========
+Map: 072 - Celadon City
+Tables: 1
+Table 1 [surf] (Day):
+Encounters (Levels 15-20): Grimer (90%), Muk (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 15-20): Grimer (90%), Muk (10%)
+Additional SOS encounters: (None)
+==========
+Map: 073 - Route 40
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 074 - Route 41
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 20-20): Tentacool (60%), Tentacruel (30%), Mantine (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 20-20): Tentacool (60%), Tentacruel (30%), Mantine (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 075 - Cianwood City
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 076 - Route 2
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 3-7): Caterpie (30%), Pidgey (30%), Metapod (20%), Butterfree (10%), Pidgeotto (5%), Pikachu (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 3-7): Caterpie (30%), Pidgey (40%), Metapod (20%), Pidgeotto (5%), Pikachu (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 3-7): Hoothoot (50%), Spinarak (30%), Noctowl (10%), Ariados (5%), Pikachu (5%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 077 - Route 22
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 3-7): Rattata (30%), Spearow (50%), Doduo (10%), Ponyta (5%), Fearow (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 3-7): Rattata (30%), Spearow (50%), Doduo (10%), Ponyta (5%), Fearow (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 3-7): Rattata (95%), Ponyta (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 5-10): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 5-10): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 078 - Viridian City
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 5-10): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 5-10): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 079 - Route 26
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 28-32): Doduo (40%), Sandslash (30%), Ponyta (20%), Dodrio (5%), Raticate (4%), Quagsire (1%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 28-32): Doduo (40%), Sandslash (30%), Ponyta (20%), Raticate (5%), Dodrio (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 28-32): Raticate (40%), Sandslash (30%), Ponyta (20%), Quagsire (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 25-30): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 25-30): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 080 - Route 27
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 28-32): Doduo (50%), Raticate (30%), Quagsire (10%), Ponyta (5%), Sandslash (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 28-32): Doduo (50%), Raticate (40%), Ponyta (5%), Sandslash (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 28-32): Quagsire (50%), Raticate (40%), Ponyta (5%), Sandslash (5%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 081 - Route 29
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 2-4): Pidgey (55%), Sentret (40%), Rattata (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 2-4): Pidgey (55%), Sentret (40%), Rattata (5%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 2-4): Hoothoot (85%), Rattata (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 082 - New Bark Town
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Tentacool (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Magikarp (35%), Tentacool (35%), Chinchou (20%), Shellder (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Chinchou (40%), Shellder (30%), Tentacruel (20%), Lanturn (10%)
+Additional SOS encounters: (None)
+==========
+Map: 083 - Route 5
+Tables: 4
+Table 1 [grass] (Morning):
+Encounters (Levels 12-15): Pidgey (60%), Bellsprout (30%), Abra (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 12-15): Pidgey (60%), Bellsprout (30%), Abra (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 12-15): Oddish (60%), Bellsprout (20%), Gloom (10%), Abra (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 084 - Saffron City
+Tables: 3
+Table 1 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 1 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 2 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 3 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
+==========
+Map: 085 - Route 30
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 2-4): Pidgey (40%), Caterpie (50%), Metapod (10%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 2-5): Pidgey (50%), Caterpie (35%), Metapod (15%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 3-4): Spinarak (30%), Rattata (40%), Hoothoot (30%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 086 - Route 31
+Tables: 5
+Table 1 [grass] (Morning):
+Encounters (Levels 3-5): Pidgey (30%), Caterpie (35%), Bellsprout (20%), Metapod (15%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Day):
+Encounters (Levels 3-6): Pidgey (30%), Caterpie (35%), Bellsprout (20%), Metapod (15%)
+Additional SOS encounters: (None)
+Table 1 [grass] (Night):
+Encounters (Levels 3-5): Spinarak (30%), Rattata (40%), Bellsprout (20%), Hoothoot (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Day):
+Encounters (Levels 15-20): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 2 [surf] (Night):
+Encounters (Levels 15-20): Poliwag (90%), Poliwhirl (10%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 3 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Poliwag (15%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Day):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 4 [goodRod] (Night):
+Encounters (Levels 20-20): Poliwag (65%), Magikarp (35%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Day):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+Table 5 [superRod] (Night):
+Encounters (Levels 40-40): Poliwag (80%), Magikarp (20%)
+Additional SOS encounters: (None)
+==========
+Map: 087 - Cherrygrove City
+Tables: 4
+Table 1 [surf] (Day):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 1 [surf] (Night):
+Encounters (Levels 15-20): Tentacool (90%), Tentacruel (10%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Day):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 2 [oldRod] (Night):
+Encounters (Levels 10-10): Magikarp (85%), Krabby (15%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Day):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Corsola (10%)
+Additional SOS encounters: (None)
+Table 3 [goodRod] (Night):
+Encounters (Levels 20-20): Krabby (55%), Magikarp (35%), Staryu (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Day):
+Encounters (Levels 40-40): Krabby (60%), Corsola (30%), Kingler (10%)
+Additional SOS encounters: (None)
+Table 4 [superRod] (Night):
+Encounters (Levels 40-40): Krabby (60%), Staryu (30%), Kingler (10%)
+Additional SOS encounters: (None)
