@@ -3572,9 +3572,12 @@ function ensureMoveBackfilled(name) {
 }
 
 /* ── Learnset cache (fetched from PokeAPI on demand) ── */
-const learnsetCache = {}; // species -> [{lv, name}, ...] or 'loading' or 'error'
+const learnsetCache = {}; // species -> [{lv, name, isEvo?}, ...] or 'loading' or 'error'
 
-function getLearnsetLocalKey(species) { return 'learnset_'+species.toLowerCase(); }
+// v2 key prefix — bumped when adding `isEvo` flag so old caches (which lacked
+// it and would mis-classify every evolution-learned move as a regular L1 move)
+// get invalidated on next read instead of returning stale shape.
+function getLearnsetLocalKey(species) { return 'learnset_v2_'+species.toLowerCase(); }
 
 function loadCachedLearnset(species) {
   try {
@@ -3612,8 +3615,10 @@ async function fetchLearnset(species) {
     const r = await fetch(`https://pokeapi.co/api/v2/pokemon/${info.id}`);
     if (!r.ok) throw new Error('fetch failed');
     const data = await r.json();
-    // Extract level-up moves for BDSP version group (fallback: any gen 4-8 group)
-    const preferred = ['brilliant-diamond-and-shining-pearl','sword-shield','ultra-sun-ultra-moon','sun-moon','platinum','diamond-pearl','heartgold-soulsilver'];
+    // Pick the chosen version group — preference order is roughly newest →
+    // oldest. PokeAPI uses 'brilliant-diamond-shining-pearl' (no "and"); the
+    // previous code listed it with an extra "and-" and silently never matched.
+    const preferred = ['brilliant-diamond-shining-pearl','sword-shield','ultra-sun-ultra-moon','sun-moon','platinum','diamond-pearl','heartgold-soulsilver'];
     let chosenVG = null;
     for (const vg of preferred) {
       for (const m of data.moves) {
@@ -3624,14 +3629,47 @@ async function fetchLearnset(species) {
       }
       if (chosenVG) break;
     }
-    const moves = [];
+    // Identify "evolution-learned" moves. In Gen 7+ PokeAPI data, these are
+    // tagged with level_learned_at:0 — they're moves the species only knows
+    // because it just evolved (e.g. Crobat's Cross Poison, which Golbat never
+    // learns on its own). In older VGs (DPPt/HGSS/BW), PokeAPI files the same
+    // move at L1 instead, which looks indistinguishable from a baseline
+    // starting move. We cross-reference the modern VGs to recover the true
+    // "evolution move" tag and stamp it onto the chosen-VG entry. Without
+    // this, a freshly-evolved Crobat at Lv 24 sees Cross Poison filed as
+    // "already known at L1" and grayed out, with no suggestion to teach it.
+    const MODERN_VGS = new Set(['sword-shield','brilliant-diamond-shining-pearl','ultra-sun-ultra-moon','sun-moon']);
+    const evoMoveSlugs = new Set();
     for (const m of data.moves) {
       for (const v of m.version_group_details) {
-        if (v.version_group.name === chosenVG && v.move_learn_method.name === 'level-up' && v.level_learned_at > 0) {
-          moves.push({ lv: v.level_learned_at, name: prettifyMoveName(m.move.name) });
+        if (MODERN_VGS.has(v.version_group.name)
+            && v.move_learn_method.name === 'level-up'
+            && v.level_learned_at === 0) {
+          evoMoveSlugs.add(m.move.name);
           break;
         }
       }
+    }
+    const moves = [];
+    const seen = new Set();
+    for (const m of data.moves) {
+      for (const v of m.version_group_details) {
+        if (v.version_group.name === chosenVG && v.move_learn_method.name === 'level-up' && v.level_learned_at > 0) {
+          const isEvo = evoMoveSlugs.has(m.move.name);
+          // Use lv:0 as the canonical "evolution move" marker — the renderer
+          // pivots on isEvo, but lv:0 also makes sort + filter behave
+          // sensibly (evo moves sort to the top of the list).
+          moves.push({ lv: isEvo ? 0 : v.level_learned_at, name: prettifyMoveName(m.move.name), isEvo });
+          seen.add(m.move.name);
+          break;
+        }
+      }
+    }
+    // Pick up evolution moves the chosen VG doesn't carry at L>0 — common for
+    // newer-gen species whose evo move is L0-only in the chosen VG's data.
+    for (const slug of evoMoveSlugs) {
+      if (seen.has(slug)) continue;
+      moves.push({ lv: 0, name: prettifyMoveName(slug), isEvo: true });
     }
     moves.sort((a,b) => a.lv - b.lv);
     learnsetCache[species] = moves;
@@ -7429,39 +7467,62 @@ async function renderPokeViewLearnset(idx) {
     : (Array.isArray(p.moves) ? p.moves.filter(Boolean) : []);
   const ownedCanon = new Set(currentMoves.map(m => (resolveMove(m)||m).toLowerCase()));
   const lv = p.level || 0;
-  const already = ls.filter(m => m.lv <= lv);
-  const upcoming = ls.filter(m => m.lv > lv);
+  // Evo moves bypass the level-gate — they're available the instant the
+  // Pokémon becomes this species, regardless of its current level. Splitting
+  // them out means a freshly-evolved Crobat doesn't see Cross Poison filed as
+  // "already known at L1" and grayed out just because L1 <= 24.
+  const evoMoves = ls.filter(m => m.isEvo);
+  const levelMoves = ls.filter(m => !m.isEvo);
+  const already = levelMoves.filter(m => m.lv <= lv);
+  const upcoming = levelMoves.filter(m => m.lv > lv);
 
   // Score current moves
   const currentScored = currentMoves.map(m => ({ name:m, ...scoreMove(m, ownTypes, ownStats) }));
   // The weakest current slot (lowest score) — only meaningful if you have 4 slots
   const sortedCurrent = [...currentScored].sort((a,b) => a.score - b.score);
 
+  // Inner helper — given a candidate move + its score, decide which current
+  // slot (if any) to suggest swapping out. Shared by both the evo-move and
+  // upcoming-move suggestion paths so the swap heuristic stays consistent.
+  const findBestSwap = (uName, upScore, minDelta) => {
+    if (currentMoves.length < 4) return { swap: null, delta: 0 };
+    let bestSwap = null, bestDelta = 0;
+    for (const c of currentScored) {
+      const delta = upScore.score - c.score;
+      if (delta > bestDelta && delta >= minDelta) {
+        const cEff = moveEffect(c.name) || '';
+        const uEff = moveEffect(uName) || '';
+        const cIsKeyUtil = /sleep|badpoison|paralysis|burn|sub|heal|spaup\+2|atkup\+2|spdup\+2|atkup\+spdup|spaup\+spdup|trap/.test(cEff);
+        if (cIsKeyUtil && !uEff) continue;
+        bestSwap = c;
+        bestDelta = delta;
+      }
+    }
+    return { swap: bestSwap, delta: bestDelta };
+  };
+
   // For each upcoming move, decide whether it's worth recommending and which slot to replace
   const suggestions = [];
+  // Evolution moves go first — they're available NOW (assuming the Pokémon
+  // is this species), so they should take priority over future level-up
+  // moves of equivalent score. Threshold is lower (35) than for upcoming
+  // moves because evo moves are a one-time opportunity to grab a coverage
+  // move that the line otherwise wouldn't get, so even modest-score evo
+  // moves are worth surfacing.
+  for (const u of evoMoves) {
+    if (ownedCanon.has(u.name.toLowerCase())) continue;
+    const upScore = scoreMove(u.name, ownTypes, ownStats);
+    if (upScore.score < 35) continue;
+    const { swap, delta } = findBestSwap(u.name, upScore, 10);
+    suggestions.push({ move: u, score: upScore, swap, delta, isEvo: true });
+  }
   for (const u of upcoming.slice(0, 12)) {
     if (ownedCanon.has(u.name.toLowerCase())) continue; // already known
     const upScore = scoreMove(u.name, ownTypes, ownStats);
     // Only consider clearly worthwhile additions (score > 50) OR clear STAB
     if (upScore.score < 45) continue;
-    let bestSwap = null;
-    let bestDelta = 0;
-    if (currentMoves.length >= 4) {
-      for (const c of currentScored) {
-        const delta = upScore.score - c.score;
-        // Need a meaningful improvement (>15 score points) AND not replacing a key utility
-        if (delta > bestDelta && delta >= 15) {
-          // Don't suggest replacing a unique status condition if upcoming doesn't replace it
-          const cEff = moveEffect(c.name) || '';
-          const uEff = moveEffect(u.name) || '';
-          const cIsKeyUtil = /sleep|badpoison|paralysis|burn|sub|heal|spaup\+2|atkup\+2|spdup\+2|atkup\+spdup|spaup\+spdup|trap/.test(cEff);
-          if (cIsKeyUtil && !uEff) continue;
-          bestSwap = c;
-          bestDelta = delta;
-        }
-      }
-    }
-    suggestions.push({ move: u, score: upScore, swap: bestSwap, delta: bestDelta });
+    const { swap, delta } = findBestSwap(u.name, upScore, 15);
+    suggestions.push({ move: u, score: upScore, swap, delta });
   }
   // Build HTML
   const stabBadge = (mname) => {
@@ -7472,6 +7533,21 @@ async function renderPokeViewLearnset(idx) {
   };
   const recentAlready = already.slice(-3);
   const lsRows = [];
+  // Evolution moves pinned to the top of the list. They're labeled "Evo"
+  // rather than a numeric level because for older-gen Pokémon they'd
+  // otherwise display as L1 (PokeAPI's legacy encoding), which is misleading
+  // — the move is actually only available because the species evolved.
+  for (const m of evoMoves) {
+    const owned = ownedCanon.has(m.name.toLowerCase());
+    const t = getMoveType(m.name);
+    lsRows.push(`<div class="pv-ls-row${owned?' already owned':' next'}">
+      <span class="pv-ls-lv">Evo</span>
+      ${t?`<span class="type-badge t-${t}">${t}</span>`:''}
+      <span class="pv-ls-name">${m.name}</span>
+      ${stabBadge(m.name)}
+      ${owned ? '<span class="pv-ls-flag owned">✓ known</span>' : '<span class="pv-ls-flag next">on evolve</span>'}
+    </div>`);
+  }
   for (const m of recentAlready) {
     const owned = ownedCanon.has(m.name.toLowerCase());
     const t = getMoveType(m.name);
@@ -7486,7 +7562,10 @@ async function renderPokeViewLearnset(idx) {
   for (let i=0; i<Math.min(10, upcoming.length); i++) {
     const m = upcoming[i];
     const t = getMoveType(m.name);
-    const isNext = i === 0;
+    // Only highlight the first upcoming row as "next" if there's no
+    // unowned evo move above it — the evo move is the more immediate ask.
+    const evoPending = evoMoves.some(em => !ownedCanon.has(em.name.toLowerCase()));
+    const isNext = i === 0 && !evoPending;
     lsRows.push(`<div class="pv-ls-row${isNext?' next':''}">
       <span class="pv-ls-lv">L${m.lv}</span>
       ${t?`<span class="type-badge t-${t}">${t}</span>`:''}
@@ -7502,19 +7581,22 @@ async function renderPokeViewLearnset(idx) {
     const upPwr = movePower(s.move.name);
     const upCat = moveCategory(s.move.name);
     const upEff = moveEffect(s.move.name);
-    let body = `<div class="pv-suggest-title">At Lv ${s.move.lv} — <strong>${s.move.name}</strong> ${upT?'('+upT+')':''} ${upPwr?upPwr+' BP':''} ${upCat==='P'?'physical':upCat==='S'?'special':'status'}${s.score.label==='STAB'?' · STAB':''}</div>`;
+    const lvLabel = s.isEvo ? 'On evolution' : `At Lv ${s.move.lv}`;
+    let body = `<div class="pv-suggest-title">${lvLabel} — <strong>${s.move.name}</strong> ${upT?'('+upT+')':''} ${upPwr?upPwr+' BP':''} ${upCat==='P'?'physical':upCat==='S'?'special':'status'}${s.score.label==='STAB'?' · STAB':''}</div>`;
     if (s.swap) {
       const swapT = getMoveType(s.swap.name);
       body += `Consider replacing <strong>${s.swap.name}</strong>${swapT?` (${swapT})`:''} — this move scores noticeably higher for your set.`;
       if (s.swap.role === 'util') body += ` Trade-off: you'd lose ${s.swap.name}'s utility, so weigh whether you still need it.`;
     } else if (currentMoves.length < 4) {
       body += `You have an empty slot — pick it up freely.`;
+    } else if (s.isEvo) {
+      body += `Available right now — this Pokémon learns it upon evolving and it scores well, but no current move is a clear cut. Compare manually before swapping.`;
     } else {
       body += `Worth a look, but no current move scores low enough to make this an obvious swap. Compare manually.`;
     }
     if (upEff && /recoil|charge|recharge/.test(upEff)) body += `<br><span style="color:var(--text3);font-size:11px">Note: ${upEff.replace(/,/g,', ')}.</span>`;
     suggHtml = `<div class="pv-suggest">${body}</div>`;
-  } else if (upcoming.length === 0) {
+  } else if (upcoming.length === 0 && evoMoves.length === 0) {
     suggHtml = `<div class="pv-suggest" style="background:var(--bg3);border-color:var(--border);color:var(--text3)">No more level-up moves to learn.</div>`;
   }
   container.innerHTML = `<div class="pv-learnset">${lsRows.join('')}</div>${suggHtml}`;
