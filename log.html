@@ -581,7 +581,10 @@
     .matchup-grid-detail { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
-    .header { padding: 10px 14px; gap: 8px; }
+    /* Header stops being sticky on phone — the wrapped header is too tall to
+       reserve as fixed screen real estate, and the user needs tabs more than
+       header chrome while scrolling. Tabs take over the sticky slot at top:0. */
+    .header { padding: 10px 14px; gap: 8px; position: static; }
     .header-left { min-width: 0; flex: 1; }
     .header-title { font-size: 16px; }
     .header-row { gap: 6px; }
@@ -592,7 +595,7 @@
     .cap-badge { padding: 4px 8px; gap: 6px; }
     .cap-badge label { display: none; }       /* "Level cap" label takes too much space */
     .hdr-btn { padding: 4px 8px; font-size: 11px; }
-    .tabs { padding: 8px 14px 0; top: 96px; gap: 0; }
+    .tabs { padding: 8px 14px 0; top: 0; gap: 0; z-index: 11; }
     .tab { padding: 8px 10px; font-size: 12px; }
     .tab-count { font-size: 9px; padding: 1px 5px; margin-left: 4px; }
     .main { padding: 14px; }
@@ -603,6 +606,27 @@
     .matchup-title { font-size: 15px; }
     .modal { padding: 16px; }
     .enc-rail { max-height: 220px; }
+    /* Pokemon detail modal: stack sprite / headline / actions vertically so
+       long-text buttons (e.g. "→ Evolve to Roselia (friendship (day))") don't
+       squeeze the headline column down to nothing. */
+    .pv-header { flex-direction: column; gap: 10px; align-items: stretch; }
+    .pv-sprite { width: 80px; height: 80px; align-self: center; }
+    .pv-sprite img { width: 80px; height: 80px; }
+    .pv-nick { font-size: 19px; }
+    .pv-actions { width: 100%; }
+    .pv-actions button { flex: 1 1 auto; min-width: 0; justify-content: center; text-align: center; }
+    /* Replace "⠿ drag to reorder" hint text — long-press is the touch gesture.
+       Wrap original text in zero font-size so it's not read by AT/screen reader
+       twice, surface the new hint via ::before. */
+    .drag-hint { font-size: 0; }
+    .drag-hint::before {
+      content: '⠿ long-press to reorder';
+      font-size: 11px; color: var(--text3); font-weight: 400;
+    }
+    /* Drag handles are hard to grab on touch — SortableJS's `delay` opt lets
+       you long-press anywhere on the card to start a drag. Hide the tiny
+       grab handles since they're no longer functional. */
+    .drag-handle, .route-drag-handle { display: none; }
   }
   @media (max-width: 420px) {
     .header-title { font-size: 14px; }
@@ -4076,13 +4100,25 @@ function cardInner(p, realIdx, showCheck) {
 }
 
 /* ── Learnset toggle handler ── */
-/* ── Sortable ── */
+/* ── Sortable ──
+   On touch devices we drop the small `.drag-handle` requirement (CSS hides it
+   too) and use SortableJS's `delay` so long-press anywhere on the card starts
+   the drag. `delayOnTouchOnly` keeps desktop click-and-drag instant. */
+const IS_TOUCH = typeof matchMedia !== 'undefined' && matchMedia('(pointer:coarse)').matches;
+const SORTABLE_BASE = {
+  animation: 150,
+  ghostClass: 'sortable-ghost',
+  chosenClass: 'sortable-chosen',
+  delay: IS_TOUCH ? 250 : 0,
+  delayOnTouchOnly: true,
+};
+const sortableHandle = (handle) => IS_TOUCH ? {} : { handle };
 function initRosterSortable() {
   if (rosterSortable) { rosterSortable.destroy(); rosterSortable = null; }
   const el = document.getElementById('roster-grid');
   if (!el || !el.querySelector('.poke-card')) return;
   rosterSortable = Sortable.create(el, {
-    handle:'.drag-handle', animation:150, ghostClass:'sortable-ghost', chosenClass:'sortable-chosen',
+    ...SORTABLE_BASE, ...sortableHandle('.drag-handle'),
     onEnd(evt) {
       if (evt.oldIndex === evt.newIndex) return;
       const team = curRun().team;
@@ -4101,7 +4137,7 @@ function initActiveSortable() {
   const el = document.getElementById('active-grid');
   if (!el || !el.querySelector('.poke-card')) return;
   activeSortable = Sortable.create(el, {
-    handle:'.drag-handle', animation:150, ghostClass:'sortable-ghost', chosenClass:'sortable-chosen',
+    ...SORTABLE_BASE, ...sortableHandle('.drag-handle'),
     onEnd(evt) {
       if (evt.oldIndex === evt.newIndex) return;
       const team = curRun().team;
@@ -4120,7 +4156,7 @@ function initRouteSortable() {
   const el = document.getElementById('route-list');
   if (!el || !el.querySelector('.route-item')) return;
   routeSortable = Sortable.create(el, {
-    handle:'.route-drag-handle', animation:150, ghostClass:'sortable-ghost', chosenClass:'sortable-chosen',
+    ...SORTABLE_BASE, ...sortableHandle('.route-drag-handle'),
     onEnd(evt) {
       if (evt.oldIndex === evt.newIndex) return;
       const r = curRun().routes;
@@ -4871,7 +4907,7 @@ function initRecoSortable() {
   if (!el) return;
   // Allow reordering within the displayed reco list — purely visual, doesn't modify roster order
   recoSortable = Sortable.create(el, {
-    handle:'.drag-handle', animation:150, ghostClass:'sortable-ghost', chosenClass:'sortable-chosen'
+    ...SORTABLE_BASE, ...sortableHandle('.drag-handle'),
   });
 }
 
