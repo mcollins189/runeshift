@@ -4316,9 +4316,15 @@ async function doLogin() {
   document.getElementById('login-error').style.display = 'none';
   try {
     const data = await cloudLoad(key);
+    // Detect whether the in-place migrations actually mutate anything, so we
+    // only push back when there's a real change. A no-op login shouldn't
+    // overwrite the cloud's lastModified — the user expects "Loaded HH:MM"
+    // to reflect the actual last save, not the moment they logged in.
+    const beforeMigrate = JSON.stringify(data);
     migrateLegacyGameKeys(data);
     migrateLegacyLocationNames(data);
-    // Migration: if data has flat team/routes format, convert to multi-run
+    const inlineMigrationsChanged = JSON.stringify(data) !== beforeMigrate;
+    let structuralChange = false;
     if ((data.version === 2 || data.version === 3) && data.runs && data.currentRunId) {
       runs = data.runs;
       currentRunId = data.currentRunId;
@@ -4337,6 +4343,7 @@ async function doLogin() {
         }
       };
       currentRunId = runId;
+      structuralChange = true;
     } else {
       // Brand new save
       const game = chosenGame || 'shining_pearl';
@@ -4352,6 +4359,7 @@ async function doLogin() {
         }
       };
       currentRunId = runId;
+      structuralChange = true;
     }
     saveKey = key;
     localStorage.setItem('nuzlocke_key', key);
@@ -4361,7 +4369,7 @@ async function doLogin() {
     loadedAt = (typeof data?.lastModified === 'number') ? data.lastModified : Date.now();
     setSaveStatus('saved',`Loaded ${fmtTime(loadedAt)}`);
     render();
-    cloudSave(false); // ensure migrated/new format is pushed
+    if (inlineMigrationsChanged || structuralChange) cloudSave(false);
   } catch(e) {
     showLoginError('Could not connect. Check your internet connection and try again.');
     btn.disabled = false; btn.textContent = 'Load save →';
