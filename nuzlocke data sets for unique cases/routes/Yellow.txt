@@ -5,7 +5,7 @@ Route 1|pidgey,rattata
 Viridian City|poliwag,goldeen,magikarp
 Route 22|rattata,spearow,nidoranf,nidoranm,mankey,poliwag,poliwhirl,goldeen,magikarp
 --Route 22|r2|rival|Blue (Optional)
-Route 2|pidgey,rattata,nidoranf,nidoranm,mrmime
+Route 2|pidgey,rattata,nidoranf,nidoranm
 Viridian Forest|caterpie,metapod,pidgey,pidgeotto
 --Pewter City Gym|1|gym-leader|Brock
 Route 3|rattata,spearow,sandshrew,mankey

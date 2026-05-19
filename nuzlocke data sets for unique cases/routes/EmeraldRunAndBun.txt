@@ -18,8 +18,8 @@ Route 109|chewtle,tirtouga,krabby,corphish,clauncher,tentacool,tynamo,wailord,dr
 
 Slateport City|horsea,remoraid,buizel,qwilfish,anorith,lileep,slowpoke,slowbro,slowking
 
---Slatport Museum|aq2|evil-team|Aqua Grunt
---Slatport Museum|aq3|evil-team|Aqua Grunt
+--Slateport Museum|aq2|evil-team|Aqua Grunt
+--Slateport Museum|aq3|evil-team|Aqua Grunt
 
 Dewford Town|tyrogue,timburr,makuhita,farfetchd-galar,mienfoo,pancham,meditite,stufful,croagunk,remoraid,horsea,carvanha,spheal,chewtle,shellder,staryu,starmie,sharpedo,cloyster,wailord
 

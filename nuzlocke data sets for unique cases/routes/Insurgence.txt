@@ -28,7 +28,7 @@
 --???|e3_h|elite-four|Yuki|
 --???|e4_h|elite-four|London|
 --???|ec_h|elite-four|Reukra
---???|mb1_h|mini-bos|Gail#Dragon Ruins
+--???|mb1_h|mini-boss|Gail#Dragon Ruins
 --???|r1_h|rival|Damian
 --???|r2_h|rival|Damian
 --???|n1_h|rival|Nora

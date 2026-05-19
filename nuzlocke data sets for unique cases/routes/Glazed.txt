@@ -9,7 +9,7 @@ Milkshake Swamp|ekans,shroomish,croagunk,tangela
 Oceanview Park|growlithe,mareep,vulpix,marill,electrike,buizel,floatzel
 Oceanview Power Plant|magnemite,pikachu,electrike,elekid,porygon
 
---OceanView Power Plant|rch_0|rival|Chelle
+--Oceanview Power Plant|rch_0|rival|Chelle
 --Oceanview City Gym|1|gym-leader|Sparky
 
 Serenity Isle|tentacool,tentacruel,mantine

@@ -6,7 +6,7 @@ Route 1|farfetchd,feebas,milotic,patrat,watchog,lillipup,herdier,audino,basculin
 Route 2|wynaut,patrat,lillipup,purrloin,audino
 --Route 2|b2|rival|Bianca
 Striaton City|goldeen,seaking,basculin
---Tranier's School|c2|rival|Cheren
+--Trainer's School|c2|rival|Cheren
 --Striaton Gym|1|gym-leader|Chili, Cress or Cilan
 Dreamyard|raticate,venomoth,ledian,ariados,kricketune,patrat,watchog,purrloin,liepard,pansage,pansear,panpour,munna,musharna,audino
 Route 3|goldeen,seaking,illumise,patrat,lillipup,purrloin,pidove,blitzle,audino,basculin

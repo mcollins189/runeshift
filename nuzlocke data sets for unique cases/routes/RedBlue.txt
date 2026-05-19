@@ -33,7 +33,7 @@ Route 7|pidgey,pidgeotto,rattata,vulpix,jigglypuff,oddish,meowth,mankey,growlith
 Celadon City|poliwag,poliwhirl,slowpoke,goldeen,magikarp
 --Celadon City Gym|4|gym-leader|Erica
 --Rocket Hideout|g1|evil-team|Giovanni
---Pokemon Tower Rival|r5|rival|Blue
+--Pokémon Tower Rival|r5|rival|Blue
 Saffron City|hitmonlee,hitmonchan,lapras
 --Silph Co. Rival|r6|rival|Blue
 --Silph Co.|g2|evil-team|Giovanni

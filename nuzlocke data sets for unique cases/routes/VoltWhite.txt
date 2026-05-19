@@ -13,7 +13,7 @@ Route 2|purrloin,patrat,kricketot,caterpie,wurmple,weedle,poochyena,meowth,spear
 
 Striaton City|marill,azumarill,psyduck,slowpoke,staryu,basculin
 
---Tranier's School|c2|rival|Cheren
+--Trainer's School|c2|rival|Cheren
 --Striaton Gym|1|gym-leader|Chili, Cress or Cilan
 
 Dreamyard|munna,drowzee,spinda,natu,venonat,ralts,clefairy,jigglypuff,nidoran-m,nidoran-f,hypno,xatu,venomoth,kirlia,audino,togepi,cleffa,igglybuff,chingling,lunatone,solrock,jirachi

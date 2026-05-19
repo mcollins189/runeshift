@@ -5,7 +5,7 @@ Route 1|caterpie,hoothoot,grubbin,skwovet,rookidee,blipbug,nickit,wooloo
 Wedgehurst|slowpoke-galar
 Route 2|magikarp,gyarados,hoothoot,zigzagoongalar,lotad,feebas,purrloin,skwovet,rookidee,blipbug,nickit,gossifleur,chewtle,yamper,arrokuda,barraskewda
 --Route 2|r2|rival|Hop
-Rolling Fields|metapod,butterfree,oddish,diglett,growlithe,natu,swinub,delibird,tyrogue,lotad,wingull,ralts,electrike,baltoy,snorunt,budew,combee,cherubi,munna,pidove,roggenrola,dwebble,minccino,vanillite,joltik,golett,bunnelby,pancham,mudbray,bounsweet,skwovet
+Rolling Fields|metapod,butterfree,oddish,diglett,vulpix,natu,swinub,delibird,tyrogue,lotad,wingull,ralts,electrike,baltoy,snorunt,budew,combee,cherubi,munna,pidove,roggenrola,dwebble,minccino,vanillite,joltik,golett,bunnelby,pancham,mudbray,bounsweet,skwovet
 Dappled Grove|oddish,growlithe,hoothoot,delibird,tyrogue,lotad,lombre,ralts,electrike,baltoy,snorunt,budew,cherubi,stunky,snover,purrloin,tympole,vanillite,joltik,klink,golett,bunnelby,grubbin,mudbray,stufful,bounsweet,skwovet
 West Lake Axewell|growlithe,shellder,krabby,goldeen,magikarp,chinchou,natu,wooper,remoraid,delibird,tyrogue,lotad,wingull,ralts,nincada,electrike,baltoy,snorunt,budew,purrloin,tympole,dwebble,vanillite,frillish,joltik,klink,bunnelby,pancham,wishiwashi,mudbray,bounsweet
 Watchtower Ruins|oddish,growlithe,machop,gastly,shuckle,delibird,wingull,ralts,electrike,duskull,snorunt,cherubi,drifloon,snover,purrloin,pidove,woobat,tympole,dwebble,golett,noibat,grubbin,bounsweet,skwovet

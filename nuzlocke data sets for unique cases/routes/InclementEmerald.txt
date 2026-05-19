@@ -6,7 +6,7 @@ Route 102|lotad,seedot,bidoof,tympole,gothita,gothorita,ralts,surskit,masquerain
 Petalburg City|marill,azumarill,masquerain,goldeen,corphish,crawdaunt
 Route 104|azurill,taillow,sentret,pidove,litleo,budew,bunnelby,ledyba,audino,yungoos,patrat,wingull,pelipper,magikarp,gyarados,luvdisc
 Petalburg Woods|shroomish,slakoth,phantump,pidgey,pidgeotto,paras,buneary,pichu,silcoon,cascoon,kakuna,beedrill,metapod,butterfree,venipede,pansage,panpour,pansear,morelull,bounsweet,oddish,bellsprout,yanma,croagunk,misdreavus,murkrow,emolga,dewpider,audino,pikachu,aipom,cherubi,poliwag,poliwhirl,poliwrath,politoed,slowpoke,slowbro,exeggcute,venonat,trevenant
---Petalbug Woods grunt|g1|evil-team|Grunt
+--Petalburg Woods grunt|g1|evil-team|Grunt
 Seaspray Cave|tynamo,psyduck,zubat,golbat,wooper,quagsire,woobat,stunfisk,eelektrik,wishiwashi,krabby,kingler,binacle,dwebble
 Rustboro City|pawniard,nidoran-f,nidoran-m,petilil,cottonee,eevee,glameow,audino,nidorino,nidorina
 --Rustboro City|r1b|rival|Brendan
