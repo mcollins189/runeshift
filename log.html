@@ -259,6 +259,7 @@
   .bpd-stat-val{color:var(--text);text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
   .bpd-stat-bar{display:block;height:8px;background:var(--bg);border-radius:4px;overflow:hidden}
   .bpd-stat-fill{display:block;height:100%;border-radius:4px;transition:width .18s ease}
+  .bpd-stat-note{font-size:10px;color:var(--text3);font-style:italic;padding:1px 0 2px 38px;line-height:1.3}
   .bpd-moves-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .bpd-move-chip{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:5px}
   .bpd-mv-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
@@ -469,6 +470,7 @@
   .stat-bars .sb-wrap{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;display:block}
   .stat-bars .sb-fill{display:block;height:100%;border-radius:3px;transition:width .2s}
   .stat-bars .sb-val{font-size:11px;color:var(--text2);font-variant-numeric:tabular-nums;min-width:28px;text-align:right}
+  .stat-bars .sb-note{grid-column:1/-1;font-size:10px;color:var(--text3);font-style:italic;padding:0 0 2px 38px;line-height:1.3;margin-top:-2px}
   .weakness-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:4px}
   .weak-pill{font-size:10px;padding:3px 6px;border-radius:4px;background:var(--bg3);border:1px solid var(--border);color:var(--text2);text-align:center;display:flex;align-items:center;justify-content:space-between;gap:4px}
   .weak-pill .wp-mult{font-weight:600;font-variant-numeric:tabular-nums}
@@ -2318,6 +2320,7 @@ function enrichBossesWithLeagues(bosses, leagueKey) {
       if (!member.ability) member.ability = lm.ability || null;
       if (!member.item) member.item = lm.item || null;
       if (!member.matchup && lm.matchup) member.matchup = lm.matchup;
+      if (!member.nature && lm.nature) member.nature = lm.nature;
     }
   }
 }
@@ -2462,6 +2465,7 @@ function deriveBossesFromData(game, gameKey) {
         ability: member.ability || null,
         item: member.item || null,
         matchup: member.matchup || null,
+        nature: member.nature || null,
         note,
       };
     });
@@ -3138,6 +3142,95 @@ function pokeStats(name) { const i = pokeInfo(name); return i ? i.s : null; }
 function pokeBaseSpeed(name) { const i = pokeInfo(name); return i ? i.s[5] : null; }
 function pokeTypes(name) { const i = pokeInfo(name); return i ? i.t : null; }
 function pokeAbilities(name) { const i = pokeInfo(name); return i ? i.a : []; }
+
+// Gen 3+ nature multipliers: [hp, atk, def, spa, spd, spe]. HP is never modified.
+// Five neutral natures (Hardy/Docile/Bashful/Quirky/Serious) are 1.0 across the board.
+const NATURE_MODS = {
+  Hardy:   [1,1.0,1.0,1.0,1.0,1.0], Docile:  [1,1.0,1.0,1.0,1.0,1.0],
+  Bashful: [1,1.0,1.0,1.0,1.0,1.0], Quirky:  [1,1.0,1.0,1.0,1.0,1.0],
+  Serious: [1,1.0,1.0,1.0,1.0,1.0],
+  Lonely:  [1,1.1,0.9,1.0,1.0,1.0], Adamant: [1,1.1,1.0,0.9,1.0,1.0],
+  Naughty: [1,1.1,1.0,1.0,0.9,1.0], Brave:   [1,1.1,1.0,1.0,1.0,0.9],
+  Bold:    [1,0.9,1.1,1.0,1.0,1.0], Impish:  [1,1.0,1.1,0.9,1.0,1.0],
+  Lax:     [1,1.0,1.1,1.0,0.9,1.0], Relaxed: [1,1.0,1.1,1.0,1.0,0.9],
+  Modest:  [1,0.9,1.0,1.1,1.0,1.0], Mild:    [1,1.0,0.9,1.1,1.0,1.0],
+  Rash:    [1,1.0,1.0,1.1,0.9,1.0], Quiet:   [1,1.0,1.0,1.1,1.0,0.9],
+  Calm:    [1,0.9,1.0,1.0,1.1,1.0], Gentle:  [1,1.0,0.9,1.0,1.1,1.0],
+  Careful: [1,1.0,1.0,0.9,1.1,1.0], Sassy:   [1,1.0,1.0,1.0,1.1,0.9],
+  Timid:   [1,0.9,1.0,1.0,1.0,1.1], Hasty:   [1,1.0,0.9,1.0,1.0,1.1],
+  Jolly:   [1,1.0,1.0,0.9,1.0,1.1], Naive:   [1,1.0,1.0,1.0,0.9,1.1]
+};
+
+// Stat-affecting abilities. `bake` = always-on, applied directly to the number.
+// `note` = conditional (situational/turn-based) — surfaced as a small line under
+// the affected stat instead of being baked in, so the displayed value still
+// matches the in-game neutral reading.
+const STAT_AFFECTING_ABILITIES = {
+  'Huge Power':    { bake: { stat: 1, mult: 2 } },
+  'Pure Power':    { bake: { stat: 1, mult: 2 } },
+  'Guts':          { note: { stat: 1, text: '+50% Atk when statused' } },
+  'Defeatist':     { note: { stat: 1, text: '−50% Atk/SpA below 50% HP' }, note2: { stat: 3, text: '−50% Atk/SpA below 50% HP' } },
+  'Slow Start':    { note: { stat: 1, text: '−50% Atk/Spe for first 5 turns' }, note2: { stat: 5, text: '−50% Atk/Spe for first 5 turns' } },
+  'Multiscale':    { note: { stat: 0, text: 'Halves damage at full HP' } },
+  'Shadow Shield': { note: { stat: 0, text: 'Halves damage at full HP' } },
+  'Marvel Scale':  { note: { stat: 2, text: '+50% Def when statused' } },
+  'Quick Feet':    { note: { stat: 5, text: '+50% Spe when statused' } },
+  'Flower Gift':   { note: { stat: 1, text: '+50% Atk/SpD in sun' }, note2: { stat: 4, text: '+50% Atk/SpD in sun' } },
+  'Solar Power':   { note: { stat: 3, text: '+50% SpA in sun (−1/8 HP)' } },
+  'Unburden':      { note: { stat: 5, text: '2× Spe after consuming item' } },
+  'Sap Sipper':    { note: { stat: 1, text: '+1 Atk when hit by Grass' } },
+  'Toxic Boost':   { note: { stat: 1, text: '+50% Atk when poisoned' } },
+  'Flare Boost':   { note: { stat: 3, text: '+50% SpA when burned' } }
+};
+
+// Compute stats at a specific level using the Gen 3+ formula. Assumes 31 IVs / 0 EVs
+// (the realistic Nuzlocke baseline — wild catches and trainer mons aren't EV-trained).
+// Returns { stats, notes } where notes is a per-stat list of conditional-ability blurbs.
+// Returns null stats array (length 6) when baseStats is missing; the renderer should
+// fall back to showing nothing or a placeholder.
+function calcStatAtLevel(baseStats, level, options) {
+  options = options || {};
+  const lvl = Number(level);
+  if (!baseStats || !Array.isArray(baseStats) || baseStats.length !== 6) {
+    return { stats: [null,null,null,null,null,null], notes: [] };
+  }
+  if (!lvl || lvl < 1) {
+    return { stats: baseStats.slice(), notes: [] };
+  }
+  // Leagues files store nature lowercased ("jolly") but NATURE_MODS keys are
+  // Title-case ("Jolly"). Normalize both sides before lookup so league-sourced
+  // bosses don't silently fall back to neutral.
+  const normNature = options.nature ? String(options.nature).toLowerCase() : '';
+  const natureKey = normNature ? Object.keys(NATURE_MODS).find(k => k.toLowerCase() === normNature) : null;
+  const mods = natureKey ? NATURE_MODS[natureKey] : [1,1,1,1,1,1];
+  const out = baseStats.map((base, i) => {
+    if (base == null) return null;
+    if (i === 0) {
+      return Math.floor((2*base + 31) * lvl/100) + lvl + 10;
+    }
+    return Math.floor(Math.floor((2*base + 31) * lvl/100 + 5) * mods[i]);
+  });
+  // Shedinja's HP is hard-locked to 1 by the game regardless of level, base or IVs.
+  if (options.species && String(options.species).toLowerCase() === 'shedinja') {
+    out[0] = 1;
+  }
+  const notes = [];
+  const ab = options.ability;
+  // Leagues files store abilities as hyphenated PokeAPI slugs ("huge-power"),
+  // user-entered abilities may use spaces ("Huge Power"). Normalize both sides
+  // by stripping non-alphanumerics so both match the same map key.
+  const normAb = ab ? String(ab).toLowerCase().replace(/[^a-z0-9]/g, '') : '';
+  const effectKey = normAb ? Object.keys(STAT_AFFECTING_ABILITIES).find(k => k.toLowerCase().replace(/[^a-z0-9]/g, '') === normAb) : null;
+  const effect = effectKey ? STAT_AFFECTING_ABILITIES[effectKey] : null;
+  if (effect) {
+    if (effect.bake && out[effect.bake.stat] != null) {
+      out[effect.bake.stat] = Math.floor(out[effect.bake.stat] * effect.bake.mult);
+    }
+    if (effect.note) notes.push({ statIdx: effect.note.stat, text: effect.note.text });
+    if (effect.note2) notes.push({ statIdx: effect.note2.stat, text: effect.note2.text });
+  }
+  return { stats: out, notes };
+}
 
 function getEvolution(name) {
   const info = pokeInfo(name);
@@ -5293,27 +5386,44 @@ function renderBossPokeDetail(b) {
   const stats = info.s || null;
   const bst = stats ? stats.reduce((a,n) => a + (n||0), 0) : null;
   const types = (b.types && b.types.length ? b.types : (info.t || [])).flatMap(t => t.split('/'));
+  // Bosses carry b.lv + b.ability from the leagues file; 6 hack-ROM leagues files
+  // also encode b.nature, which the calc consumes when present (neutral otherwise).
+  // Falls back to raw base stats when level is missing.
+  const calc = (stats && b.lv) ? calcStatAtLevel(stats, b.lv, { ability: b.ability, species: b.species, nature: b.nature || null }) : null;
+  const displayStats = calc ? calc.stats : stats;
+  const statNotes = calc ? calc.notes : [];
+  const statTitle = (calc && b.lv) ? `Stats (Lv ${b.lv})` : 'Base stats';
+  // Level-aware denominator keeps the bar meaningful at any level: a 100-base
+  // stat hits ~67% of full bar regardless of Lv. Without scaling, 100/180=56% at
+  // Lv 1 but 236/180 → pegged at 100% by Lv 100, losing relative comparability.
+  const barDenom = (calc && b.lv) ? 180 * Math.max(1, b.lv/50) : 180;
 
   const leftCol = `<div class="bpd-col-left">
     <div class="bpd-sprite">${spriteImg(b.species, {lg:true})}</div>
     <div class="bpd-types-row">${types.map(t => typeBadge(t)).join('')}</div>
     ${bst != null ? `<div class="bpd-bst" title="Base stat total"><span class="bpd-lbl">BST</span><span>${bst}</span></div>` : ''}
     ${b.ability ? `<div class="bpd-kv"><span class="bpd-lbl">Ability</span><span class="bpd-val">${prettyLabel(b.ability)}</span></div>` : ''}
+    ${b.nature ? `<div class="bpd-kv"><span class="bpd-lbl">Nature</span><span class="bpd-val">${prettyLabel(b.nature)}</span></div>` : ''}
     ${b.item ? `<div class="bpd-kv"><span class="bpd-lbl">Item</span><span class="bpd-val">${prettyLabel(b.item)}</span></div>` : ''}
     ${b.matchup ? `<div class="bpd-kv"><span class="bpd-lbl">Counters</span><span class="bpd-val">${typeBadge(prettyLabel(b.matchup))}</span></div>` : ''}
     ${b.note ? `<div class="bpd-note">⚠ ${b.note}</div>` : ''}
   </div>`;
 
   let statBlock = '';
-  if (stats) {
+  if (displayStats && displayStats.some(v => v != null)) {
     statBlock = `<div class="bpd-section">
-      <div class="bpd-section-lbl">Base stats</div>
+      <div class="bpd-section-lbl">${statTitle}</div>
       <div class="bpd-stats">
-        ${stats.map((v,i) => `<div class="bpd-stat-row">
-          <span class="bpd-stat-lbl">${STAT_LABELS[i]}</span>
-          <span class="bpd-stat-val">${v}</span>
-          <span class="bpd-stat-bar"><span class="bpd-stat-fill" style="width:${Math.min(100, Math.round((v/180)*100))}%;background:${statColor(v)}"></span></span>
-        </div>`).join('')}
+        ${displayStats.map((v,i) => {
+          if (v == null) return `<div class="bpd-stat-row"><span class="bpd-stat-lbl">${STAT_LABELS[i]}</span><span class="bpd-stat-val">—</span><span class="bpd-stat-bar"></span></div>`;
+          const noteText = statNotes.filter(n => n.statIdx === i).map(n => n.text).join(' · ');
+          const noteHtml = noteText ? `<div class="bpd-stat-note">${noteText}</div>` : '';
+          return `<div class="bpd-stat-row">
+            <span class="bpd-stat-lbl">${STAT_LABELS[i]}</span>
+            <span class="bpd-stat-val">${v}</span>
+            <span class="bpd-stat-bar"><span class="bpd-stat-fill" style="width:${Math.min(100, Math.round((v/barDenom)*100))}%;background:${statColor(v)}"></span></span>
+          </div>${noteHtml}`;
+        }).join('')}
       </div>
     </div>`;
   }
@@ -7631,12 +7741,16 @@ function speciesView(species) {
   const types = info?.t || [];
   const abilities = info?.a || [];
 
+  // Pre-catch view — caller has no level/nature/ability context, so we show
+  // raw base stats (the honest answer the user is trying to look up to plan
+  // a catch without 1-shotting). Title stays "Base stats" to match.
   let statsHtml = '';
   let bst = 0;
-  if (info && info.s) {
+  if (info && info.s && info.s.length === 6 && info.s.some(v => v != null)) {
     const labels = ['HP','Atk','Def','SpA','SpD','Spe'];
-    bst = info.s.reduce((a,b) => a+b, 0);
+    bst = info.s.reduce((a,b) => a+(b||0), 0);
     statsHtml = `<div class="stat-bars">` + info.s.map((v,i) => {
+      if (v == null) return `<span class="sb-label">${labels[i]}</span><span class="sb-wrap"></span><span class="sb-val">—</span>`;
       const pct = Math.min(100, Math.round(v / 180 * 100));
       return `<span class="sb-label">${labels[i]}</span><span class="sb-wrap"><span class="sb-fill" style="width:${pct}%;background:${statColor(v)}"></span></span><span class="sb-val">${v}</span>`;
     }).join('') + `</div>`;
@@ -7770,15 +7884,28 @@ function pokeView(p, idx) {
   const sprite = p.species && pokeId(p.species)
     ? `<img src="${spriteUrl(p.species)}" alt="${p.species}" onerror="this.style.display='none'">`
     : `<div style="color:var(--text3);font-size:11px">no sprite</div>`;
-  // Stats with bars (relative to 180 cap)
+  // Stats at the actual roster level when known — uses nature + always-on
+  // ability modifiers (Huge Power / Pure Power). Conditional abilities (Guts
+  // etc.) are surfaced as italic notes per stat, not baked in.
   let statsHtml = '';
-  if (info && info.s) {
+  let statsTitle = 'Base stats';
+  if (info && info.s && info.s.length === 6 && info.s.some(v => v != null)) {
     const labels = ['HP','Atk','Def','SpA','SpD','Spe'];
-    statsHtml = `<div class="stat-bars">` + info.s.map((v,i) => {
-      const pct = Math.min(100, Math.round(v / 180 * 100));
-      return `<span class="sb-label">${labels[i]}</span><span class="sb-wrap"><span class="sb-fill" style="width:${pct}%;background:${statColor(v)}"></span></span><span class="sb-val">${v}</span>`;
+    const calc = p.level ? calcStatAtLevel(info.s, p.level, { nature: p.nature, ability: p.ability, species: p.species }) : null;
+    const displayStats = calc ? calc.stats : info.s;
+    const statNotes = calc ? calc.notes : [];
+    // Level-aware denominator: 100-base lands ~67% of bar regardless of level.
+    // Without scaling, level-scaled stats peg at 100% in mid-game.
+    const denom = (calc && p.level) ? 180 * Math.max(1, p.level/50) : 180;
+    if (calc && p.level) statsTitle = `Stats (Lv ${p.level})`;
+    statsHtml = `<div class="stat-bars">` + displayStats.map((v,i) => {
+      if (v == null) return `<span class="sb-label">${labels[i]}</span><span class="sb-wrap"></span><span class="sb-val">—</span>`;
+      const pct = Math.min(100, Math.round(v / denom * 100));
+      const noteText = statNotes.filter(n => n.statIdx === i).map(n => n.text).join(' · ');
+      const noteHtml = noteText ? `<span class="sb-note">${noteText}</span>` : '';
+      return `<span class="sb-label">${labels[i]}</span><span class="sb-wrap"><span class="sb-fill" style="width:${pct}%;background:${statColor(v)}"></span></span><span class="sb-val">${v}</span>${noteHtml}`;
     }).join('') + `</div>`;
-    const bst = info.s.reduce((a,b)=>a+b,0);
+    const bst = info.s.reduce((a,b)=>a+(b||0),0);
     statsHtml += `<div style="margin-top:6px;font-size:11px;color:var(--text3);text-align:right">BST ${bst}</div>`;
   }
   // Weaknesses/resistances based on assigned types
@@ -7930,7 +8057,7 @@ function pokeView(p, idx) {
       ${!isAlive&&p.causeOfDeath?`<div class="pv-row"><span class="pv-label">Cause</span><span class="pv-val" style="color:var(--red)">${p.causeOfDeath}</span></div>`:''}
     </div>
 
-    ${statsHtml?`<div class="pv-section"><div class="pv-section-title">Base stats</div>${statsHtml}</div>`:''}
+    ${statsHtml?`<div class="pv-section"><div class="pv-section-title">${statsTitle}</div>${statsHtml}</div>`:''}
 
     ${weakHtml?`<div class="pv-section"><div class="pv-section-title">Type matchups (defending)</div>${weakHtml}</div>`:''}
 

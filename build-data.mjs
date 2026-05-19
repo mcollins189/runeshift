@@ -95,6 +95,11 @@ function ensureLoc(locations, byName, name, region) {
 // Inside a block: "==key:value" are battle modifiers; species lines are pipe-separated
 // with positional fields: species|level|moves|ability|item|matchup|...|nature.
 // Lines starting with "#" or "===" are section / cosmetic dividers — ignored.
+const CANONICAL_NATURES = new Set([
+  'hardy','lonely','brave','adamant','naughty','bold','docile','relaxed','impish','lax',
+  'timid','hasty','serious','jolly','naive','modest','mild','quiet','bashful','rash',
+  'calm','gentle','sassy','careful','quirky'
+]);
 function parseLeagues(raw) {
   const trainers = {};
   let cur = null;
@@ -154,8 +159,24 @@ function parseLeagues(raw) {
 
     // Species line — split on | and read positional fields.
     const parts = line.split('|').map(s => s.trim());
-    const [species, levelStr, movesStr, ability, item, matchup, ...rest] = parts;
-    if (!species) continue;
+    const [speciesRaw, levelStr, movesStr, ability, item, matchup, ...rest] = parts;
+    if (!speciesRaw) continue;
+    // Some hack-ROM files annotate boss forms as `full-form>abbrev` (e.g.
+    // `urshifu-single-strike>urshifu`, `absol-mega>absol-mega`). Take the LHS:
+    // it carries the canonical PokeAPI slug (forms preserved, no typos like
+    // `medicham-mega>medichan-mega`). The RHS is dropped — it's either
+    // identical or a stripped/misspelled author annotation.
+    const species = speciesRaw.includes('>') ? speciesRaw.split('>')[0].trim() : speciesRaw;
+    const extra = rest.filter(Boolean);
+    // 6 hack-ROM leagues files (BlazeVolt, EmeraldRunAndBun, NewGenerations,
+    // RadicalRed, Unbound) encode the trainer's nature as a trailing pipe field,
+    // lowercased (e.g. "...|jolly"). Scan `extra` for the first match against the
+    // 25 canonical natures; everything else stays in `extra` so future trailing
+    // fields aren't silently swallowed.
+    let nature = null;
+    for (const e of extra) {
+      if (CANONICAL_NATURES.has(e.toLowerCase())) { nature = e.toLowerCase(); break; }
+    }
     const member = {
       species,
       level: levelStr ? Number(levelStr) || null : null,
@@ -163,7 +184,8 @@ function parseLeagues(raw) {
       ability: ability || null,
       item: item || null,
       matchup: matchup || null,
-      extra: rest.filter(Boolean) // captures nature / other trailing fields per file
+      nature,
+      extra
     };
     cur.team.push(member);
   }
@@ -280,24 +302,35 @@ function parseEncounterTables(raw) {
     'Diglett','Dugtrio','Meowth','Persian','Geodude','Graveler','Golem',
     'Grimer','Muk','Exeggutor','Marowak'
   ]);
-  // byName[loc].pools is an array of { mapId, tableN, lvMin, lvMax, day:[], night:[] }.
-  // Preserving per-table identity lets the renderer group by level-range so each
-  // pool sums to ~100% instead of merging walking + surf + fish into one >100% list.
+  // byName[loc].pools is an array of { mapId, tableN, lvMin, lvMax,
+  // morning:[], day:[], night:[] }. Preserving per-table identity lets the
+  // renderer group by level-range so each pool sums to ~100% instead of
+  // merging walking + surf + fish into one >100% list. Morning is Gen 2
+  // (GS/Crystal) specific; BDSP/USUM only emit Day and Night.
   const byName = {};
   const ensureLoc = (name) => {
     if (!byName[name]) byName[name] = { pools: [] };
     return byName[name];
   };
-  // Current pool key: per Map block + Table number, shared across Day/Night entries
-  // of the same Table within the same block.
+  // Current pool key: per Map block + Table number, shared across all
+  // time-of-day entries (Morning/Day/Night) of the same Table within the
+  // same block.
   let curPoolKey = null;
   const poolsByKeyByLoc = {};
-  const getOrCreatePool = (name, mapId, tableN, lvMin, lvMax) => {
+  const getOrCreatePool = (name, mapId, tableN, lvMin, lvMax, method) => {
     const loc = ensureLoc(name);
     const idx = poolsByKeyByLoc[name] = poolsByKeyByLoc[name] || {};
     const key = `${mapId}#${tableN}`;
-    if (idx[key]) return idx[key];
-    const pool = { mapId, tableN, lvMin, lvMax, day: [], night: [] };
+    if (idx[key]) {
+      // First time-of-day entry of the table may have provided null method;
+      // a later one may have a real method tag — keep it.
+      if (method && !idx[key].method) idx[key].method = method;
+      return idx[key];
+    }
+    // subZone is set later by the caller when the pool is stored under a
+    // parent location and the Map header had a parenthetical (e.g.,
+    // "Hau'oli City (Beachfront)"). Defaults to null.
+    const pool = { mapId, tableN, lvMin, lvMax, morning: [], day: [], night: [], method: method || null, subZone: null };
     loc.pools.push(pool);
     idx[key] = pool;
     return pool;
@@ -323,8 +356,10 @@ function parseEncounterTables(raw) {
   };
 
   let currentNames = [];
+  let currentSubZoneByParent = {};  // parent-location-name → sub-zone label from the parenthetical, for tagging pools
   let currentMapId = null;
   let currentTableN = null;
+  let currentMethod = null;
   let currentTime = null;
 
   for (const rawLine of raw.split('\n')) {
@@ -333,6 +368,7 @@ function parseEncounterTables(raw) {
 
     if (line.startsWith('Map: ')) {
       currentNames = [];
+      currentSubZoneByParent = {};
       const segs = line.slice(5).split(' / ');
       currentMapId = null;
       for (const seg of segs) {
@@ -342,23 +378,41 @@ function parseEncounterTables(raw) {
         const full = m[2].trim();
         const par = full.match(/^(.+?)\s*\((.+?)\)\s*$/);
         if (par) {
-          currentNames.push(par[1].trim());
-          currentNames.push(par[2].trim());
+          const parent = par[1].trim();
+          const sub = par[2].trim();
+          currentNames.push(parent);
+          currentNames.push(sub);
+          // Collect every sub-zone named for this parent in the current Map
+          // block. Some pk3DS dumps combine multiple maps in one header (e.g.,
+          // "Map: 008 - Hau'oli City (Shopping District) / 009 - Hau'oli City
+          // (Marina)" — both sub-zones share the same encounter data, so the
+          // pool should be tagged with both.
+          if (!currentSubZoneByParent[parent]) currentSubZoneByParent[parent] = [];
+          if (!currentSubZoneByParent[parent].includes(sub)) currentSubZoneByParent[parent].push(sub);
         } else {
           currentNames.push(full);
         }
       }
       currentNames = [...new Set(currentNames)];
       currentTableN = null;
+      currentMethod = null;
       currentTime = null;
       continue;
     }
 
     if (line.startsWith('Table ')) {
       const tn = line.match(/^Table\s+(\d+)/);
-      const tm = line.match(/\((Day|Night)\)/);
+      // Optional method tag in [brackets]: "Table 1 [grass] (Day):" — when present,
+      // the renderer can group pool sections by method and label them properly.
+      const methodMatch = line.match(/\[([^\]]+)\]/);
+      // (All) — games with no day/night cycle in wild encounters (XY, SwSh).
+      // Treated as `day` so it lands in the same bucket the renderer surfaces
+      // when no Night data exists — the user sees one phase, no toggle.
+      const tm = line.match(/\((Morning|Day|Night|All)\)/);
       currentTableN = tn ? +tn[1] : null;
-      currentTime = tm ? tm[1].toLowerCase() : null;
+      currentMethod = methodMatch ? methodMatch[1].trim() : null;
+      const rawTime = tm ? tm[1].toLowerCase() : null;
+      currentTime = rawTime === 'all' ? 'day' : rawTime;
       continue;
     }
 
@@ -383,10 +437,18 @@ function parseEncounterTables(raw) {
       }
       if (!slots.length) continue;
       for (const name of currentNames) {
-        const pool = getOrCreatePool(name, currentMapId, currentTableN, lvMin, lvMax);
+        const pool = getOrCreatePool(name, currentMapId, currentTableN, lvMin, lvMax, currentMethod);
         // Update lv range in case Day and Night entries differ (Day usually equals Night for level).
         pool.lvMin = Math.min(pool.lvMin, lvMin);
         pool.lvMax = Math.max(pool.lvMax, lvMax);
+        // Tag sub-zone label only on pools stored under the PARENT name. The
+        // sub-zone's own byName entry stays untagged (you're already there).
+        // If multiple sub-zones share this pool, join them with " / " so the
+        // label communicates the shared scope (e.g., "Shopping District / Marina").
+        if (!pool.subZone && currentSubZoneByParent[name]) {
+          const list = currentSubZoneByParent[name];
+          pool.subZone = list.length === 1 ? list[0] : list.join(' / ');
+        }
         for (const s of slots) addEnc(pool, currentTime, s.species, s.chance);
       }
     }
