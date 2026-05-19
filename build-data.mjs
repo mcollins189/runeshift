@@ -13,6 +13,7 @@ const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 // the "nuzlocke data sets for unique cases" folder.
 const DATA_ROOT = join(SCRIPT_DIR, 'nuzlocke data sets for unique cases');
 const OUT_PATH = join(SCRIPT_DIR, 'data.bundle.js');
+const HTML_PATH = join(SCRIPT_DIR, 'log.html');
 
 const stripBom = s => s.charCodeAt(0) === 0xFEFF ? s.slice(1) : s;
 const norm = s => stripBom(s).replace(/\r\n/g, '\n');
@@ -502,6 +503,22 @@ function buildBundle() {
   const sizeKb = (Buffer.byteLength(js, 'utf8') / 1024).toFixed(1);
   console.log(`[build-data] wrote ${OUT_PATH} (${sizeKb} KB)`);
   console.log(`[build-data] route files: ${meta.routeFiles.length}, league files: ${meta.leagueFiles.length}, patch files: ${meta.patchFiles.length}, encounter-table files: ${meta.encounterTableFiles.length}`);
+
+  // Rewrite log.html's <script src="data.bundle.js"> tag with a fresh
+  // cache-bust query string. The regex matches an optional existing ?v=NNN
+  // so re-runs replace (not stack) the slot — exactly one ?v= survives each
+  // rebuild. Date.now() is short, monotonic, and human-comparable across
+  // builds, which beats an ISO string for log diff readability.
+  const bust = Date.now();
+  const html = readFileSync(HTML_PATH, 'utf8');
+  const re = /src="data\.bundle\.js(\?v=\d+)?"/;
+  if (re.test(html)) {
+    const out = html.replace(re, `src="data.bundle.js?v=${bust}"`);
+    writeFileSync(HTML_PATH, out, 'utf8');
+    console.log(`[build-data] rewrote log.html cache-buster (?v=${bust})`);
+  } else {
+    console.warn(`[build-data] WARN: could not find data.bundle.js script tag in log.html`);
+  }
 }
 
 buildBundle();

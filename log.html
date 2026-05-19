@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
 <title>Nuzlocke Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
-<script src="data.bundle.js" onerror="window.__NUZ_BUNDLE_MISSING=true"></script>
+<script src="data.bundle.js?v=1779163901507" onerror="window.__NUZ_BUNDLE_MISSING=true"></script>
 <style>
   :root {
     --bg:#0f0f10;--bg2:#18181b;--bg3:#222228;--bg4:#2a2a32;
@@ -2149,6 +2151,16 @@ let saveKey = null;
 let runs = {}; // {runId: {team, routes, cap, game, name, created}}
 let currentRunId = null;
 let saveTimer = null;
+// Cross-device freshness tracking. loadedAt = lastModified of the snapshot
+// we currently hold in memory; savedAt = lastModified we last pushed. The
+// visibilitychange resync compares cloud.lastModified vs loadedAt to decide
+// whether to silently swap in newer data.
+let loadedAt = 0;
+let savedAt = 0;
+// In-flight guard for the visibilitychange auto-resync. Rapid app-switches
+// on mobile can fire visibilitychange repeatedly within a few hundred ms;
+// without this, each fires its own cloudLoad and they race to overwrite runs.
+let _resyncing = false;
 let toastTimer = null;
 let editIdx = null;
 let editRouteIdx = null;
@@ -3286,7 +3298,10 @@ function spriteImg(species, opts) {
   }
   if (!url) return `<div class="sprite-wrap${opts.sm?' sprite-sm':''}${opts.lg?' sprite-lg':''}" title="No sprite available"></div>`;
   const cls = `sprite-img${opts.faded?' faded':''}`;
-  return `<div class="sprite-wrap${opts.sm?' sprite-sm':''}${opts.lg?' sprite-lg':''}"><img class="${cls}" src="${url}" alt="${species}" loading="lazy" onerror="this.style.display='none'"></div>`;
+  // One-shot retry with a cache-bust query param: dodges the browser HTTP
+  // cache for the retry (a transient 5xx/timeout otherwise sticks for the
+  // page lifetime). After one retry we give up and hide.
+  return `<div class="sprite-wrap${opts.sm?' sprite-sm':''}${opts.lg?' sprite-lg':''}"><img class="${cls}" src="${url}" alt="${species}" loading="lazy" onerror="if (!this.dataset.retried) { this.dataset.retried='1'; this.src = this.src + (this.src.includes('?') ? '&' : '?') + 'r=' + Date.now(); } else { this.style.display='none'; }"></div>`;
 }
 
 /* ── PokeAPI backfill (gen-aware) ──
@@ -3330,9 +3345,27 @@ function capFirst(s) {
 }
 
 // In-memory backfill caches. Values: object on success, 'loading' while in flight,
-// 'error' on a fetch failure (including 404 for fakemon — don't retry).
+// or an error-record { status:'error', failedAt, attempts } on a fetch failure.
+// We no longer cache failures permanently — transient network blips would
+// otherwise persist for the entire session and force the user to refresh.
 const backfilledPokemon = {};
 const backfilledMoves = {};
+// Retry-with-backoff for transient failures. Schedule is per-attempt: after the
+// Nth failure we wait BACKOFF_MS[N-1] before re-attempting. Caps at 5 attempts
+// total — by then it's overwhelmingly likely the resource genuinely 404s
+// (fakemon, typo'd species, etc.) and further retries just hammer PokeAPI.
+const BACKOFF_MS = [5_000, 30_000, 120_000, 600_000];
+const MAX_ATTEMPTS = 5;
+function isErrorRecord(c) { return c && typeof c === 'object' && c.status === 'error'; }
+function shouldRetryError(rec) {
+  if (rec.attempts >= MAX_ATTEMPTS) return false;
+  const wait = BACKOFF_MS[Math.min(rec.attempts - 1, BACKOFF_MS.length - 1)];
+  return (Date.now() - rec.failedAt) >= wait;
+}
+function makeErrorRecord(prev) {
+  const attempts = (prev && prev.attempts) ? prev.attempts + 1 : 1;
+  return { status: 'error', failedAt: Date.now(), attempts };
+}
 // Callbacks to fire when a fetch completes — used by the renderer to re-paint
 // once new data lands. Keyed by 'all' for now; per-key dispatch can come later.
 const backfillSubscribers = new Set();
@@ -3366,12 +3399,19 @@ async function fetchPokemonFromApi(species, gen) {
   const slug = speciesSlug(species);
   if (!slug) return null;
   const cached = backfilledPokemon[slug];
-  if (cached && cached !== 'loading') return cached === 'error' ? null : cached;
   if (cached === 'loading') return null;
+  if (isErrorRecord(cached)) {
+    if (!shouldRetryError(cached)) return null;
+    // Fall through to re-attempt; keep prev attempt count for next error record.
+  } else if (cached) {
+    return cached;
+  }
+  const wasErrored = isErrorRecord(cached);
+  const prevErr = wasErrored ? cached : null;
   backfilledPokemon[slug] = 'loading';
   try {
     const r = await fetch(`https://pokeapi.co/api/v2/pokemon/${slug}`);
-    if (!r.ok) { backfilledPokemon[slug] = 'error'; return null; }
+    if (!r.ok) { backfilledPokemon[slug] = makeErrorRecord(prevErr); return null; }
     const data = await r.json();
 
     // Latest types as default.
@@ -3396,10 +3436,13 @@ async function fetchPokemonFromApi(species, gen) {
 
     const result = { id: data.id, types, stats, abilities, slug };
     backfilledPokemon[slug] = result;
+    // fireBackfill on every success — fine on first fetch, and crucial on
+    // recovery from a prior error so the matchup/roster/encounters tabs
+    // re-render once the data finally arrives.
     fireBackfill();
     return result;
   } catch (e) {
-    backfilledPokemon[slug] = 'error';
+    backfilledPokemon[slug] = makeErrorRecord(prevErr);
     return null;
   }
 }
@@ -3408,12 +3451,18 @@ async function fetchMoveFromApi(name, gen) {
   const slug = moveSlug(name);
   if (!slug) return null;
   const cached = backfilledMoves[slug];
-  if (cached && cached !== 'loading') return cached === 'error' ? null : cached;
   if (cached === 'loading') return null;
+  if (isErrorRecord(cached)) {
+    if (!shouldRetryError(cached)) return null;
+  } else if (cached) {
+    return cached;
+  }
+  const wasErrored = isErrorRecord(cached);
+  const prevErr = wasErrored ? cached : null;
   backfilledMoves[slug] = 'loading';
   try {
     const r = await fetch(`https://pokeapi.co/api/v2/move/${slug}`);
-    if (!r.ok) { backfilledMoves[slug] = 'error'; return null; }
+    if (!r.ok) { backfilledMoves[slug] = makeErrorRecord(prevErr); return null; }
     const data = await r.json();
 
     let type = capFirst(data.type?.name);
@@ -3451,7 +3500,7 @@ async function fetchMoveFromApi(name, gen) {
     fireBackfill();
     return result;
   } catch (e) {
-    backfilledMoves[slug] = 'error';
+    backfilledMoves[slug] = makeErrorRecord(prevErr);
     return null;
   }
 }
@@ -3714,56 +3763,86 @@ function getActivePatches() {
 }
 
 // Sync lookups for callers that want "whatever's available right now." Returns
-// null if nothing is cached (including while a fetch is in flight).
+// null if nothing is cached (including while a fetch is in flight or in error).
 function getBackfilledPokemon(species) {
   const slug = speciesSlug(species);
   const c = slug ? backfilledPokemon[slug] : null;
-  return (c && c !== 'loading' && c !== 'error') ? c : null;
+  return (c && c !== 'loading' && !isErrorRecord(c)) ? c : null;
 }
 function getBackfilledMove(name) {
   const slug = moveSlug(name);
   const c = slug ? backfilledMoves[slug] : null;
-  return (c && c !== 'loading' && c !== 'error') ? c : null;
+  return (c && c !== 'loading' && !isErrorRecord(c)) ? c : null;
 }
 
-// Fire-and-forget triggers used by renderers.
+// Fire-and-forget triggers used by renderers. Short-circuit only when we have
+// a successful result, an in-flight fetch, or an error that's still inside its
+// backoff window (or has hit the cap). Errors with expired backoff fall
+// through to trigger a re-attempt.
 function ensurePokemonBackfilled(species) {
   if (!species) return;
   const slug = speciesSlug(species);
   if (!slug) return;
-  if (backfilledPokemon[slug]) return; // cached, loading, or errored
+  const c = backfilledPokemon[slug];
+  if (c === 'loading') return;
+  if (isErrorRecord(c)) {
+    if (!shouldRetryError(c)) return;
+  } else if (c) {
+    return;
+  }
   fetchPokemonFromApi(species, getGameGen());
 }
 function ensureMoveBackfilled(name) {
   if (!name) return;
   const slug = moveSlug(name);
   if (!slug) return;
-  if (backfilledMoves[slug]) return;
+  const c = backfilledMoves[slug];
+  if (c === 'loading') return;
+  if (isErrorRecord(c)) {
+    if (!shouldRetryError(c)) return;
+  } else if (c) {
+    return;
+  }
   fetchMoveFromApi(name, getGameGen());
 }
 
 /* ── Learnset cache (fetched from PokeAPI on demand) ── */
-const learnsetCache = {}; // species -> [{lv, name, isEvo?}, ...] or 'loading' or 'error'
+const learnsetCache = {}; // species -> [{lv, name, isEvo?}, ...] or 'loading' or error-record
 
-// v2 key prefix — bumped when adding `isEvo` flag so old caches (which lacked
-// it and would mis-classify every evolution-learned move as a regular L1 move)
-// get invalidated on next read instead of returning stale shape.
-function getLearnsetLocalKey(species) { return 'learnset_v2_'+species.toLowerCase(); }
+// v3 key prefix — bumped from v2 when wrapping cached failures so old caches
+// (which stored bare arrays for both success and failure) can't be misread as
+// permanently-empty learnsets. Old caches naturally expire 30 days after
+// write; reads of v2 keys now return null and we re-fetch fresh.
+function getLearnsetLocalKey(species) { return 'learnset_v3_'+species.toLowerCase(); }
 
+// Returns { kind:'ok', data } | { kind:'error', rec } | null. The cached
+// entry is { t, data, status?, attempts? }. status==='error' = wrapped
+// failure with retry metadata; absence of status = success (back-compat with
+// the bare-data shape pre-v3, kept here even though v3 cache key invalidates
+// the old shape, for forward safety).
 function loadCachedLearnset(species) {
   try {
     const raw = localStorage.getItem(getLearnsetLocalKey(species));
     if (!raw) return null;
     const parsed = JSON.parse(raw);
-    if (parsed && parsed.t && (Date.now() - parsed.t) < 1000*60*60*24*30) { // 30 days
-      return parsed.data;
+    if (!parsed || !parsed.t) return null;
+    if ((Date.now() - parsed.t) >= 1000*60*60*24*30) return null; // 30-day TTL
+    if (parsed.status === 'error') {
+      return { kind: 'error', rec: { status:'error', failedAt: parsed.failedAt || parsed.t, attempts: parsed.attempts || 1 } };
     }
+    return { kind: 'ok', data: parsed.data };
   } catch(e) {}
   return null;
 }
 
 function saveCachedLearnset(species, data) {
   try { localStorage.setItem(getLearnsetLocalKey(species), JSON.stringify({t:Date.now(), data})); } catch(e){}
+}
+function saveCachedLearnsetError(species, prevRec) {
+  const attempts = (prevRec && prevRec.attempts) ? prevRec.attempts + 1 : 1;
+  const failedAt = Date.now();
+  try { localStorage.setItem(getLearnsetLocalKey(species), JSON.stringify({t:failedAt, status:'error', failedAt, attempts})); } catch(e){}
+  return { status:'error', failedAt, attempts };
 }
 
 async function fetchLearnset(species) {
@@ -3776,9 +3855,19 @@ async function fetchLearnset(species) {
     });
   }
   if (Array.isArray(learnsetCache[species])) return learnsetCache[species];
-  // Try local cache first
+  // Try local cache first.
   const cached = loadCachedLearnset(species);
-  if (cached) { learnsetCache[species] = cached; return cached; }
+  let prevErr = null;
+  if (cached) {
+    if (cached.kind === 'ok') {
+      learnsetCache[species] = cached.data;
+      return cached.data;
+    }
+    // Error entry: respect backoff + cap. If still in window or capped,
+    // return [] without re-attempting. Otherwise fall through to re-fetch.
+    if (!shouldRetryError(cached.rec)) return [];
+    prevErr = cached.rec;
+  }
   const info = pokeInfo(species);
   if (!info) { learnsetCache[species] = []; return []; }
   learnsetCache[species] = 'loading';
@@ -3845,9 +3934,19 @@ async function fetchLearnset(species) {
     moves.sort((a,b) => a.lv - b.lv);
     learnsetCache[species] = moves;
     saveCachedLearnset(species, moves);
+    // Notify subscribers — learnsets affect the pokeView "wants to learn"
+    // prompt and the suggestion blurb, so a recovery from a prior failed
+    // fetch should re-render the open detail view.
+    fireBackfill();
     return moves;
   } catch(e) {
-    learnsetCache[species] = [];
+    // Persist the failure as a wrapped error record (not as bare []), so
+    // subsequent reads can apply backoff + cap rather than treating the
+    // species as permanently empty. Don't pin the in-memory cache to []
+    // either — a subsequent call should hit the localStorage gate and
+    // potentially re-attempt once the backoff window opens.
+    saveCachedLearnsetError(species, prevErr);
+    delete learnsetCache[species];
     return [];
   }
 }
@@ -4113,7 +4212,7 @@ async function cloudPush(key, data) {
 }
 
 function buildPayload() {
-  return { runs, currentRunId, version: 2 };
+  return { runs, currentRunId, version: 3, lastModified: Date.now() };
 }
 
 function makeRunId() { return 'run_' + Math.random().toString(36).slice(2,9); }
@@ -4220,7 +4319,7 @@ async function doLogin() {
     migrateLegacyGameKeys(data);
     migrateLegacyLocationNames(data);
     // Migration: if data has flat team/routes format, convert to multi-run
-    if (data.version === 2 && data.runs && data.currentRunId) {
+    if ((data.version === 2 || data.version === 3) && data.runs && data.currentRunId) {
       runs = data.runs;
       currentRunId = data.currentRunId;
     } else if (data.team !== undefined || data.routes !== undefined) {
@@ -4259,9 +4358,9 @@ async function doLogin() {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app').style.display = 'block';
     document.getElementById('key-display').textContent = key;
-    setSaveStatus('saved','Saved');
+    loadedAt = (typeof data?.lastModified === 'number') ? data.lastModified : Date.now();
+    setSaveStatus('saved',`Loaded ${fmtTime(loadedAt)}`);
     render();
-    setInterval(()=>cloudSave(false), 300000);
     cloudSave(false); // ensure migrated/new format is pushed
   } catch(e) {
     showLoginError('Could not connect. Check your internet connection and try again.');
@@ -4446,9 +4545,12 @@ function populateRunSelect() {
 
 /* ── Save ── */
 function save() {
-  setSaveStatus('saving','Unsaved changes');
+  setSaveStatus('saving','Saving…');
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(()=>cloudSave(false), 300000);
+  // 500ms debounce collapses a flurry of field edits (e.g. editing 5 fields
+  // on one card in rapid succession) into a single cloud push. Short enough
+  // that the user perceives the save as immediate; long enough to coalesce.
+  saveTimer = setTimeout(()=>{ saveTimer = null; cloudSave(false); }, 500);
 }
 
 // Defensive push when the tab is backgrounded / closed. The 5-min autosave
@@ -4463,7 +4565,54 @@ if (typeof document !== 'undefined') {
       if (saveTimer) {
         clearTimeout(saveTimer);
         saveTimer = null;
-        cloudSave(false);
+        // Race the fetch against a 2s deadline so the request gets a fair
+        // window to start before the browser potentially freezes/kills the
+        // tab, without the handler blocking on the network.
+        const flush = cloudSave(false);
+        const timeout = new Promise(r => setTimeout(r, 2000));
+        Promise.race([flush, timeout]);
+      }
+    } else if (document.visibilityState === 'visible') {
+      // Proactively re-attempt PokeAPI fetches that errored while we were
+      // backgrounded and whose backoff window has now opened. Lets a network
+      // blip heal as soon as the user returns instead of waiting for the
+      // next renderer pass to trigger ensure*Backfilled.
+      try {
+        const gen = (typeof getGameGen === 'function') ? getGameGen() : null;
+        for (const slug in backfilledPokemon) {
+          const c = backfilledPokemon[slug];
+          if (isErrorRecord(c) && shouldRetryError(c)) fetchPokemonFromApi(slug, gen);
+        }
+        for (const slug in backfilledMoves) {
+          const c = backfilledMoves[slug];
+          if (isErrorRecord(c) && shouldRetryError(c)) fetchMoveFromApi(slug, gen);
+        }
+      } catch(e) {}
+      // Cross-device resync: pull the latest cloud snapshot and silently
+      // swap it in if it's newer than what we hold. Skip when dirty (our
+      // own pending edits would be clobbered) or when a prior resync is
+      // still in flight (rapid tab-flips on mobile fire repeated events).
+      if (saveKey && !saveTimer && !_resyncing) {
+        _resyncing = true;
+        (async () => {
+          try {
+            const cloud = await cloudLoad(saveKey);
+            const cloudTs = (typeof cloud?.lastModified === 'number') ? cloud.lastModified : 0;
+            if (cloudTs > loadedAt && cloud.runs && cloud.currentRunId) {
+              migrateLegacyGameKeys(cloud);
+              migrateLegacyLocationNames(cloud);
+              runs = cloud.runs;
+              currentRunId = cloud.currentRunId;
+              loadedAt = cloudTs;
+              setSaveStatus('saved',`Loaded ${fmtTime(loadedAt)}`);
+              render();
+            }
+          } catch(e) {
+            console.warn('[resync] failed:', e);
+          } finally {
+            _resyncing = false;
+          }
+        })();
       }
     }
   });
@@ -4521,9 +4670,11 @@ async function cloudSave(manual) {
   if (!saveKey) return;
   setSaveStatus('saving','Saving…');
   try {
-    await cloudPush(saveKey, buildPayload());
-    const t = new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
-    setSaveStatus('saved',`Saved · ${t}`);
+    const payload = buildPayload();
+    await cloudPush(saveKey, payload);
+    savedAt = payload.lastModified;
+    loadedAt = payload.lastModified;
+    setSaveStatus('saved',`Saved ${fmtTime(savedAt)}`);
     if (manual) showToast('Saved ✓','success');
   } catch(e) {
     setSaveStatus('error','Save failed');
@@ -4536,6 +4687,10 @@ function setSaveStatus(type, label) {
   if (!dot) return;
   dot.className = 'save-dot '+type;
   lbl.textContent = label;
+}
+function fmtTime(ts) {
+  if (!ts) return '';
+  return new Date(ts).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
 }
 
 /* ── Render helpers ── */
@@ -5237,40 +5392,45 @@ function renderMatchup() {
 
 function buildSpeedTierSection(party, boss) {
   if (!party.length || !boss || !(boss.team||[]).length) return '';
+  // Use calculated speed at level (factoring nature + always-on abilities) so
+  // the comparison matches in-battle order. Party mons carry nature/ability;
+  // boss nature comes from the leagues `extra` field when present (else neutral).
+  const calcSpd = (species, lv, opts) => {
+    const info = pokeInfo(species);
+    if (!info?.s || info.s[5] == null || !lv) return null;
+    const c = calcStatAtLevel(info.s, lv, { species, ...(opts||{}) });
+    return c?.stats?.[5] ?? null;
+  };
   const rows = [];
-  // Mine
   for (const p of party) {
-    const baseSpd = pokeBaseSpeed(p.species);
-    if (baseSpd == null) continue;
-    rows.push({ name: p.nickname || p.species, lv: p.level || 1, base: baseSpd, side: 'me' });
+    const spd = calcSpd(p.species, p.level, { nature: p.nature, ability: p.ability });
+    if (spd == null) continue;
+    rows.push({ name: p.nickname || p.species, lv: p.level || 1, spd, side: 'me' });
   }
-  // Boss
   for (const b of (boss.team||[])) {
-    const baseSpd = pokeBaseSpeed(b.species);
-    if (baseSpd == null) continue;
-    rows.push({ name: b.species, lv: b.lv || boss.cap || 1, base: baseSpd, side: 'boss' });
+    const lv = b.lv || boss.cap || 1;
+    const spd = calcSpd(b.species, lv, { nature: b.nature, ability: b.ability });
+    if (spd == null) continue;
+    rows.push({ name: b.species, lv, spd, side: 'boss' });
   }
   if (!rows.length) return '';
-  // Sort fastest first
-  rows.sort((a,b) => b.base - a.base);
-  // Compute max for bar width
-  const maxBase = rows[0].base;
-  // Identify boss outspeeds: does ANY boss mon's base speed exceed ALL party mons'?
-  const myMaxSpeed = Math.max(...rows.filter(r=>r.side==='me').map(r=>r.base), 0);
-  const bossOutspeeders = rows.filter(r=>r.side==='boss' && r.base > myMaxSpeed);
+  rows.sort((a,b) => b.spd - a.spd);
+  const maxSpd = rows[0].spd;
+  const myMaxSpeed = Math.max(...rows.filter(r=>r.side==='me').map(r=>r.spd), 0);
+  const bossOutspeeders = rows.filter(r=>r.side==='boss' && r.spd > myMaxSpeed);
 
   let html = `<div class="speed-section">
-    <p class="slabel" style="margin-bottom:6px">Speed tier comparison <span style="font-weight:400;color:var(--text3);font-size:11px">— base Speed stat</span></p>`;
+    <p class="slabel" style="margin-bottom:6px">Speed tier comparison <span style="font-weight:400;color:var(--text3);font-size:11px">— at current level</span></p>`;
   for (const r of rows) {
-    const width = Math.round((r.base / maxBase) * 100);
+    const width = Math.round((r.spd / maxSpd) * 100);
     html += `<div class="speed-bar-row ${r.side}">
       <span class="speed-bar-name">${spriteImg(r.name, {sm:true})}<span>${r.name}</span></span>
       <span class="speed-bar-wrap"><span class="speed-bar-fill" style="width:${width}%"></span></span>
-      <span class="speed-bar-val">${r.base}</span>
+      <span class="speed-bar-val">${r.spd}</span>
     </div>`;
   }
   if (bossOutspeeders.length) {
-    html += `<div class="speed-warn">⚠ <strong>${bossOutspeeders.map(r=>r.name).join(', ')}</strong> outspeed${bossOutspeeders.length===1?'s':''} your entire active team by base Speed. Consider priority moves (Quick Attack, Mach Punch, Bullet Punch), paralysis, or trick-room play.</div>`;
+    html += `<div class="speed-warn">⚠ <strong>${bossOutspeeders.map(r=>r.name).join(', ')}</strong> outspeed${bossOutspeeders.length===1?'s':''} your entire active team. Consider priority moves (Quick Attack, Mach Punch, Bullet Punch), paralysis, or trick-room play.</div>`;
   }
   html += `</div>`;
   return html;
