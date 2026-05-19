@@ -5384,6 +5384,7 @@ function renderMatchup() {
       const overCap = boss.cap && (p.level||0) > boss.cap;
       html += `
         <div class="analysis-row">
+          ${spriteImg(p.species, {sm:true})}
           <span class="ar-name">${p.nickname}${overCap?` <span style="color:var(--amber);font-size:10px">over cap</span>`:''}</span>
           <div class="ar-types">${typeBadge(p.type1)}${typeBadge(p.type2)}</div>
           <span class="ar-detail">${analysis.detail}</span>
@@ -5413,13 +5414,13 @@ function buildSpeedTierSection(party, boss) {
   for (const p of party) {
     const spd = calcSpd(p.species, p.level, { nature: p.nature, ability: p.ability });
     if (spd == null) continue;
-    rows.push({ name: p.nickname || p.species, lv: p.level || 1, spd, side: 'me' });
+    rows.push({ species: p.species, name: p.nickname || p.species, lv: p.level || 1, spd, side: 'me' });
   }
   for (const b of (boss.team||[])) {
     const lv = b.lv || boss.cap || 1;
     const spd = calcSpd(b.species, lv, { nature: b.nature, ability: b.ability });
     if (spd == null) continue;
-    rows.push({ name: b.species, lv, spd, side: 'boss' });
+    rows.push({ species: b.species, name: b.species, lv, spd, side: 'boss' });
   }
   if (!rows.length) return '';
   rows.sort((a,b) => b.spd - a.spd);
@@ -5432,7 +5433,7 @@ function buildSpeedTierSection(party, boss) {
   for (const r of rows) {
     const width = Math.round((r.spd / maxSpd) * 100);
     html += `<div class="speed-bar-row ${r.side}">
-      <span class="speed-bar-name">${spriteImg(r.name, {sm:true})}<span>${r.name}</span></span>
+      <span class="speed-bar-name">${spriteImg(r.species, {sm:true})}<span>${r.name}</span></span>
       <span class="speed-bar-wrap"><span class="speed-bar-fill" style="width:${width}%"></span></span>
       <span class="speed-bar-val">${r.spd}</span>
     </div>`;
