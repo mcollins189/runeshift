@@ -3372,11 +3372,35 @@ const backfillSubscribers = new Set();
 function onBackfill(fn) { backfillSubscribers.add(fn); }
 function fireBackfill() { for (const fn of backfillSubscribers) try { fn(); } catch(e) {} }
 
+// PokeAPI's /pokemon/<slug> endpoint 404s for species whose canonical entry
+// only exists under a form-specific slug (no bare "default" form). Map those
+// to a sensible default form so sprite/stat lookups succeed without us
+// having to chase a 404-then-retry dance.
+const FORM_DEFAULTS = {
+  'oricorio': 'oricorio-baile',
+  'wormadam': 'wormadam-plant',
+  'mimikyu': 'mimikyu-disguised',
+  'wishiwashi': 'wishiwashi-solo',
+  'minior': 'minior-red-meteor',
+  'meowstic': 'meowstic-male',
+  'indeedee': 'indeedee-male',
+  'morpeko': 'morpeko-full-belly',
+  'basculin': 'basculin-red-striped',
+  'eiscue': 'eiscue-ice',
+  'pumpkaboo': 'pumpkaboo-average',
+  'gourgeist': 'gourgeist-average',
+  'toxtricity': 'toxtricity-amped',
+  'urshifu': 'urshifu-single-strike'
+};
 function speciesSlug(name) {
   if (!name) return null;
+  // NFD decomposes accents ("é" → "e" + combining acute U+0301), then we strip
+  // the combining marks. Without this, "Flabébé" → "flabb" because the bare
+  // accented chars get nuked by the final ASCII filter. Also catches "Pokémon".
   let s = name.toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
     .replace(/[♀]/g, '-f').replace(/[♂]/g, '-m')
-    .replace(/[':.]/g, '')
+    .replace(/['’:.]/g, '')
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '');
   // Regional prefix → suffix (matches PokeAPI convention: "alolan-rattata" → "rattata-alola").
@@ -3384,6 +3408,7 @@ function speciesSlug(name) {
   for (const [pfx, sfx] of Object.entries(REGIONAL_PREFIX)) {
     if (s.startsWith(pfx)) { s = s.slice(pfx.length) + sfx; break; }
   }
+  if (FORM_DEFAULTS[s]) s = FORM_DEFAULTS[s];
   return s;
 }
 
