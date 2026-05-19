@@ -714,8 +714,14 @@
   }
   @media (max-width: 420px) {
     .header-title { font-size: 14px; }
-    .header-sub { display: none; }            /* save key shown in a separate menu / on-demand */
-    .hdr-btn.danger { display: none; }        /* Switch save — rare action; reachable from menu */
+    /* Previously hid .header-sub (save-key indicator) and .hdr-btn.danger
+       (Switch save) with a TODO comment about reaching them "from a menu" —
+       but no menu was ever built, so mobile users had no way to see which
+       save they were on and no way to log out. Both restored. The "Switch
+       save" label compresses to "Switch" via the inline media-query rule
+       below to fit alongside Save now / Export / Import without pushing the
+       button row taller. */
+    .hdr-btn.danger .hdr-btn-full-label { display: none; }
     .tabs { padding: 6px 10px 0; }
     .tab { padding: 7px 8px; font-size: 11px; }
     .main { padding: 10px; }
@@ -723,6 +729,13 @@
     .matchup-grid { grid-template-columns: 1fr; }
     .party-strip { grid-template-columns: repeat(2, 1fr); gap: 6px; }
     .enc-rail { max-height: 180px; }
+  }
+  /* Compact-label rule shared across breakpoints — on wide screens the full
+     label shows; on phones we collapse to "🚪 Switch" via the .hdr-btn-full-label
+     toggle in the 420px block above. */
+  .hdr-btn-compact-label { display: none; }
+  @media (max-width: 420px) {
+    .hdr-btn-compact-label { display: inline; }
   }
 </style>
 </head>
@@ -773,7 +786,7 @@
         <button class="hdr-btn" onclick="exportSave()" title="Download a JSON backup of all runs">⬇ Export</button>
         <button class="hdr-btn" onclick="document.getElementById('import-file').click()" title="Restore runs from a JSON backup">⬆ Import</button>
         <input type="file" id="import-file" accept=".json,application/json" style="display:none" onchange="importSave(this)">
-        <button class="hdr-btn danger" onclick="doLogout()">Switch save</button>
+        <button class="hdr-btn danger" onclick="doLogout()" title="Log out of this save key and load a different one"><span class="hdr-btn-full-label">🚪 Switch save</span><span class="hdr-btn-compact-label">🚪 Switch</span></button>
       </div>
     </div>
   </div>
